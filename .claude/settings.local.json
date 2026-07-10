@@ -1,7 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "PowerShell(Start-Process \"d:\\\\SOFIA\\\\POSTULACIONES\\\\ALTOKIA\\\\WEB\\\\index.html\")"
-    ]
-  }
-}
