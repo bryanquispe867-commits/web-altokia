@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════
-   ALTOK — main.js
+   ALTOKIA — main.js
    Three.js + interacciones UX/UI + i18n + chatbot
    ═══════════════════════════════════════════════ */
 
@@ -30,7 +30,7 @@ const I18N = {
 
     'about.tag': '// 01 — Nosotros',
     'about.title': 'Escuchamos primero,<br /><span class="text-gradient">automatizamos después</span>',
-    'about.lead': 'En <strong>ALTOK</strong> no vendemos tecnología por vender: nos obsesionan <span class="about__highlight">los requerimientos reales del usuario y del cliente</span>. Cada proyecto empieza con una conversación, no con una propuesta genérica.',
+    'about.lead': 'En <strong>ALTOKIA</strong> no vendemos tecnología por vender: nos obsesionan <span class="about__highlight">los requerimientos reales del usuario y del cliente</span>. Cada proyecto empieza con una conversación, no con una propuesta genérica.',
     'about.p1': 'Somos un equipo con <strong>experiencia internacional</strong> que ha desplegado soluciones de automatización y desarrollo web en múltiples países, adaptándonos a distintas regulaciones, monedas, sistemas y culturas de trabajo. Esa diversidad nos dio algo que ningún curso enseña: la capacidad de <em>entender el negocio antes que el código</em>.',
     'about.p2': 'Estamos dispuestos a escucharte las veces que haga falta. Tu operación es única, y tu automatización también debería serlo.',
     'about.v1': '<strong>Escucha activa</strong><span>Entendemos tu proceso antes de proponer una sola línea de código.</span>',
@@ -109,14 +109,14 @@ const I18N = {
 
     'footer.tagline': 'Tecnología que trabaja mientras tú creces.',
     'footer.proceso': 'Proceso', 'footer.contacto': 'Contacto',
-    'footer.rights': '© 2026 ALTOK — Todos los derechos reservados',
+    'footer.rights': '© 2026 ALTOKIA — Todos los derechos reservados',
     'footer.status': 'Sistemas operativos',
 
     'fab.wa': '¡Escríbenos!', 'fab.bot': 'Asistente virtual',
 
     'bot.online': 'En línea — responde al instante',
     'bot.placeholder': 'Escribe tu mensaje...',
-    'bot.greeting': '¡Hola! 👋 Soy ALTObot, el asistente virtual de ALTOK.\n¿En qué puedo ayudarte hoy?',
+    'bot.greeting': '¡Hola! 👋 Soy ALTObot, el asistente virtual de ALTOKIA.\n¿En qué puedo ayudarte hoy?',
     'bot.optServices': '🤔 ¿Qué servicios ofrecen?',
     'bot.optPricing': '💰 ¿Cuánto cuesta un proyecto?',
     'bot.optTiming': '⏱ ¿Cuánto demora?',
@@ -137,8 +137,8 @@ const I18N = {
     'bot.confirmed': (b) => `¡Listo, ${b.name}! ✅\n\nTu reunión quedó pre-agendada:\n\n🗂 Tema: ${b.service}\n📅 Fecha: ${b.date}\n🕐 Hora: ${b.time}\n\nConfírmala por el canal que prefieras y te enviaremos la invitación:`,
     'bot.confirmWa': '📱 Confirmar por WhatsApp',
     'bot.confirmMail': '✉ Confirmar por correo',
-    'bot.waBookingMsg': (b) => `Hola ALTOK, soy ${b.name}. Quiero confirmar una reunión sobre "${b.service}" el ${b.date} a las ${b.time}.`,
-    'bot.mailBookingSubject': 'Confirmación de reunión — ALTOK',
+    'bot.waBookingMsg': (b) => `Hola ALTOKIA, soy ${b.name}. Quiero confirmar una reunión sobre "${b.service}" el ${b.date} a las ${b.time}.`,
+    'bot.mailBookingSubject': 'Confirmación de reunión — ALTOKIA',
     'bot.anythingElse': '¿Puedo ayudarte con algo más? 😊'
   },
 
@@ -160,7 +160,7 @@ const I18N = {
 
     'about.tag': '// 01 — About Us',
     'about.title': 'We listen first,<br /><span class="text-gradient">then we automate</span>',
-    'about.lead': 'At <strong>ALTOK</strong> we don\'t sell technology for its own sake: we are obsessed with <span class="about__highlight">the real requirements of the user and the client</span>. Every project starts with a conversation, not a generic proposal.',
+    'about.lead': 'At <strong>ALTOKIA</strong> we don\'t sell technology for its own sake: we are obsessed with <span class="about__highlight">the real requirements of the user and the client</span>. Every project starts with a conversation, not a generic proposal.',
     'about.p1': 'We are a team with <strong>international experience</strong>, having deployed automation and web development solutions across multiple countries, adapting to different regulations, currencies, systems and work cultures. That diversity gave us something no course can teach: the ability to <em>understand the business before the code</em>.',
     'about.p2': 'We are willing to listen to you as many times as it takes. Your operation is unique — your automation should be too.',
     'about.v1': '<strong>Active listening</strong><span>We understand your process before proposing a single line of code.</span>',
@@ -239,14 +239,14 @@ const I18N = {
 
     'footer.tagline': 'Technology that works while you grow.',
     'footer.proceso': 'Process', 'footer.contacto': 'Contact',
-    'footer.rights': '© 2026 ALTOK — All rights reserved',
+    'footer.rights': '© 2026 ALTOKIA — All rights reserved',
     'footer.status': 'Systems operational',
 
     'fab.wa': 'Chat with us!', 'fab.bot': 'Virtual assistant',
 
     'bot.online': 'Online — instant replies',
     'bot.placeholder': 'Type your message...',
-    'bot.greeting': "Hi! 👋 I'm ALTObot, ALTOK's virtual assistant.\nHow can I help you today?",
+    'bot.greeting': "Hi! 👋 I'm ALTObot, ALTOKIA's virtual assistant.\nHow can I help you today?",
     'bot.optServices': '🤔 What services do you offer?',
     'bot.optPricing': '💰 How much does a project cost?',
     'bot.optTiming': '⏱ How long does it take?',
@@ -267,8 +267,8 @@ const I18N = {
     'bot.confirmed': (b) => `All set, ${b.name}! ✅\n\nYour meeting is pre-booked:\n\n🗂 Topic: ${b.service}\n📅 Date: ${b.date}\n🕐 Time: ${b.time}\n\nConfirm it through your preferred channel and we'll send the invite:`,
     'bot.confirmWa': '📱 Confirm via WhatsApp',
     'bot.confirmMail': '✉ Confirm via email',
-    'bot.waBookingMsg': (b) => `Hi ALTOK, I'm ${b.name}. I'd like to confirm a meeting about "${b.service}" on ${b.date} at ${b.time}.`,
-    'bot.mailBookingSubject': 'Meeting confirmation — ALTOK',
+    'bot.waBookingMsg': (b) => `Hi ALTOKIA, I'm ${b.name}. I'd like to confirm a meeting about "${b.service}" on ${b.date} at ${b.time}.`,
+    'bot.mailBookingSubject': 'Meeting confirmation — ALTOKIA',
     'bot.anythingElse': 'Anything else I can help you with? 😊'
   }
 };
