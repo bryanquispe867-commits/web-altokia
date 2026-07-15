@@ -7,7 +7,7 @@
 
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-const WA_NUMBER = '51999999999';
+const WA_NUMBER = '51904608141';
 const CONTACT_EMAIL = 'contacto@altokia.com';
 
 /* ══════════ i18n — DICCIONARIO ES / EN ══════════ */
@@ -127,7 +127,7 @@ const I18N = {
     'bot.ansServices': 'Ofrecemos:\n⚡ Automatización de procesos (RPA con Automation Anywhere, Power Automate y Python)\n◈ Desarrollo web a medida\n◎ Optimización de procesos\n✦ IA aplicada (chatbots, análisis predictivo)\n⬡ Integración de sistemas\n▲ Cloud & DevOps\n\n¿Quieres agendar una reunión para conversar sobre tu caso?',
     'bot.ansPricing': 'Cada proyecto es único, por eso no usamos tarifas genéricas. 😊\n\nPrimero escuchamos tu caso en una consultoría gratuita de 30 minutos y luego te enviamos una propuesta a medida, con alcance y precio cerrados.\n\n¿Agendamos esa llamada?',
     'bot.ansTiming': 'Depende del alcance:\n\n🤖 Una automatización simple: 2 a 4 semanas\n🌐 Un sitio o app web: 4 a 8 semanas\n🏗 Proyectos de integración grandes: 2 a 4 meses\n\nTrabajamos con sprints y entregas parciales, así ves avances desde la primera semana.',
-    'bot.ansHuman': '¡Con gusto! Puedes hablar directamente con nuestro equipo:\n\n📱 <a href="https://wa.me/' + '51999999999' + '" target="_blank" rel="noopener">WhatsApp</a>\n✉ <a href="mailto:contacto@altokia.com">contacto@altokia.com</a>\n💼 <a href="https://www.linkedin.com/company/altokia" target="_blank" rel="noopener">LinkedIn</a>\n\nRespondemos en menos de 24 horas.',
+    'bot.ansHuman': '¡Con gusto! Puedes hablar directamente con nuestro equipo:\n\n📱 <a href="https://wa.me/' + '51904608141' + '" target="_blank" rel="noopener">WhatsApp</a>\n✉ <a href="mailto:contacto@altokia.com">contacto@altokia.com</a>\n💼 <a href="https://www.linkedin.com/company/altokia" target="_blank" rel="noopener">LinkedIn</a>\n\nRespondemos en menos de 24 horas.',
     'bot.fallback': 'Buena pregunta 🤓 Para darte una respuesta precisa, lo mejor es que la conversemos. Puedes agendar una reunión o escribirnos por WhatsApp.\n\nMientras tanto, ¿te ayudo con alguna de estas opciones?',
     'bot.askService': '¡Genial! 🎉 ¿Sobre qué servicio te gustaría conversar?',
     'bot.svcAuto': '⚡ Automatización', 'bot.svcWeb': '◈ Desarrollo web',
@@ -258,7 +258,7 @@ const I18N = {
     'bot.ansServices': 'We offer:\n⚡ Process automation (RPA with Automation Anywhere, Power Automate and Python)\n◈ Custom web development\n◎ Process optimization\n✦ Applied AI (chatbots, predictive analytics)\n⬡ Systems integration\n▲ Cloud & DevOps\n\nWould you like to book a meeting to discuss your case?',
     'bot.ansPricing': "Every project is unique, so we don't use generic pricing. 😊\n\nFirst we listen to your case in a free 30-minute consultation, then we send you a tailored proposal with a fixed scope and price.\n\nShall we book that call?",
     'bot.ansTiming': 'It depends on the scope:\n\n🤖 A simple automation: 2–4 weeks\n🌐 A website or web app: 4–8 weeks\n🏗 Large integration projects: 2–4 months\n\nWe work in sprints with partial deliveries, so you see progress from week one.',
-    'bot.ansHuman': 'Gladly! You can talk directly to our team:\n\n📱 <a href="https://wa.me/' + '51999999999' + '" target="_blank" rel="noopener">WhatsApp</a>\n✉ <a href="mailto:contacto@altokia.com">contacto@altokia.com</a>\n💼 <a href="https://www.linkedin.com/company/altokia" target="_blank" rel="noopener">LinkedIn</a>\n\nWe reply within 24 hours.',
+    'bot.ansHuman': 'Gladly! You can talk directly to our team:\n\n📱 <a href="https://wa.me/' + '51904608141' + '" target="_blank" rel="noopener">WhatsApp</a>\n✉ <a href="mailto:contacto@altokia.com">contacto@altokia.com</a>\n💼 <a href="https://www.linkedin.com/company/altokia" target="_blank" rel="noopener">LinkedIn</a>\n\nWe reply within 24 hours.',
     'bot.fallback': "Good question 🤓 To give you a precise answer, it's best we talk it through. You can book a meeting or message us on WhatsApp.\n\nMeanwhile, can I help you with one of these?",
     'bot.askService': 'Great! 🎉 Which service would you like to talk about?',
     'bot.svcAuto': '⚡ Automation', 'bot.svcWeb': '◈ Web development',
@@ -709,10 +709,9 @@ const typedControl = { reset: null };
     if (window.threeSetTheme) window.threeSetTheme(mode);
   }
 
-  /* Sin preferencia guardada: claro de día (7:00–19:00), oscuro de noche */
-  const saved = localStorage.getItem('altokia-theme');
-  const hour = new Date().getHours();
-  let mode = saved || (hour >= 7 && hour < 19 ? 'light' : 'dark');
+  /* El tema inicial ya lo aplicó el script del <head>
+     (claro 7:00–17:59, oscuro desde las 18:00). Aquí lo sincronizamos. */
+  let mode = document.documentElement.getAttribute('data-theme') || 'dark';
   apply(mode);
 
   btn.addEventListener('click', () => {
