@@ -1275,6 +1275,7 @@ body.cursor-hover .cursor-follower {
 }
 
 .footer__links a:hover { color: var(--cyan); }
+.footer__links .footer__social:hover { color: #3b9bff; }
 
 .footer__bottom {
   display: flex;
@@ -1482,6 +1483,13 @@ body.cursor-hover .cursor-follower {
 .contact__channel--bot:hover {
   border-color: var(--magenta);
   box-shadow: 0 14px 36px rgba(255, 45, 146, 0.18);
+}
+
+.contact__channel--li .contact__channel-icon { color: #0a66c2; }
+
+.contact__channel--li:hover {
+  border-color: #0a66c2;
+  box-shadow: 0 14px 36px rgba(10, 102, 194, 0.25);
 }
 
 .contact__channel-icon {
