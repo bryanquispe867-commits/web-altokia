@@ -390,6 +390,19 @@ function applyLang() {
   ico.position.set(-7, -2, -2);
   scene.add(ico);
 
+  /* Adaptación de la escena al tema claro/oscuro.
+     En claro: sin additive blending (invisible sobre blanco) y niebla clara. */
+  window.threeSetTheme = (mode) => {
+    const light = mode === 'light';
+    scene.fog.color.set(light ? 0xf5f7fd : 0x05060f);
+    mat.blending = light ? THREE.NormalBlending : THREE.AdditiveBlending;
+    mat.opacity = light ? 0.5 : 0.85;
+    mat.size = light ? 0.09 : 0.07;
+    mat.needsUpdate = true;
+    knot.material.opacity = light ? 0.18 : 0.12;
+    ico.material.opacity = light ? 0.26 : 0.18;
+  };
+
   const mouse = { x: 0, y: 0 };
   const target = { x: 0, y: 0 };
 
@@ -681,6 +694,32 @@ const typedControl = { reset: null };
   });
 
   applyLang(); // aplica idioma guardado al cargar
+})();
+
+/* ══════════ 10b. TEMA CLARO/OSCURO ══════════ */
+(function themeSwitcher() {
+  const btn = document.getElementById('themeToggle');
+  const icon = document.getElementById('themeIcon');
+  if (!btn) return;
+
+  function apply(mode) {
+    document.documentElement.setAttribute('data-theme', mode);
+    /* Muestra el ícono del tema al que cambiarás */
+    icon.textContent = mode === 'dark' ? '☀' : '🌙';
+    if (window.threeSetTheme) window.threeSetTheme(mode);
+  }
+
+  /* Sin preferencia guardada: claro de día (7:00–19:00), oscuro de noche */
+  const saved = localStorage.getItem('altokia-theme');
+  const hour = new Date().getHours();
+  let mode = saved || (hour >= 7 && hour < 19 ? 'light' : 'dark');
+  apply(mode);
+
+  btn.addEventListener('click', () => {
+    mode = mode === 'dark' ? 'light' : 'dark';
+    localStorage.setItem('altokia-theme', mode);
+    apply(mode);
+  });
 })();
 
 /* ══════════ 11. FORMULARIO DE CONTACTO (mailto) ══════════ */
