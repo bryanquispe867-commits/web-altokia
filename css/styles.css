@@ -451,6 +451,7 @@ body.cursor-hover .cursor-follower {
   letter-spacing: -0.02em;
   margin-bottom: 32px;
   perspective: 800px;
+  text-shadow: 0 2px 28px var(--bg), 0 1px 3px var(--bg);
 }
 
 .hero__line { display: block; overflow: hidden; }
@@ -484,6 +485,7 @@ body.cursor-hover .cursor-follower {
   color: var(--text-dim);
   max-width: 640px;
   margin-bottom: 48px;
+  text-shadow: 0 1px 16px var(--bg);
 }
 
 .typed-wrap { color: var(--cyan); font-family: var(--font-mono); font-size: 0.95em; }
@@ -596,42 +598,23 @@ body.cursor-hover .cursor-follower {
   100% { transform: translateY(0); opacity: 0; }
 }
 
-/* Fondo del hero: fotografía de marca (laptop + dashboard + métricas)
-   con un overlay degradado para que el texto de la izquierda sea legible. */
+/* Fondo del hero: fotografía de marca (laptop + dashboard + métricas),
+   limpia y sin degradados encima. La legibilidad del texto la da el
+   propio espacio negativo de la foto + un text-shadow sutil (abajo). */
 .hero__bg {
   position: absolute;
   inset: 0;
   z-index: -1;
   overflow: hidden;
-  background-image:
-    radial-gradient(ellipse 70% 60% at 78% 38%, rgba(124, 77, 255, 0.12), transparent 65%),
-    url('../images/hero-bg.png');
+  background-image: url('../images/hero-bg.png');
   background-size: cover;
   background-position: right center;
   background-repeat: no-repeat;
-  transition: opacity 0.4s ease;
 }
 
 /* Tema claro: misma escena, versión clara (hero-bg2) — combina con el fondo blanco */
 [data-theme="light"] .hero__bg {
-  background-image:
-    radial-gradient(ellipse 70% 60% at 78% 38%, rgba(0, 136, 176, 0.08), transparent 65%),
-    url('../images/hero-bg2.png');
-}
-
-.hero__bg::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(100deg, var(--bg) 0%, rgba(5, 6, 15, 0.8) 32%, rgba(5, 6, 15, 0.35) 58%, transparent 85%),
-    radial-gradient(ellipse 90% 60% at 50% 100%, var(--bg) 0%, transparent 55%);
-}
-
-[data-theme="light"] .hero__bg::after {
-  background:
-    linear-gradient(100deg, var(--bg) 0%, rgba(245, 247, 253, 0.92) 30%, rgba(245, 247, 253, 0.55) 55%, transparent 82%),
-    radial-gradient(ellipse 90% 60% at 50% 100%, var(--bg) 0%, transparent 55%);
+  background-image: url('../images/hero-bg2.png');
 }
 
 @media (max-width: 860px) {
@@ -639,18 +622,6 @@ body.cursor-hover .cursor-follower {
   .hero__inner > * { max-width: 100%; }
 
   .hero__bg { background-position: 68% center; }
-
-  .hero__bg::after {
-    background:
-      linear-gradient(180deg, var(--bg) 0%, rgba(5, 6, 15, 0.55) 32%, rgba(5, 6, 15, 0.9) 72%, var(--bg) 100%),
-      linear-gradient(100deg, rgba(5, 6, 15, 0.4) 0%, rgba(5, 6, 15, 0.1) 100%);
-  }
-
-  [data-theme="light"] .hero__bg::after {
-    background:
-      linear-gradient(180deg, var(--bg) 0%, rgba(245, 247, 253, 0.6) 32%, rgba(245, 247, 253, 0.92) 72%, var(--bg) 100%),
-      linear-gradient(100deg, rgba(245, 247, 253, 0.45) 0%, rgba(245, 247, 253, 0.1) 100%);
-  }
 }
 
 /* Orbes flotantes */
@@ -1479,6 +1450,18 @@ a.card {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   line-height: 1.1;
+}
+
+/* El sufijo (+, %, h) hereda text-fill-color:transparent del número
+   grande pero no el degradado que lo pinta — se vuelve invisible.
+   Le damos color propio, sólido, para que siempre se vea. */
+.stats__suffix {
+  font-size: 0.42em;
+  font-weight: 700;
+  color: var(--cyan);
+  -webkit-text-fill-color: var(--cyan);
+  vertical-align: super;
+  margin-left: 2px;
 }
 
 .stats__label {
