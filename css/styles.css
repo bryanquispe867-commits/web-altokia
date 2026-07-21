@@ -609,6 +609,14 @@ body.cursor-hover .cursor-follower {
   background-size: cover;
   background-position: right center;
   background-repeat: no-repeat;
+  transition: opacity 0.4s ease;
+}
+
+/* Tema claro: misma escena, versión clara (hero-bg2) — combina con el fondo blanco */
+[data-theme="light"] .hero__bg {
+  background-image:
+    radial-gradient(ellipse 70% 60% at 78% 38%, rgba(0, 136, 176, 0.08), transparent 65%),
+    url('../images/hero-bg2.png');
 }
 
 .hero__bg::after {
@@ -622,7 +630,7 @@ body.cursor-hover .cursor-follower {
 
 [data-theme="light"] .hero__bg::after {
   background:
-    linear-gradient(100deg, var(--bg) 0%, rgba(245, 247, 253, 0.85) 32%, rgba(245, 247, 253, 0.4) 58%, transparent 85%),
+    linear-gradient(100deg, var(--bg) 0%, rgba(245, 247, 253, 0.92) 30%, rgba(245, 247, 253, 0.55) 55%, transparent 82%),
     radial-gradient(ellipse 90% 60% at 50% 100%, var(--bg) 0%, transparent 55%);
 }
 
