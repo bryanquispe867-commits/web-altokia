@@ -478,6 +478,10 @@ body.cursor-hover .cursor-follower {
   -webkit-text-fill-color: transparent;
   background-size: 200% auto;
   animation: wordUp 1s var(--ease-out) 1.05s forwards, gradientShift 5s ease 2s infinite;
+  /* El text-shadow heredado de .hero__title apaga el degradado con un halo
+     del color de fondo; aquí lo quitamos para que se vea vivo. */
+  text-shadow: none;
+  filter: drop-shadow(0 2px 10px rgba(124, 77, 255, 0.35));
 }
 
 .hero__subtitle {
