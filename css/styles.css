@@ -610,7 +610,7 @@ body.cursor-hover .cursor-follower {
   inset: 0;
   z-index: -1;
   overflow: hidden;
-  background-image: url('../images/hero-bg.png');
+  background-image: url('../images/hero-bg.webp');
   background-size: cover;
   background-position: right center;
   background-repeat: no-repeat;
@@ -618,7 +618,7 @@ body.cursor-hover .cursor-follower {
 
 /* Tema claro: misma escena, versión clara (hero-bg2) — combina con el fondo blanco */
 [data-theme="light"] .hero__bg {
-  background-image: url('../images/hero-bg2.png');
+  background-image: url('../images/hero-bg2.webp');
 }
 
 @media (max-width: 860px) {
