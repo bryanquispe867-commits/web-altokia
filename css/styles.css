@@ -391,12 +391,26 @@ body.cursor-hover .cursor-follower {
   min-height: 100vh;
   min-height: 100svh; /* altura real del viewport en móviles */
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 120px 24px 80px;
+  padding: 120px 0 80px;
   position: relative;
+}
+
+/* Columna de texto: alineada a la izquierda, sobre la zona oscura
+   de la fotografía. En pantallas angostas vuelve a centrarse (ver media query). */
+.hero__inner {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.hero__inner > * {
+  max-width: 620px;
 }
 
 .hero__badge {
@@ -582,20 +596,19 @@ body.cursor-hover .cursor-follower {
   100% { transform: translateY(0); opacity: 0; }
 }
 
-/* Fondo del hero: capa lista para recibir una fotografía.
-   Mientras no haya imagen, se ve un glow de marca (nunca queda "roto").
-   Para activar la foto: agregar background-image aquí o vía inline style
-   en el elemento #heroBg, y ajustar la opacidad del overlay si hace falta. */
+/* Fondo del hero: fotografía de marca (laptop + dashboard + métricas)
+   con un overlay degradado para que el texto de la izquierda sea legible. */
 .hero__bg {
   position: absolute;
   inset: 0;
   z-index: -1;
   overflow: hidden;
-  background:
-    radial-gradient(ellipse 70% 60% at 78% 38%, rgba(124, 77, 255, 0.22), transparent 65%),
-    radial-gradient(ellipse 55% 50% at 15% 75%, rgba(0, 229, 255, 0.16), transparent 60%);
+  background-image:
+    radial-gradient(ellipse 70% 60% at 78% 38%, rgba(124, 77, 255, 0.12), transparent 65%),
+    url('../images/hero-bg.png');
   background-size: cover;
-  background-position: center;
+  background-position: right center;
+  background-repeat: no-repeat;
 }
 
 .hero__bg::after {
@@ -611,6 +624,25 @@ body.cursor-hover .cursor-follower {
   background:
     linear-gradient(100deg, var(--bg) 0%, rgba(245, 247, 253, 0.85) 32%, rgba(245, 247, 253, 0.4) 58%, transparent 85%),
     radial-gradient(ellipse 90% 60% at 50% 100%, var(--bg) 0%, transparent 55%);
+}
+
+@media (max-width: 860px) {
+  .hero__inner { align-items: center; text-align: center; }
+  .hero__inner > * { max-width: 100%; }
+
+  .hero__bg { background-position: 68% center; }
+
+  .hero__bg::after {
+    background:
+      linear-gradient(180deg, var(--bg) 0%, rgba(5, 6, 15, 0.55) 32%, rgba(5, 6, 15, 0.9) 72%, var(--bg) 100%),
+      linear-gradient(100deg, rgba(5, 6, 15, 0.4) 0%, rgba(5, 6, 15, 0.1) 100%);
+  }
+
+  [data-theme="light"] .hero__bg::after {
+    background:
+      linear-gradient(180deg, var(--bg) 0%, rgba(245, 247, 253, 0.6) 32%, rgba(245, 247, 253, 0.92) 72%, var(--bg) 100%),
+      linear-gradient(100deg, rgba(245, 247, 253, 0.45) 0%, rgba(245, 247, 253, 0.1) 100%);
+  }
 }
 
 /* Orbes flotantes */
