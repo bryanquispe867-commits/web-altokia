@@ -21,12 +21,12 @@ const I18N = {
 
     'hero.badge': 'Impulsando el futuro digital',
     'hero.t1': 'Automatizamos', 'hero.t2': 'el futuro', 'hero.t3': 'de tu negocio',
-    'hero.subtitle': 'Desarrollo web, automatización y optimización de procesos.<br />Convertimos tareas repetitivas en',
+    'hero.subtitle': 'Automatización, software a medida, páginas web y marketing.<br />Convertimos tareas repetitivas en',
     'hero.typed': ['flujos inteligentes', 'crecimiento medible', 'ventaja competitiva', 'tiempo para innovar'],
     'hero.btn1': 'Explorar servicios', 'hero.btn2': 'Agendar demo',
     'hero.scroll': 'Desliza para descubrir',
 
-    'marquee': 'AUTOMATIZACIÓN ✦ DESARROLLO WEB ✦ IA APLICADA ✦ OPTIMIZACIÓN DE PROCESOS ✦ INTEGRACIÓN DE SISTEMAS ✦ RPA ✦ CLOUD ✦ ',
+    'marquee': 'AUTOMATIZACIÓN DE PROCESOS ✦ SOFTWARE A MEDIDA ✦ PÁGINAS WEB ✦ MARKETING ✦ OPTIMIZACIÓN DE PROCESOS ✦ RPA ✦ IA ✦ CLOUD ✦ ',
 
     'about.tag': '// 01 — Nosotros',
     'about.title': 'Escuchamos primero,<br /><span class="text-gradient">automatizamos después</span>',
@@ -46,18 +46,17 @@ const I18N = {
 
     'services.tag': '// 02 — Servicios',
     'services.title': 'Lo que hacemos<br /><span class="text-gradient">extraordinariamente bien</span>',
+    'services.badge': '✦ Nuestro punto de partida',
     'services.s1t': 'Automatización de Procesos',
-    'services.s1d': 'Eliminamos tareas manuales con RPA y flujos inteligentes. Tu equipo se enfoca en lo estratégico, los bots hacen el resto.',
-    'services.s2t': 'Desarrollo Web',
-    'services.s2d': 'Aplicaciones y sitios web de alto rendimiento, con diseño moderno, animaciones fluidas y experiencias que enamoran.',
-    'services.s3t': 'Optimización de Procesos',
-    'services.s3d': 'Analizamos, medimos y rediseñamos tus operaciones para reducir costos y multiplicar la eficiencia de tu empresa.',
-    'services.s4t': 'IA Aplicada',
-    'services.s4d': 'Chatbots, análisis predictivo y modelos de IA integrados a tus sistemas para tomar decisiones basadas en datos.',
-    'services.s5t': 'Integración de Sistemas',
-    'services.s5d': 'Conectamos tus herramientas — ERP, CRM, APIs — en un ecosistema unificado que fluye sin fricciones.',
-    'services.s6t': 'Cloud & DevOps',
-    'services.s6d': 'Infraestructura escalable, despliegues automatizados y monitoreo continuo para que tu producto nunca se detenga.',
+    'services.s1d': 'El corazón de ALTOKIA. Diseñamos flujos inteligentes con RPA e IA que eliminan tareas repetitivas, conectan tus sistemas y liberan a tu equipo para lo que realmente importa: crecer.',
+    'services.s2t': 'Software a Medida',
+    'services.s2d': 'Sistemas, integraciones, IA aplicada e infraestructura cloud, construidos desde cero para tu operación — sin plantillas ni licencias que no necesitas.',
+    'services.s3t': 'Páginas Web',
+    'services.s3d': 'Sitios y plataformas web rápidos, modernos y optimizados para convertir visitantes en clientes, con animaciones fluidas y una experiencia que refleja tu marca.',
+    'services.s4t': 'Marketing',
+    'services.s4d': 'Estrategias digitales basadas en datos: SEO, pauta y automatización de campañas para que tu marca llegue a las personas correctas, en el momento correcto.',
+    'services.s5t': 'Optimización de Procesos',
+    'services.s5d': 'Medimos, rediseñamos y afinamos tus operaciones para reducir costos, eliminar cuellos de botella y multiplicar la eficiencia de cada área de tu empresa.',
 
     'process.tag': '// 03 — Proceso',
     'process.title': 'De la idea al impacto<br /><span class="text-gradient">en 4 fases</span>',
@@ -152,12 +151,12 @@ const I18N = {
 
     'hero.badge': 'Powering the digital future',
     'hero.t1': 'We automate', 'hero.t2': 'the future', 'hero.t3': 'of your business',
-    'hero.subtitle': 'Web development, automation and process optimization.<br />We turn repetitive tasks into',
+    'hero.subtitle': 'Automation, custom software, web pages and marketing.<br />We turn repetitive tasks into',
     'hero.typed': ['intelligent workflows', 'measurable growth', 'competitive advantage', 'time to innovate'],
     'hero.btn1': 'Explore services', 'hero.btn2': 'Book a demo',
     'hero.scroll': 'Scroll to discover',
 
-    'marquee': 'AUTOMATION ✦ WEB DEVELOPMENT ✦ APPLIED AI ✦ PROCESS OPTIMIZATION ✦ SYSTEMS INTEGRATION ✦ RPA ✦ CLOUD ✦ ',
+    'marquee': 'PROCESS AUTOMATION ✦ CUSTOM SOFTWARE ✦ WEB PAGES ✦ MARKETING ✦ PROCESS OPTIMIZATION ✦ RPA ✦ AI ✦ CLOUD ✦ ',
 
     'about.tag': '// 01 — About Us',
     'about.title': 'We listen first,<br /><span class="text-gradient">then we automate</span>',
@@ -177,18 +176,17 @@ const I18N = {
 
     'services.tag': '// 02 — Services',
     'services.title': 'What we do<br /><span class="text-gradient">extraordinarily well</span>',
+    'services.badge': '✦ Where we start',
     'services.s1t': 'Process Automation',
-    'services.s1d': 'We eliminate manual tasks with RPA and intelligent workflows. Your team focuses on strategy, the bots do the rest.',
-    'services.s2t': 'Web Development',
-    'services.s2d': 'High-performance web apps and sites, with modern design, fluid animations and experiences users love.',
-    'services.s3t': 'Process Optimization',
-    'services.s3d': 'We analyze, measure and redesign your operations to cut costs and multiply your company\'s efficiency.',
-    'services.s4t': 'Applied AI',
-    'services.s4d': 'Chatbots, predictive analytics and AI models integrated into your systems to make data-driven decisions.',
-    'services.s5t': 'Systems Integration',
-    'services.s5d': 'We connect your tools — ERP, CRM, APIs — into a unified ecosystem that flows without friction.',
-    'services.s6t': 'Cloud & DevOps',
-    'services.s6d': 'Scalable infrastructure, automated deployments and continuous monitoring so your product never stops.',
+    'services.s1d': "The heart of ALTOKIA. We design intelligent workflows with RPA and AI that eliminate repetitive tasks, connect your systems, and free your team to focus on what truly matters: growth.",
+    'services.s2t': 'Custom Software',
+    'services.s2d': "Systems, integrations, applied AI and cloud infrastructure, built from scratch for your operation — no templates, no licenses you don't need.",
+    'services.s3t': 'Web Pages',
+    'services.s3d': 'Fast, modern, conversion-optimized websites and web platforms, with fluid animations and an experience that reflects your brand.',
+    'services.s4t': 'Marketing',
+    'services.s4d': 'Data-driven digital strategies: SEO, paid media and campaign automation so your brand reaches the right people at the right time.',
+    'services.s5t': 'Process Optimization',
+    'services.s5d': 'We measure, redesign and fine-tune your operations to cut costs, remove bottlenecks and multiply efficiency across every area of your business.',
 
     'process.tag': '// 03 — Process',
     'process.title': 'From idea to impact<br /><span class="text-gradient">in 4 phases</span>',
@@ -390,6 +388,60 @@ function applyLang() {
   ico.position.set(-7, -2, -2);
   scene.add(ico);
 
+  /* — Malla de datos / red neuronal (identidad "tecnológica") —
+     Un conjunto fijo de nodos conectados por líneas cuando están
+     lo bastante cerca: da el aspecto de una red de datos viva. */
+  const NODE_COUNT = 42;
+  const nodePositions = [];
+  for (let i = 0; i < NODE_COUNT; i++) {
+    nodePositions.push(new THREE.Vector3(
+      (Math.random() - 0.5) * 30,
+      (Math.random() - 0.5) * 18,
+      (Math.random() - 0.5) * 16
+    ));
+  }
+
+  const linePositions = [];
+  const lineColors = [];
+  const MAX_LINK_DIST = 7.5;
+  for (let i = 0; i < NODE_COUNT; i++) {
+    for (let j = i + 1; j < NODE_COUNT; j++) {
+      if (nodePositions[i].distanceTo(nodePositions[j]) < MAX_LINK_DIST) {
+        linePositions.push(nodePositions[i].x, nodePositions[i].y, nodePositions[i].z);
+        linePositions.push(nodePositions[j].x, nodePositions[j].y, nodePositions[j].z);
+        const lc = palette[Math.floor(Math.random() * palette.length)];
+        lineColors.push(lc.r, lc.g, lc.b, lc.r, lc.g, lc.b);
+      }
+    }
+  }
+
+  const lineGeo = new THREE.BufferGeometry();
+  lineGeo.setAttribute('position', new THREE.Float32BufferAttribute(linePositions, 3));
+  lineGeo.setAttribute('color', new THREE.Float32BufferAttribute(lineColors, 3));
+  const lineMat = new THREE.LineBasicMaterial({
+    vertexColors: true,
+    transparent: true,
+    opacity: 0.22,
+    blending: THREE.AdditiveBlending,
+    depthWrite: false
+  });
+  const network = new THREE.LineSegments(lineGeo, lineMat);
+  network.position.set(-2, 2, -6);
+  scene.add(network);
+
+  const nodeGeo = new THREE.BufferGeometry().setFromPoints(nodePositions);
+  const nodeMat = new THREE.PointsMaterial({
+    size: 0.13,
+    color: 0x00e5ff,
+    transparent: true,
+    opacity: 0.6,
+    blending: THREE.AdditiveBlending,
+    depthWrite: false
+  });
+  const networkNodes = new THREE.Points(nodeGeo, nodeMat);
+  networkNodes.position.copy(network.position);
+  scene.add(networkNodes);
+
   /* Adaptación de la escena al tema claro/oscuro.
      En claro: sin additive blending (invisible sobre blanco) y niebla clara. */
   window.threeSetTheme = (mode) => {
@@ -401,6 +453,13 @@ function applyLang() {
     mat.needsUpdate = true;
     knot.material.opacity = light ? 0.18 : 0.12;
     ico.material.opacity = light ? 0.26 : 0.18;
+
+    lineMat.blending = light ? THREE.NormalBlending : THREE.AdditiveBlending;
+    lineMat.opacity = light ? 0.32 : 0.22;
+    lineMat.needsUpdate = true;
+    nodeMat.blending = light ? THREE.NormalBlending : THREE.AdditiveBlending;
+    nodeMat.opacity = light ? 0.8 : 0.6;
+    nodeMat.needsUpdate = true;
   };
 
   const mouse = { x: 0, y: 0 };
@@ -434,6 +493,11 @@ function applyLang() {
       knot.rotation.y = time * 0.2;
       ico.rotation.x = -time * 0.25;
       ico.rotation.z = time * 0.18;
+
+      network.rotation.y = time * 0.035;
+      network.rotation.x = Math.sin(time * 0.15) * 0.05;
+      networkNodes.rotation.y = network.rotation.y;
+      networkNodes.rotation.x = network.rotation.x;
     }
 
     target.x += (mouse.x - target.x) * 0.04;

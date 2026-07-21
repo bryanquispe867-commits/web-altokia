@@ -988,6 +988,27 @@ body.cursor-hover .cursor-follower {
 }
 
 /* ══════════ SERVICIOS ══════════ */
+.services {
+  position: relative;
+}
+
+/* Cuadrícula de puntos tipo "circuito" detrás del encabezado: refuerza
+   la identidad tecnológica de la sección sin distraer del contenido */
+.services::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  left: 0;
+  right: 0;
+  height: 380px;
+  background-image: radial-gradient(circle, var(--grid-line) 1.6px, transparent 1.6px);
+  background-size: 28px 28px;
+  mask-image: radial-gradient(ellipse 65% 100% at 50% 0%, black 35%, transparent 85%);
+  -webkit-mask-image: radial-gradient(ellipse 65% 100% at 50% 0%, black 35%, transparent 85%);
+  pointer-events: none;
+  z-index: -1;
+}
+
 .services__grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
@@ -1023,18 +1044,144 @@ body.cursor-hover .cursor-follower {
 
 .card:hover .card__shine { opacity: 1; }
 
+/* Ícono "gema" con SVG interno — mismo lenguaje visual que .project__icon */
 .card__icon {
-  font-size: 2.2rem;
+  position: relative;
+  width: 64px;
+  height: 64px;
   margin-bottom: 22px;
-  display: inline-block;
-  background: var(--gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  transition: transform 0.4s var(--ease-spring);
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(150deg, rgba(0, 229, 255, 0.08), rgba(124, 77, 255, 0.12) 60%, rgba(255, 45, 146, 0.08));
+  border: 1px solid rgba(124, 77, 255, 0.32);
+  box-shadow: inset 0 0 22px rgba(124, 77, 255, 0.12), 0 6px 22px rgba(0, 0, 0, 0.35);
+  transition: transform 0.45s var(--ease-spring), box-shadow 0.4s, border-color 0.4s;
+  overflow: hidden;
 }
 
-.card:hover .card__icon { transform: scale(1.25) rotate(-8deg); }
+.card__icon::before {
+  content: '';
+  position: absolute;
+  inset: -40%;
+  background: conic-gradient(from 0deg, transparent 0 70%, rgba(0, 229, 255, 0.55) 82%, rgba(255, 45, 146, 0.55) 92%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.4s;
+  animation: iconRing 3.5s linear infinite;
+}
+
+.card__icon::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  border-radius: 16px;
+  background: linear-gradient(150deg, #0b0e20, #0e1028);
+}
+
+.card__icon svg {
+  position: relative;
+  z-index: 1;
+  width: 36px;
+  height: 36px;
+  filter: drop-shadow(0 0 8px rgba(0, 229, 255, 0.35));
+  transition: transform 0.45s var(--ease-spring), filter 0.4s;
+}
+
+.card:hover .card__icon {
+  transform: scale(1.1) rotate(-5deg);
+  border-color: rgba(0, 229, 255, 0.55);
+  box-shadow: inset 0 0 26px rgba(0, 229, 255, 0.15), 0 10px 30px rgba(124, 77, 255, 0.3);
+}
+
+.card:hover .card__icon::before { opacity: 1; }
+
+.card:hover .card__icon svg {
+  transform: scale(1.12);
+  filter: drop-shadow(0 0 14px rgba(0, 229, 255, 0.65));
+}
+
+/* — Tarjeta insignia: Automatización de Procesos — */
+.card--flagship {
+  grid-column: span 2;
+  padding: 44px 40px;
+  background: linear-gradient(155deg, rgba(0, 229, 255, 0.07), rgba(124, 77, 255, 0.09) 55%, rgba(255, 45, 146, 0.06));
+  border-color: rgba(124, 77, 255, 0.4);
+}
+
+.card__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  margin-bottom: 20px;
+  border-radius: 100px;
+  background: var(--gradient);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: 0 4px 18px rgba(124, 77, 255, 0.4);
+  animation: badgePulse 2.4s ease infinite;
+}
+
+@keyframes badgePulse {
+  0%, 100% { box-shadow: 0 4px 18px rgba(124, 77, 255, 0.4); }
+  50% { box-shadow: 0 4px 26px rgba(0, 229, 255, 0.55); }
+}
+
+.card--flagship .card__title { font-size: 1.55rem; }
+.card--flagship .card__desc { font-size: 1rem; max-width: 92%; }
+
+/* Diagrama de flujo animado: representa un pipeline de automatización
+   con datos "viajando" entre tres nodos, en vivo */
+.card__flow {
+  display: flex;
+  align-items: center;
+  height: 14px;
+  margin: 6px 0 28px;
+}
+
+.flow-node {
+  width: 10px;
+  height: 10px;
+  min-width: 10px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 10px var(--cyan);
+}
+
+.flow-node--2 { background: var(--violet); box-shadow: 0 0 10px var(--violet); }
+.flow-node--3 { background: var(--magenta); box-shadow: 0 0 10px var(--magenta); }
+
+.flow-line {
+  position: relative;
+  flex-grow: 1;
+  height: 2px;
+  margin: 0 6px;
+  border-radius: 2px;
+  overflow: hidden;
+  background: linear-gradient(90deg, rgba(0, 229, 255, 0.45), rgba(124, 77, 255, 0.45));
+}
+
+.flow-line i {
+  position: absolute;
+  top: -3px;
+  left: -10px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 10px #fff, 0 0 20px var(--cyan);
+  animation: flowMove 2.6s linear infinite;
+}
+
+.flow-line--2 i { animation-delay: 1.3s; }
+
+@keyframes flowMove {
+  to { left: calc(100% + 10px); }
+}
 
 .card__title {
   font-size: 1.3rem;
@@ -1381,6 +1528,10 @@ body.cursor-hover .cursor-follower {
   .process__line { left: 8px; transform: none; }
   .process__dot,
   .process__step--right .process__dot { left: 0; right: auto; }
+
+  /* Evita que la tarjeta insignia fuerce una segunda columna
+     en anchos donde el grid ya colapsó a una sola */
+  .card--flagship { grid-column: span 1; }
 
   .section { padding: 90px 20px; }
 }
@@ -1880,6 +2031,46 @@ body.chat-open .chatbot {
   .chatbot { right: 16px; bottom: 90px; }
 }
 
+/* ══════════ ACENTOS HUD (esquinas tipo interfaz tecnológica) ══════════
+   Pequeños brackets tipo "mira táctica" que aparecen en las esquinas
+   al pasar el mouse — refuerzan el lenguaje visual tech en toda la página. */
+.card::before, .card::after,
+.project::before, .project::after,
+.about__panel::before, .about__panel::after,
+.stats__item::before, .stats__item::after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  opacity: 0;
+  transition: opacity 0.35s ease, width 0.35s var(--ease-spring), height 0.35s var(--ease-spring);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.card::before, .project::before, .about__panel::before, .stats__item::before {
+  top: 12px;
+  left: 12px;
+  border-top: 2px solid var(--cyan);
+  border-left: 2px solid var(--cyan);
+}
+
+.card::after, .project::after, .about__panel::after, .stats__item::after {
+  bottom: 12px;
+  right: 12px;
+  border-bottom: 2px solid var(--magenta);
+  border-right: 2px solid var(--magenta);
+}
+
+.card:hover::before, .card:hover::after,
+.project:hover::before, .project:hover::after,
+.about__panel:hover::before, .about__panel:hover::after,
+.stats__item:hover::before, .stats__item:hover::after {
+  opacity: 0.85;
+  width: 20px;
+  height: 20px;
+}
+
 /* ══════════ BOTÓN DE TEMA (claro/oscuro) ══════════ */
 .theme-toggle {
   width: 38px;
@@ -1907,6 +2098,18 @@ body.chat-open .chatbot {
 
 [data-theme="light"] .card:hover {
   box-shadow: 0 24px 64px rgba(30, 40, 90, 0.14), 0 0 40px rgba(0, 136, 176, 0.07);
+}
+
+[data-theme="light"] .flow-line {
+  background: linear-gradient(90deg, rgba(0, 136, 176, 0.4), rgba(106, 61, 245, 0.4));
+}
+
+[data-theme="light"] .card__badge {
+  box-shadow: 0 4px 18px rgba(106, 61, 245, 0.3);
+}
+
+[data-theme="light"] .card--flagship {
+  background: linear-gradient(155deg, rgba(0, 136, 176, 0.06), rgba(106, 61, 245, 0.07) 55%, rgba(219, 15, 118, 0.05));
 }
 
 [data-theme="light"] .project:hover {
