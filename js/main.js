@@ -28,8 +28,27 @@ const I18N = {
 
     'marquee': 'AUTOMATIZACIÓN DE PROCESOS ✦ SOFTWARE A MEDIDA ✦ PÁGINAS WEB ✦ MARKETING ✦ OPTIMIZACIÓN DE PROCESOS ✦ RPA ✦ IA ✦ CLOUD ✦ ',
 
+    'teasers.tag': '// Explora ALTOKIA',
+    'teasers.title': 'Conoce cómo pensamos,<br /><span class="text-gradient">lo que hacemos y lo que ya construimos</span>',
+    'teasers.t1': 'Nosotros',
+    'teasers.d1': 'Experiencia internacional, un equipo que escucha antes de construir, y un enfoque 100% centrado en tus resultados.',
+    'teasers.cta1': 'Conócenos',
+    'teasers.t2': 'Servicios',
+    'teasers.d2': 'Automatización, software a medida, páginas web, marketing y optimización de procesos — todo bajo un mismo equipo.',
+    'teasers.cta2': 'Ver servicios',
+    'teasers.t3': 'Proyectos',
+    'teasers.d3': 'Casos reales en minería, retail y banca, con resultados medibles: menos tiempo, menos costos, más eficiencia.',
+    'teasers.cta3': 'Ver casos',
+
+    'home.ctaTitle': '¿Listo para <span class="text-gradient">automatizar</span><br />tu próximo gran salto?',
+    'home.ctaDesc': 'Cuéntanos tu caso en una consultoría gratuita de 30 minutos. Te mostramos exactamente dónde puedes ganar eficiencia.',
+    'home.ctaBtn': 'Hablemos ✦',
+
     'about.tag': '// 01 — Nosotros',
     'about.title': 'Escuchamos primero,<br /><span class="text-gradient">automatizamos después</span>',
+    'nosotros.pageTag': '// Nosotros',
+    'nosotros.pageTitle': 'Escuchamos primero,<br /><span class="text-gradient">automatizamos después</span>',
+    'nosotros.pageSub': 'Conoce al equipo detrás de ALTOKIA: experiencia internacional, escucha activa y resultados medibles.',
     'about.lead': 'En <strong>ALTOKIA</strong> no vendemos tecnología por vender: nos obsesionan <span class="about__highlight">los requerimientos reales del usuario y del cliente</span>. Cada proyecto empieza con una conversación, no con una propuesta genérica.',
     'about.p1': 'Somos un equipo con <strong>experiencia internacional</strong> que ha desplegado soluciones de automatización y desarrollo web en múltiples países, adaptándonos a distintas regulaciones, monedas, sistemas y culturas de trabajo. Esa diversidad nos dio algo que ningún curso enseña: la capacidad de <em>entender el negocio antes que el código</em>.',
     'about.p2': 'Estamos dispuestos a escucharte las veces que haga falta. Tu operación es única, y tu automatización también debería serlo.',
@@ -46,6 +65,9 @@ const I18N = {
 
     'services.tag': '// 02 — Servicios',
     'services.title': 'Lo que hacemos<br /><span class="text-gradient">extraordinariamente bien</span>',
+    'servicios.pageTag': '// Servicios',
+    'servicios.pageTitle': 'Lo que hacemos<br /><span class="text-gradient">extraordinariamente bien</span>',
+    'servicios.pageSub': 'Automatización, software a medida, páginas web, marketing y optimización — un solo equipo para todo tu ecosistema digital.',
     'services.badge': '✦ Nuestro punto de partida',
     'services.s1t': 'Automatización de Procesos',
     'services.s1d': 'El corazón de ALTOKIA. Diseñamos flujos inteligentes con RPA e IA que eliminan tareas repetitivas, conectan tus sistemas y liberan a tu equipo para lo que realmente importa: crecer.',
@@ -67,6 +89,9 @@ const I18N = {
 
     'projects.tag': '// 04 — Proyectos',
     'projects.title': 'Automatizaciones que ya<br /><span class="text-gradient">trabajan por nuestros clientes</span>',
+    'proyectos.pageTag': '// Proyectos',
+    'proyectos.pageTitle': 'Automatizaciones que ya<br /><span class="text-gradient">trabajan por nuestros clientes</span>',
+    'proyectos.pageSub': 'Casos reales en minería, retail y banca — con resultados medibles desde la primera semana.',
     'projects.p1s': '⛏ Minería', 'projects.p1t': 'Facturas & Órdenes de Compra',
     'projects.p1d': 'Bot RPA que lee facturas y OC con OCR, valida montos contra el ERP, detecta inconsistencias y registra todo automáticamente. De 3 días de trabajo manual a 20 minutos.',
     'projects.p1r': '▲ 94% menos tiempo de procesamiento',
@@ -158,8 +183,27 @@ const I18N = {
 
     'marquee': 'PROCESS AUTOMATION ✦ CUSTOM SOFTWARE ✦ WEB PAGES ✦ MARKETING ✦ PROCESS OPTIMIZATION ✦ RPA ✦ AI ✦ CLOUD ✦ ',
 
+    'teasers.tag': '// Explore ALTOKIA',
+    'teasers.title': 'See how we think,<br /><span class="text-gradient">what we do and what we\'ve already built</span>',
+    'teasers.t1': 'About Us',
+    'teasers.d1': 'International experience, a team that listens before building, and a 100% results-driven approach.',
+    'teasers.cta1': 'Meet us',
+    'teasers.t2': 'Services',
+    'teasers.d2': 'Automation, custom software, web pages, marketing and process optimization — all under one team.',
+    'teasers.cta2': 'View services',
+    'teasers.t3': 'Projects',
+    'teasers.d3': 'Real cases in mining, retail and banking, with measurable results: less time, lower costs, more efficiency.',
+    'teasers.cta3': 'View cases',
+
+    'home.ctaTitle': 'Ready to <span class="text-gradient">automate</span><br />your next big leap?',
+    'home.ctaDesc': "Tell us about your case in a free 30-minute consultation. We'll show you exactly where you can gain efficiency.",
+    'home.ctaBtn': "Let's talk ✦",
+
     'about.tag': '// 01 — About Us',
     'about.title': 'We listen first,<br /><span class="text-gradient">then we automate</span>',
+    'nosotros.pageTag': '// About Us',
+    'nosotros.pageTitle': 'We listen first,<br /><span class="text-gradient">then we automate</span>',
+    'nosotros.pageSub': 'Meet the team behind ALTOKIA: international experience, active listening and measurable results.',
     'about.lead': 'At <strong>ALTOKIA</strong> we don\'t sell technology for its own sake: we are obsessed with <span class="about__highlight">the real requirements of the user and the client</span>. Every project starts with a conversation, not a generic proposal.',
     'about.p1': 'We are a team with <strong>international experience</strong>, having deployed automation and web development solutions across multiple countries, adapting to different regulations, currencies, systems and work cultures. That diversity gave us something no course can teach: the ability to <em>understand the business before the code</em>.',
     'about.p2': 'We are willing to listen to you as many times as it takes. Your operation is unique — your automation should be too.',
@@ -176,6 +220,9 @@ const I18N = {
 
     'services.tag': '// 02 — Services',
     'services.title': 'What we do<br /><span class="text-gradient">extraordinarily well</span>',
+    'servicios.pageTag': '// Services',
+    'servicios.pageTitle': 'What we do<br /><span class="text-gradient">extraordinarily well</span>',
+    'servicios.pageSub': 'Automation, custom software, web pages, marketing and optimization — one team for your entire digital ecosystem.',
     'services.badge': '✦ Where we start',
     'services.s1t': 'Process Automation',
     'services.s1d': "The heart of ALTOKIA. We design intelligent workflows with RPA and AI that eliminate repetitive tasks, connect your systems, and free your team to focus on what truly matters: growth.",
@@ -197,6 +244,9 @@ const I18N = {
 
     'projects.tag': '// 04 — Projects',
     'projects.title': 'Automations already<br /><span class="text-gradient">working for our clients</span>',
+    'proyectos.pageTag': '// Projects',
+    'proyectos.pageTitle': 'Automations already<br /><span class="text-gradient">working for our clients</span>',
+    'proyectos.pageSub': 'Real cases in mining, retail and banking — with measurable results from week one.',
     'projects.p1s': '⛏ Mining', 'projects.p1t': 'Invoices & Purchase Orders',
     'projects.p1d': 'RPA bot that reads invoices and POs with OCR, validates amounts against the ERP, flags inconsistencies and records everything automatically. From 3 days of manual work to 20 minutes.',
     'projects.p1r': '▲ 94% less processing time',
@@ -698,14 +748,17 @@ const typedControl = { reset: null };
 /* ══════════ 9. NAV: SCROLL + LINK ACTIVO + BURGER ══════════ */
 (function navigation() {
   const nav = document.getElementById('nav');
-  const links = document.querySelectorAll('.nav__link');
+  const links = document.querySelectorAll('.nav__link[data-page]');
   const burger = document.getElementById('navBurger');
   const navLinks = document.getElementById('navLinks');
   const progress = document.getElementById('scrollProgress');
   const processLine = document.getElementById('processLine');
   const processTimeline = document.querySelector('.process__timeline');
 
-  const sections = [...document.querySelectorAll('section[id]')];
+  /* Sitio multipágina: el link activo se resuelve por la página actual
+     (data-page en <body>), ya no por scrollspy dentro de una sola página */
+  const currentPage = document.body.dataset.page;
+  links.forEach((l) => l.classList.toggle('is-active', l.dataset.page === currentPage));
 
   function onScroll() {
     const y = window.scrollY;
@@ -713,13 +766,7 @@ const typedControl = { reset: null };
     nav.classList.toggle('is-scrolled', y > 60);
 
     const max = document.documentElement.scrollHeight - innerHeight;
-    progress.style.width = (y / max) * 100 + '%';
-
-    let currentId = 'inicio';
-    sections.forEach((s) => {
-      if (y >= s.offsetTop - innerHeight * 0.4) currentId = s.id;
-    });
-    links.forEach((l) => l.classList.toggle('is-active', l.getAttribute('href') === '#' + currentId));
+    progress.style.width = (max > 0 ? (y / max) * 100 : 0) + '%';
 
     if (processTimeline && processLine) {
       const r = processTimeline.getBoundingClientRect();

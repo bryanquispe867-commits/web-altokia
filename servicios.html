@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Servicios — ALTOKIA</title>
+  <meta name="description" content="Automatización de procesos, software a medida, páginas web, marketing y optimización de procesos. Los 5 pilares de ALTOKIA para transformar tu negocio." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css?v=5" />
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('altokia-theme');
+        var h = new Date().getHours();
+        var mode = saved || (h >= 7 && h < 18 ? 'light' : 'dark');
+        document.documentElement.setAttribute('data-theme', mode);
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+</head>
+<body data-page="servicios">
+
+  <!-- ══════════ PRELOADER ══════════ -->
+  <div class="preloader" id="preloader">
+    <div class="preloader__logo">
+      <span class="preloader__letter">A</span><span class="preloader__letter">L</span><span class="preloader__letter">T</span><span class="preloader__letter preloader__letter--o">O</span><span class="preloader__letter preloader__letter--k">K</span><span class="preloader__letter">I</span><span class="preloader__letter">A</span>
+    </div>
+    <div class="preloader__acronym" data-i18n="brand.acronym">Automatización & Lógica · Tecnología · Operaciones · Conocimiento</div>
+    <div class="preloader__bar"><div class="preloader__bar-fill" id="preloaderBar"></div></div>
+    <div class="preloader__status" id="preloaderStatus">Inicializando sistemas...</div>
+  </div>
+
+  <!-- ══════════ CURSOR PERSONALIZADO ══════════ -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- ══════════ BARRA DE PROGRESO DE SCROLL ══════════ -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ══════════ CANVAS THREE.JS (fondo global) ══════════ -->
+  <canvas id="webgl-bg"></canvas>
+
+  <!-- ══════════ NAVEGACIÓN ══════════ -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo" data-magnetic data-i18n-title="brand.acronym" title="Automatización & Lógica · Tecnología · Operaciones · Conocimiento">
+        <span class="nav__logo-mark">◆</span><span class="nav__logo-text">ALT<span class="logo-o">O</span><span class="logo-k">K</span>IA</span>
+      </a>
+      <nav class="nav__links" id="navLinks">
+        <a href="index.html" class="nav__link" data-page="inicio" data-i18n="nav.inicio">Inicio</a>
+        <a href="nosotros.html" class="nav__link" data-page="nosotros" data-i18n="nav.nosotros">Nosotros</a>
+        <a href="servicios.html" class="nav__link" data-page="servicios" data-i18n="nav.servicios">Servicios</a>
+        <a href="proyectos.html" class="nav__link" data-page="proyectos" data-i18n="nav.proyectos">Proyectos</a>
+        <a href="contacto.html" class="nav__cta" data-magnetic><span data-i18n="nav.cta">Hablemos</span> <span class="nav__cta-arrow">→</span></a>
+      </nav>
+
+      <div class="nav__right">
+        <!-- Tema claro/oscuro -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema / Toggle theme" data-magnetic>
+          <span id="themeIcon">☀</span>
+        </button>
+
+        <!-- Selector de idioma -->
+        <button class="lang-toggle" id="langToggle" aria-label="Cambiar idioma / Switch language" data-magnetic>
+          <span class="lang-toggle__opt is-active" data-lang="es">ES</span>
+          <span class="lang-toggle__divider">/</span>
+          <span class="lang-toggle__opt" data-lang="en">EN</span>
+        </button>
+
+        <button class="nav__burger" id="navBurger" aria-label="Menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ══════════ BANNER DE PÁGINA ══════════ -->
+    <section class="page-header">
+      <div class="page-header__grid"></div>
+      <span class="page-header__tag reveal" data-i18n="servicios.pageTag">// Servicios</span>
+      <h1 class="page-header__title reveal" data-i18n="servicios.pageTitle">Lo que hacemos<br /><span class="text-gradient">extraordinariamente bien</span></h1>
+      <p class="page-header__sub reveal" data-i18n="servicios.pageSub">Automatización, software a medida, páginas web, marketing y optimización — un solo equipo para todo tu ecosistema digital.</p>
+    </section>
+
+    <!-- ══════════ SERVICIOS ══════════ -->
+    <section class="section services" id="servicios">
+      <div class="services__grid">
+        <article class="card card--flagship reveal" data-tilt>
+          <div class="card__shine"></div>
+          <span class="card__badge" data-i18n="services.badge">✦ Nuestro punto de partida</span>
+          <div class="card__icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="sg1" x1="6" y1="4" x2="42" y2="44" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#00e5ff"/><stop offset="1" stop-color="#7c4dff"/>
+                </linearGradient>
+              </defs>
+              <path d="M24 6v5M24 37v5M42 24h-5M11 24H6M36.6 11.4l-3.5 3.5M14.9 33.1l-3.5 3.5M36.6 36.6l-3.5-3.5M14.9 14.9l-3.5-3.5" stroke="url(#sg1)" stroke-width="2.3" stroke-linecap="round"/>
+              <circle cx="24" cy="24" r="11" stroke="url(#sg1)" stroke-width="2.4"/>
+              <path d="M25.8 16.5l-7 9.5h5l-1.8 8 7.8-10h-5l1.8-7.5z" fill="#ff2d92"/>
+            </svg>
+          </div>
+          <h3 class="card__title" data-i18n="services.s1t">Automatización de Procesos</h3>
+          <p class="card__desc" data-i18n="services.s1d">El corazón de ALTOKIA. Diseñamos flujos inteligentes con RPA e IA que eliminan tareas repetitivas, conectan tus sistemas y liberan a tu equipo para lo que realmente importa: crecer.</p>
+
+          <div class="card__flow" aria-hidden="true">
+            <span class="flow-node flow-node--1"></span>
+            <span class="flow-line flow-line--1"><i></i></span>
+            <span class="flow-node flow-node--2"></span>
+            <span class="flow-line flow-line--2"><i></i></span>
+            <span class="flow-node flow-node--3"></span>
+          </div>
+
+          <div class="card__footer"><span class="card__num">01</span><span class="card__arrow">→</span></div>
+        </article>
+
+        <article class="card reveal" data-tilt>
+          <div class="card__shine"></div>
+          <div class="card__icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="sg2" x1="6" y1="6" x2="42" y2="42" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#00e5ff"/><stop offset="1" stop-color="#7c4dff"/>
+                </linearGradient>
+              </defs>
+              <rect x="6" y="9" width="36" height="27" rx="3" stroke="url(#sg2)" stroke-width="2.4"/>
+              <path d="M6 16h36" stroke="url(#sg2)" stroke-width="2.2"/>
+              <circle cx="11" cy="12.5" r="1.1" fill="#00e5ff"/><circle cx="15" cy="12.5" r="1.1" fill="#7c4dff"/><circle cx="19" cy="12.5" r="1.1" fill="#ff2d92"/>
+              <path d="M17 22l-4 4.5 4 4.5M25 22l4 4.5-4 4.5" stroke="url(#sg2)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="34" cy="31" r="6.5" fill="#05060f" stroke="#ff2d92" stroke-width="2.2"/>
+              <path d="M34 27.8v1.6M34 32.6v1.6M36.8 31h-1.6M32.8 31h-1.6M35.9 28.1l-1.13 1.13M32.23 32.77l-1.13 1.13M35.9 33.9l-1.13-1.13M32.23 29.23l-1.13-1.13" stroke="#ff2d92" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="card__title" data-i18n="services.s2t">Software a Medida</h3>
+          <p class="card__desc" data-i18n="services.s2d">Sistemas, integraciones, IA aplicada e infraestructura cloud, construidos desde cero para tu operación — sin plantillas ni licencias que no necesitas.</p>
+          <div class="card__footer"><span class="card__num">02</span><span class="card__arrow">→</span></div>
+        </article>
+
+        <article class="card reveal" data-tilt>
+          <div class="card__shine"></div>
+          <div class="card__icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="sg3" x1="4" y1="6" x2="44" y2="40" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#00e5ff"/><stop offset="1" stop-color="#7c4dff"/>
+                </linearGradient>
+              </defs>
+              <rect x="5" y="8" width="38" height="30" rx="3" stroke="url(#sg3)" stroke-width="2.4"/>
+              <path d="M5 15.5h38" stroke="url(#sg3)" stroke-width="2.2"/>
+              <circle cx="10" cy="11.7" r="1.1" fill="#00e5ff"/><circle cx="14" cy="11.7" r="1.1" fill="#7c4dff"/><circle cx="18" cy="11.7" r="1.1" fill="#ff2d92"/>
+              <rect x="10" y="21" width="10" height="12" rx="1.5" stroke="url(#sg3)" stroke-width="2"/>
+              <path d="M25 22h13M25 27h13M25 32h8" stroke="url(#sg3)" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="36.5" cy="33.5" r="7" fill="#05060f" stroke="#ff2d92" stroke-width="2.2"/>
+              <path d="M33.3 33.5l2.3 2.3 4.5-4.8" stroke="#ff2d92" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="card__title" data-i18n="services.s3t">Páginas Web</h3>
+          <p class="card__desc" data-i18n="services.s3d">Sitios y plataformas web rápidos, modernos y optimizados para convertir visitantes en clientes, con animaciones fluidas y una experiencia que refleja tu marca.</p>
+          <div class="card__footer"><span class="card__num">03</span><span class="card__arrow">→</span></div>
+        </article>
+
+        <article class="card reveal" data-tilt>
+          <div class="card__shine"></div>
+          <div class="card__icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="sg4" x1="4" y1="8" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#00e5ff"/><stop offset="1" stop-color="#7c4dff"/>
+                </linearGradient>
+              </defs>
+              <path d="M6 20v6a2 2 0 002 2h3l14 8V10l-14 8H8a2 2 0 00-2 2z" stroke="url(#sg4)" stroke-width="2.3" stroke-linejoin="round"/>
+              <path d="M25 10l10-4v30l-10-4" stroke="url(#sg4)" stroke-width="2.3" stroke-linejoin="round"/>
+              <path d="M12 28l1.5 7h4L16 28" stroke="url(#sg4)" stroke-width="2.1" stroke-linejoin="round"/>
+              <path d="M38 16c1.8 1.6 1.8 6.4 0 8" stroke="url(#sg4)" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="37" cy="35" r="7" fill="#05060f" stroke="#ff2d92" stroke-width="2.2"/>
+              <circle cx="37" cy="35" r="3.2" stroke="#ff2d92" stroke-width="1.6"/>
+              <circle cx="37" cy="35" r="0.9" fill="#ff2d92"/>
+            </svg>
+          </div>
+          <h3 class="card__title" data-i18n="services.s4t">Marketing</h3>
+          <p class="card__desc" data-i18n="services.s4d">Estrategias digitales basadas en datos: SEO, pauta y automatización de campañas para que tu marca llegue a las personas correctas, en el momento correcto.</p>
+          <div class="card__footer"><span class="card__num">04</span><span class="card__arrow">→</span></div>
+        </article>
+
+        <article class="card reveal" data-tilt>
+          <div class="card__shine"></div>
+          <div class="card__icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="sg5" x1="4" y1="10" x2="44" y2="40" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#00e5ff"/><stop offset="1" stop-color="#7c4dff"/>
+                </linearGradient>
+              </defs>
+              <path d="M7 30a17 17 0 0134 0" stroke="url(#sg5)" stroke-width="2.4" stroke-linecap="round"/>
+              <path d="M7 30h4M37 30h4M11.3 18.3l2.8 2.8M36.7 18.3l-2.8 2.8M24 9v4" stroke="url(#sg5)" stroke-width="2.1" stroke-linecap="round"/>
+              <path d="M24 30l8-11" stroke="#ff2d92" stroke-width="2.4" stroke-linecap="round"/>
+              <circle cx="24" cy="30" r="2.6" fill="#ff2d92"/>
+              <circle cx="37" cy="12" r="6.5" fill="#05060f" stroke="#ff2d92" stroke-width="2.1"/>
+              <path d="M37 15v-6M34.3 11.7L37 9l2.7 2.7" stroke="#ff2d92" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="card__title" data-i18n="services.s5t">Optimización de Procesos</h3>
+          <p class="card__desc" data-i18n="services.s5d">Medimos, rediseñamos y afinamos tus operaciones para reducir costos, eliminar cuellos de botella y multiplicar la eficiencia de cada área de tu empresa.</p>
+          <div class="card__footer"><span class="card__num">05</span><span class="card__arrow">→</span></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ══════════ PROCESO ══════════ -->
+    <section class="section process" id="proceso">
+      <div class="section__head">
+        <span class="section__tag reveal" data-i18n="process.tag">// 03 — Proceso</span>
+        <h2 class="section__title reveal" data-i18n="process.title">De la idea al impacto<br /><span class="text-gradient">en 4 fases</span></h2>
+      </div>
+
+      <div class="process__timeline">
+        <div class="process__line" id="processLine"></div>
+
+        <div class="process__step reveal">
+          <div class="process__dot"></div>
+          <div class="process__content" data-i18n="process.f1">
+            <span class="process__phase">Fase 01</span>
+            <h3>Descubrimiento</h3>
+            <p>Auditamos tus procesos actuales, identificamos cuellos de botella y detectamos oportunidades de automatización con mayor retorno.</p>
+          </div>
+        </div>
+
+        <div class="process__step process__step--right reveal">
+          <div class="process__dot"></div>
+          <div class="process__content" data-i18n="process.f2">
+            <span class="process__phase">Fase 02</span>
+            <h3>Diseño de Solución</h3>
+            <p>Prototipamos la arquitectura, definimos flujos y diseñamos interfaces centradas en el usuario. Todo validado contigo antes de escribir código.</p>
+          </div>
+        </div>
+
+        <div class="process__step reveal">
+          <div class="process__dot"></div>
+          <div class="process__content" data-i18n="process.f3">
+            <span class="process__phase">Fase 03</span>
+            <h3>Desarrollo Ágil</h3>
+            <p>Sprints cortos, entregas continuas y comunicación transparente. Ves el avance en tiempo real y ajustamos sobre la marcha.</p>
+          </div>
+        </div>
+
+        <div class="process__step process__step--right reveal">
+          <div class="process__dot"></div>
+          <div class="process__content" data-i18n="process.f4">
+            <span class="process__phase">Fase 04</span>
+            <h3>Lanzamiento & Evolución</h3>
+            <p>Desplegamos, medimos KPIs y optimizamos continuamente. Tu solución crece junto a tu negocio.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ STACK / TECNOLOGÍAS ══════════ -->
+    <section class="section stack" id="tecnologias">
+      <div class="section__head">
+        <span class="section__tag reveal" data-i18n="stack.tag">// 05 — Stack</span>
+        <h2 class="section__title reveal" data-i18n="stack.title">Tecnología que<br /><span class="text-gradient">domina el juego</span></h2>
+      </div>
+
+      <div class="stack__grid">
+        <div class="stack__item reveal" data-magnetic><span class="stack__glyph">⬢</span>React / Next.js</div>
+        <div class="stack__item reveal" data-magnetic><span class="stack__glyph">◉</span>Node.js</div>
+        <div class="stack__item reveal" data-magnetic><span class="stack__glyph">◭</span>Python</div>
+        <div class="stack__item reveal" data-magnetic><span class="stack__glyph">⚡</span>Automation Anywhere</div>
+        <div class="stack__item reveal" data-magnetic><span class="stack__glyph">♻</span>Power Automate</div>
+        <div class="stack__item reveal" data-magnetic><span class="stack__glyph">☁</span>AWS / Azure</div>
+        <div class="stack__item reveal" data-magnetic><span class="stack__glyph">⚙</span>n8n / Make</div>
+        <div class="stack__item reveal" data-magnetic><span class="stack__glyph">✳</span>OpenAI / Claude</div>
+        <div class="stack__item reveal" data-magnetic><span class="stack__glyph">▣</span>Docker / K8s</div>
+        <div class="stack__item reveal" data-magnetic><span class="stack__glyph">◫</span>PostgreSQL</div>
+        <div class="stack__item reveal" data-magnetic><span class="stack__glyph">❖</span>Google & Meta Ads</div>
+        <div class="stack__item reveal" data-magnetic><span class="stack__glyph">✎</span>HubSpot / Mailchimp</div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ══════════ FOOTER ══════════ -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <span class="nav__logo-mark">◆</span> ALT<span class="logo-o">O</span><span class="logo-k">K</span>IA
+        <p class="footer__acronym" data-i18n="brand.acronym">Automatización & Lógica · Tecnología · Operaciones · Conocimiento</p>
+        <p data-i18n="footer.tagline">Tecnología que trabaja mientras tú creces.</p>
+      </div>
+      <div class="footer__links">
+        <a href="nosotros.html" data-i18n="nav.nosotros">Nosotros</a>
+        <a href="servicios.html" data-i18n="nav.servicios">Servicios</a>
+        <a href="proyectos.html" data-i18n="nav.proyectos">Proyectos</a>
+        <a href="servicios.html#tecnologias" data-i18n="nav.stack">Stack</a>
+        <a href="nosotros.html#resultados" data-i18n="nav.resultados">Resultados</a>
+        <a href="contacto.html" data-i18n="footer.contacto">Contacto</a>
+        <a href="https://www.linkedin.com/company/altokia" target="_blank" rel="noopener" class="footer__social">LinkedIn ↗</a>
+      </div>
+      <div class="footer__bottom">
+        <span data-i18n="footer.rights">© 2026 ALTOKIA — Todos los derechos reservados</span>
+        <span class="footer__status"><span class="footer__pulse"></span> <span data-i18n="footer.status">Sistemas operativos</span></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══════════ BOTONES FLOTANTES ══════════ -->
+  <div class="fab-stack" id="fabStack">
+    <a href="https://wa.me/51904608141?text=Hola%20ALTOKIA%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios"
+       target="_blank" rel="noopener" class="fab fab--wa" id="fabWa" aria-label="WhatsApp">
+      <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.074-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      <span class="fab__tooltip" data-i18n="fab.wa">¡Escríbenos!</span>
+    </a>
+
+    <button class="fab fab--chat" id="chatToggle" aria-label="Chatbot">
+      <span class="fab--chat-open">🤖</span>
+      <span class="fab--chat-close">✕</span>
+      <span class="fab__tooltip" data-i18n="fab.bot">Asistente virtual</span>
+      <span class="fab__ping"></span>
+    </button>
+  </div>
+
+  <!-- ══════════ CHATBOT ══════════ -->
+  <div class="chatbot" id="chatbot" aria-hidden="true">
+    <div class="chatbot__header">
+      <div class="chatbot__avatar">🤖</div>
+      <div class="chatbot__head-info">
+        <strong>ALTO<span class="accent">bot</span></strong>
+        <span class="chatbot__status"><span class="chatbot__status-dot"></span><span data-i18n="bot.online">En línea — responde al instante</span></span>
+      </div>
+      <button class="chatbot__minimize" id="chatMinimize" aria-label="Cerrar chat">─</button>
+    </div>
+    <div class="chatbot__messages" id="chatMessages"></div>
+    <div class="chatbot__options" id="chatOptions"></div>
+    <form class="chatbot__inputbar" id="chatForm" autocomplete="off">
+      <input type="text" id="chatInput" data-i18n-placeholder="bot.placeholder" placeholder="Escribe tu mensaje..." />
+      <button type="submit" aria-label="Enviar">➤</button>
+    </form>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
+  <script src="js/main.js?v=5"></script>
+</body>
+</html>

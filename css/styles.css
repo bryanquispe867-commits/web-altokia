@@ -582,6 +582,37 @@ body.cursor-hover .cursor-follower {
   100% { transform: translateY(0); opacity: 0; }
 }
 
+/* Fondo del hero: capa lista para recibir una fotografía.
+   Mientras no haya imagen, se ve un glow de marca (nunca queda "roto").
+   Para activar la foto: agregar background-image aquí o vía inline style
+   en el elemento #heroBg, y ajustar la opacidad del overlay si hace falta. */
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 70% 60% at 78% 38%, rgba(124, 77, 255, 0.22), transparent 65%),
+    radial-gradient(ellipse 55% 50% at 15% 75%, rgba(0, 229, 255, 0.16), transparent 60%);
+  background-size: cover;
+  background-position: center;
+}
+
+.hero__bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(100deg, var(--bg) 0%, rgba(5, 6, 15, 0.8) 32%, rgba(5, 6, 15, 0.35) 58%, transparent 85%),
+    radial-gradient(ellipse 90% 60% at 50% 100%, var(--bg) 0%, transparent 55%);
+}
+
+[data-theme="light"] .hero__bg::after {
+  background:
+    linear-gradient(100deg, var(--bg) 0%, rgba(245, 247, 253, 0.85) 32%, rgba(245, 247, 253, 0.4) 58%, transparent 85%),
+    radial-gradient(ellipse 90% 60% at 50% 100%, var(--bg) 0%, transparent 55%);
+}
+
 /* Orbes flotantes */
 .orb {
   position: absolute;
@@ -671,6 +702,74 @@ body.cursor-hover .cursor-follower {
   font-weight: 700;
   line-height: 1.12;
   letter-spacing: -0.02em;
+}
+
+/* ══════════ BANNER DE PÁGINA (secciones interiores) ══════════
+   Reemplaza al Hero en las páginas que no son Inicio: da a cada
+   página su propio encabezado, con el mismo lenguaje "tech". */
+.page-header {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 168px 24px 70px;
+  text-align: center;
+}
+
+.page-header__grid {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 100%;
+  background-image: radial-gradient(circle, var(--grid-line) 1.6px, transparent 1.6px);
+  background-size: 28px 28px;
+  mask-image: radial-gradient(ellipse 55% 90% at 50% 15%, black 25%, transparent 85%);
+  -webkit-mask-image: radial-gradient(ellipse 55% 90% at 50% 15%, black 25%, transparent 85%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.page-header__tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--cyan);
+  letter-spacing: 0.15em;
+  margin-bottom: 18px;
+}
+
+.page-header__title {
+  font-size: clamp(2.2rem, 6vw, 3.7rem);
+  font-weight: 700;
+  line-height: 1.14;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+
+.page-header__sub {
+  color: var(--text-dim);
+  font-size: 1.05rem;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+/* ══════════ TARJETAS "EXPLORA" (Inicio → otras páginas) ══════════ */
+.teasers__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: 26px;
+}
+
+a.card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Franja de estadísticas compacta (Inicio) */
+.stats--compact {
+  padding: 40px 24px 100px;
 }
 
 /* Reveal on scroll */
@@ -2151,6 +2250,9 @@ body.chat-open .chatbot {
 @media (max-width: 480px) {
   .section { padding: 72px 16px; }
   .section__head { margin-bottom: 48px; }
+
+  .page-header { padding: 130px 16px 50px; }
+  .stats--compact { padding: 24px 16px 72px; }
 
   .nav__inner { padding: 0 16px; }
   .nav__logo { font-size: 1.1rem; }

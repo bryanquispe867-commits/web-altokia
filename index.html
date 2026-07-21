@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=4" />
+  <link rel="stylesheet" href="css/styles.css?v=5" />
   <script>
     /* Aplica el tema ANTES de pintar la página (evita parpadeo y no
        depende de main.js): claro de 7:00 a 17:59, oscuro desde las 18:00 */
@@ -24,7 +24,7 @@
     })();
   </script>
 </head>
-<body>
+<body data-page="inicio">
 
   <!-- ══════════ PRELOADER ══════════ -->
   <div class="preloader" id="preloader">
@@ -49,17 +49,15 @@
   <!-- ══════════ NAVEGACIÓN ══════════ -->
   <header class="nav" id="nav">
     <div class="nav__inner">
-      <a href="#inicio" class="nav__logo" data-magnetic data-i18n-title="brand.acronym" title="Automatización & Lógica · Tecnología · Operaciones · Conocimiento">
+      <a href="index.html" class="nav__logo" data-magnetic data-i18n-title="brand.acronym" title="Automatización & Lógica · Tecnología · Operaciones · Conocimiento">
         <span class="nav__logo-mark">◆</span><span class="nav__logo-text">ALT<span class="logo-o">O</span><span class="logo-k">K</span>IA</span>
       </a>
       <nav class="nav__links" id="navLinks">
-        <a href="#inicio" class="nav__link is-active" data-i18n="nav.inicio">Inicio</a>
-        <a href="#nosotros" class="nav__link" data-i18n="nav.nosotros">Nosotros</a>
-        <a href="#servicios" class="nav__link" data-i18n="nav.servicios">Servicios</a>
-        <a href="#proyectos" class="nav__link" data-i18n="nav.proyectos">Proyectos</a>
-        <a href="#tecnologias" class="nav__link" data-i18n="nav.stack">Stack</a>
-        <a href="#resultados" class="nav__link" data-i18n="nav.resultados">Resultados</a>
-        <a href="#contacto" class="nav__cta" data-magnetic><span data-i18n="nav.cta">Hablemos</span> <span class="nav__cta-arrow">→</span></a>
+        <a href="index.html" class="nav__link" data-page="inicio" data-i18n="nav.inicio">Inicio</a>
+        <a href="nosotros.html" class="nav__link" data-page="nosotros" data-i18n="nav.nosotros">Nosotros</a>
+        <a href="servicios.html" class="nav__link" data-page="servicios" data-i18n="nav.servicios">Servicios</a>
+        <a href="proyectos.html" class="nav__link" data-page="proyectos" data-i18n="nav.proyectos">Proyectos</a>
+        <a href="contacto.html" class="nav__cta" data-magnetic><span data-i18n="nav.cta">Hablemos</span> <span class="nav__cta-arrow">→</span></a>
       </nav>
 
       <div class="nav__right">
@@ -85,6 +83,9 @@
   <main>
     <!-- ══════════ HERO ══════════ -->
     <section class="hero" id="inicio">
+      <!-- Fondo del hero: listo para recibir una fotografía (ver css/styles.css → .hero__bg) -->
+      <div class="hero__bg" id="heroBg"></div>
+
       <div class="hero__badge reveal">
         <span class="hero__badge-dot"></span>
         <span data-i18n="hero.badge">Impulsando el futuro digital</span>
@@ -102,11 +103,11 @@
       </p>
 
       <div class="hero__actions reveal">
-        <a href="#servicios" class="btn btn--primary" data-magnetic>
+        <a href="servicios.html" class="btn btn--primary" data-magnetic>
           <span class="btn__text" data-i18n="hero.btn1">Explorar servicios</span>
           <span class="btn__glow"></span>
         </a>
-        <a href="#contacto" class="btn btn--ghost" data-magnetic>
+        <a href="contacto.html" class="btn btn--ghost" data-magnetic>
           <span class="btn__text" data-i18n="hero.btn2">Agendar demo</span>
         </a>
       </div>
@@ -130,452 +131,8 @@
       </div>
     </div>
 
-    <!-- ══════════ NOSOTROS ══════════ -->
-    <section class="section about" id="nosotros">
-      <div class="section__head">
-        <span class="section__tag reveal" data-i18n="about.tag">// 01 — Nosotros</span>
-        <h2 class="section__title reveal" data-i18n="about.title">Escuchamos primero,<br /><span class="text-gradient">automatizamos después</span></h2>
-      </div>
-
-      <div class="about__grid">
-        <div class="about__text reveal">
-          <p class="about__lead" data-i18n="about.lead">
-            En <strong>ALTOKIA</strong> no vendemos tecnología por vender: nos obsesionan
-            <span class="about__highlight">los requerimientos reales del usuario y del cliente</span>.
-            Cada proyecto empieza con una conversación, no con una propuesta genérica.
-          </p>
-          <p data-i18n="about.p1">
-            Somos un equipo con <strong>experiencia internacional</strong> que ha desplegado soluciones
-            de automatización y desarrollo web en múltiples países, adaptándonos a distintas
-            regulaciones, monedas, sistemas y culturas de trabajo. Esa diversidad nos dio algo
-            que ningún curso enseña: la capacidad de <em>entender el negocio antes que el código</em>.
-          </p>
-          <p data-i18n="about.p2">
-            Estamos dispuestos a escucharte las veces que haga falta. Tu operación es única,
-            y tu automatización también debería serlo.
-          </p>
-
-          <ul class="about__values">
-            <li class="reveal"><span class="about__value-icon">◉</span><div data-i18n="about.v1"><strong>Escucha activa</strong><span>Entendemos tu proceso antes de proponer una sola línea de código.</span></div></li>
-            <li class="reveal"><span class="about__value-icon">◈</span><div data-i18n="about.v2"><strong>Centrados en el usuario</strong><span>Diseñamos para las personas que usarán la solución cada día.</span></div></li>
-            <li class="reveal"><span class="about__value-icon">✦</span><div data-i18n="about.v3"><strong>Resultados medibles</strong><span>Cada entrega viene con KPIs claros y retorno demostrable.</span></div></li>
-          </ul>
-        </div>
-
-        <div class="about__panel reveal" data-tilt>
-          <div class="card__shine"></div>
-          <h3 class="about__panel-title" data-i18n="about.countriesTitle">Presencia internacional</h3>
-          <p class="about__panel-sub" data-i18n="about.countriesSub">Proyectos entregados en:</p>
-          <div class="about__countries">
-            <span class="chip chip--country" data-magnetic data-i18n="about.c1">🇺🇸 EE.UU.</span>
-            <span class="chip chip--country" data-magnetic>🇨🇷 Costa Rica</span>
-            <span class="chip chip--country" data-magnetic data-i18n="about.c3">🇵🇦 Panamá</span>
-            <span class="chip chip--country" data-magnetic>🇨🇴 Colombia</span>
-            <span class="chip chip--country" data-magnetic data-i18n="about.c5">🇵🇪 Perú</span>
-          </div>
-
-          <h3 class="about__panel-title" data-i18n="about.industriesTitle">Rubros que dominamos</h3>
-          <div class="about__industries">
-            <span class="chip" data-magnetic data-i18n="about.i1">⛏ Minería</span>
-            <span class="chip" data-magnetic data-i18n="about.i2">🛒 Retail</span>
-            <span class="chip" data-magnetic data-i18n="about.i3">🏦 Banca & Finanzas</span>
-            <span class="chip" data-magnetic data-i18n="about.i4">🏭 Manufactura</span>
-            <span class="chip" data-magnetic data-i18n="about.i5">🚚 Logística</span>
-            <span class="chip" data-magnetic data-i18n="about.i6">⚕ Salud</span>
-          </div>
-
-          <div class="about__quote">
-            <span class="about__quote-mark">"</span>
-            <span data-i18n="about.quote">La mejor automatización es la que nace de escuchar a quien vive el proceso todos los días.</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ══════════ SERVICIOS ══════════ -->
-    <section class="section services" id="servicios">
-      <div class="section__head">
-        <span class="section__tag reveal" data-i18n="services.tag">// 02 — Servicios</span>
-        <h2 class="section__title reveal" data-i18n="services.title">Lo que hacemos<br /><span class="text-gradient">extraordinariamente bien</span></h2>
-      </div>
-
-      <div class="services__grid">
-        <article class="card card--flagship reveal" data-tilt>
-          <div class="card__shine"></div>
-          <span class="card__badge" data-i18n="services.badge">✦ Nuestro punto de partida</span>
-          <div class="card__icon">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="sg1" x1="6" y1="4" x2="42" y2="44" gradientUnits="userSpaceOnUse">
-                  <stop stop-color="#00e5ff"/><stop offset="1" stop-color="#7c4dff"/>
-                </linearGradient>
-              </defs>
-              <path d="M24 6v5M24 37v5M42 24h-5M11 24H6M36.6 11.4l-3.5 3.5M14.9 33.1l-3.5 3.5M36.6 36.6l-3.5-3.5M14.9 14.9l-3.5-3.5" stroke="url(#sg1)" stroke-width="2.3" stroke-linecap="round"/>
-              <circle cx="24" cy="24" r="11" stroke="url(#sg1)" stroke-width="2.4"/>
-              <path d="M25.8 16.5l-7 9.5h5l-1.8 8 7.8-10h-5l1.8-7.5z" fill="#ff2d92"/>
-            </svg>
-          </div>
-          <h3 class="card__title" data-i18n="services.s1t">Automatización de Procesos</h3>
-          <p class="card__desc" data-i18n="services.s1d">El corazón de ALTOKIA. Diseñamos flujos inteligentes con RPA e IA que eliminan tareas repetitivas, conectan tus sistemas y liberan a tu equipo para lo que realmente importa: crecer.</p>
-
-          <div class="card__flow" aria-hidden="true">
-            <span class="flow-node flow-node--1"></span>
-            <span class="flow-line flow-line--1"><i></i></span>
-            <span class="flow-node flow-node--2"></span>
-            <span class="flow-line flow-line--2"><i></i></span>
-            <span class="flow-node flow-node--3"></span>
-          </div>
-
-          <div class="card__footer"><span class="card__num">01</span><span class="card__arrow">→</span></div>
-        </article>
-
-        <article class="card reveal" data-tilt>
-          <div class="card__shine"></div>
-          <div class="card__icon">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="sg2" x1="6" y1="6" x2="42" y2="42" gradientUnits="userSpaceOnUse">
-                  <stop stop-color="#00e5ff"/><stop offset="1" stop-color="#7c4dff"/>
-                </linearGradient>
-              </defs>
-              <rect x="6" y="9" width="36" height="27" rx="3" stroke="url(#sg2)" stroke-width="2.4"/>
-              <path d="M6 16h36" stroke="url(#sg2)" stroke-width="2.2"/>
-              <circle cx="11" cy="12.5" r="1.1" fill="#00e5ff"/><circle cx="15" cy="12.5" r="1.1" fill="#7c4dff"/><circle cx="19" cy="12.5" r="1.1" fill="#ff2d92"/>
-              <path d="M17 22l-4 4.5 4 4.5M25 22l4 4.5-4 4.5" stroke="url(#sg2)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-              <circle cx="34" cy="31" r="6.5" fill="#05060f" stroke="#ff2d92" stroke-width="2.2"/>
-              <path d="M34 27.8v1.6M34 32.6v1.6M36.8 31h-1.6M32.8 31h-1.6M35.9 28.1l-1.13 1.13M32.23 32.77l-1.13 1.13M35.9 33.9l-1.13-1.13M32.23 29.23l-1.13-1.13" stroke="#ff2d92" stroke-width="1.6" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <h3 class="card__title" data-i18n="services.s2t">Software a Medida</h3>
-          <p class="card__desc" data-i18n="services.s2d">Sistemas, integraciones, IA aplicada e infraestructura cloud, construidos desde cero para tu operación — sin plantillas ni licencias que no necesitas.</p>
-          <div class="card__footer"><span class="card__num">02</span><span class="card__arrow">→</span></div>
-        </article>
-
-        <article class="card reveal" data-tilt>
-          <div class="card__shine"></div>
-          <div class="card__icon">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="sg3" x1="4" y1="6" x2="44" y2="40" gradientUnits="userSpaceOnUse">
-                  <stop stop-color="#00e5ff"/><stop offset="1" stop-color="#7c4dff"/>
-                </linearGradient>
-              </defs>
-              <rect x="5" y="8" width="38" height="30" rx="3" stroke="url(#sg3)" stroke-width="2.4"/>
-              <path d="M5 15.5h38" stroke="url(#sg3)" stroke-width="2.2"/>
-              <circle cx="10" cy="11.7" r="1.1" fill="#00e5ff"/><circle cx="14" cy="11.7" r="1.1" fill="#7c4dff"/><circle cx="18" cy="11.7" r="1.1" fill="#ff2d92"/>
-              <rect x="10" y="21" width="10" height="12" rx="1.5" stroke="url(#sg3)" stroke-width="2"/>
-              <path d="M25 22h13M25 27h13M25 32h8" stroke="url(#sg3)" stroke-width="2" stroke-linecap="round"/>
-              <circle cx="36.5" cy="33.5" r="7" fill="#05060f" stroke="#ff2d92" stroke-width="2.2"/>
-              <path d="M33.3 33.5l2.3 2.3 4.5-4.8" stroke="#ff2d92" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <h3 class="card__title" data-i18n="services.s3t">Páginas Web</h3>
-          <p class="card__desc" data-i18n="services.s3d">Sitios y plataformas web rápidos, modernos y optimizados para convertir visitantes en clientes, con animaciones fluidas y una experiencia que refleja tu marca.</p>
-          <div class="card__footer"><span class="card__num">03</span><span class="card__arrow">→</span></div>
-        </article>
-
-        <article class="card reveal" data-tilt>
-          <div class="card__shine"></div>
-          <div class="card__icon">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="sg4" x1="4" y1="8" x2="40" y2="40" gradientUnits="userSpaceOnUse">
-                  <stop stop-color="#00e5ff"/><stop offset="1" stop-color="#7c4dff"/>
-                </linearGradient>
-              </defs>
-              <path d="M6 20v6a2 2 0 002 2h3l14 8V10l-14 8H8a2 2 0 00-2 2z" stroke="url(#sg4)" stroke-width="2.3" stroke-linejoin="round"/>
-              <path d="M25 10l10-4v30l-10-4" stroke="url(#sg4)" stroke-width="2.3" stroke-linejoin="round"/>
-              <path d="M12 28l1.5 7h4L16 28" stroke="url(#sg4)" stroke-width="2.1" stroke-linejoin="round"/>
-              <path d="M38 16c1.8 1.6 1.8 6.4 0 8" stroke="url(#sg4)" stroke-width="2" stroke-linecap="round"/>
-              <circle cx="37" cy="35" r="7" fill="#05060f" stroke="#ff2d92" stroke-width="2.2"/>
-              <circle cx="37" cy="35" r="3.2" stroke="#ff2d92" stroke-width="1.6"/>
-              <circle cx="37" cy="35" r="0.9" fill="#ff2d92"/>
-            </svg>
-          </div>
-          <h3 class="card__title" data-i18n="services.s4t">Marketing</h3>
-          <p class="card__desc" data-i18n="services.s4d">Estrategias digitales basadas en datos: SEO, pauta y automatización de campañas para que tu marca llegue a las personas correctas, en el momento correcto.</p>
-          <div class="card__footer"><span class="card__num">04</span><span class="card__arrow">→</span></div>
-        </article>
-
-        <article class="card reveal" data-tilt>
-          <div class="card__shine"></div>
-          <div class="card__icon">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="sg5" x1="4" y1="10" x2="44" y2="40" gradientUnits="userSpaceOnUse">
-                  <stop stop-color="#00e5ff"/><stop offset="1" stop-color="#7c4dff"/>
-                </linearGradient>
-              </defs>
-              <path d="M7 30a17 17 0 0134 0" stroke="url(#sg5)" stroke-width="2.4" stroke-linecap="round"/>
-              <path d="M7 30h4M37 30h4M11.3 18.3l2.8 2.8M36.7 18.3l-2.8 2.8M24 9v4" stroke="url(#sg5)" stroke-width="2.1" stroke-linecap="round"/>
-              <path d="M24 30l8-11" stroke="#ff2d92" stroke-width="2.4" stroke-linecap="round"/>
-              <circle cx="24" cy="30" r="2.6" fill="#ff2d92"/>
-              <circle cx="37" cy="12" r="6.5" fill="#05060f" stroke="#ff2d92" stroke-width="2.1"/>
-              <path d="M37 15v-6M34.3 11.7L37 9l2.7 2.7" stroke="#ff2d92" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <h3 class="card__title" data-i18n="services.s5t">Optimización de Procesos</h3>
-          <p class="card__desc" data-i18n="services.s5d">Medimos, rediseñamos y afinamos tus operaciones para reducir costos, eliminar cuellos de botella y multiplicar la eficiencia de cada área de tu empresa.</p>
-          <div class="card__footer"><span class="card__num">05</span><span class="card__arrow">→</span></div>
-        </article>
-      </div>
-    </section>
-
-    <!-- ══════════ PROCESO ══════════ -->
-    <section class="section process" id="proceso">
-      <div class="section__head">
-        <span class="section__tag reveal" data-i18n="process.tag">// 03 — Proceso</span>
-        <h2 class="section__title reveal" data-i18n="process.title">De la idea al impacto<br /><span class="text-gradient">en 4 fases</span></h2>
-      </div>
-
-      <div class="process__timeline">
-        <div class="process__line" id="processLine"></div>
-
-        <div class="process__step reveal">
-          <div class="process__dot"></div>
-          <div class="process__content" data-i18n="process.f1">
-            <span class="process__phase">Fase 01</span>
-            <h3>Descubrimiento</h3>
-            <p>Auditamos tus procesos actuales, identificamos cuellos de botella y detectamos oportunidades de automatización con mayor retorno.</p>
-          </div>
-        </div>
-
-        <div class="process__step process__step--right reveal">
-          <div class="process__dot"></div>
-          <div class="process__content" data-i18n="process.f2">
-            <span class="process__phase">Fase 02</span>
-            <h3>Diseño de Solución</h3>
-            <p>Prototipamos la arquitectura, definimos flujos y diseñamos interfaces centradas en el usuario. Todo validado contigo antes de escribir código.</p>
-          </div>
-        </div>
-
-        <div class="process__step reveal">
-          <div class="process__dot"></div>
-          <div class="process__content" data-i18n="process.f3">
-            <span class="process__phase">Fase 03</span>
-            <h3>Desarrollo Ágil</h3>
-            <p>Sprints cortos, entregas continuas y comunicación transparente. Ves el avance en tiempo real y ajustamos sobre la marcha.</p>
-          </div>
-        </div>
-
-        <div class="process__step process__step--right reveal">
-          <div class="process__dot"></div>
-          <div class="process__content" data-i18n="process.f4">
-            <span class="process__phase">Fase 04</span>
-            <h3>Lanzamiento & Evolución</h3>
-            <p>Desplegamos, medimos KPIs y optimizamos continuamente. Tu solución crece junto a tu negocio.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ══════════ PROYECTOS ══════════ -->
-    <section class="section projects" id="proyectos">
-      <div class="section__head">
-        <span class="section__tag reveal" data-i18n="projects.tag">// 04 — Proyectos</span>
-        <h2 class="section__title reveal" data-i18n="projects.title">Automatizaciones que ya<br /><span class="text-gradient">trabajan por nuestros clientes</span></h2>
-      </div>
-
-      <div class="projects__grid">
-        <article class="project reveal" data-tilt>
-          <div class="card__shine"></div>
-          <div class="project__top">
-            <span class="project__icon">
-              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <linearGradient id="pg1" x1="8" y1="4" x2="40" y2="44" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#00e5ff"/><stop offset="1" stop-color="#7c4dff"/>
-                  </linearGradient>
-                </defs>
-                <path d="M12 6h17l7 7v29H12V6z" stroke="url(#pg1)" stroke-width="2.4" stroke-linejoin="round"/>
-                <path d="M29 6v7h7" stroke="url(#pg1)" stroke-width="2.4" stroke-linejoin="round"/>
-                <path d="M17 20h14M17 26h14M17 32h8" stroke="url(#pg1)" stroke-width="2.4" stroke-linecap="round"/>
-                <circle cx="34" cy="36" r="7.5" fill="#05060f" stroke="#ff2d92" stroke-width="2.2"/>
-                <path d="M31 36l2.2 2.2L37.5 34" stroke="#ff2d92" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </span>
-            <span class="project__sector" data-i18n="projects.p1s">⛏ Minería</span>
-          </div>
-          <h3 class="project__title" data-i18n="projects.p1t">Facturas & Órdenes de Compra</h3>
-          <p class="project__desc" data-i18n="projects.p1d">Bot RPA que lee facturas y OC con OCR, valida montos contra el ERP, detecta inconsistencias y registra todo automáticamente. De 3 días de trabajo manual a 20 minutos.</p>
-          <div class="project__tags">
-            <span>Automation Anywhere</span><span>OCR</span><span>SAP</span>
-          </div>
-          <div class="project__result" data-i18n="projects.p1r">▲ 94% menos tiempo de procesamiento</div>
-        </article>
-
-        <article class="project reveal" data-tilt>
-          <div class="card__shine"></div>
-          <div class="project__top">
-            <span class="project__icon">
-              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <linearGradient id="pg2" x1="6" y1="6" x2="42" y2="42" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#00e5ff"/><stop offset="1" stop-color="#7c4dff"/>
-                  </linearGradient>
-                </defs>
-                <path d="M24 7C14.6 7 7 13.9 7 22.4c0 4.9 2.5 9.2 6.4 12L11 41l8.1-3.3c1.6.4 3.2.6 4.9.6 9.4 0 17-6.9 17-15.4S33.4 7 24 7z" stroke="url(#pg2)" stroke-width="2.4" stroke-linejoin="round"/>
-                <circle cx="17" cy="23" r="2.2" fill="#00e5ff"/>
-                <circle cx="24" cy="23" r="2.2" fill="#7c4dff"/>
-                <circle cx="31" cy="23" r="2.2" fill="#ff2d92"/>
-                <path d="M38 4l1.2 3 3 1.2-3 1.2L38 12.4l-1.2-3-3-1.2 3-1.2L38 4z" fill="#ff2d92"/>
-              </svg>
-            </span>
-            <span class="project__sector" data-i18n="projects.p2s">🛒 Retail</span>
-          </div>
-          <h3 class="project__title" data-i18n="projects.p2t">Bot de WhatsApp Inteligente</h3>
-          <p class="project__desc" data-i18n="projects.p2d">Asistente conversacional que atiende consultas, toma pedidos, consulta stock en tiempo real y deriva a un humano solo cuando hace falta. Disponible 24/7, sin filas de espera.</p>
-          <div class="project__tags">
-            <span>WhatsApp API</span><span>IA</span><span>Python</span>
-          </div>
-          <div class="project__result" data-i18n="projects.p2r">▲ 6x más consultas atendidas</div>
-        </article>
-
-        <article class="project reveal" data-tilt>
-          <div class="card__shine"></div>
-          <div class="project__top">
-            <span class="project__icon">
-              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <linearGradient id="pg3" x1="6" y1="4" x2="42" y2="44" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#00e5ff"/><stop offset="1" stop-color="#7c4dff"/>
-                  </linearGradient>
-                </defs>
-                <path d="M16 10V5h18v28h-5" stroke="url(#pg3)" stroke-width="2.4" stroke-linejoin="round" opacity="0.55"/>
-                <rect x="9" y="10" width="18" height="28" rx="2" stroke="url(#pg3)" stroke-width="2.4"/>
-                <path d="M14 18h8M14 24h8M14 30h5" stroke="url(#pg3)" stroke-width="2.2" stroke-linecap="round"/>
-                <circle cx="34" cy="35" r="8" fill="#05060f" stroke="#ff2d92" stroke-width="2.2"/>
-                <circle cx="34" cy="35" r="2.6" stroke="#ff2d92" stroke-width="2"/>
-                <path d="M34 29.6v2M34 38.4v2M39.4 35h-2M30.6 35h-2M37.8 31.2l-1.4 1.4M31.6 37.4l-1.4 1.4M37.8 38.8l-1.4-1.4M31.6 32.6l-1.4-1.4" stroke="#ff2d92" stroke-width="1.8" stroke-linecap="round"/>
-              </svg>
-            </span>
-            <span class="project__sector" data-i18n="projects.p3s">🏦 Banca</span>
-          </div>
-          <h3 class="project__title" data-i18n="projects.p3t">Automatización de Documentos</h3>
-          <p class="project__desc" data-i18n="projects.p3d">Generación, clasificación y firma de contratos y documentos regulatorios de forma masiva, con trazabilidad completa y cero errores de tipeo.</p>
-          <div class="project__tags">
-            <span>Power Automate</span><span>IA Documental</span><span>Firma Digital</span>
-          </div>
-          <div class="project__result" data-i18n="projects.p3r">▲ 12,000 documentos/mes sin intervención</div>
-        </article>
-
-        <article class="project reveal" data-tilt>
-          <div class="card__shine"></div>
-          <div class="project__top">
-            <span class="project__icon">
-              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <linearGradient id="pg4" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#00e5ff"/><stop offset="1" stop-color="#7c4dff"/>
-                  </linearGradient>
-                </defs>
-                <path d="M39 20a15.5 15.5 0 00-27.6-5.5" stroke="url(#pg4)" stroke-width="2.6" stroke-linecap="round"/>
-                <path d="M11 6.5v8h8" stroke="url(#pg4)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M9 28a15.5 15.5 0 0027.6 5.5" stroke="url(#pg4)" stroke-width="2.6" stroke-linecap="round"/>
-                <path d="M37 41.5v-8h-8" stroke="url(#pg4)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
-                <circle cx="24" cy="24" r="7.5" stroke="#ff2d92" stroke-width="2.2"/>
-                <path d="M24 20v8M21.8 22h3.4a1.8 1.8 0 010 3.6h-2.4a1.8 1.8 0 000 3.6h3.4" stroke="#ff2d92" stroke-width="1.9" stroke-linecap="round" fill="none"/>
-              </svg>
-            </span>
-            <span class="project__sector" data-i18n="projects.p4s">🏦 Banca</span>
-          </div>
-          <h3 class="project__title" data-i18n="projects.p4t">Conciliación Bancaria Automática</h3>
-          <p class="project__desc" data-i18n="projects.p4d">Robot que cruza extractos bancarios contra registros contables cada noche, concilia partidas y genera el reporte de excepciones listo para revisión matutina.</p>
-          <div class="project__tags">
-            <span>Python</span><span>RPA</span><span>Excel/ERP</span>
-          </div>
-          <div class="project__result" data-i18n="projects.p4r">▲ Cierre contable 5 días más rápido</div>
-        </article>
-
-        <article class="project reveal" data-tilt>
-          <div class="card__shine"></div>
-          <div class="project__top">
-            <span class="project__icon">
-              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <linearGradient id="pg5" x1="6" y1="42" x2="42" y2="6" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#00e5ff"/><stop offset="1" stop-color="#7c4dff"/>
-                  </linearGradient>
-                </defs>
-                <path d="M7 6v34a2 2 0 002 2h34" stroke="url(#pg5)" stroke-width="2.6" stroke-linecap="round"/>
-                <rect x="13" y="27" width="6" height="10" rx="1.5" fill="rgba(0,229,255,0.25)" stroke="#00e5ff" stroke-width="2"/>
-                <rect x="23" y="21" width="6" height="16" rx="1.5" fill="rgba(124,77,255,0.25)" stroke="#7c4dff" stroke-width="2"/>
-                <rect x="33" y="14" width="6" height="23" rx="1.5" fill="rgba(255,45,146,0.22)" stroke="#ff2d92" stroke-width="2"/>
-                <path d="M14 16l8-6 7 4 10-8" stroke="url(#pg5)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M39 4h4v4" stroke="url(#pg5)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </span>
-            <span class="project__sector" data-i18n="projects.p5s">🛒 Retail</span>
-          </div>
-          <h3 class="project__title" data-i18n="projects.p5t">Reportería Automática de Ventas</h3>
-          <p class="project__desc" data-i18n="projects.p5d">Pipeline que consolida ventas de todas las tiendas y canales, y envía dashboards e informes ejecutivos por correo y WhatsApp antes de que empiece el día.</p>
-          <div class="project__tags">
-            <span>Power Automate</span><span>Power BI</span><span>APIs</span>
-          </div>
-          <div class="project__result" data-i18n="projects.p5r">▲ Decisiones con datos del día anterior</div>
-        </article>
-
-        <article class="project reveal" data-tilt>
-          <div class="card__shine"></div>
-          <div class="project__top">
-            <span class="project__icon">
-              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <linearGradient id="pg6" x1="4" y1="24" x2="44" y2="24" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#00e5ff"/><stop offset="1" stop-color="#7c4dff"/>
-                  </linearGradient>
-                </defs>
-                <path d="M13 15l11-5 11 5M9 30l6 5M39 30l-6 5" stroke="url(#pg6)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
-                <circle cx="24" cy="9" r="4.5" stroke="url(#pg6)" stroke-width="2.4"/>
-                <circle cx="8" cy="27" r="4.5" stroke="#00e5ff" stroke-width="2.4"/>
-                <circle cx="40" cy="27" r="4.5" stroke="#7c4dff" stroke-width="2.4"/>
-                <path d="M12 27h24M24 13.5V22" stroke="url(#pg6)" stroke-width="2" stroke-linecap="round" stroke-dasharray="3 4"/>
-                <circle cx="24" cy="36" r="8" fill="#05060f" stroke="#ff2d92" stroke-width="2.2"/>
-                <path d="M20.5 36l2.4 2.4 4.6-4.8" stroke="#ff2d92" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </span>
-            <span class="project__sector" data-i18n="projects.p6s">⛏ Minería</span>
-          </div>
-          <h3 class="project__title" data-i18n="projects.p6t">Onboarding de Proveedores</h3>
-          <p class="project__desc" data-i18n="projects.p6d">Portal web + flujo automatizado que valida documentación legal de proveedores, verifica vigencias y notifica vencimientos, eliminando el seguimiento manual por correo.</p>
-          <div class="project__tags">
-            <span>Desarrollo Web</span><span>Automation Anywhere</span><span>Notificaciones</span>
-          </div>
-          <div class="project__result" data-i18n="projects.p6r">▲ 80% menos correos de seguimiento</div>
-        </article>
-      </div>
-    </section>
-
-    <!-- ══════════ STACK / TECNOLOGÍAS ══════════ -->
-    <section class="section stack" id="tecnologias">
-      <div class="section__head">
-        <span class="section__tag reveal" data-i18n="stack.tag">// 05 — Stack</span>
-        <h2 class="section__title reveal" data-i18n="stack.title">Tecnología que<br /><span class="text-gradient">domina el juego</span></h2>
-      </div>
-
-      <div class="stack__grid">
-        <div class="stack__item reveal" data-magnetic><span class="stack__glyph">⬢</span>React / Next.js</div>
-        <div class="stack__item reveal" data-magnetic><span class="stack__glyph">◉</span>Node.js</div>
-        <div class="stack__item reveal" data-magnetic><span class="stack__glyph">◭</span>Python</div>
-        <div class="stack__item reveal" data-magnetic><span class="stack__glyph">⚡</span>Automation Anywhere</div>
-        <div class="stack__item reveal" data-magnetic><span class="stack__glyph">♻</span>Power Automate</div>
-        <div class="stack__item reveal" data-magnetic><span class="stack__glyph">☁</span>AWS / Azure</div>
-        <div class="stack__item reveal" data-magnetic><span class="stack__glyph">⚙</span>n8n / Make</div>
-        <div class="stack__item reveal" data-magnetic><span class="stack__glyph">✳</span>OpenAI / Claude</div>
-        <div class="stack__item reveal" data-magnetic><span class="stack__glyph">▣</span>Docker / K8s</div>
-        <div class="stack__item reveal" data-magnetic><span class="stack__glyph">◫</span>PostgreSQL</div>
-        <div class="stack__item reveal" data-magnetic><span class="stack__glyph">❖</span>Google & Meta Ads</div>
-        <div class="stack__item reveal" data-magnetic><span class="stack__glyph">✎</span>HubSpot / Mailchimp</div>
-      </div>
-    </section>
-
-    <!-- ══════════ RESULTADOS (STATS) ══════════ -->
-    <section class="section stats" id="resultados">
-      <div class="section__head">
-        <span class="section__tag reveal" data-i18n="stats.tag">// 06 — Resultados</span>
-        <h2 class="section__title reveal" data-i18n="stats.title">Números que<br /><span class="text-gradient">hablan por nosotros</span></h2>
-      </div>
-
+    <!-- ══════════ ESTADÍSTICAS (franja compacta) ══════════ -->
+    <section class="section stats stats--compact">
       <div class="stats__grid">
         <div class="stats__item reveal">
           <div class="stats__value"><span class="counter" data-target="120">0</span><span class="stats__suffix">+</span></div>
@@ -596,74 +153,91 @@
       </div>
     </section>
 
-    <!-- ══════════ CONTACTO ══════════ -->
-    <section class="section cta" id="contacto">
+    <!-- ══════════ EXPLORA ALTOKIA (teasers a otras páginas) ══════════ -->
+    <section class="section teasers" id="explora">
+      <div class="section__head">
+        <span class="section__tag reveal" data-i18n="teasers.tag">// Explora ALTOKIA</span>
+        <h2 class="section__title reveal" data-i18n="teasers.title">Conoce cómo pensamos,<br /><span class="text-gradient">lo que hacemos y lo que ya construimos</span></h2>
+      </div>
+
+      <div class="teasers__grid">
+        <a href="nosotros.html" class="card reveal" data-tilt>
+          <div class="card__shine"></div>
+          <div class="card__icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="tg1" x1="6" y1="6" x2="42" y2="42" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#00e5ff"/><stop offset="1" stop-color="#7c4dff"/>
+                </linearGradient>
+              </defs>
+              <circle cx="18" cy="16" r="6" stroke="url(#tg1)" stroke-width="2.3"/>
+              <path d="M7 38c0-7 5-11.5 11-11.5S29 31 29 38" stroke="url(#tg1)" stroke-width="2.3" stroke-linecap="round"/>
+              <circle cx="33" cy="14" r="4.5" stroke="#ff2d92" stroke-width="2.1"/>
+              <path d="M25.5 38c0-5.8 3.6-9.5 8-9.9" stroke="#ff2d92" stroke-width="2.1" stroke-linecap="round"/>
+              <path d="M35.5 38c0-4.6-2.3-7.8-5.3-9" stroke="#ff2d92" stroke-width="2.1" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="card__title" data-i18n="teasers.t1">Nosotros</h3>
+          <p class="card__desc" data-i18n="teasers.d1">Experiencia internacional, un equipo que escucha antes de construir, y un enfoque 100% centrado en tus resultados.</p>
+          <div class="card__footer"><span class="card__num" data-i18n="teasers.cta1">Conócenos</span><span class="card__arrow">→</span></div>
+        </a>
+
+        <a href="servicios.html" class="card reveal" data-tilt>
+          <div class="card__shine"></div>
+          <div class="card__icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="tg2" x1="6" y1="6" x2="42" y2="42" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#00e5ff"/><stop offset="1" stop-color="#7c4dff"/>
+                </linearGradient>
+              </defs>
+              <rect x="6" y="6" width="15" height="15" rx="3" stroke="url(#tg2)" stroke-width="2.3"/>
+              <rect x="27" y="6" width="15" height="15" rx="3" stroke="url(#tg2)" stroke-width="2.3"/>
+              <rect x="6" y="27" width="15" height="15" rx="3" stroke="url(#tg2)" stroke-width="2.3"/>
+              <rect x="27" y="27" width="15" height="15" rx="3" fill="#05060f" stroke="#ff2d92" stroke-width="2.3"/>
+              <path d="M31.5 34.5l2.3 2.3 4.3-4.6" stroke="#ff2d92" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="card__title" data-i18n="teasers.t2">Servicios</h3>
+          <p class="card__desc" data-i18n="teasers.d2">Automatización, software a medida, páginas web, marketing y optimización de procesos — todo bajo un mismo equipo.</p>
+          <div class="card__footer"><span class="card__num" data-i18n="teasers.cta2">Ver servicios</span><span class="card__arrow">→</span></div>
+        </a>
+
+        <a href="proyectos.html" class="card reveal" data-tilt>
+          <div class="card__shine"></div>
+          <div class="card__icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="tg3" x1="6" y1="10" x2="42" y2="40" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#00e5ff"/><stop offset="1" stop-color="#7c4dff"/>
+                </linearGradient>
+              </defs>
+              <rect x="6" y="16" width="36" height="24" rx="3" stroke="url(#tg3)" stroke-width="2.3"/>
+              <path d="M17 16v-4a3 3 0 013-3h8a3 3 0 013 3v4" stroke="url(#tg3)" stroke-width="2.3" stroke-linejoin="round"/>
+              <path d="M6 24h36" stroke="url(#tg3)" stroke-width="2.1"/>
+              <path d="M15 31l5-5 4 3 8-8" stroke="#ff2d92" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="card__title" data-i18n="teasers.t3">Proyectos</h3>
+          <p class="card__desc" data-i18n="teasers.d3">Casos reales en minería, retail y banca, con resultados medibles: menos tiempo, menos costos, más eficiencia.</p>
+          <div class="card__footer"><span class="card__num" data-i18n="teasers.cta3">Ver casos</span><span class="card__arrow">→</span></div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ══════════ CTA FINAL (enlaza a Contacto) ══════════ -->
+    <section class="section cta">
       <div class="cta__box reveal">
         <div class="cta__grid-bg"></div>
-        <h2 class="cta__title" data-i18n="contact.title">¿Listo para <span class="text-gradient">automatizar</span><br />tu próximo gran salto?</h2>
-        <p class="cta__desc" data-i18n="contact.desc">Agenda una consultoría gratuita de 30 minutos. Cuéntanos tu caso y te mostramos exactamente dónde puedes ganar eficiencia.</p>
-
-        <div class="contact__grid">
-          <!-- Formulario -->
-          <form class="contact__form" id="contactForm">
-            <div class="contact__field">
-              <label for="cfName" data-i18n="contact.fName">Nombre</label>
-              <input type="text" id="cfName" required data-i18n-placeholder="contact.phName" placeholder="Tu nombre" />
-            </div>
-            <div class="contact__field">
-              <label for="cfEmail" data-i18n="contact.fEmail">Correo</label>
-              <input type="email" id="cfEmail" required data-i18n-placeholder="contact.phEmail" placeholder="tucorreo@empresa.com" />
-            </div>
-            <div class="contact__field">
-              <label for="cfMsg" data-i18n="contact.fMsg">¿Qué proceso quieres automatizar?</label>
-              <textarea id="cfMsg" rows="4" required data-i18n-placeholder="contact.phMsg" placeholder="Cuéntanos brevemente tu caso..."></textarea>
-            </div>
-            <button type="submit" class="btn btn--primary" data-magnetic>
-              <span class="btn__text" data-i18n="contact.send">Enviar mensaje ✦</span>
-              <span class="btn__glow"></span>
-            </button>
-          </form>
-
-          <!-- Datos de contacto -->
-          <div class="contact__info">
-            <a href="mailto:contacto@altokia.com" class="contact__channel" data-magnetic>
-              <span class="contact__channel-icon">✉</span>
-              <div>
-                <strong data-i18n="contact.emailLabel">Escríbenos</strong>
-                <span>contacto@altokia.com</span>
-              </div>
-            </a>
-            <a href="https://wa.me/51904608141?text=Hola%20ALTOKIA%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios" target="_blank" rel="noopener" class="contact__channel contact__channel--wa" data-magnetic>
-              <span class="contact__channel-icon">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.074-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              </span>
-              <div>
-                <strong>WhatsApp</strong>
-                <span data-i18n="contact.waLabel">Respuesta inmediata</span>
-              </div>
-            </a>
-            <a href="https://www.linkedin.com/company/altokia" target="_blank" rel="noopener" class="contact__channel contact__channel--li" data-magnetic>
-              <span class="contact__channel-icon">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
-              </span>
-              <div>
-                <strong>LinkedIn</strong>
-                <span data-i18n="contact.liLabel">Síguenos y conecta</span>
-              </div>
-            </a>
-            <button type="button" class="contact__channel contact__channel--bot" id="openBotFromContact" data-magnetic>
-              <span class="contact__channel-icon">🤖</span>
-              <div>
-                <strong data-i18n="contact.botLabel">Agenda con nuestro bot</strong>
-                <span data-i18n="contact.botSub">Reserva una reunión en 1 minuto</span>
-              </div>
-            </button>
-
-            <div class="cta__meta">
-              <span data-i18n="contact.meta1">◆ Respuesta en menos de 24h</span>
-              <span data-i18n="contact.meta2">◆ Sin compromiso</span>
-            </div>
-          </div>
+        <h2 class="cta__title" data-i18n="home.ctaTitle">¿Listo para <span class="text-gradient">automatizar</span><br />tu próximo gran salto?</h2>
+        <p class="cta__desc" data-i18n="home.ctaDesc">Cuéntanos tu caso en una consultoría gratuita de 30 minutos. Te mostramos exactamente dónde puedes ganar eficiencia.</p>
+        <a href="contacto.html" class="btn btn--primary btn--lg" data-magnetic>
+          <span class="btn__text" data-i18n="home.ctaBtn">Hablemos ✦</span>
+          <span class="btn__glow"></span>
+        </a>
+        <div class="cta__meta">
+          <span data-i18n="contact.meta1">◆ Respuesta en menos de 24h</span>
+          <span data-i18n="contact.meta2">◆ Sin compromiso</span>
         </div>
       </div>
     </section>
@@ -678,12 +252,12 @@
         <p data-i18n="footer.tagline">Tecnología que trabaja mientras tú creces.</p>
       </div>
       <div class="footer__links">
-        <a href="#nosotros" data-i18n="nav.nosotros">Nosotros</a>
-        <a href="#servicios" data-i18n="nav.servicios">Servicios</a>
-        <a href="#proyectos" data-i18n="nav.proyectos">Proyectos</a>
-        <a href="#proceso" data-i18n="footer.proceso">Proceso</a>
-        <a href="#resultados" data-i18n="nav.resultados">Resultados</a>
-        <a href="#contacto" data-i18n="footer.contacto">Contacto</a>
+        <a href="nosotros.html" data-i18n="nav.nosotros">Nosotros</a>
+        <a href="servicios.html" data-i18n="nav.servicios">Servicios</a>
+        <a href="proyectos.html" data-i18n="nav.proyectos">Proyectos</a>
+        <a href="servicios.html#tecnologias" data-i18n="nav.stack">Stack</a>
+        <a href="nosotros.html#resultados" data-i18n="nav.resultados">Resultados</a>
+        <a href="contacto.html" data-i18n="footer.contacto">Contacto</a>
         <a href="https://www.linkedin.com/company/altokia" target="_blank" rel="noopener" class="footer__social">LinkedIn ↗</a>
       </div>
       <div class="footer__bottom">
@@ -728,6 +302,6 @@
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
-  <script src="js/main.js?v=4"></script>
+  <script src="js/main.js?v=5"></script>
 </body>
 </html>

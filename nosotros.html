@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nosotros — ALTOKIA</title>
+  <meta name="description" content="Conoce a ALTOKIA: experiencia internacional en automatización y desarrollo, un equipo que escucha antes de construir, y resultados medibles en cada proyecto." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css?v=5" />
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('altokia-theme');
+        var h = new Date().getHours();
+        var mode = saved || (h >= 7 && h < 18 ? 'light' : 'dark');
+        document.documentElement.setAttribute('data-theme', mode);
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+</head>
+<body data-page="nosotros">
+
+  <!-- ══════════ PRELOADER ══════════ -->
+  <div class="preloader" id="preloader">
+    <div class="preloader__logo">
+      <span class="preloader__letter">A</span><span class="preloader__letter">L</span><span class="preloader__letter">T</span><span class="preloader__letter preloader__letter--o">O</span><span class="preloader__letter preloader__letter--k">K</span><span class="preloader__letter">I</span><span class="preloader__letter">A</span>
+    </div>
+    <div class="preloader__acronym" data-i18n="brand.acronym">Automatización & Lógica · Tecnología · Operaciones · Conocimiento</div>
+    <div class="preloader__bar"><div class="preloader__bar-fill" id="preloaderBar"></div></div>
+    <div class="preloader__status" id="preloaderStatus">Inicializando sistemas...</div>
+  </div>
+
+  <!-- ══════════ CURSOR PERSONALIZADO ══════════ -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- ══════════ BARRA DE PROGRESO DE SCROLL ══════════ -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ══════════ CANVAS THREE.JS (fondo global) ══════════ -->
+  <canvas id="webgl-bg"></canvas>
+
+  <!-- ══════════ NAVEGACIÓN ══════════ -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo" data-magnetic data-i18n-title="brand.acronym" title="Automatización & Lógica · Tecnología · Operaciones · Conocimiento">
+        <span class="nav__logo-mark">◆</span><span class="nav__logo-text">ALT<span class="logo-o">O</span><span class="logo-k">K</span>IA</span>
+      </a>
+      <nav class="nav__links" id="navLinks">
+        <a href="index.html" class="nav__link" data-page="inicio" data-i18n="nav.inicio">Inicio</a>
+        <a href="nosotros.html" class="nav__link" data-page="nosotros" data-i18n="nav.nosotros">Nosotros</a>
+        <a href="servicios.html" class="nav__link" data-page="servicios" data-i18n="nav.servicios">Servicios</a>
+        <a href="proyectos.html" class="nav__link" data-page="proyectos" data-i18n="nav.proyectos">Proyectos</a>
+        <a href="contacto.html" class="nav__cta" data-magnetic><span data-i18n="nav.cta">Hablemos</span> <span class="nav__cta-arrow">→</span></a>
+      </nav>
+
+      <div class="nav__right">
+        <!-- Tema claro/oscuro -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema / Toggle theme" data-magnetic>
+          <span id="themeIcon">☀</span>
+        </button>
+
+        <!-- Selector de idioma -->
+        <button class="lang-toggle" id="langToggle" aria-label="Cambiar idioma / Switch language" data-magnetic>
+          <span class="lang-toggle__opt is-active" data-lang="es">ES</span>
+          <span class="lang-toggle__divider">/</span>
+          <span class="lang-toggle__opt" data-lang="en">EN</span>
+        </button>
+
+        <button class="nav__burger" id="navBurger" aria-label="Menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ══════════ BANNER DE PÁGINA ══════════ -->
+    <section class="page-header">
+      <div class="page-header__grid"></div>
+      <span class="page-header__tag reveal" data-i18n="nosotros.pageTag">// Nosotros</span>
+      <h1 class="page-header__title reveal" data-i18n="nosotros.pageTitle">Escuchamos primero,<br /><span class="text-gradient">automatizamos después</span></h1>
+      <p class="page-header__sub reveal" data-i18n="nosotros.pageSub">Conoce al equipo detrás de ALTOKIA: experiencia internacional, escucha activa y resultados medibles.</p>
+    </section>
+
+    <!-- ══════════ NOSOTROS ══════════ -->
+    <section class="section about" id="nosotros">
+      <div class="about__grid">
+        <div class="about__text reveal">
+          <p class="about__lead" data-i18n="about.lead">
+            En <strong>ALTOKIA</strong> no vendemos tecnología por vender: nos obsesionan
+            <span class="about__highlight">los requerimientos reales del usuario y del cliente</span>.
+            Cada proyecto empieza con una conversación, no con una propuesta genérica.
+          </p>
+          <p data-i18n="about.p1">
+            Somos un equipo con <strong>experiencia internacional</strong> que ha desplegado soluciones
+            de automatización y desarrollo web en múltiples países, adaptándonos a distintas
+            regulaciones, monedas, sistemas y culturas de trabajo. Esa diversidad nos dio algo
+            que ningún curso enseña: la capacidad de <em>entender el negocio antes que el código</em>.
+          </p>
+          <p data-i18n="about.p2">
+            Estamos dispuestos a escucharte las veces que haga falta. Tu operación es única,
+            y tu automatización también debería serlo.
+          </p>
+
+          <ul class="about__values">
+            <li class="reveal"><span class="about__value-icon">◉</span><div data-i18n="about.v1"><strong>Escucha activa</strong><span>Entendemos tu proceso antes de proponer una sola línea de código.</span></div></li>
+            <li class="reveal"><span class="about__value-icon">◈</span><div data-i18n="about.v2"><strong>Centrados en el usuario</strong><span>Diseñamos para las personas que usarán la solución cada día.</span></div></li>
+            <li class="reveal"><span class="about__value-icon">✦</span><div data-i18n="about.v3"><strong>Resultados medibles</strong><span>Cada entrega viene con KPIs claros y retorno demostrable.</span></div></li>
+          </ul>
+        </div>
+
+        <div class="about__panel reveal" data-tilt>
+          <div class="card__shine"></div>
+          <h3 class="about__panel-title" data-i18n="about.countriesTitle">Presencia internacional</h3>
+          <p class="about__panel-sub" data-i18n="about.countriesSub">Proyectos entregados en:</p>
+          <div class="about__countries">
+            <span class="chip chip--country" data-magnetic data-i18n="about.c1">🇺🇸 EE.UU.</span>
+            <span class="chip chip--country" data-magnetic>🇨🇷 Costa Rica</span>
+            <span class="chip chip--country" data-magnetic data-i18n="about.c3">🇵🇦 Panamá</span>
+            <span class="chip chip--country" data-magnetic>🇨🇴 Colombia</span>
+            <span class="chip chip--country" data-magnetic data-i18n="about.c5">🇵🇪 Perú</span>
+          </div>
+
+          <h3 class="about__panel-title" data-i18n="about.industriesTitle">Rubros que dominamos</h3>
+          <div class="about__industries">
+            <span class="chip" data-magnetic data-i18n="about.i1">⛏ Minería</span>
+            <span class="chip" data-magnetic data-i18n="about.i2">🛒 Retail</span>
+            <span class="chip" data-magnetic data-i18n="about.i3">🏦 Banca & Finanzas</span>
+            <span class="chip" data-magnetic data-i18n="about.i4">🏭 Manufactura</span>
+            <span class="chip" data-magnetic data-i18n="about.i5">🚚 Logística</span>
+            <span class="chip" data-magnetic data-i18n="about.i6">⚕ Salud</span>
+          </div>
+
+          <div class="about__quote">
+            <span class="about__quote-mark">"</span>
+            <span data-i18n="about.quote">La mejor automatización es la que nace de escuchar a quien vive el proceso todos los días.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ RESULTADOS (STATS) ══════════ -->
+    <section class="section stats" id="resultados">
+      <div class="section__head">
+        <span class="section__tag reveal" data-i18n="stats.tag">// 06 — Resultados</span>
+        <h2 class="section__title reveal" data-i18n="stats.title">Números que<br /><span class="text-gradient">hablan por nosotros</span></h2>
+      </div>
+
+      <div class="stats__grid">
+        <div class="stats__item reveal">
+          <div class="stats__value"><span class="counter" data-target="120">0</span><span class="stats__suffix">+</span></div>
+          <div class="stats__label" data-i18n="stats.l1">Proyectos entregados</div>
+        </div>
+        <div class="stats__item reveal">
+          <div class="stats__value"><span class="counter" data-target="87">0</span><span class="stats__suffix">%</span></div>
+          <div class="stats__label" data-i18n="stats.l2">Reducción de tareas manuales</div>
+        </div>
+        <div class="stats__item reveal">
+          <div class="stats__value"><span class="counter" data-target="15000">0</span><span class="stats__suffix">h</span></div>
+          <div class="stats__label" data-i18n="stats.l3">Horas ahorradas a clientes</div>
+        </div>
+        <div class="stats__item reveal">
+          <div class="stats__value"><span class="counter" data-target="98">0</span><span class="stats__suffix">%</span></div>
+          <div class="stats__label" data-i18n="stats.l4">Satisfacción de clientes</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ══════════ FOOTER ══════════ -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <span class="nav__logo-mark">◆</span> ALT<span class="logo-o">O</span><span class="logo-k">K</span>IA
+        <p class="footer__acronym" data-i18n="brand.acronym">Automatización & Lógica · Tecnología · Operaciones · Conocimiento</p>
+        <p data-i18n="footer.tagline">Tecnología que trabaja mientras tú creces.</p>
+      </div>
+      <div class="footer__links">
+        <a href="nosotros.html" data-i18n="nav.nosotros">Nosotros</a>
+        <a href="servicios.html" data-i18n="nav.servicios">Servicios</a>
+        <a href="proyectos.html" data-i18n="nav.proyectos">Proyectos</a>
+        <a href="servicios.html#tecnologias" data-i18n="nav.stack">Stack</a>
+        <a href="nosotros.html#resultados" data-i18n="nav.resultados">Resultados</a>
+        <a href="contacto.html" data-i18n="footer.contacto">Contacto</a>
+        <a href="https://www.linkedin.com/company/altokia" target="_blank" rel="noopener" class="footer__social">LinkedIn ↗</a>
+      </div>
+      <div class="footer__bottom">
+        <span data-i18n="footer.rights">© 2026 ALTOKIA — Todos los derechos reservados</span>
+        <span class="footer__status"><span class="footer__pulse"></span> <span data-i18n="footer.status">Sistemas operativos</span></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══════════ BOTONES FLOTANTES ══════════ -->
+  <div class="fab-stack" id="fabStack">
+    <a href="https://wa.me/51904608141?text=Hola%20ALTOKIA%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios"
+       target="_blank" rel="noopener" class="fab fab--wa" id="fabWa" aria-label="WhatsApp">
+      <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.074-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      <span class="fab__tooltip" data-i18n="fab.wa">¡Escríbenos!</span>
+    </a>
+
+    <button class="fab fab--chat" id="chatToggle" aria-label="Chatbot">
+      <span class="fab--chat-open">🤖</span>
+      <span class="fab--chat-close">✕</span>
+      <span class="fab__tooltip" data-i18n="fab.bot">Asistente virtual</span>
+      <span class="fab__ping"></span>
+    </button>
+  </div>
+
+  <!-- ══════════ CHATBOT ══════════ -->
+  <div class="chatbot" id="chatbot" aria-hidden="true">
+    <div class="chatbot__header">
+      <div class="chatbot__avatar">🤖</div>
+      <div class="chatbot__head-info">
+        <strong>ALTO<span class="accent">bot</span></strong>
+        <span class="chatbot__status"><span class="chatbot__status-dot"></span><span data-i18n="bot.online">En línea — responde al instante</span></span>
+      </div>
+      <button class="chatbot__minimize" id="chatMinimize" aria-label="Cerrar chat">─</button>
+    </div>
+    <div class="chatbot__messages" id="chatMessages"></div>
+    <div class="chatbot__options" id="chatOptions"></div>
+    <form class="chatbot__inputbar" id="chatForm" autocomplete="off">
+      <input type="text" id="chatInput" data-i18n-placeholder="bot.placeholder" placeholder="Escribe tu mensaje..." />
+      <button type="submit" aria-label="Enviar">➤</button>
+    </form>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
+  <script src="js/main.js?v=5"></script>
+</body>
+</html>
