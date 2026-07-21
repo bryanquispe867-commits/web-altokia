@@ -333,7 +333,17 @@ const I18N = {
   }
 };
 
-let currentLang = localStorage.getItem('altok-lang') || 'es';
+/* Detecta el idioma configurado en el navegador/sistema operativo:
+   ES si el sistema está en español, EN si está en inglés, y EN por
+   defecto para cualquier otro idioma. Una elección manual guardada
+   en localStorage (el botón ES/EN del nav) siempre tiene prioridad. */
+function detectBrowserLang() {
+  const lang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+  if (lang.startsWith('es')) return 'es';
+  return 'en';
+}
+
+let currentLang = localStorage.getItem('altok-lang') || detectBrowserLang();
 
 function t(key) {
   return (I18N[currentLang] && I18N[currentLang][key]) || I18N.es[key] || key;
