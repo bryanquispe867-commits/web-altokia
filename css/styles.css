@@ -983,10 +983,14 @@ a.card {
 
 .project__top {
   display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
 }
+
+.project__icon { flex-shrink: 0; }
 
 .project__icon {
   position: relative;
@@ -1064,6 +1068,7 @@ a.card {
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 12px;
+  overflow-wrap: break-word;
 }
 
 .project__desc {
@@ -1071,6 +1076,7 @@ a.card {
   font-size: 0.93rem;
   flex-grow: 1;
   margin-bottom: 22px;
+  overflow-wrap: break-word;
 }
 
 .project__tags {
@@ -1291,6 +1297,7 @@ a.card {
 .service-row__title {
   font-size: 1.2rem;
   font-weight: 600;
+  overflow-wrap: break-word;
 }
 
 .service-row__tag {
@@ -2308,8 +2315,27 @@ body.chat-open .chatbot {
   .page-header { padding: 130px 16px 50px; }
   .stats--compact { padding: 24px 16px 72px; }
 
-  .nav__inner { padding: 0 16px; }
-  .nav__logo { font-size: 1.1rem; }
+  /* Barra superior: logo + tema + idioma + hamburguesa deben caber
+     sin desbordar en pantallas angostas (320-375px) */
+  .nav__inner { padding: 0 12px; }
+  .nav__logo { font-size: 0.95rem; gap: 5px; }
+  .nav__right { gap: 8px; }
+  .theme-toggle { width: 32px; height: 32px; font-size: 0.9rem; }
+  .lang-toggle { padding: 6px 10px; font-size: 0.7rem; gap: 4px; }
+  .nav__burger { padding: 6px; }
+
+  .project__top { gap: 8px; }
+  .project__icon { width: 52px; height: 52px; }
+  .project__icon svg { width: 24px; height: 24px; }
+  .project__sector { font-size: 0.64rem; padding: 5px 10px; }
+  .project__title { font-size: 1.1rem; }
+  .project__tags span { font-size: 0.64rem; padding: 4px 9px; }
+
+  .service-row { padding: 20px 18px; }
+  .service-row__icon { width: 46px; height: 46px; min-width: 46px; }
+  .service-row__icon svg { width: 22px; height: 22px; }
+  .service-row__title { font-size: 1.05rem; }
+  .service-row__tag { font-size: 0.7rem; padding: 4px 11px; }
 
   .hero { padding: 110px 16px 90px; }
 
