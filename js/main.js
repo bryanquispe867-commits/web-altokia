@@ -115,6 +115,9 @@ const I18N = {
     'projects.p6s': '⛏ Minería', 'projects.p6t': 'Onboarding de Proveedores',
     'projects.p6d': 'Portal web + flujo automatizado que valida documentación legal de proveedores, verifica vigencias y notifica vencimientos, eliminando el seguimiento manual por correo.',
     'projects.p6r': '▲ 80% menos correos de seguimiento',
+    'projects.p7s': '⚖ Legal (EE.UU.)', 'projects.p7t': 'Resumen Inteligente de Llamadas Legales',
+    'projects.p7d': 'IA que escucha las llamadas de los case managers con clientes de firmas de abogados en EE.UU. y extrae automáticamente el resumen de la conversación, tipo de caso, número de póliza, teléfono y demás datos clave — listos para el expediente, sin transcribir nada a mano.',
+    'projects.p7r': '▲ Documentación de llamadas 100% automática',
 
     'stack.tag': '// 05 — Stack',
     'stack.title': 'Tecnología que<br /><span class="text-gradient">domina el juego</span>',
@@ -275,6 +278,9 @@ const I18N = {
     'projects.p6s': '⛏ Mining', 'projects.p6t': 'Supplier Onboarding',
     'projects.p6d': 'Web portal + automated workflow that validates suppliers\' legal documentation, checks expiration dates and sends notifications, eliminating manual email follow-up.',
     'projects.p6r': '▲ 80% fewer follow-up emails',
+    'projects.p7s': '⚖ Legal (US)', 'projects.p7t': 'Smart Legal Call Summaries',
+    'projects.p7d': "AI that listens to case managers' calls with clients at US law firms and automatically extracts the call summary, case type, policy number, phone number and other key data — ready for the file, with nothing transcribed by hand.",
+    'projects.p7r': '▲ 100% automatic call documentation',
 
     'stack.tag': '// 05 — Stack',
     'stack.title': 'Technology that<br /><span class="text-gradient">owns the game</span>',
