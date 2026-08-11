@@ -602,30 +602,31 @@ body.cursor-hover .cursor-follower {
   100% { transform: translateY(0); opacity: 0; }
 }
 
-/* Fondo del hero: fotografía de marca (laptop + dashboard + métricas),
-   limpia y sin degradados encima. La legibilidad del texto la da el
-   propio espacio negativo de la foto + un text-shadow sutil (abajo). */
+/* Fondo del hero: video de marca, limpio y sin degradados encima.
+   La legibilidad del texto la da el propio espacio negativo del
+   video + un text-shadow sutil (abajo). */
 .hero__bg {
   position: absolute;
   inset: 0;
   z-index: -1;
   overflow: hidden;
-  background-image: url('../images/hero-bg.webp');
-  background-size: cover;
-  background-position: right center;
-  background-repeat: no-repeat;
+  background: var(--bg); /* se ve un instante mientras carga el video */
 }
 
-/* Tema claro: misma escena, versión clara (hero-bg2) — combina con el fondo blanco */
-[data-theme="light"] .hero__bg {
-  background-image: url('../images/hero-bg2.webp');
+.hero__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right center;
 }
 
 @media (max-width: 860px) {
   .hero__inner { align-items: center; text-align: center; }
   .hero__inner > * { max-width: 100%; }
 
-  .hero__bg { background-position: 68% center; }
+  .hero__video { object-position: 68% center; }
 }
 
 /* Orbes flotantes */

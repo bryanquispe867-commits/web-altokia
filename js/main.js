@@ -396,6 +396,17 @@ function applyLang() {
   }, 240);
 })();
 
+/* ══════════ 1b. VIDEO DEL HERO — respeta "reducir movimiento" ══════════ */
+(function heroVideo() {
+  const video = document.getElementById('heroVideo');
+  if (!video) return;
+
+  if (prefersReducedMotion) {
+    video.removeAttribute('autoplay');
+    video.pause();
+  }
+})();
+
 /* ══════════ 2. THREE.JS — FONDO DE PARTÍCULAS ══════════ */
 (function threeBackground() {
   const canvas = document.getElementById('webgl-bg');

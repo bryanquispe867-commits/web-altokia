@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=9" />
+  <link rel="stylesheet" href="css/styles.css?v=10" />
   <script>
     /* Aplica el tema ANTES de pintar la página (evita parpadeo y no
        depende de main.js): claro de 7:00 a 17:59, oscuro desde las 18:00 */
@@ -84,8 +84,12 @@
   <main>
     <!-- ══════════ HERO ══════════ -->
     <section class="hero" id="inicio">
-      <!-- Fondo del hero: fotografía de marca (ver css/styles.css → .hero__bg) -->
-      <div class="hero__bg" id="heroBg"></div>
+      <!-- Fondo del hero: video de marca (ver css/styles.css → .hero__bg) -->
+      <div class="hero__bg" id="heroBg">
+        <video class="hero__video" id="heroVideo" autoplay muted loop playsinline preload="auto" poster="images/hero-bg.webp">
+          <source src="images/video_altokia.mp4" type="video/mp4" />
+        </video>
+      </div>
 
       <div class="hero__inner">
         <div class="hero__badge reveal">
@@ -305,6 +309,6 @@
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
-  <script src="js/main.js?v=9"></script>
+  <script src="js/main.js?v=10"></script>
 </body>
 </html>
