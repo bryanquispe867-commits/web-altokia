@@ -309,9 +309,18 @@
             var suffix = el.getAttribute("data-suffix") || "";
             var prefix = el.getAttribute("data-prefix") || "";
             var dur = parseInt(el.getAttribute("data-duration") || "1900", 10);
+            var sep = el.hasAttribute("data-sep");
+
+            var fmt = function (n) {
+                var txt = n.toFixed(decimals);
+                if (sep) txt = Number(txt).toLocaleString("es-PE", {
+                    minimumFractionDigits: decimals, maximumFractionDigits: decimals
+                });
+                return prefix + txt + suffix;
+            };
 
             if (REDUCED) {
-                el.textContent = prefix + target.toFixed(decimals) + suffix;
+                el.textContent = fmt(target);
                 return;
             }
 
@@ -319,7 +328,7 @@
             (function tick(now) {
                 var p = Math.min((now - t0) / dur, 1);
                 var eased = 1 - Math.pow(1 - p, 4);
-                el.textContent = prefix + (target * eased).toFixed(decimals) + suffix;
+                el.textContent = fmt(target * eased);
                 if (p < 1) requestAnimationFrame(tick);
             })(t0);
         }
@@ -533,6 +542,8 @@
       14. Formularios (validación ligera + confirmación)
     ----------------------------------------------------------*/
     function initForms() {
+        var MAIL = "contacto@altokia.com";
+
         $$("form[data-ak-form]").forEach(function (form) {
             form.addEventListener("submit", function (e) {
                 e.preventDefault();
@@ -547,20 +558,27 @@
 
                 if (!ok) return;
 
-                var alertBox = $(".ak-alert", form);
-                var btn = form.querySelector("button[type=submit]");
-                var label = btn ? btn.innerHTML : "";
+                /* Compone el cuerpo con los campos rellenados */
+                var lineas = [];
+                $$("input[name], textarea[name], select[name]", form).forEach(function (field) {
+                    var val = field.value.trim();
+                    if (val) lineas.push(field.getAttribute("name") + ": " + val);
+                });
 
-                if (btn) {
-                    btn.disabled = true;
-                    btn.innerHTML = '<i class="fa fa-circle-notch fa-spin me-2"></i>Enviando...';
+                var asunto = form.getAttribute("data-subject") || "Consulta desde la web";
+                var href = "mailto:" + MAIL +
+                    "?subject=" + encodeURIComponent(asunto) +
+                    "&body=" + encodeURIComponent(lineas.join(String.fromCharCode(10)));
+
+                var alertBox = $(".ak-alert", form);
+                if (alertBox) {
+                    alertBox.innerHTML =
+                        '<i class="fa fa-envelope-open-text me-2"></i>Abrimos tu gestor de correo con el mensaje listo. ' +
+                        'Si no se abre, escríbenos a <a href="mailto:' + MAIL + '" style="color:inherit;text-decoration:underline">' + MAIL + '</a>.';
+                    alertBox.classList.add("show");
                 }
 
-                setTimeout(function () {
-                    if (btn) { btn.disabled = false; btn.innerHTML = label; }
-                    if (alertBox) alertBox.classList.add("show");
-                    form.reset();
-                }, 1100);
+                window.location.href = href;
             });
         });
     }
@@ -613,31 +631,6 @@
     }
 
     /*----------------------------------------------------------
-      17. Carrusel de testimonios (Owl)
-    ----------------------------------------------------------*/
-    function initCarousel() {
-        if (typeof window.jQuery === "undefined") return;
-        var $c = window.jQuery(".testimonial-carousel");
-        if (!$c.length || typeof $c.owlCarousel !== "function") return;
-
-        $c.owlCarousel({
-            autoplay: !REDUCED,
-            autoplayTimeout: 5200,
-            autoplayHoverPause: true,
-            smartSpeed: 900,
-            items: 1,
-            dots: false,
-            loop: true,
-            nav: true,
-            margin: 24,
-            navText: [
-                '<i class="bi bi-arrow-left"></i>',
-                '<i class="bi bi-arrow-right"></i>'
-            ]
-        });
-    }
-
-    /*----------------------------------------------------------
       Arranque
     ----------------------------------------------------------*/
     function boot() {
@@ -658,7 +651,6 @@
         initMobileNav();
         initCursor();
         initParticles();
-        initCarousel();
     }
 
     if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);

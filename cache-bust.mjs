@@ -17,7 +17,7 @@
 import fs from "node:fs";
 import crypto from "node:crypto";
 
-const ASSETS = ["css/style.css", "css/bootstrap.min.css", "js/main.js"];
+const ASSETS = ["css/style.css", "css/bootstrap.min.css", "js/main.js", "js/chatbot.js"];
 
 const hashes = new Map(
   ASSETS.map((file) => [
