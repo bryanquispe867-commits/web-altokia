@@ -1,368 +1,433 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="images/ALTOKIAV1.webp" type="image/webp" />
-  <title>Proyectos — ALTOKIA</title>
-  <meta name="description" content="Casos reales de automatización de ALTOKIA en minería, retail y banca: facturas, WhatsApp, conciliación bancaria, reportería y más, con resultados medibles." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=11" />
-  <script>
-    (function () {
-      try {
-        var saved = localStorage.getItem('altokia-theme');
-        var h = new Date().getHours();
-        var mode = saved || (h >= 7 && h < 18 ? 'light' : 'dark');
-        document.documentElement.setAttribute('data-theme', mode);
-      } catch (e) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-      }
-    })();
-  </script>
-</head>
-<body data-page="proyectos">
+  <head>
+    <meta charset="utf-8" />
+    <title>Casos de éxito — ALTOKIA</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="ALTOKIA, desarrollo de software, inteligencia artificial, cloud, devops, ciberseguridad" name="keywords" />
+    <meta content="Proyectos reales, resultados medidos y lo que opinan los equipos que trabajaron con nosotros." name="description" />
+    <meta name="theme-color" content="#05050C" />
 
-  <!-- ══════════ PRELOADER ══════════ -->
-  <div class="preloader" id="preloader">
-    <div class="preloader__logo">
-      <span class="preloader__letter">A</span><span class="preloader__letter">L</span><span class="preloader__letter">T</span><span class="preloader__letter preloader__letter--o">O</span><span class="preloader__letter preloader__letter--k">K</span><span class="preloader__letter">I</span><span class="preloader__letter">A</span>
-    </div>
-    <div class="preloader__acronym" data-i18n="brand.acronym">Automatización & Lógica · Tecnología · Operaciones · Conocimiento</div>
-    <div class="preloader__bar"><div class="preloader__bar-fill" id="preloaderBar"></div></div>
-    <div class="preloader__status" id="preloaderStatus">Inicializando sistemas...</div>
-  </div>
+    <!-- Favicon -->
+    <link href="images/favicon.svg" rel="icon" type="image/svg+xml" />
+    <link href="images/ALTOKIAV1.webp" rel="apple-touch-icon" />
 
-  <!-- ══════════ CURSOR PERSONALIZADO ══════════ -->
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-follower" id="cursorFollower"></div>
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- ══════════ BARRA DE PROGRESO DE SCROLL ══════════ -->
-  <div class="scroll-progress" id="scrollProgress"></div>
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
 
-  <!-- ══════════ CANVAS THREE.JS (fondo global) ══════════ -->
-  <canvas id="webgl-bg"></canvas>
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
 
-  <!-- ══════════ NAVEGACIÓN ══════════ -->
-  <header class="nav" id="nav">
-    <div class="nav__inner">
-      <a href="index.html" class="nav__logo" data-magnetic data-i18n-title="brand.acronym" title="Automatización & Lógica · Tecnología · Operaciones · Conocimiento">
-        <span class="nav__logo-mark">◆</span><span class="nav__logo-text">ALT<span class="logo-o">O</span><span class="logo-k">K</span>IA</span>
-      </a>
-      <nav class="nav__links" id="navLinks">
-        <a href="index.html" class="nav__link" data-page="inicio" data-i18n="nav.inicio">Inicio</a>
-        <a href="nosotros.html" class="nav__link" data-page="nosotros" data-i18n="nav.nosotros">Nosotros</a>
-        <a href="servicios.html" class="nav__link" data-page="servicios" data-i18n="nav.servicios">Servicios</a>
-        <a href="proyectos.html" class="nav__link" data-page="proyectos" data-i18n="nav.proyectos">Proyectos</a>
-        <a href="contacto.html" class="nav__cta" data-magnetic><span data-i18n="nav.cta">Hablemos</span> <span class="nav__cta-arrow">→</span></a>
-      </nav>
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
 
-      <div class="nav__right">
-        <!-- Tema claro/oscuro -->
-        <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema / Toggle theme" data-magnetic>
-          <span id="themeIcon">☀</span>
-        </button>
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet" />
 
-        <!-- Selector de idioma -->
-        <button class="lang-toggle" id="langToggle" aria-label="Cambiar idioma / Switch language" data-magnetic>
-          <span class="lang-toggle__opt is-active" data-lang="es">ES</span>
-          <span class="lang-toggle__divider">/</span>
-          <span class="lang-toggle__opt" data-lang="en">EN</span>
-        </button>
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+  </head>
 
-        <button class="nav__burger" id="navBurger" aria-label="Menú">
-          <span></span><span></span><span></span>
-        </button>
+  <body>
+<!-- Spinner Start -->
+    <div id="spinner" class="show">
+      <div class="ak-loader">
+        <span></span><span></span><span></span>
+        <div class="ak-loader-label ak-mono">Inicializando ALTOKIA</div>
       </div>
     </div>
-  </header>
+    <!-- Spinner End -->
 
-  <main>
-    <!-- ══════════ BANNER DE PÁGINA ══════════ -->
-    <section class="page-header">
-      <div class="page-header__grid"></div>
-      <span class="page-header__tag reveal" data-i18n="proyectos.pageTag">// Proyectos</span>
-      <h1 class="page-header__title reveal" data-i18n="proyectos.pageTitle">Automatizaciones que ya<br /><span class="text-gradient">trabajan por nuestros clientes</span></h1>
-      <p class="page-header__sub reveal" data-i18n="proyectos.pageSub">Casos reales en minería, retail y banca — con resultados medibles desde la primera semana.</p>
-    </section>
-
-    <!-- ══════════ PROYECTOS ══════════ -->
-    <section class="section projects" id="proyectos">
-      <div class="projects__grid">
-        <article class="project reveal" data-tilt>
-          <div class="card__shine"></div>
-          <div class="project__top">
-            <span class="project__icon">
-              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <linearGradient id="pg1" x1="8" y1="4" x2="40" y2="44" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#00e5ff"/><stop offset="1" stop-color="#7c4dff"/>
-                  </linearGradient>
-                </defs>
-                <path d="M12 6h17l7 7v29H12V6z" stroke="url(#pg1)" stroke-width="2.4" stroke-linejoin="round"/>
-                <path d="M29 6v7h7" stroke="url(#pg1)" stroke-width="2.4" stroke-linejoin="round"/>
-                <path d="M17 20h14M17 26h14M17 32h8" stroke="url(#pg1)" stroke-width="2.4" stroke-linecap="round"/>
-                <circle cx="34" cy="36" r="7.5" fill="#05060f" stroke="#ff2d92" stroke-width="2.2"/>
-                <path d="M31 36l2.2 2.2L37.5 34" stroke="#ff2d92" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </span>
-            <span class="project__sector" data-i18n="projects.p1s">⛏ Minería</span>
-          </div>
-          <h3 class="project__title" data-i18n="projects.p1t">Facturas & Órdenes de Compra</h3>
-          <p class="project__desc" data-i18n="projects.p1d">Bot RPA que lee facturas y OC con OCR, valida montos contra el ERP, detecta inconsistencias y registra todo automáticamente. De 3 días de trabajo manual a 20 minutos.</p>
-          <div class="project__tags">
-            <span>Automation Anywhere</span><span>OCR</span><span>SAP</span>
-          </div>
-          <div class="project__result" data-i18n="projects.p1r">▲ 94% menos tiempo de procesamiento</div>
-        </article>
-
-        <article class="project reveal" data-tilt>
-          <div class="card__shine"></div>
-          <div class="project__top">
-            <span class="project__icon">
-              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <linearGradient id="pg2" x1="6" y1="6" x2="42" y2="42" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#00e5ff"/><stop offset="1" stop-color="#7c4dff"/>
-                  </linearGradient>
-                </defs>
-                <path d="M24 7C14.6 7 7 13.9 7 22.4c0 4.9 2.5 9.2 6.4 12L11 41l8.1-3.3c1.6.4 3.2.6 4.9.6 9.4 0 17-6.9 17-15.4S33.4 7 24 7z" stroke="url(#pg2)" stroke-width="2.4" stroke-linejoin="round"/>
-                <circle cx="17" cy="23" r="2.2" fill="#00e5ff"/>
-                <circle cx="24" cy="23" r="2.2" fill="#7c4dff"/>
-                <circle cx="31" cy="23" r="2.2" fill="#ff2d92"/>
-                <path d="M38 4l1.2 3 3 1.2-3 1.2L38 12.4l-1.2-3-3-1.2 3-1.2L38 4z" fill="#ff2d92"/>
-              </svg>
-            </span>
-            <span class="project__sector" data-i18n="projects.p2s">🛒 Retail</span>
-          </div>
-          <h3 class="project__title" data-i18n="projects.p2t">Bot de WhatsApp Inteligente</h3>
-          <p class="project__desc" data-i18n="projects.p2d">Asistente conversacional que atiende consultas, toma pedidos, consulta stock en tiempo real y deriva a un humano solo cuando hace falta. Disponible 24/7, sin filas de espera.</p>
-          <div class="project__tags">
-            <span>WhatsApp API</span><span>IA</span><span>Python</span>
-          </div>
-          <div class="project__result" data-i18n="projects.p2r">▲ 6x más consultas atendidas</div>
-        </article>
-
-        <article class="project reveal" data-tilt>
-          <div class="card__shine"></div>
-          <div class="project__top">
-            <span class="project__icon">
-              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <linearGradient id="pg3" x1="6" y1="4" x2="42" y2="44" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#00e5ff"/><stop offset="1" stop-color="#7c4dff"/>
-                  </linearGradient>
-                </defs>
-                <path d="M16 10V5h18v28h-5" stroke="url(#pg3)" stroke-width="2.4" stroke-linejoin="round" opacity="0.55"/>
-                <rect x="9" y="10" width="18" height="28" rx="2" stroke="url(#pg3)" stroke-width="2.4"/>
-                <path d="M14 18h8M14 24h8M14 30h5" stroke="url(#pg3)" stroke-width="2.2" stroke-linecap="round"/>
-                <circle cx="34" cy="35" r="8" fill="#05060f" stroke="#ff2d92" stroke-width="2.2"/>
-                <circle cx="34" cy="35" r="2.6" stroke="#ff2d92" stroke-width="2"/>
-                <path d="M34 29.6v2M34 38.4v2M39.4 35h-2M30.6 35h-2M37.8 31.2l-1.4 1.4M31.6 37.4l-1.4 1.4M37.8 38.8l-1.4-1.4M31.6 32.6l-1.4-1.4" stroke="#ff2d92" stroke-width="1.8" stroke-linecap="round"/>
-              </svg>
-            </span>
-            <span class="project__sector" data-i18n="projects.p3s">🏦 Banca</span>
-          </div>
-          <h3 class="project__title" data-i18n="projects.p3t">Automatización de Documentos</h3>
-          <p class="project__desc" data-i18n="projects.p3d">Generación, clasificación y firma de contratos y documentos regulatorios de forma masiva, con trazabilidad completa y cero errores de tipeo.</p>
-          <div class="project__tags">
-            <span>Power Automate</span><span>IA Documental</span><span>Firma Digital</span>
-          </div>
-          <div class="project__result" data-i18n="projects.p3r">▲ 12,000 documentos/mes sin intervención</div>
-        </article>
-
-        <article class="project reveal" data-tilt>
-          <div class="card__shine"></div>
-          <div class="project__top">
-            <span class="project__icon">
-              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <linearGradient id="pg4" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#00e5ff"/><stop offset="1" stop-color="#7c4dff"/>
-                  </linearGradient>
-                </defs>
-                <path d="M39 20a15.5 15.5 0 00-27.6-5.5" stroke="url(#pg4)" stroke-width="2.6" stroke-linecap="round"/>
-                <path d="M11 6.5v8h8" stroke="url(#pg4)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M9 28a15.5 15.5 0 0027.6 5.5" stroke="url(#pg4)" stroke-width="2.6" stroke-linecap="round"/>
-                <path d="M37 41.5v-8h-8" stroke="url(#pg4)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
-                <circle cx="24" cy="24" r="7.5" stroke="#ff2d92" stroke-width="2.2"/>
-                <path d="M24 20v8M21.8 22h3.4a1.8 1.8 0 010 3.6h-2.4a1.8 1.8 0 000 3.6h3.4" stroke="#ff2d92" stroke-width="1.9" stroke-linecap="round" fill="none"/>
-              </svg>
-            </span>
-            <span class="project__sector" data-i18n="projects.p4s">🏦 Banca</span>
-          </div>
-          <h3 class="project__title" data-i18n="projects.p4t">Conciliación Bancaria Automática</h3>
-          <p class="project__desc" data-i18n="projects.p4d">Robot que cruza extractos bancarios contra registros contables cada noche, concilia partidas y genera el reporte de excepciones listo para revisión matutina.</p>
-          <div class="project__tags">
-            <span>Python</span><span>RPA</span><span>Excel/ERP</span>
-          </div>
-          <div class="project__result" data-i18n="projects.p4r">▲ Cierre contable 5 días más rápido</div>
-        </article>
-
-        <article class="project reveal" data-tilt>
-          <div class="card__shine"></div>
-          <div class="project__top">
-            <span class="project__icon">
-              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <linearGradient id="pg5" x1="6" y1="42" x2="42" y2="6" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#00e5ff"/><stop offset="1" stop-color="#7c4dff"/>
-                  </linearGradient>
-                </defs>
-                <path d="M7 6v34a2 2 0 002 2h34" stroke="url(#pg5)" stroke-width="2.6" stroke-linecap="round"/>
-                <rect x="13" y="27" width="6" height="10" rx="1.5" fill="rgba(0,229,255,0.25)" stroke="#00e5ff" stroke-width="2"/>
-                <rect x="23" y="21" width="6" height="16" rx="1.5" fill="rgba(124,77,255,0.25)" stroke="#7c4dff" stroke-width="2"/>
-                <rect x="33" y="14" width="6" height="23" rx="1.5" fill="rgba(255,45,146,0.22)" stroke="#ff2d92" stroke-width="2"/>
-                <path d="M14 16l8-6 7 4 10-8" stroke="url(#pg5)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M39 4h4v4" stroke="url(#pg5)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </span>
-            <span class="project__sector" data-i18n="projects.p5s">🛒 Retail</span>
-          </div>
-          <h3 class="project__title" data-i18n="projects.p5t">Reportería Automática de Ventas</h3>
-          <p class="project__desc" data-i18n="projects.p5d">Pipeline que consolida ventas de todas las tiendas y canales, y envía dashboards e informes ejecutivos por correo y WhatsApp antes de que empiece el día.</p>
-          <div class="project__tags">
-            <span>Power Automate</span><span>Power BI</span><span>APIs</span>
-          </div>
-          <div class="project__result" data-i18n="projects.p5r">▲ Decisiones con datos del día anterior</div>
-        </article>
-
-        <article class="project reveal" data-tilt>
-          <div class="card__shine"></div>
-          <div class="project__top">
-            <span class="project__icon">
-              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <linearGradient id="pg6" x1="4" y1="24" x2="44" y2="24" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#00e5ff"/><stop offset="1" stop-color="#7c4dff"/>
-                  </linearGradient>
-                </defs>
-                <path d="M13 15l11-5 11 5M9 30l6 5M39 30l-6 5" stroke="url(#pg6)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
-                <circle cx="24" cy="9" r="4.5" stroke="url(#pg6)" stroke-width="2.4"/>
-                <circle cx="8" cy="27" r="4.5" stroke="#00e5ff" stroke-width="2.4"/>
-                <circle cx="40" cy="27" r="4.5" stroke="#7c4dff" stroke-width="2.4"/>
-                <path d="M12 27h24M24 13.5V22" stroke="url(#pg6)" stroke-width="2" stroke-linecap="round" stroke-dasharray="3 4"/>
-                <circle cx="24" cy="36" r="8" fill="#05060f" stroke="#ff2d92" stroke-width="2.2"/>
-                <path d="M20.5 36l2.4 2.4 4.6-4.8" stroke="#ff2d92" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </span>
-            <span class="project__sector" data-i18n="projects.p6s">⛏ Minería</span>
-          </div>
-          <h3 class="project__title" data-i18n="projects.p6t">Onboarding de Proveedores</h3>
-          <p class="project__desc" data-i18n="projects.p6d">Portal web + flujo automatizado que valida documentación legal de proveedores, verifica vigencias y notifica vencimientos, eliminando el seguimiento manual por correo.</p>
-          <div class="project__tags">
-            <span>Desarrollo Web</span><span>Automation Anywhere</span><span>Notificaciones</span>
-          </div>
-          <div class="project__result" data-i18n="projects.p6r">▲ 80% menos correos de seguimiento</div>
-        </article>
-
-        <article class="project reveal" data-tilt>
-          <div class="card__shine"></div>
-          <div class="project__top">
-            <span class="project__icon">
-              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <linearGradient id="pg7" x1="6" y1="6" x2="42" y2="42" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#00e5ff"/><stop offset="1" stop-color="#7c4dff"/>
-                  </linearGradient>
-                </defs>
-                <path d="M10 8c1-2 4-2 5 0l2 4c1 2 0 3-1 4l-1.5 1.2c1.2 3 3.8 5.6 6.8 6.8L22.5 22c1-1 2-2 4-1l4 2c2 1 2 4 0 5-6 5-17-6-12-12z" stroke="url(#pg7)" stroke-width="2.2" stroke-linejoin="round"/>
-                <path d="M30 12c2 1.4 2 6.6 0 8M34 9c3.6 2.4 3.6 11.6 0 14" stroke="url(#pg7)" stroke-width="2" stroke-linecap="round"/>
-                <circle cx="34" cy="35" r="7.5" fill="#05060f" stroke="#ff2d92" stroke-width="2.2"/>
-                <path d="M31 35l2.2 2.2L37.5 33" stroke="#ff2d92" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </span>
-            <span class="project__sector" data-i18n="projects.p7s">⚖ Legal (EE.UU.)</span>
-          </div>
-          <h3 class="project__title" data-i18n="projects.p7t">Resumen Inteligente de Llamadas Legales</h3>
-          <p class="project__desc" data-i18n="projects.p7d">IA que escucha las llamadas de los case managers con clientes de firmas de abogados en EE.UU. y extrae automáticamente el resumen de la conversación, tipo de caso, número de póliza, teléfono y demás datos clave — listos para el expediente, sin transcribir nada a mano.</p>
-          <div class="project__tags">
-            <span>Speech-to-Text</span><span>IA</span><span>NLP</span>
-          </div>
-          <div class="project__result" data-i18n="projects.p7r">▲ Documentación de llamadas 100% automática</div>
-        </article>
-      </div>
-    </section>
-
-    <!-- ══════════ CTA FINAL (enlaza a Contacto) ══════════ -->
-    <section class="section cta">
-      <div class="cta__box reveal">
-        <div class="cta__grid-bg"></div>
-        <h2 class="cta__title" data-i18n="home.ctaTitle">¿Listo para <span class="text-gradient">automatizar</span><br />tu próximo gran salto?</h2>
-        <p class="cta__desc" data-i18n="home.ctaDesc">Cuéntanos tu caso en una consultoría gratuita de 30 minutos. Te mostramos exactamente dónde puedes ganar eficiencia.</p>
-        <a href="contacto.html" class="btn btn--primary btn--lg" data-magnetic>
-          <span class="btn__text" data-i18n="home.ctaBtn">Hablemos ✦</span>
-          <span class="btn__glow"></span>
-        </a>
-        <div class="cta__meta">
-          <span data-i18n="contact.meta1">◆ Respuesta en menos de 24h</span>
-          <span data-i18n="contact.meta2">◆ Sin compromiso</span>
+<!-- Topbar Start -->
+    <div class="container-fluid ak-topbar px-lg-5 d-none d-lg-block">
+      <div class="row gx-0 align-items-center">
+        <div class="col-lg-7 text-start py-2">
+          <a href="tel:+3491000000" class="me-4"><i class="fa fa-phone-alt me-2 text-primary"></i>+34 910 000 000</a>
+          <a href="mailto:hola@altokia.com" class="me-4"><i class="far fa-envelope-open me-2 text-primary"></i>hola@altokia.com</a>
+          <span class="d-none d-xl-inline-block"><i class="far fa-clock me-2 text-primary"></i>Lun - Vie : 09:00 - 19:00</span>
+        </div>
+        <div class="col-lg-5 text-end py-2">
+          <span class="ak-status ak-mono me-4"><i></i>Sistemas operativos · 99.98%</span>
+          <a class="me-3" href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a class="me-3" href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a class="me-3" href="#" aria-label="X"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
         </div>
       </div>
-    </section>
-  </main>
+    </div>
+    <!-- Topbar End -->
 
-  <!-- ══════════ FOOTER ══════════ -->
-  <footer class="footer">
-    <div class="footer__inner">
-      <div class="footer__brand">
-        <span class="nav__logo-mark">◆</span> ALT<span class="logo-o">O</span><span class="logo-k">K</span>IA
-        <p class="footer__acronym" data-i18n="brand.acronym">Automatización & Lógica · Tecnología · Operaciones · Conocimiento</p>
-        <p data-i18n="footer.tagline">Tecnología que trabaja mientras tú creces.</p>
+<!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top px-4 px-lg-5 py-3 py-lg-0">
+      <a href="index.html" class="navbar-brand d-flex align-items-center gap-2">
+        <img src="images/logo-mark.svg" alt="ALTOKIA" />
+        <span class="ak-wordmark">ALT<span class="ok">OK</span>IA</span>
+      </a>
+      <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ms-auto py-3 py-lg-0 align-items-lg-center">
+          <a href="index.html" class="nav-item nav-link">Inicio</a>
+          <a href="nosotros.html" class="nav-item nav-link">Nosotros</a>
+          <a href="servicios.html" class="nav-item nav-link">Servicios</a>
+          <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Recursos</a>
+            <div class="dropdown-menu m-0">
+              <a href="por-que-altokia.html" class="dropdown-item">Por qué ALTOKIA</a>
+              <a href="equipo.html" class="dropdown-item">Equipo</a>
+              <a href="proyectos.html" class="dropdown-item">Casos de éxito</a>
+              <a href="agenda.html" class="dropdown-item">Agenda una demo</a>
+              <a href="404.html" class="dropdown-item">Error 404</a>
+            </div>
+          </div>
+          <a href="contacto.html" class="nav-item nav-link">Contacto</a>
+          <a href="agenda.html" class="btn btn-primary px-4 py-2 ms-lg-4 my-3 my-lg-0">Agenda una demo</a>
+        </div>
       </div>
-      <div class="footer__links">
-        <a href="nosotros.html" data-i18n="nav.nosotros">Nosotros</a>
-        <a href="servicios.html" data-i18n="nav.servicios">Servicios</a>
-        <a href="proyectos.html" data-i18n="nav.proyectos">Proyectos</a>
-        <a href="servicios.html#tecnologias" data-i18n="nav.stack">Stack</a>
-        <a href="nosotros.html#resultados" data-i18n="nav.resultados">Resultados</a>
-        <a href="contacto.html" data-i18n="footer.contacto">Contacto</a>
-        <a href="https://www.linkedin.com/company/altokia" target="_blank" rel="noopener" class="footer__social">LinkedIn ↗</a>
-      </div>
-      <div class="footer__bottom">
-        <span data-i18n="footer.rights">© 2026 ALTOKIA — Todos los derechos reservados</span>
-        <span class="footer__status"><span class="footer__pulse"></span> <span data-i18n="footer.status">Sistemas operativos</span></span>
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header">
+      <div class="container">
+        <div class="row justify-content-center text-center">
+          <div class="col-lg-9">
+            <span class="ak-mono text-primary d-block mb-3" data-reveal>Casos de éxito</span>
+            <h1 class="display-4 mb-4" data-reveal data-delay="80">Proyectos que siguen<br /><span class="ak-gradient-text">funcionando años después</span></h1>
+            <nav aria-label="breadcrumb" data-reveal data-delay="160">
+              <ol class="breadcrumb justify-content-center mb-0">
+                <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Casos de éxito</li>
+              </ol>
+            </nav>
+          </div>
+        </div>
       </div>
     </div>
-  </footer>
+    <!-- Page Header End -->
 
-  <!-- ══════════ BOTONES FLOTANTES ══════════ -->
-  <div class="fab-stack" id="fabStack">
-    <a href="https://wa.me/51904608141?text=Hola%20ALTOKIA%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios"
-       target="_blank" rel="noopener" class="fab fab--wa" id="fabWa" aria-label="WhatsApp">
-      <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.074-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      <span class="fab__tooltip" data-i18n="fab.wa">¡Escríbenos!</span>
-    </a>
+    <!-- Cases Start -->
+    <div class="container-xxl ak-section">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-4 col-md-6" data-reveal data-delay="0">
+            <div class="ak-case">
+              <div class="ak-case-visual"><i class="fa fa-university"></i></div>
+              <div class="ak-case-body">
+                <div class="d-flex gap-2 mb-3 flex-wrap">
+                  <span class="ak-tag">AWS</span><span class="ak-tag">Kotlin</span><span class="ak-tag">Kafka</span>
+                </div>
+                <h5 class="mb-3">Core bancario en la nube</h5>
+                <p class="mb-4">Migración de un núcleo transaccional de veinte años a arquitectura de eventos multi-región, sin cortar el servicio.</p>
+                <div class="d-flex align-items-center gap-3">
+                  <span class="h4 mb-0 ak-gradient-text">-63%</span><small>latencia en operaciones críticas</small>
+                </div>
+              </div>
+            </div>
+          </div>
 
-    <button class="fab fab--chat" id="chatToggle" aria-label="Chatbot">
-      <span class="fab--chat-open">🤖</span>
-      <span class="fab--chat-close">✕</span>
-      <span class="fab__tooltip" data-i18n="fab.bot">Asistente virtual</span>
-      <span class="fab__ping"></span>
-    </button>
-  </div>
+          <div class="col-lg-4 col-md-6" data-reveal data-delay="90">
+            <div class="ak-case">
+              <div class="ak-case-visual"><i class="fa fa-shopping-bag"></i></div>
+              <div class="ak-case-body">
+                <div class="d-flex gap-2 mb-3 flex-wrap">
+                  <span class="ak-tag">Python</span><span class="ak-tag">RAG</span><span class="ak-tag">GCP</span>
+                </div>
+                <h5 class="mb-3">Motor de recomendación con IA</h5>
+                <p class="mb-4">Personalización en tiempo real para un retailer con cuatro millones de referencias y picos de Black Friday.</p>
+                <div class="d-flex align-items-center gap-3">
+                  <span class="h4 mb-0 ak-gradient-text">+28%</span><small>conversión en ficha de producto</small>
+                </div>
+              </div>
+            </div>
+          </div>
 
-  <!-- ══════════ CHATBOT ══════════ -->
-  <div class="chatbot" id="chatbot" aria-hidden="true">
-    <div class="chatbot__header">
-      <div class="chatbot__avatar">🤖</div>
-      <div class="chatbot__head-info">
-        <strong>ALTO<span class="accent">bot</span></strong>
-        <span class="chatbot__status"><span class="chatbot__status-dot"></span><span data-i18n="bot.online">En línea — responde al instante</span></span>
+          <div class="col-lg-4 col-md-6" data-reveal data-delay="180">
+            <div class="ak-case">
+              <div class="ak-case-visual"><i class="fa fa-heartbeat"></i></div>
+              <div class="ak-case-body">
+                <div class="d-flex gap-2 mb-3 flex-wrap">
+                  <span class="ak-tag">React Native</span><span class="ak-tag">GDPR</span><span class="ak-tag">WebRTC</span>
+                </div>
+                <h5 class="mb-3">Plataforma de telemedicina</h5>
+                <p class="mb-4">Videoconsulta cifrada, historial clínico y recetas digitales en una app usada en cinco países.</p>
+                <div class="d-flex align-items-center gap-3">
+                  <span class="h4 mb-0 ak-gradient-text">1.2M</span><small>consultas atendidas al año</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-reveal data-delay="0">
+            <div class="ak-case">
+              <div class="ak-case-visual"><i class="fa fa-truck"></i></div>
+              <div class="ak-case-body">
+                <div class="d-flex gap-2 mb-3 flex-wrap">
+                  <span class="ak-tag">Go</span><span class="ak-tag">Kubernetes</span><span class="ak-tag">IoT</span>
+                </div>
+                <h5 class="mb-3">Trazabilidad logística</h5>
+                <p class="mb-4">Seguimiento en tiempo real de 18.000 vehículos con predicción de retrasos y reasignación automática de rutas.</p>
+                <div class="d-flex align-items-center gap-3">
+                  <span class="h4 mb-0 ak-gradient-text">-41%</span><small>incidencias de entrega</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-reveal data-delay="90">
+            <div class="ak-case">
+              <div class="ak-case-visual"><i class="fa fa-industry"></i></div>
+              <div class="ak-case-body">
+                <div class="d-flex gap-2 mb-3 flex-wrap">
+                  <span class="ak-tag">Visión</span><span class="ak-tag">Edge</span><span class="ak-tag">PyTorch</span>
+                </div>
+                <h5 class="mb-3">Control de calidad industrial</h5>
+                <p class="mb-4">Inspección visual en línea de producción con modelos en el borde y reentrenamiento semanal automatizado.</p>
+                <div class="d-flex align-items-center gap-3">
+                  <span class="h4 mb-0 ak-gradient-text">99.4%</span><small>precisión en detección de defectos</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-reveal data-delay="180">
+            <div class="ak-case">
+              <div class="ak-case-visual"><i class="fa fa-bolt"></i></div>
+              <div class="ak-case-body">
+                <div class="d-flex gap-2 mb-3 flex-wrap">
+                  <span class="ak-tag">Terraform</span><span class="ak-tag">FinOps</span><span class="ak-tag">Azure</span>
+                </div>
+                <h5 class="mb-3">Optimización de coste cloud</h5>
+                <p class="mb-4">Auditoría e infraestructura como código para una utility energética con 400 servicios en producción.</p>
+                <div class="d-flex align-items-center gap-3">
+                  <span class="h4 mb-0 ak-gradient-text">-35%</span><small>en factura mensual de cloud</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <button class="chatbot__minimize" id="chatMinimize" aria-label="Cerrar chat">─</button>
     </div>
-    <div class="chatbot__messages" id="chatMessages"></div>
-    <div class="chatbot__options" id="chatOptions"></div>
-    <form class="chatbot__inputbar" id="chatForm" autocomplete="off">
-      <input type="text" id="chatInput" data-i18n-placeholder="bot.placeholder" placeholder="Escribe tu mensaje..." />
-      <button type="submit" aria-label="Enviar">➤</button>
-    </form>
-  </div>
+    <!-- Cases End -->
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
-  <script src="js/main.js?v=11"></script>
-</body>
+    <!-- Testimonial Start -->
+    <div class="container-fluid ak-section" style="background: var(--ak-bg-2); border-block: 1px solid var(--ak-line)">
+      <div class="container">
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-5" data-reveal="left">
+            <div class="ak-heading mb-4">
+              <span class="ak-mono">Testimonios</span>
+              <h2 class="display-6 mb-0">En palabras de <span class="ak-gradient-text">quien lo vivió</span></h2>
+            </div>
+            <p class="mb-4">
+              Puedes hablar directamente con cualquiera de ellos: te ponemos en
+              contacto sin intermediarios.
+            </p>
+            <div class="row g-4">
+              <div class="col-sm-6">
+                <div class="d-flex align-items-center gap-3 mb-2">
+                  <i class="fa fa-users fa-2x text-primary"></i>
+                  <span class="h3 mb-0"><span data-count="82">0</span>%</span>
+                </div>
+                <h6 class="mb-0">Clientes que repiten</h6>
+              </div>
+              <div class="col-sm-6">
+                <div class="d-flex align-items-center gap-3 mb-2">
+                  <i class="fa fa-award fa-2x text-primary"></i>
+                  <span class="h3 mb-0"><span data-count="4.9" data-decimals="1">0</span></span>
+                </div>
+                <h6 class="mb-0">Valoración media</h6>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-7" data-reveal="right" data-delay="120">
+            <div class="owl-carousel testimonial-carousel">
+              <div class="ak-quote">
+                <div class="ak-stars mb-3">★★★★★</div>
+                <p class="fs-5 mb-4">
+                  Pasamos de desplegar una vez al mes a hacerlo a diario. ALTOKIA no
+                  solo nos entregó una plataforma: nos dejó un equipo capaz de
+                  mantenerla y evolucionarla.
+                </p>
+                <div class="d-flex align-items-center gap-3">
+                  <div class="ak-quote-avatar">MR</div>
+                  <div>
+                    <h6 class="mb-0">María Ruiz</h6>
+                    <small class="ak-mono" style="color: var(--ak-dim)">CTO · Fintech Nova</small>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ak-quote">
+                <div class="ak-stars mb-3">★★★★★</div>
+                <p class="fs-5 mb-4">
+                  Nos daba miedo el proyecto de IA porque veníamos de dos intentos
+                  fallidos. En diez semanas teníamos un asistente en producción y
+                  métricas que lo justificaban.
+                </p>
+                <div class="d-flex align-items-center gap-3">
+                  <div class="ak-quote-avatar">DL</div>
+                  <div>
+                    <h6 class="mb-0">Daniel López</h6>
+                    <small class="ak-mono" style="color: var(--ak-dim)">Director de Operaciones · Grupo Vertex</small>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ak-quote">
+                <div class="ak-stars mb-3">★★★★★</div>
+                <p class="fs-5 mb-4">
+                  La transparencia es lo que más valoro. Sabíamos en qué estaba cada
+                  euro y cada sprint terminaba con algo funcionando, no con una
+                  presentación bonita.
+                </p>
+                <div class="d-flex align-items-center gap-3">
+                  <div class="ak-quote-avatar">CS</div>
+                  <div>
+                    <h6 class="mb-0">Carla Sández</h6>
+                    <small class="ak-mono" style="color: var(--ak-dim)">CEO · Medilink</small>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ak-quote">
+                <div class="ak-stars mb-3">★★★★★</div>
+                <p class="fs-5 mb-4">
+                  Auditaron un sistema que llevaba dos años dándonos problemas y en
+                  tres semanas señalaron la causa raíz. Nadie lo había hecho antes
+                  con esa claridad.
+                </p>
+                <div class="d-flex align-items-center gap-3">
+                  <div class="ak-quote-avatar">TP</div>
+                  <div>
+                    <h6 class="mb-0">Tomás Prieto</h6>
+                    <small class="ak-mono" style="color: var(--ak-dim)">Director de IT · Grupo Aurora</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Testimonial End -->
+
+    <!-- CTA Start -->
+    <div class="container-xxl ak-section pt-0">
+      <div class="container">
+        <div class="ak-cta text-center" data-reveal="zoom">
+          <span class="ak-mono text-primary d-block mb-3">Siguiente paso</span>
+          <h2 class="display-6 mb-4">Cuéntanos qué quieres construir<br /><span class="ak-gradient-text">y te decimos cómo hacerlo</span></h2>
+          <p class="ak-lead mb-5 mx-auto" style="max-width: 620px">
+            Una llamada de 30 minutos basta para saber si encajamos. Sin compromiso
+            y sin presentaciones de 80 diapositivas.
+          </p>
+          <div class="d-flex flex-wrap justify-content-center gap-3">
+            <a href="agenda.html" class="btn btn-primary py-3 px-5" data-magnetic>Agenda una demo<i class="fa fa-arrow-right ms-3"></i></a>
+            <a href="contacto.html" class="btn btn-outline-primary py-3 px-5">Escríbenos</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- CTA End -->
+
+<!-- Footer Start -->
+    <div class="container-fluid footer pt-5" data-reveal>
+      <div class="container py-5">
+        <div class="row g-5">
+          <div class="col-lg-4 col-md-6">
+            <a href="index.html" class="d-inline-flex align-items-center gap-2 mb-4">
+              <img src="images/logo-mark.svg" alt="ALTOKIA" height="32" />
+              <span class="ak-wordmark">ALT<span class="ok">OK</span>IA</span>
+            </a>
+            <p>
+              Ingeniería de software, cloud e inteligencia artificial para empresas
+              que quieren mover el negocio con tecnología, no solo mantenerlo.
+            </p>
+            <div class="d-flex gap-2 pt-2">
+              <a class="ak-social" href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <a class="ak-social" href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+              <a class="ak-social" href="#" aria-label="X"><i class="fab fa-twitter"></i></a>
+              <a class="ak-social" href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-6">
+            <h5 class="footer-title">Servicios</h5>
+            <a class="btn btn-link" href="servicios.html">Software a medida</a>
+            <a class="btn btn-link" href="servicios.html">Inteligencia artificial</a>
+            <a class="btn btn-link" href="servicios.html">Cloud &amp; DevOps</a>
+            <a class="btn btn-link" href="servicios.html">Ciberseguridad</a>
+            <a class="btn btn-link" href="servicios.html">Diseño de producto</a>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <h5 class="footer-title">Compañía</h5>
+            <a class="btn btn-link" href="nosotros.html">Sobre ALTOKIA</a>
+            <a class="btn btn-link" href="equipo.html">Equipo</a>
+            <a class="btn btn-link" href="proyectos.html">Casos de éxito</a>
+            <a class="btn btn-link" href="por-que-altokia.html">Por qué ALTOKIA</a>
+            <a class="btn btn-link" href="contacto.html">Contacto</a>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <h5 class="footer-title">Newsletter</h5>
+            <p>Una vez al mes: arquitectura, IA aplicada y aprendizajes de proyectos reales.</p>
+            <form data-ak-form novalidate>
+              <div class="position-relative">
+                <input class="form-control w-100 py-3 ps-4 pe-5" type="email" placeholder="tu@empresa.com" required />
+                <button type="submit" class="btn btn-primary py-2 px-3 position-absolute top-0 end-0 mt-2 me-2">
+                  <i class="fa fa-arrow-right"></i>
+                </button>
+              </div>
+              <div class="ak-alert"><i class="fa fa-check-circle me-2"></i>¡Suscripción confirmada!</div>
+            </form>
+            <div class="d-flex align-items-center gap-3 mt-4">
+              <i class="fa fa-map-marker-alt text-primary"></i>
+              <small>Calle Innovación 42, Madrid</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-fluid copyright">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+              &copy; <a href="index.html">ALTOKIA</a>, todos los derechos reservados.
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+              <!--/*** This template is free as long as you keep the footer author's credit link/attribution link/backlink. If you'd like to use the template without the footer author's credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+              Designed By <a href="https://htmlcodex.com">HTML Codex</a>
+              <br />Distributed By: <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer End -->
+
+<!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top" aria-label="Volver arriba"><i class="bi bi-arrow-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+  </body>
 </html>

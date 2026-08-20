@@ -1,217 +1,329 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="images/ALTOKIAV1.webp" type="image/webp" />
-  <title>Contacto — ALTOKIA</title>
-  <meta name="description" content="Agenda una consultoría gratuita con ALTOKIA. Escríbenos por correo, WhatsApp, LinkedIn o agenda una reunión directamente con nuestro asistente virtual." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=11" />
-  <script>
-    (function () {
-      try {
-        var saved = localStorage.getItem('altokia-theme');
-        var h = new Date().getHours();
-        var mode = saved || (h >= 7 && h < 18 ? 'light' : 'dark');
-        document.documentElement.setAttribute('data-theme', mode);
-      } catch (e) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-      }
-    })();
-  </script>
-</head>
-<body data-page="contacto">
+  <head>
+    <meta charset="utf-8" />
+    <title>Contacto — ALTOKIA</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="ALTOKIA, desarrollo de software, inteligencia artificial, cloud, devops, ciberseguridad" name="keywords" />
+    <meta content="Escríbenos, llámanos o pásate por la oficina. Respondemos en menos de 24 horas laborables." name="description" />
+    <meta name="theme-color" content="#05050C" />
 
-  <!-- ══════════ PRELOADER ══════════ -->
-  <div class="preloader" id="preloader">
-    <div class="preloader__logo">
-      <span class="preloader__letter">A</span><span class="preloader__letter">L</span><span class="preloader__letter">T</span><span class="preloader__letter preloader__letter--o">O</span><span class="preloader__letter preloader__letter--k">K</span><span class="preloader__letter">I</span><span class="preloader__letter">A</span>
-    </div>
-    <div class="preloader__acronym" data-i18n="brand.acronym">Automatización & Lógica · Tecnología · Operaciones · Conocimiento</div>
-    <div class="preloader__bar"><div class="preloader__bar-fill" id="preloaderBar"></div></div>
-    <div class="preloader__status" id="preloaderStatus">Inicializando sistemas...</div>
-  </div>
+    <!-- Favicon -->
+    <link href="images/favicon.svg" rel="icon" type="image/svg+xml" />
+    <link href="images/ALTOKIAV1.webp" rel="apple-touch-icon" />
 
-  <!-- ══════════ CURSOR PERSONALIZADO ══════════ -->
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-follower" id="cursorFollower"></div>
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- ══════════ BARRA DE PROGRESO DE SCROLL ══════════ -->
-  <div class="scroll-progress" id="scrollProgress"></div>
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
 
-  <!-- ══════════ CANVAS THREE.JS (fondo global) ══════════ -->
-  <canvas id="webgl-bg"></canvas>
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
 
-  <!-- ══════════ NAVEGACIÓN ══════════ -->
-  <header class="nav" id="nav">
-    <div class="nav__inner">
-      <a href="index.html" class="nav__logo" data-magnetic data-i18n-title="brand.acronym" title="Automatización & Lógica · Tecnología · Operaciones · Conocimiento">
-        <span class="nav__logo-mark">◆</span><span class="nav__logo-text">ALT<span class="logo-o">O</span><span class="logo-k">K</span>IA</span>
-      </a>
-      <nav class="nav__links" id="navLinks">
-        <a href="index.html" class="nav__link" data-page="inicio" data-i18n="nav.inicio">Inicio</a>
-        <a href="nosotros.html" class="nav__link" data-page="nosotros" data-i18n="nav.nosotros">Nosotros</a>
-        <a href="servicios.html" class="nav__link" data-page="servicios" data-i18n="nav.servicios">Servicios</a>
-        <a href="proyectos.html" class="nav__link" data-page="proyectos" data-i18n="nav.proyectos">Proyectos</a>
-        <a href="contacto.html" class="nav__cta" data-magnetic><span data-i18n="nav.cta">Hablemos</span> <span class="nav__cta-arrow">→</span></a>
-      </nav>
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
 
-      <div class="nav__right">
-        <!-- Tema claro/oscuro -->
-        <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema / Toggle theme" data-magnetic>
-          <span id="themeIcon">☀</span>
-        </button>
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet" />
 
-        <!-- Selector de idioma -->
-        <button class="lang-toggle" id="langToggle" aria-label="Cambiar idioma / Switch language" data-magnetic>
-          <span class="lang-toggle__opt is-active" data-lang="es">ES</span>
-          <span class="lang-toggle__divider">/</span>
-          <span class="lang-toggle__opt" data-lang="en">EN</span>
-        </button>
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+  </head>
 
-        <button class="nav__burger" id="navBurger" aria-label="Menú">
-          <span></span><span></span><span></span>
-        </button>
+  <body>
+<!-- Spinner Start -->
+    <div id="spinner" class="show">
+      <div class="ak-loader">
+        <span></span><span></span><span></span>
+        <div class="ak-loader-label ak-mono">Inicializando ALTOKIA</div>
       </div>
     </div>
-  </header>
+    <!-- Spinner End -->
 
-  <main>
-    <!-- ══════════ CONTACTO ══════════ -->
-    <section class="section cta" id="contacto" style="padding-top: 168px;">
-      <div class="cta__box reveal">
-        <div class="cta__grid-bg"></div>
-        <h2 class="cta__title" data-i18n="contact.title">¿Listo para <span class="text-gradient">automatizar</span><br />tu próximo gran salto?</h2>
-        <p class="cta__desc" data-i18n="contact.desc">Agenda una consultoría gratuita de 30 minutos. Cuéntanos tu caso y te mostramos exactamente dónde puedes ganar eficiencia.</p>
+<!-- Topbar Start -->
+    <div class="container-fluid ak-topbar px-lg-5 d-none d-lg-block">
+      <div class="row gx-0 align-items-center">
+        <div class="col-lg-7 text-start py-2">
+          <a href="tel:+3491000000" class="me-4"><i class="fa fa-phone-alt me-2 text-primary"></i>+34 910 000 000</a>
+          <a href="mailto:hola@altokia.com" class="me-4"><i class="far fa-envelope-open me-2 text-primary"></i>hola@altokia.com</a>
+          <span class="d-none d-xl-inline-block"><i class="far fa-clock me-2 text-primary"></i>Lun - Vie : 09:00 - 19:00</span>
+        </div>
+        <div class="col-lg-5 text-end py-2">
+          <span class="ak-status ak-mono me-4"><i></i>Sistemas operativos · 99.98%</span>
+          <a class="me-3" href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a class="me-3" href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a class="me-3" href="#" aria-label="X"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+    <!-- Topbar End -->
 
-        <div class="contact__grid">
-          <!-- Formulario -->
-          <form class="contact__form" id="contactForm">
-            <div class="contact__field">
-              <label for="cfName" data-i18n="contact.fName">Nombre</label>
-              <input type="text" id="cfName" required data-i18n-placeholder="contact.phName" placeholder="Tu nombre" />
+<!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top px-4 px-lg-5 py-3 py-lg-0">
+      <a href="index.html" class="navbar-brand d-flex align-items-center gap-2">
+        <img src="images/logo-mark.svg" alt="ALTOKIA" />
+        <span class="ak-wordmark">ALT<span class="ok">OK</span>IA</span>
+      </a>
+      <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ms-auto py-3 py-lg-0 align-items-lg-center">
+          <a href="index.html" class="nav-item nav-link">Inicio</a>
+          <a href="nosotros.html" class="nav-item nav-link">Nosotros</a>
+          <a href="servicios.html" class="nav-item nav-link">Servicios</a>
+          <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Recursos</a>
+            <div class="dropdown-menu m-0">
+              <a href="por-que-altokia.html" class="dropdown-item">Por qué ALTOKIA</a>
+              <a href="equipo.html" class="dropdown-item">Equipo</a>
+              <a href="proyectos.html" class="dropdown-item">Casos de éxito</a>
+              <a href="agenda.html" class="dropdown-item">Agenda una demo</a>
+              <a href="404.html" class="dropdown-item">Error 404</a>
             </div>
-            <div class="contact__field">
-              <label for="cfEmail" data-i18n="contact.fEmail">Correo</label>
-              <input type="email" id="cfEmail" required data-i18n-placeholder="contact.phEmail" placeholder="tucorreo@empresa.com" />
-            </div>
-            <div class="contact__field">
-              <label for="cfMsg" data-i18n="contact.fMsg">¿Qué proceso quieres automatizar?</label>
-              <textarea id="cfMsg" rows="4" required data-i18n-placeholder="contact.phMsg" placeholder="Cuéntanos brevemente tu caso..."></textarea>
-            </div>
-            <button type="submit" class="btn btn--primary" data-magnetic>
-              <span class="btn__text" data-i18n="contact.send">Enviar mensaje ✦</span>
-              <span class="btn__glow"></span>
-            </button>
-          </form>
+          </div>
+          <a href="contacto.html" class="nav-item nav-link active">Contacto</a>
+          <a href="agenda.html" class="btn btn-primary px-4 py-2 ms-lg-4 my-3 my-lg-0">Agenda una demo</a>
+        </div>
+      </div>
+    </nav>
+    <!-- Navbar End -->
 
-          <!-- Datos de contacto -->
-          <div class="contact__info">
-            <a href="mailto:contacto@altokia.com" class="contact__channel" data-magnetic>
-              <span class="contact__channel-icon">✉</span>
-              <div>
-                <strong data-i18n="contact.emailLabel">Escríbenos</strong>
-                <span>contacto@altokia.com</span>
-              </div>
-            </a>
-            <a href="https://wa.me/51904608141?text=Hola%20ALTOKIA%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios" target="_blank" rel="noopener" class="contact__channel contact__channel--wa" data-magnetic>
-              <span class="contact__channel-icon">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.074-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              </span>
-              <div>
-                <strong>WhatsApp</strong>
-                <span data-i18n="contact.waLabel">Respuesta inmediata</span>
-              </div>
-            </a>
-            <a href="https://www.linkedin.com/company/altokia" target="_blank" rel="noopener" class="contact__channel contact__channel--li" data-magnetic>
-              <span class="contact__channel-icon">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
-              </span>
-              <div>
-                <strong>LinkedIn</strong>
-                <span data-i18n="contact.liLabel">Síguenos y conecta</span>
-              </div>
-            </a>
-            <button type="button" class="contact__channel contact__channel--bot" id="openBotFromContact" data-magnetic>
-              <span class="contact__channel-icon">🤖</span>
-              <div>
-                <strong data-i18n="contact.botLabel">Agenda con nuestro bot</strong>
-                <span data-i18n="contact.botSub">Reserva una reunión en 1 minuto</span>
-              </div>
-            </button>
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header">
+      <div class="container">
+        <div class="row justify-content-center text-center">
+          <div class="col-lg-9">
+            <span class="ak-mono text-primary d-block mb-3" data-reveal>Contacto</span>
+            <h1 class="display-4 mb-4" data-reveal data-delay="80">Hablemos de tu<br /><span class="ak-gradient-text">próximo proyecto</span></h1>
+            <nav aria-label="breadcrumb" data-reveal data-delay="160">
+              <ol class="breadcrumb justify-content-center mb-0">
+                <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Contacto</li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Page Header End -->
 
-            <div class="cta__meta">
-              <span data-i18n="contact.meta1">◆ Respuesta en menos de 24h</span>
-              <span data-i18n="contact.meta2">◆ Sin compromiso</span>
+    <!-- Contact Start -->
+    <div class="container-xxl ak-section">
+      <div class="container">
+        <div class="row g-4 mb-5">
+          <div class="col-lg-4 col-md-6" data-reveal data-delay="0">
+            <div class="ak-card text-center">
+              <div class="ak-icon mx-auto"><i class="fa fa-map-marker-alt"></i></div>
+              <h5 class="mb-3">Oficina central</h5>
+              <p class="mb-0">Calle Innovación 42, 4ª planta<br />28020 Madrid, España</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6" data-reveal data-delay="90">
+            <div class="ak-card text-center">
+              <div class="ak-icon mx-auto"><i class="fa fa-envelope"></i></div>
+              <h5 class="mb-3">Correo</h5>
+              <p class="mb-1"><a href="mailto:hola@altokia.com" style="color: var(--ak-muted)">hola@altokia.com</a></p>
+              <p class="mb-0"><a href="mailto:empleo@altokia.com" style="color: var(--ak-muted)">empleo@altokia.com</a></p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6" data-reveal data-delay="180">
+            <div class="ak-card text-center">
+              <div class="ak-icon mx-auto"><i class="fa fa-phone-alt"></i></div>
+              <h5 class="mb-3">Teléfono</h5>
+              <p class="mb-1"><a href="tel:+3491000000" style="color: var(--ak-muted)">+34 910 000 000</a></p>
+              <p class="mb-0">Lun - Vie · 09:00 - 19:00</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-5 align-items-start">
+          <div class="col-lg-6" data-reveal="left">
+            <div class="ak-heading mb-4">
+              <span class="ak-mono">Escríbenos</span>
+              <h2 class="display-6 mb-0">Cuéntanos qué <span class="ak-gradient-text">necesitas</span></h2>
+            </div>
+            <p class="ak-lead mb-4">
+              Leemos todos los mensajes y contestamos en menos de veinticuatro horas
+              laborables. Si prefieres hablar, deja tu teléfono y te llamamos.
+            </p>
+            <form data-ak-form novalidate>
+              <div class="row g-3">
+                <div class="col-sm-6">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="cname" placeholder="Nombre" required />
+                    <label for="cname">Tu nombre</label>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-floating">
+                    <input type="email" class="form-control" id="cmail" placeholder="Email" required />
+                    <label for="cmail">Tu email</label>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="csubject" placeholder="Asunto" />
+                    <label for="csubject">Asunto</label>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-floating">
+                    <textarea class="form-control" placeholder="Mensaje" id="cmessage" style="height: 160px" required></textarea>
+                    <label for="cmessage">Mensaje</label>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <button class="btn btn-primary w-100 py-3" type="submit">Enviar mensaje<i class="fa fa-arrow-right ms-3"></i></button>
+                  <div class="ak-alert"><i class="fa fa-check-circle me-2"></i>¡Mensaje enviado! Te respondemos en menos de 24 horas.</div>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div class="col-lg-6" data-reveal="right" data-delay="120">
+            <div class="ak-panel mb-4">
+              <div class="d-flex align-items-center justify-content-between mb-4">
+                <div>
+                  <div class="ak-mono text-primary">Tiempos de respuesta</div>
+                  <h5 class="mb-0 mt-1">Últimos 90 días</h5>
+                </div>
+                <span class="ak-status ak-mono"><i></i>Live</span>
+              </div>
+              <div class="ak-chart mb-4">
+                <i data-h="30"></i><i data-h="52"></i><i data-h="41"></i><i data-h="68"></i>
+                <i data-h="47"></i><i data-h="84"></i><i data-h="62"></i><i data-h="90"></i>
+                <i data-h="55"></i><i data-h="76"></i>
+              </div>
+              <div class="ak-panel-row">
+                <span class="name">Primer contacto</span>
+                <span class="ak-bar" data-bar="96"><span></span></span>
+                <span class="pct">6 h</span>
+              </div>
+              <div class="ak-panel-row">
+                <span class="name">Propuesta</span>
+                <span class="ak-bar" data-bar="84"><span></span></span>
+                <span class="pct">4 d</span>
+              </div>
+              <div class="ak-panel-row">
+                <span class="name">Arranque</span>
+                <span class="ak-bar" data-bar="72"><span></span></span>
+                <span class="pct">2 sem</span>
+              </div>
+            </div>
+
+            <div class="ak-faq">
+              <button class="ak-faq-q" type="button">¿Atendéis proyectos fuera de España?<i class="fa fa-plus"></i></button>
+              <div class="ak-faq-a"><p>Sí. Trabajamos con clientes en catorce países y tenemos equipo cubriendo husos horarios de Europa y América.</p></div>
+            </div>
+            <div class="ak-faq">
+              <button class="ak-faq-q" type="button">¿Puedo visitar la oficina?<i class="fa fa-plus"></i></button>
+              <div class="ak-faq-a"><p>Claro. Escríbenos con un par de días de antelación y preparamos la visita con el equipo que llevaría tu proyecto.</p></div>
+            </div>
+            <div class="ak-faq">
+              <button class="ak-faq-q" type="button">¿Buscáis perfiles técnicos?<i class="fa fa-plus"></i></button>
+              <div class="ak-faq-a"><p>Casi siempre. Manda tu candidatura a empleo@altokia.com contándonos qué te gustaría construir con nosotros.</p></div>
             </div>
           </div>
         </div>
       </div>
-    </section>
-  </main>
+    </div>
+    <!-- Contact End -->
 
-  <!-- ══════════ FOOTER ══════════ -->
-  <footer class="footer">
-    <div class="footer__inner">
-      <div class="footer__brand">
-        <span class="nav__logo-mark">◆</span> ALT<span class="logo-o">O</span><span class="logo-k">K</span>IA
-        <p class="footer__acronym" data-i18n="brand.acronym">Automatización & Lógica · Tecnología · Operaciones · Conocimiento</p>
-        <p data-i18n="footer.tagline">Tecnología que trabaja mientras tú creces.</p>
+<!-- Footer Start -->
+    <div class="container-fluid footer pt-5" data-reveal>
+      <div class="container py-5">
+        <div class="row g-5">
+          <div class="col-lg-4 col-md-6">
+            <a href="index.html" class="d-inline-flex align-items-center gap-2 mb-4">
+              <img src="images/logo-mark.svg" alt="ALTOKIA" height="32" />
+              <span class="ak-wordmark">ALT<span class="ok">OK</span>IA</span>
+            </a>
+            <p>
+              Ingeniería de software, cloud e inteligencia artificial para empresas
+              que quieren mover el negocio con tecnología, no solo mantenerlo.
+            </p>
+            <div class="d-flex gap-2 pt-2">
+              <a class="ak-social" href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <a class="ak-social" href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+              <a class="ak-social" href="#" aria-label="X"><i class="fab fa-twitter"></i></a>
+              <a class="ak-social" href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-6">
+            <h5 class="footer-title">Servicios</h5>
+            <a class="btn btn-link" href="servicios.html">Software a medida</a>
+            <a class="btn btn-link" href="servicios.html">Inteligencia artificial</a>
+            <a class="btn btn-link" href="servicios.html">Cloud &amp; DevOps</a>
+            <a class="btn btn-link" href="servicios.html">Ciberseguridad</a>
+            <a class="btn btn-link" href="servicios.html">Diseño de producto</a>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <h5 class="footer-title">Compañía</h5>
+            <a class="btn btn-link" href="nosotros.html">Sobre ALTOKIA</a>
+            <a class="btn btn-link" href="equipo.html">Equipo</a>
+            <a class="btn btn-link" href="proyectos.html">Casos de éxito</a>
+            <a class="btn btn-link" href="por-que-altokia.html">Por qué ALTOKIA</a>
+            <a class="btn btn-link" href="contacto.html">Contacto</a>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <h5 class="footer-title">Newsletter</h5>
+            <p>Una vez al mes: arquitectura, IA aplicada y aprendizajes de proyectos reales.</p>
+            <form data-ak-form novalidate>
+              <div class="position-relative">
+                <input class="form-control w-100 py-3 ps-4 pe-5" type="email" placeholder="tu@empresa.com" required />
+                <button type="submit" class="btn btn-primary py-2 px-3 position-absolute top-0 end-0 mt-2 me-2">
+                  <i class="fa fa-arrow-right"></i>
+                </button>
+              </div>
+              <div class="ak-alert"><i class="fa fa-check-circle me-2"></i>¡Suscripción confirmada!</div>
+            </form>
+            <div class="d-flex align-items-center gap-3 mt-4">
+              <i class="fa fa-map-marker-alt text-primary"></i>
+              <small>Calle Innovación 42, Madrid</small>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="footer__links">
-        <a href="nosotros.html" data-i18n="nav.nosotros">Nosotros</a>
-        <a href="servicios.html" data-i18n="nav.servicios">Servicios</a>
-        <a href="proyectos.html" data-i18n="nav.proyectos">Proyectos</a>
-        <a href="servicios.html#tecnologias" data-i18n="nav.stack">Stack</a>
-        <a href="nosotros.html#resultados" data-i18n="nav.resultados">Resultados</a>
-        <a href="contacto.html" data-i18n="footer.contacto">Contacto</a>
-        <a href="https://www.linkedin.com/company/altokia" target="_blank" rel="noopener" class="footer__social">LinkedIn ↗</a>
-      </div>
-      <div class="footer__bottom">
-        <span data-i18n="footer.rights">© 2026 ALTOKIA — Todos los derechos reservados</span>
-        <span class="footer__status"><span class="footer__pulse"></span> <span data-i18n="footer.status">Sistemas operativos</span></span>
+
+      <div class="container-fluid copyright">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+              &copy; <a href="index.html">ALTOKIA</a>, todos los derechos reservados.
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+              <!--/*** This template is free as long as you keep the footer author's credit link/attribution link/backlink. If you'd like to use the template without the footer author's credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+              Designed By <a href="https://htmlcodex.com">HTML Codex</a>
+              <br />Distributed By: <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </footer>
+    <!-- Footer End -->
 
-  <!-- ══════════ BOTONES FLOTANTES ══════════ -->
-  <div class="fab-stack" id="fabStack">
-    <a href="https://wa.me/51904608141?text=Hola%20ALTOKIA%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios"
-       target="_blank" rel="noopener" class="fab fab--wa" id="fabWa" aria-label="WhatsApp">
-      <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.074-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      <span class="fab__tooltip" data-i18n="fab.wa">¡Escríbenos!</span>
-    </a>
+<!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top" aria-label="Volver arriba"><i class="bi bi-arrow-up"></i></a>
 
-    <button class="fab fab--chat" id="chatToggle" aria-label="Chatbot">
-      <span class="fab--chat-open">🤖</span>
-      <span class="fab--chat-close">✕</span>
-      <span class="fab__tooltip" data-i18n="fab.bot">Asistente virtual</span>
-      <span class="fab__ping"></span>
-    </button>
-  </div>
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 
-  <!-- ══════════ CHATBOT ══════════ -->
-  <div class="chatbot" id="chatbot" aria-hidden="true">
-    <div class="chatbot__header">
-      <div class="chatbot__avatar">🤖</div>
-      <div class="chatbot__head-info">
-        <strong>ALTO<span class="accent">bot</span></strong>
-        <span class="chatbot__status"><span class="chatbot__status-dot"></span><span data-i18n="bot.online">En línea — responde al instante</span></span>
-      </div>
-      <button class="chatbot__minimize" id="chatMinimize" aria-label="Cerrar chat">─</button>
-    </div>
-    <div class="chatbot__messages" id="chatMessages"></div>
-    <div class="chatbot__options" id="chatOptions"></div>
-    <form class="chatbot__inputbar" id="chatForm" autocomplete="off">
-      <input type="text" id="chatInput" data-i18n-placeholder="bot.placeholder" placeholder="Escribe tu mensaje..." />
-      <button type="submit" aria-label="Enviar">➤</button>
-    </form>
-  </div>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
-  <script src="js/main.js?v=11"></script>
-</body>
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+  </body>
 </html>

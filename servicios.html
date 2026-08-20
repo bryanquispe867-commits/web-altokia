@@ -1,329 +1,428 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="images/ALTOKIAV1.webp" type="image/webp" />
-  <title>Servicios — ALTOKIA</title>
-  <meta name="description" content="Automatización de procesos, software a medida, páginas web, marketing y optimización de procesos. Los 5 pilares de ALTOKIA para transformar tu negocio." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=11" />
-  <script>
-    (function () {
-      try {
-        var saved = localStorage.getItem('altokia-theme');
-        var h = new Date().getHours();
-        var mode = saved || (h >= 7 && h < 18 ? 'light' : 'dark');
-        document.documentElement.setAttribute('data-theme', mode);
-      } catch (e) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-      }
-    })();
-  </script>
-</head>
-<body data-page="servicios">
+  <head>
+    <meta charset="utf-8" />
+    <title>Servicios — ALTOKIA</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="ALTOKIA, desarrollo de software, inteligencia artificial, cloud, devops, ciberseguridad" name="keywords" />
+    <meta content="Software a medida, inteligencia artificial, cloud, apps móviles, ciberseguridad y diseño de producto." name="description" />
+    <meta name="theme-color" content="#05050C" />
 
-  <!-- ══════════ PRELOADER ══════════ -->
-  <div class="preloader" id="preloader">
-    <div class="preloader__logo">
-      <span class="preloader__letter">A</span><span class="preloader__letter">L</span><span class="preloader__letter">T</span><span class="preloader__letter preloader__letter--o">O</span><span class="preloader__letter preloader__letter--k">K</span><span class="preloader__letter">I</span><span class="preloader__letter">A</span>
+    <!-- Favicon -->
+    <link href="images/favicon.svg" rel="icon" type="image/svg+xml" />
+    <link href="images/ALTOKIAV1.webp" rel="apple-touch-icon" />
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet" />
+
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+  </head>
+
+  <body>
+<!-- Spinner Start -->
+    <div id="spinner" class="show">
+      <div class="ak-loader">
+        <span></span><span></span><span></span>
+        <div class="ak-loader-label ak-mono">Inicializando ALTOKIA</div>
+      </div>
     </div>
-    <div class="preloader__acronym" data-i18n="brand.acronym">Automatización & Lógica · Tecnología · Operaciones · Conocimiento</div>
-    <div class="preloader__bar"><div class="preloader__bar-fill" id="preloaderBar"></div></div>
-    <div class="preloader__status" id="preloaderStatus">Inicializando sistemas...</div>
-  </div>
+    <!-- Spinner End -->
 
-  <!-- ══════════ CURSOR PERSONALIZADO ══════════ -->
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-follower" id="cursorFollower"></div>
+<!-- Topbar Start -->
+    <div class="container-fluid ak-topbar px-lg-5 d-none d-lg-block">
+      <div class="row gx-0 align-items-center">
+        <div class="col-lg-7 text-start py-2">
+          <a href="tel:+3491000000" class="me-4"><i class="fa fa-phone-alt me-2 text-primary"></i>+34 910 000 000</a>
+          <a href="mailto:hola@altokia.com" class="me-4"><i class="far fa-envelope-open me-2 text-primary"></i>hola@altokia.com</a>
+          <span class="d-none d-xl-inline-block"><i class="far fa-clock me-2 text-primary"></i>Lun - Vie : 09:00 - 19:00</span>
+        </div>
+        <div class="col-lg-5 text-end py-2">
+          <span class="ak-status ak-mono me-4"><i></i>Sistemas operativos · 99.98%</span>
+          <a class="me-3" href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a class="me-3" href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a class="me-3" href="#" aria-label="X"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+    <!-- Topbar End -->
 
-  <!-- ══════════ BARRA DE PROGRESO DE SCROLL ══════════ -->
-  <div class="scroll-progress" id="scrollProgress"></div>
-
-  <!-- ══════════ CANVAS THREE.JS (fondo global) ══════════ -->
-  <canvas id="webgl-bg"></canvas>
-
-  <!-- ══════════ NAVEGACIÓN ══════════ -->
-  <header class="nav" id="nav">
-    <div class="nav__inner">
-      <a href="index.html" class="nav__logo" data-magnetic data-i18n-title="brand.acronym" title="Automatización & Lógica · Tecnología · Operaciones · Conocimiento">
-        <span class="nav__logo-mark">◆</span><span class="nav__logo-text">ALT<span class="logo-o">O</span><span class="logo-k">K</span>IA</span>
+<!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top px-4 px-lg-5 py-3 py-lg-0">
+      <a href="index.html" class="navbar-brand d-flex align-items-center gap-2">
+        <img src="images/logo-mark.svg" alt="ALTOKIA" />
+        <span class="ak-wordmark">ALT<span class="ok">OK</span>IA</span>
       </a>
-      <nav class="nav__links" id="navLinks">
-        <a href="index.html" class="nav__link" data-page="inicio" data-i18n="nav.inicio">Inicio</a>
-        <a href="nosotros.html" class="nav__link" data-page="nosotros" data-i18n="nav.nosotros">Nosotros</a>
-        <a href="servicios.html" class="nav__link" data-page="servicios" data-i18n="nav.servicios">Servicios</a>
-        <a href="proyectos.html" class="nav__link" data-page="proyectos" data-i18n="nav.proyectos">Proyectos</a>
-        <a href="contacto.html" class="nav__cta" data-magnetic><span data-i18n="nav.cta">Hablemos</span> <span class="nav__cta-arrow">→</span></a>
-      </nav>
+      <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ms-auto py-3 py-lg-0 align-items-lg-center">
+          <a href="index.html" class="nav-item nav-link">Inicio</a>
+          <a href="nosotros.html" class="nav-item nav-link">Nosotros</a>
+          <a href="servicios.html" class="nav-item nav-link active">Servicios</a>
+          <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Recursos</a>
+            <div class="dropdown-menu m-0">
+              <a href="por-que-altokia.html" class="dropdown-item">Por qué ALTOKIA</a>
+              <a href="equipo.html" class="dropdown-item">Equipo</a>
+              <a href="proyectos.html" class="dropdown-item">Casos de éxito</a>
+              <a href="agenda.html" class="dropdown-item">Agenda una demo</a>
+              <a href="404.html" class="dropdown-item">Error 404</a>
+            </div>
+          </div>
+          <a href="contacto.html" class="nav-item nav-link">Contacto</a>
+          <a href="agenda.html" class="btn btn-primary px-4 py-2 ms-lg-4 my-3 my-lg-0">Agenda una demo</a>
+        </div>
+      </div>
+    </nav>
+    <!-- Navbar End -->
 
-      <div class="nav__right">
-        <!-- Tema claro/oscuro -->
-        <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema / Toggle theme" data-magnetic>
-          <span id="themeIcon">☀</span>
-        </button>
-
-        <!-- Selector de idioma -->
-        <button class="lang-toggle" id="langToggle" aria-label="Cambiar idioma / Switch language" data-magnetic>
-          <span class="lang-toggle__opt is-active" data-lang="es">ES</span>
-          <span class="lang-toggle__divider">/</span>
-          <span class="lang-toggle__opt" data-lang="en">EN</span>
-        </button>
-
-        <button class="nav__burger" id="navBurger" aria-label="Menú">
-          <span></span><span></span><span></span>
-        </button>
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header">
+      <div class="container">
+        <div class="row justify-content-center text-center">
+          <div class="col-lg-9">
+            <span class="ak-mono text-primary d-block mb-3" data-reveal>Servicios</span>
+            <h1 class="display-4 mb-4" data-reveal data-delay="80">Todo lo que necesitas para<br /><span class="ak-gradient-text">construir y operar</span></h1>
+            <nav aria-label="breadcrumb" data-reveal data-delay="160">
+              <ol class="breadcrumb justify-content-center mb-0">
+                <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Servicios</li>
+              </ol>
+            </nav>
+          </div>
+        </div>
       </div>
     </div>
-  </header>
+    <!-- Page Header End -->
 
-  <main>
-    <!-- ══════════ BANNER DE PÁGINA ══════════ -->
-    <section class="page-header">
-      <div class="page-header__grid"></div>
-      <span class="page-header__tag reveal" data-i18n="servicios.pageTag">// Servicios</span>
-      <h1 class="page-header__title reveal" data-i18n="servicios.pageTitle">Lo que hacemos<br /><span class="text-gradient">extraordinariamente bien</span></h1>
-      <p class="page-header__sub reveal" data-i18n="servicios.pageSub">Automatización, software a medida, páginas web, marketing y optimización — un solo equipo para todo tu ecosistema digital.</p>
-    </section>
-
-    <!-- ══════════ SERVICIOS ══════════ -->
-    <section class="section services" id="servicios">
-      <div class="services-panel">
-        <div class="service-row reveal">
-          <div class="service-row__icon service-row__icon--cyan">
-            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/>
-              <circle cx="12" cy="12" r="5.5"/>
-            </svg>
-          </div>
-          <div class="service-row__body">
-            <div class="service-row__head">
-              <h3 class="service-row__title" data-i18n="services.s1t">Automatización</h3>
-              <span class="service-row__tag service-row__tag--cyan" data-i18n="services.s1tag">Punto de partida</span>
+    <!-- Services Start -->
+    <div class="container-xxl ak-section">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-6" data-reveal data-delay="0">
+            <div class="ak-card">
+              <span class="ak-ghost-num">01</span>
+              <div class="ak-icon"><i class="fa fa-code"></i></div>
+              <h4 class="mb-3">Desarrollo de software a medida</h4>
+              <p class="mb-4">
+                Plataformas web, portales de cliente, ERPs internos y APIs de alto
+                tráfico. Arquitectura hexagonal, tests reales y despliegue continuo
+                desde el primer sprint.
+              </p>
+              <div class="d-flex flex-wrap gap-2 mb-4">
+                <span class="ak-tag">TypeScript</span><span class="ak-tag">Node</span>
+                <span class="ak-tag">Java</span><span class="ak-tag">.NET</span><span class="ak-tag">PostgreSQL</span>
+              </div>
+              <a class="ak-link" href="agenda.html">Solicitar propuesta<i class="fa fa-arrow-right"></i></a>
             </div>
-            <p class="service-row__desc" data-i18n="services.s1d">Diseñamos flujos inteligentes con RPA e IA que eliminan tareas repetitivas y conectan tus sistemas de punta a punta.</p>
-            <a href="contacto.html" class="service-row__cta service-row__cta--cyan" data-magnetic>
-              <span data-i18n="services.cta">Contactar</span>
-              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </a>
           </div>
-        </div>
 
-        <div class="service-row reveal">
-          <div class="service-row__icon service-row__icon--violet">
-            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M8 9l-4 3 4 3M16 9l4 3-4 3M13.5 6l-3 12"/>
-            </svg>
-          </div>
-          <div class="service-row__body">
-            <div class="service-row__head">
-              <h3 class="service-row__title" data-i18n="services.s2t">Desarrollo de Software a Medida</h3>
-              <span class="service-row__tag service-row__tag--violet" data-i18n="services.s2tag">Software a medida</span>
+          <div class="col-lg-6" data-reveal data-delay="90">
+            <div class="ak-card">
+              <span class="ak-ghost-num">02</span>
+              <div class="ak-icon"><i class="fa fa-brain"></i></div>
+              <h4 class="mb-3">Inteligencia artificial aplicada</h4>
+              <p class="mb-4">
+                Asistentes internos con RAG sobre tu documentación, clasificación
+                automática, visión por computador y modelos afinados a tu dominio.
+                Con evaluación continua y control de coste por token.
+              </p>
+              <div class="d-flex flex-wrap gap-2 mb-4">
+                <span class="ak-tag">Python</span><span class="ak-tag">RAG</span>
+                <span class="ak-tag">PyTorch</span><span class="ak-tag">Vector DB</span><span class="ak-tag">MLOps</span>
+              </div>
+              <a class="ak-link" href="agenda.html">Solicitar propuesta<i class="fa fa-arrow-right"></i></a>
             </div>
-            <p class="service-row__desc" data-i18n="services.s2d">Sistemas y aplicaciones construidos desde cero para tu operación, sin plantillas ni licencias que no necesitas.</p>
-            <a href="contacto.html" class="service-row__cta service-row__cta--violet" data-magnetic>
-              <span data-i18n="services.cta">Contactar</span>
-              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </a>
           </div>
-        </div>
 
-        <div class="service-row reveal">
-          <div class="service-row__icon service-row__icon--magenta">
-            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>
-            </svg>
-          </div>
-          <div class="service-row__body">
-            <div class="service-row__head">
-              <h3 class="service-row__title" data-i18n="services.s3t">Analítica de Datos — Dashboards & KPIs</h3>
-              <span class="service-row__tag service-row__tag--magenta" data-i18n="services.s3tag">Dashboards & KPIs</span>
+          <div class="col-lg-6" data-reveal data-delay="0">
+            <div class="ak-card">
+              <span class="ak-ghost-num">03</span>
+              <div class="ak-icon"><i class="fa fa-cloud"></i></div>
+              <h4 class="mb-3">Cloud, DevOps y SRE</h4>
+              <p class="mb-4">
+                Migraciones sin downtime, infraestructura como código, observabilidad
+                completa y guardias 24/7. Reducimos la factura cloud una media del
+                35% en los tres primeros meses.
+              </p>
+              <div class="d-flex flex-wrap gap-2 mb-4">
+                <span class="ak-tag">AWS</span><span class="ak-tag">Azure</span>
+                <span class="ak-tag">Kubernetes</span><span class="ak-tag">Terraform</span><span class="ak-tag">Grafana</span>
+              </div>
+              <a class="ak-link" href="agenda.html">Solicitar propuesta<i class="fa fa-arrow-right"></i></a>
             </div>
-            <p class="service-row__desc" data-i18n="services.s3d">Convertimos tus datos en decisiones: dashboards en tiempo real, KPIs claros y reportes que le hablan directo a tu negocio.</p>
-            <a href="contacto.html" class="service-row__cta service-row__cta--magenta" data-magnetic>
-              <span data-i18n="services.cta">Contactar</span>
-              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </a>
           </div>
-        </div>
 
-        <div class="service-row reveal">
-          <div class="service-row__icon service-row__icon--cyan">
-            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 16a8 8 0 0116 0"/>
-              <path d="M12 16l4.5-6"/>
-              <circle cx="12" cy="16" r="1.3" fill="currentColor" stroke="none"/>
-            </svg>
-          </div>
-          <div class="service-row__body">
-            <div class="service-row__head">
-              <h3 class="service-row__title" data-i18n="services.s4t">Optimización de Procesos</h3>
-              <span class="service-row__tag service-row__tag--cyan" data-i18n="services.s4tag">Eficiencia operativa</span>
+          <div class="col-lg-6" data-reveal data-delay="90">
+            <div class="ak-card">
+              <span class="ak-ghost-num">04</span>
+              <div class="ak-icon"><i class="fa fa-mobile-alt"></i></div>
+              <h4 class="mb-3">Aplicaciones móviles</h4>
+              <p class="mb-4">
+                Apps nativas y multiplataforma con animaciones a 60 fps, modo sin
+                conexión y publicación automatizada en App Store y Google Play.
+              </p>
+              <div class="d-flex flex-wrap gap-2 mb-4">
+                <span class="ak-tag">Swift</span><span class="ak-tag">Kotlin</span>
+                <span class="ak-tag">React Native</span><span class="ak-tag">Flutter</span>
+              </div>
+              <a class="ak-link" href="agenda.html">Solicitar propuesta<i class="fa fa-arrow-right"></i></a>
             </div>
-            <p class="service-row__desc" data-i18n="services.s4d">Medimos, rediseñamos y afinamos tus operaciones para reducir costos y eliminar cuellos de botella.</p>
-            <a href="contacto.html" class="service-row__cta service-row__cta--cyan" data-magnetic>
-              <span data-i18n="services.cta">Contactar</span>
-              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </a>
           </div>
-        </div>
 
-        <div class="service-row reveal">
-          <div class="service-row__icon service-row__icon--violet">
-            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3 11v2a1 1 0 001 1h2l9 4V6l-9 4H4a1 1 0 00-1 1z"/>
-              <path d="M17 8a4 4 0 010 8"/>
-              <path d="M8 15l1 4h2l-.5-4"/>
-            </svg>
-          </div>
-          <div class="service-row__body">
-            <div class="service-row__head">
-              <h3 class="service-row__title" data-i18n="services.s5t">Marketing Digital</h3>
-              <span class="service-row__tag service-row__tag--violet" data-i18n="services.s5tag">Growth digital</span>
+          <div class="col-lg-6" data-reveal data-delay="0">
+            <div class="ak-card">
+              <span class="ak-ghost-num">05</span>
+              <div class="ak-icon"><i class="fa fa-shield-alt"></i></div>
+              <h4 class="mb-3">Ciberseguridad y cumplimiento</h4>
+              <p class="mb-4">
+                Auditoría de código, pentesting, gestión de secretos, hardening de
+                infraestructura y acompañamiento en ISO 27001, GDPR y ENS.
+              </p>
+              <div class="d-flex flex-wrap gap-2 mb-4">
+                <span class="ak-tag">Pentesting</span><span class="ak-tag">SAST/DAST</span>
+                <span class="ak-tag">Zero Trust</span><span class="ak-tag">ISO 27001</span>
+              </div>
+              <a class="ak-link" href="agenda.html">Solicitar propuesta<i class="fa fa-arrow-right"></i></a>
             </div>
-            <p class="service-row__desc" data-i18n="services.s5d">Estrategias basadas en datos — SEO, pauta y automatización de campañas — para llegar a las personas correctas.</p>
-            <a href="contacto.html" class="service-row__cta service-row__cta--violet" data-magnetic>
-              <span data-i18n="services.cta">Contactar</span>
-              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </a>
+          </div>
+
+          <div class="col-lg-6" data-reveal data-delay="90">
+            <div class="ak-card">
+              <span class="ak-ghost-num">06</span>
+              <div class="ak-icon"><i class="fa fa-pen-nib"></i></div>
+              <h4 class="mb-3">Diseño de producto y UX</h4>
+              <p class="mb-4">
+                Investigación con usuarios reales, prototipos navegables, design
+                system documentado y tests de usabilidad antes de escribir código de
+                producción.
+              </p>
+              <div class="d-flex flex-wrap gap-2 mb-4">
+                <span class="ak-tag">Figma</span><span class="ak-tag">Design System</span>
+                <span class="ak-tag">Research</span><span class="ak-tag">A/B testing</span>
+              </div>
+              <a class="ak-link" href="agenda.html">Solicitar propuesta<i class="fa fa-arrow-right"></i></a>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- ══════════ PROCESO ══════════ -->
-    <section class="section process" id="proceso">
-      <div class="section__head">
-        <span class="section__tag reveal" data-i18n="process.tag">// 03 — Proceso</span>
-        <h2 class="section__title reveal" data-i18n="process.title">De la idea al impacto<br /><span class="text-gradient">en 4 fases</span></h2>
-      </div>
-
-      <div class="process__timeline">
-        <div class="process__line" id="processLine"></div>
-
-        <div class="process__step reveal">
-          <div class="process__dot"></div>
-          <div class="process__content" data-i18n="process.f1">
-            <span class="process__phase">Fase 01</span>
-            <h3>Descubrimiento</h3>
-            <p>Auditamos tus procesos actuales, identificamos cuellos de botella y detectamos oportunidades de automatización con mayor retorno.</p>
-          </div>
-        </div>
-
-        <div class="process__step process__step--right reveal">
-          <div class="process__dot"></div>
-          <div class="process__content" data-i18n="process.f2">
-            <span class="process__phase">Fase 02</span>
-            <h3>Diseño de Solución</h3>
-            <p>Prototipamos la arquitectura, definimos flujos y diseñamos interfaces centradas en el usuario. Todo validado contigo antes de escribir código.</p>
-          </div>
-        </div>
-
-        <div class="process__step reveal">
-          <div class="process__dot"></div>
-          <div class="process__content" data-i18n="process.f3">
-            <span class="process__phase">Fase 03</span>
-            <h3>Desarrollo Ágil</h3>
-            <p>Sprints cortos, entregas continuas y comunicación transparente. Ves el avance en tiempo real y ajustamos sobre la marcha.</p>
-          </div>
-        </div>
-
-        <div class="process__step process__step--right reveal">
-          <div class="process__dot"></div>
-          <div class="process__content" data-i18n="process.f4">
-            <span class="process__phase">Fase 04</span>
-            <h3>Lanzamiento & Evolución</h3>
-            <p>Desplegamos, medimos KPIs y optimizamos continuamente. Tu solución crece junto a tu negocio.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ══════════ STACK / TECNOLOGÍAS ══════════ -->
-    <section class="section stack" id="tecnologias">
-      <div class="section__head">
-        <span class="section__tag reveal" data-i18n="stack.tag">// 05 — Stack</span>
-        <h2 class="section__title reveal" data-i18n="stack.title">Tecnología que<br /><span class="text-gradient">domina el juego</span></h2>
-      </div>
-
-      <div class="stack__grid">
-        <div class="stack__item reveal" data-magnetic><span class="stack__glyph">⬢</span>React / Next.js</div>
-        <div class="stack__item reveal" data-magnetic><span class="stack__glyph">◉</span>Node.js</div>
-        <div class="stack__item reveal" data-magnetic><span class="stack__glyph">◭</span>Python</div>
-        <div class="stack__item reveal" data-magnetic><span class="stack__glyph">⚡</span>Automation Anywhere</div>
-        <div class="stack__item reveal" data-magnetic><span class="stack__glyph">♻</span>Power Automate</div>
-        <div class="stack__item reveal" data-magnetic><span class="stack__glyph">☁</span>AWS / Azure</div>
-        <div class="stack__item reveal" data-magnetic><span class="stack__glyph">⚙</span>n8n / Make</div>
-        <div class="stack__item reveal" data-magnetic><span class="stack__glyph">✳</span>OpenAI / Claude</div>
-        <div class="stack__item reveal" data-magnetic><span class="stack__glyph">▣</span>Docker / K8s</div>
-        <div class="stack__item reveal" data-magnetic><span class="stack__glyph">◫</span>PostgreSQL</div>
-        <div class="stack__item reveal" data-magnetic><span class="stack__glyph">❖</span>Google & Meta Ads</div>
-        <div class="stack__item reveal" data-magnetic><span class="stack__glyph">✎</span>HubSpot / Mailchimp</div>
-      </div>
-    </section>
-  </main>
-
-  <!-- ══════════ FOOTER ══════════ -->
-  <footer class="footer">
-    <div class="footer__inner">
-      <div class="footer__brand">
-        <span class="nav__logo-mark">◆</span> ALT<span class="logo-o">O</span><span class="logo-k">K</span>IA
-        <p class="footer__acronym" data-i18n="brand.acronym">Automatización & Lógica · Tecnología · Operaciones · Conocimiento</p>
-        <p data-i18n="footer.tagline">Tecnología que trabaja mientras tú creces.</p>
-      </div>
-      <div class="footer__links">
-        <a href="nosotros.html" data-i18n="nav.nosotros">Nosotros</a>
-        <a href="servicios.html" data-i18n="nav.servicios">Servicios</a>
-        <a href="proyectos.html" data-i18n="nav.proyectos">Proyectos</a>
-        <a href="servicios.html#tecnologias" data-i18n="nav.stack">Stack</a>
-        <a href="nosotros.html#resultados" data-i18n="nav.resultados">Resultados</a>
-        <a href="contacto.html" data-i18n="footer.contacto">Contacto</a>
-        <a href="https://www.linkedin.com/company/altokia" target="_blank" rel="noopener" class="footer__social">LinkedIn ↗</a>
-      </div>
-      <div class="footer__bottom">
-        <span data-i18n="footer.rights">© 2026 ALTOKIA — Todos los derechos reservados</span>
-        <span class="footer__status"><span class="footer__pulse"></span> <span data-i18n="footer.status">Sistemas operativos</span></span>
       </div>
     </div>
-  </footer>
+    <!-- Services End -->
 
-  <!-- ══════════ BOTONES FLOTANTES ══════════ -->
-  <div class="fab-stack" id="fabStack">
-    <a href="https://wa.me/51904608141?text=Hola%20ALTOKIA%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios"
-       target="_blank" rel="noopener" class="fab fab--wa" id="fabWa" aria-label="WhatsApp">
-      <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.074-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      <span class="fab__tooltip" data-i18n="fab.wa">¡Escríbenos!</span>
-    </a>
-
-    <button class="fab fab--chat" id="chatToggle" aria-label="Chatbot">
-      <span class="fab--chat-open">🤖</span>
-      <span class="fab--chat-close">✕</span>
-      <span class="fab__tooltip" data-i18n="fab.bot">Asistente virtual</span>
-      <span class="fab__ping"></span>
-    </button>
-  </div>
-
-  <!-- ══════════ CHATBOT ══════════ -->
-  <div class="chatbot" id="chatbot" aria-hidden="true">
-    <div class="chatbot__header">
-      <div class="chatbot__avatar">🤖</div>
-      <div class="chatbot__head-info">
-        <strong>ALTO<span class="accent">bot</span></strong>
-        <span class="chatbot__status"><span class="chatbot__status-dot"></span><span data-i18n="bot.online">En línea — responde al instante</span></span>
+    <!-- Models Start -->
+    <div class="container-fluid ak-section" style="background: var(--ak-bg-2); border-block: 1px solid var(--ak-line)">
+      <div class="container">
+        <div class="text-center mx-auto mb-5" style="max-width: 700px" data-reveal>
+          <span class="ak-mono text-primary d-block mb-3">Modelos de colaboración</span>
+          <h2 class="display-6 mb-3">Elige cómo quieres <span class="ak-gradient-text">trabajar con nosotros</span></h2>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-4" data-reveal data-delay="0">
+            <div class="ak-card">
+              <div class="ak-icon"><i class="fa fa-rocket"></i></div>
+              <h5 class="mb-3">Proyecto cerrado</h5>
+              <p class="mb-4">Alcance, plazo y precio definidos tras la fase de descubrimiento. Ideal para lanzar un producto nuevo.</p>
+              <ul class="list-unstyled mb-0">
+                <li class="mb-2"><i class="fa fa-check text-primary me-2"></i>Presupuesto cerrado</li>
+                <li class="mb-2"><i class="fa fa-check text-primary me-2"></i>Entregas quincenales</li>
+                <li><i class="fa fa-check text-primary me-2"></i>Garantía de 6 meses</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-4" data-reveal data-delay="120">
+            <div class="ak-card">
+              <div class="ak-icon"><i class="fa fa-users"></i></div>
+              <h5 class="mb-3">Equipo dedicado</h5>
+              <p class="mb-4">Un squad estable trabajando solo para ti, integrado en tus rituales y tus herramientas.</p>
+              <ul class="list-unstyled mb-0">
+                <li class="mb-2"><i class="fa fa-check text-primary me-2"></i>Tarifa mensual fija</li>
+                <li class="mb-2"><i class="fa fa-check text-primary me-2"></i>Escalable en semanas</li>
+                <li><i class="fa fa-check text-primary me-2"></i>Sin permanencia larga</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-4" data-reveal data-delay="240">
+            <div class="ak-card">
+              <div class="ak-icon"><i class="fa fa-headset"></i></div>
+              <h5 class="mb-3">Soporte y evolución</h5>
+              <p class="mb-4">Mantenemos y hacemos crecer plataformas existentes, sean nuestras o heredadas de otro proveedor.</p>
+              <ul class="list-unstyled mb-0">
+                <li class="mb-2"><i class="fa fa-check text-primary me-2"></i>SLA desde 4 horas</li>
+                <li class="mb-2"><i class="fa fa-check text-primary me-2"></i>Guardias 24/7</li>
+                <li><i class="fa fa-check text-primary me-2"></i>Informe mensual</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
-      <button class="chatbot__minimize" id="chatMinimize" aria-label="Cerrar chat">─</button>
     </div>
-    <div class="chatbot__messages" id="chatMessages"></div>
-    <div class="chatbot__options" id="chatOptions"></div>
-    <form class="chatbot__inputbar" id="chatForm" autocomplete="off">
-      <input type="text" id="chatInput" data-i18n-placeholder="bot.placeholder" placeholder="Escribe tu mensaje..." />
-      <button type="submit" aria-label="Enviar">➤</button>
-    </form>
-  </div>
+    <!-- Models End -->
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
-  <script src="js/main.js?v=11"></script>
-</body>
+    <!-- FAQ Start -->
+    <div class="container-xxl ak-section">
+      <div class="container">
+        <div class="row g-5">
+          <div class="col-lg-5" data-reveal="left">
+            <div class="ak-heading mb-4">
+              <span class="ak-mono">Dudas frecuentes</span>
+              <h2 class="display-6 mb-0">Lo que casi <span class="ak-gradient-text">siempre nos preguntan</span></h2>
+            </div>
+            <p class="mb-4">Si tu duda no está aquí, escríbenos y te contestamos sin rodeos.</p>
+            <a href="contacto.html" class="btn btn-outline-primary py-3 px-5">Hacer una pregunta<i class="fa fa-arrow-right ms-3"></i></a>
+          </div>
+          <div class="col-lg-7" data-reveal="right" data-delay="120">
+            <div class="ak-faq">
+              <button class="ak-faq-q" type="button">¿Cuánto tarda un proyecto típico?<i class="fa fa-plus"></i></button>
+              <div class="ak-faq-a"><p>Un producto mínimo viable suele estar en producción entre ocho y catorce semanas. La fase de descubrimiento ocupa las dos primeras y termina con un alcance y un presupuesto cerrados.</p></div>
+            </div>
+            <div class="ak-faq">
+              <button class="ak-faq-q" type="button">¿Trabajáis con equipos internos?<i class="fa fa-plus"></i></button>
+              <div class="ak-faq-a"><p>Sí, es lo más habitual. Nos integramos en vuestros rituales, vuestro repositorio y vuestras herramientas, y dejamos documentación y formación para que el equipo interno pueda continuar.</p></div>
+            </div>
+            <div class="ak-faq">
+              <button class="ak-faq-q" type="button">¿De quién es el código?<i class="fa fa-plus"></i></button>
+              <div class="ak-faq-a"><p>Tuyo, desde el primer commit. Trabajamos en tu organización de GitHub o GitLab y no usamos componentes propietarios que te aten a nosotros.</p></div>
+            </div>
+            <div class="ak-faq">
+              <button class="ak-faq-q" type="button">¿Podéis recoger un proyecto ya empezado?<i class="fa fa-plus"></i></button>
+              <div class="ak-faq-a"><p>Sí. Empezamos con una auditoría de dos semanas: estado del código, infraestructura, seguridad y riesgos. Con ese informe decidimos juntos si conviene evolucionar o reconstruir.</p></div>
+            </div>
+            <div class="ak-faq">
+              <button class="ak-faq-q" type="button">¿Cómo se factura?<i class="fa fa-plus"></i></button>
+              <div class="ak-faq-a"><p>Por hitos en proyectos cerrados y mensualmente en equipos dedicados. Siempre con un informe de horas y avance que puedes consultar en cualquier momento.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- FAQ End -->
+
+    <!-- CTA Start -->
+    <div class="container-xxl ak-section pt-0">
+      <div class="container">
+        <div class="ak-cta text-center" data-reveal="zoom">
+          <span class="ak-mono text-primary d-block mb-3">Siguiente paso</span>
+          <h2 class="display-6 mb-4">Cuéntanos qué quieres construir<br /><span class="ak-gradient-text">y te decimos cómo hacerlo</span></h2>
+          <p class="ak-lead mb-5 mx-auto" style="max-width: 620px">
+            Una llamada de 30 minutos basta para saber si encajamos. Sin compromiso
+            y sin presentaciones de 80 diapositivas.
+          </p>
+          <div class="d-flex flex-wrap justify-content-center gap-3">
+            <a href="agenda.html" class="btn btn-primary py-3 px-5" data-magnetic>Agenda una demo<i class="fa fa-arrow-right ms-3"></i></a>
+            <a href="contacto.html" class="btn btn-outline-primary py-3 px-5">Escríbenos</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- CTA End -->
+
+<!-- Footer Start -->
+    <div class="container-fluid footer pt-5" data-reveal>
+      <div class="container py-5">
+        <div class="row g-5">
+          <div class="col-lg-4 col-md-6">
+            <a href="index.html" class="d-inline-flex align-items-center gap-2 mb-4">
+              <img src="images/logo-mark.svg" alt="ALTOKIA" height="32" />
+              <span class="ak-wordmark">ALT<span class="ok">OK</span>IA</span>
+            </a>
+            <p>
+              Ingeniería de software, cloud e inteligencia artificial para empresas
+              que quieren mover el negocio con tecnología, no solo mantenerlo.
+            </p>
+            <div class="d-flex gap-2 pt-2">
+              <a class="ak-social" href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <a class="ak-social" href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+              <a class="ak-social" href="#" aria-label="X"><i class="fab fa-twitter"></i></a>
+              <a class="ak-social" href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-6">
+            <h5 class="footer-title">Servicios</h5>
+            <a class="btn btn-link" href="servicios.html">Software a medida</a>
+            <a class="btn btn-link" href="servicios.html">Inteligencia artificial</a>
+            <a class="btn btn-link" href="servicios.html">Cloud &amp; DevOps</a>
+            <a class="btn btn-link" href="servicios.html">Ciberseguridad</a>
+            <a class="btn btn-link" href="servicios.html">Diseño de producto</a>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <h5 class="footer-title">Compañía</h5>
+            <a class="btn btn-link" href="nosotros.html">Sobre ALTOKIA</a>
+            <a class="btn btn-link" href="equipo.html">Equipo</a>
+            <a class="btn btn-link" href="proyectos.html">Casos de éxito</a>
+            <a class="btn btn-link" href="por-que-altokia.html">Por qué ALTOKIA</a>
+            <a class="btn btn-link" href="contacto.html">Contacto</a>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <h5 class="footer-title">Newsletter</h5>
+            <p>Una vez al mes: arquitectura, IA aplicada y aprendizajes de proyectos reales.</p>
+            <form data-ak-form novalidate>
+              <div class="position-relative">
+                <input class="form-control w-100 py-3 ps-4 pe-5" type="email" placeholder="tu@empresa.com" required />
+                <button type="submit" class="btn btn-primary py-2 px-3 position-absolute top-0 end-0 mt-2 me-2">
+                  <i class="fa fa-arrow-right"></i>
+                </button>
+              </div>
+              <div class="ak-alert"><i class="fa fa-check-circle me-2"></i>¡Suscripción confirmada!</div>
+            </form>
+            <div class="d-flex align-items-center gap-3 mt-4">
+              <i class="fa fa-map-marker-alt text-primary"></i>
+              <small>Calle Innovación 42, Madrid</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-fluid copyright">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+              &copy; <a href="index.html">ALTOKIA</a>, todos los derechos reservados.
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+              <!--/*** This template is free as long as you keep the footer author's credit link/attribution link/backlink. If you'd like to use the template without the footer author's credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+              Designed By <a href="https://htmlcodex.com">HTML Codex</a>
+              <br />Distributed By: <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer End -->
+
+<!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top" aria-label="Volver arriba"><i class="bi bi-arrow-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+  </body>
 </html>

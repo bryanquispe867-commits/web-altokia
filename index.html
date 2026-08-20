@@ -1,314 +1,831 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="images/ALTOKIAV1.webp" type="image/webp" />
-  <title>ALTOKIA — Automatización, Software, Web & Marketing</title>
-  <meta name="description" content="ALTOKIA: automatización de procesos, software a medida, páginas web, marketing y optimización de procesos. Transformamos tu negocio con tecnología de vanguardia." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=11" />
-  <script>
-    /* Aplica el tema ANTES de pintar la página (evita parpadeo y no
-       depende de main.js): claro de 7:00 a 17:59, oscuro desde las 18:00 */
-    (function () {
-      try {
-        var saved = localStorage.getItem('altokia-theme');
-        var h = new Date().getHours();
-        var mode = saved || (h >= 7 && h < 18 ? 'light' : 'dark');
-        document.documentElement.setAttribute('data-theme', mode);
-      } catch (e) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-      }
-    })();
-  </script>
-</head>
-<body data-page="inicio">
+  <head>
+    <meta charset="utf-8" />
+    <title>ALTOKIA — Ingeniería de software, Cloud e Inteligencia Artificial</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="ALTOKIA, desarrollo de software, inteligencia artificial, cloud, devops, ciberseguridad, transformación digital" name="keywords" />
+    <meta content="ALTOKIA diseña, construye y opera plataformas digitales de alto rendimiento: software a medida, cloud, datos e inteligencia artificial." name="description" />
+    <meta name="theme-color" content="#05050C" />
 
-  <!-- ══════════ PRELOADER ══════════ -->
-  <div class="preloader" id="preloader">
-    <div class="preloader__logo">
-      <span class="preloader__letter">A</span><span class="preloader__letter">L</span><span class="preloader__letter">T</span><span class="preloader__letter preloader__letter--o">O</span><span class="preloader__letter preloader__letter--k">K</span><span class="preloader__letter">I</span><span class="preloader__letter">A</span>
+    <!-- Open Graph -->
+    <meta property="og:title" content="ALTOKIA — Ingeniería digital de alto rendimiento" />
+    <meta property="og:description" content="Software a medida, cloud, datos e IA para empresas que quieren escalar." />
+    <meta property="og:image" content="images/ALTOKIAV1.webp" />
+    <meta property="og:type" content="website" />
+
+    <!-- Favicon -->
+    <link href="images/favicon.svg" rel="icon" type="image/svg+xml" />
+    <link href="images/ALTOKIAV1.webp" rel="apple-touch-icon" />
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet" />
+
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+  </head>
+
+  <body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show">
+      <div class="ak-loader">
+        <span></span><span></span><span></span>
+        <div class="ak-loader-label ak-mono">Inicializando ALTOKIA</div>
+      </div>
     </div>
-    <div class="preloader__acronym" data-i18n="brand.acronym">Automatización & Lógica · Tecnología · Operaciones · Conocimiento</div>
-    <div class="preloader__bar"><div class="preloader__bar-fill" id="preloaderBar"></div></div>
-    <div class="preloader__status" id="preloaderStatus">Inicializando sistemas...</div>
-  </div>
+    <!-- Spinner End -->
 
-  <!-- ══════════ CURSOR PERSONALIZADO ══════════ -->
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-follower" id="cursorFollower"></div>
+    <!-- Topbar Start -->
+    <div class="container-fluid ak-topbar px-lg-5 d-none d-lg-block">
+      <div class="row gx-0 align-items-center">
+        <div class="col-lg-7 text-start py-2">
+          <a href="tel:+3491000000" class="me-4"><i class="fa fa-phone-alt me-2 text-primary"></i>+34 910 000 000</a>
+          <a href="mailto:hola@altokia.com" class="me-4"><i class="far fa-envelope-open me-2 text-primary"></i>hola@altokia.com</a>
+          <span class="d-none d-xl-inline-block"><i class="far fa-clock me-2 text-primary"></i>Lun - Vie : 09:00 - 19:00</span>
+        </div>
+        <div class="col-lg-5 text-end py-2">
+          <span class="ak-status ak-mono me-4"><i></i>Sistemas operativos · 99.98%</span>
+          <a class="me-3" href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a class="me-3" href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a class="me-3" href="#" aria-label="X"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+    <!-- Topbar End -->
 
-  <!-- ══════════ BARRA DE PROGRESO DE SCROLL ══════════ -->
-  <div class="scroll-progress" id="scrollProgress"></div>
-
-  <!-- ══════════ CANVAS THREE.JS (fondo global) ══════════ -->
-  <canvas id="webgl-bg"></canvas>
-
-  <!-- ══════════ NAVEGACIÓN ══════════ -->
-  <header class="nav" id="nav">
-    <div class="nav__inner">
-      <a href="index.html" class="nav__logo" data-magnetic data-i18n-title="brand.acronym" title="Automatización & Lógica · Tecnología · Operaciones · Conocimiento">
-        <span class="nav__logo-mark">◆</span><span class="nav__logo-text">ALT<span class="logo-o">O</span><span class="logo-k">K</span>IA</span>
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top px-4 px-lg-5 py-3 py-lg-0">
+      <a href="index.html" class="navbar-brand d-flex align-items-center gap-2">
+        <img src="images/logo-mark.svg" alt="ALTOKIA" />
+        <span class="ak-wordmark">ALT<span class="ok">OK</span>IA</span>
       </a>
-      <nav class="nav__links" id="navLinks">
-        <a href="index.html" class="nav__link" data-page="inicio" data-i18n="nav.inicio">Inicio</a>
-        <a href="nosotros.html" class="nav__link" data-page="nosotros" data-i18n="nav.nosotros">Nosotros</a>
-        <a href="servicios.html" class="nav__link" data-page="servicios" data-i18n="nav.servicios">Servicios</a>
-        <a href="proyectos.html" class="nav__link" data-page="proyectos" data-i18n="nav.proyectos">Proyectos</a>
-        <a href="contacto.html" class="nav__cta" data-magnetic><span data-i18n="nav.cta">Hablemos</span> <span class="nav__cta-arrow">→</span></a>
-      </nav>
-
-      <div class="nav__right">
-        <!-- Tema claro/oscuro -->
-        <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema / Toggle theme" data-magnetic>
-          <span id="themeIcon">☀</span>
-        </button>
-
-        <!-- Selector de idioma -->
-        <button class="lang-toggle" id="langToggle" aria-label="Cambiar idioma / Switch language" data-magnetic>
-          <span class="lang-toggle__opt is-active" data-lang="es">ES</span>
-          <span class="lang-toggle__divider">/</span>
-          <span class="lang-toggle__opt" data-lang="en">EN</span>
-        </button>
-
-        <button class="nav__burger" id="navBurger" aria-label="Menú">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    <!-- ══════════ HERO ══════════ -->
-    <section class="hero" id="inicio">
-      <!-- Fondo del hero: video de marca (ver css/styles.css → .hero__bg) -->
-      <div class="hero__bg" id="heroBg">
-        <video class="hero__video" id="heroVideo" autoplay muted loop playsinline preload="auto" poster="images/hero-bg.webp">
-          <source src="images/video_altokia.mp4" type="video/mp4" />
-        </video>
-      </div>
-
-      <div class="hero__inner">
-        <div class="hero__badge reveal">
-          <span class="hero__badge-dot"></span>
-          <span data-i18n="hero.badge">Impulsando el futuro digital</span>
-        </div>
-
-        <h1 class="hero__title">
-          <span class="hero__line"><span class="hero__word" data-i18n="hero.t1">Automatizamos</span></span>
-          <span class="hero__line"><span class="hero__word hero__word--gradient" data-i18n="hero.t2">el futuro</span></span>
-          <span class="hero__line"><span class="hero__word" data-i18n="hero.t3">de tu negocio</span></span>
-        </h1>
-
-        <p class="hero__subtitle reveal">
-          <span data-i18n="hero.subtitle">Automatización, software a medida, páginas web y marketing.<br />Convertimos tareas repetitivas en</span>
-          <span class="typed-wrap">「<span id="typedText"></span><span class="typed-cursor">▊</span>」</span>
-        </p>
-
-        <div class="hero__actions reveal">
-          <a href="servicios.html" class="btn btn--primary" data-magnetic>
-            <span class="btn__text" data-i18n="hero.btn1">Explorar servicios</span>
-            <span class="btn__glow"></span>
-          </a>
-          <a href="contacto.html" class="btn btn--ghost" data-magnetic>
-            <span class="btn__text" data-i18n="hero.btn2">Agendar demo</span>
-          </a>
-        </div>
-      </div>
-
-      <div class="hero__scroll-hint">
-        <div class="hero__mouse"><div class="hero__mouse-wheel"></div></div>
-        <span data-i18n="hero.scroll">Desliza para descubrir</span>
-      </div>
-
-      <!-- Orbes decorativos -->
-      <div class="orb orb--1"></div>
-      <div class="orb orb--2"></div>
-      <div class="orb orb--3"></div>
-    </section>
-
-    <!-- ══════════ MARQUEE ══════════ -->
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee__track">
-        <span data-i18n="marquee">AUTOMATIZACIÓN DE PROCESOS ✦ SOFTWARE A MEDIDA ✦ PÁGINAS WEB ✦ MARKETING ✦ OPTIMIZACIÓN DE PROCESOS ✦ RPA ✦ IA ✦ CLOUD ✦ </span>
-        <span data-i18n="marquee">AUTOMATIZACIÓN DE PROCESOS ✦ SOFTWARE A MEDIDA ✦ PÁGINAS WEB ✦ MARKETING ✦ OPTIMIZACIÓN DE PROCESOS ✦ RPA ✦ IA ✦ CLOUD ✦ </span>
-      </div>
-    </div>
-
-    <!-- ══════════ ESTADÍSTICAS (franja compacta) ══════════ -->
-    <section class="section stats stats--compact">
-      <div class="stats__grid">
-        <div class="stats__item reveal">
-          <div class="stats__value"><span class="counter" data-target="120">0</span><span class="stats__suffix">+</span></div>
-          <div class="stats__label" data-i18n="stats.l1">Proyectos entregados</div>
-        </div>
-        <div class="stats__item reveal">
-          <div class="stats__value"><span class="counter" data-target="87">0</span><span class="stats__suffix">%</span></div>
-          <div class="stats__label" data-i18n="stats.l2">Reducción de tareas manuales</div>
-        </div>
-        <div class="stats__item reveal">
-          <div class="stats__value"><span class="counter" data-target="15000">0</span><span class="stats__suffix">h</span></div>
-          <div class="stats__label" data-i18n="stats.l3">Horas ahorradas a clientes</div>
-        </div>
-        <div class="stats__item reveal">
-          <div class="stats__value"><span class="counter" data-target="98">0</span><span class="stats__suffix">%</span></div>
-          <div class="stats__label" data-i18n="stats.l4">Satisfacción de clientes</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ══════════ EXPLORA ALTOKIA (teasers a otras páginas) ══════════ -->
-    <section class="section teasers" id="explora">
-      <div class="section__head">
-        <span class="section__tag reveal" data-i18n="teasers.tag">// Explora ALTOKIA</span>
-        <h2 class="section__title reveal" data-i18n="teasers.title">Conoce cómo pensamos,<br /><span class="text-gradient">lo que hacemos y lo que ya construimos</span></h2>
-      </div>
-
-      <div class="teasers__grid">
-        <a href="nosotros.html" class="card reveal" data-tilt>
-          <div class="card__shine"></div>
-          <div class="card__icon">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="tg1" x1="6" y1="6" x2="42" y2="42" gradientUnits="userSpaceOnUse">
-                  <stop stop-color="#00e5ff"/><stop offset="1" stop-color="#7c4dff"/>
-                </linearGradient>
-              </defs>
-              <circle cx="18" cy="16" r="6" stroke="url(#tg1)" stroke-width="2.3"/>
-              <path d="M7 38c0-7 5-11.5 11-11.5S29 31 29 38" stroke="url(#tg1)" stroke-width="2.3" stroke-linecap="round"/>
-              <circle cx="33" cy="14" r="4.5" stroke="#ff2d92" stroke-width="2.1"/>
-              <path d="M25.5 38c0-5.8 3.6-9.5 8-9.9" stroke="#ff2d92" stroke-width="2.1" stroke-linecap="round"/>
-              <path d="M35.5 38c0-4.6-2.3-7.8-5.3-9" stroke="#ff2d92" stroke-width="2.1" stroke-linecap="round"/>
-            </svg>
+      <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ms-auto py-3 py-lg-0 align-items-lg-center">
+          <a href="index.html" class="nav-item nav-link active">Inicio</a>
+          <a href="nosotros.html" class="nav-item nav-link">Nosotros</a>
+          <a href="servicios.html" class="nav-item nav-link">Servicios</a>
+          <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Recursos</a>
+            <div class="dropdown-menu m-0">
+              <a href="por-que-altokia.html" class="dropdown-item">Por qué ALTOKIA</a>
+              <a href="equipo.html" class="dropdown-item">Equipo</a>
+              <a href="proyectos.html" class="dropdown-item">Casos de éxito</a>
+              <a href="agenda.html" class="dropdown-item">Agenda una demo</a>
+              <a href="404.html" class="dropdown-item">Error 404</a>
+            </div>
           </div>
-          <h3 class="card__title" data-i18n="teasers.t1">Nosotros</h3>
-          <p class="card__desc" data-i18n="teasers.d1">Experiencia internacional, un equipo que escucha antes de construir, y un enfoque 100% centrado en tus resultados.</p>
-          <div class="card__footer"><span class="card__num" data-i18n="teasers.cta1">Conócenos</span><span class="card__arrow">→</span></div>
-        </a>
-
-        <a href="servicios.html" class="card reveal" data-tilt>
-          <div class="card__shine"></div>
-          <div class="card__icon">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="tg2" x1="6" y1="6" x2="42" y2="42" gradientUnits="userSpaceOnUse">
-                  <stop stop-color="#00e5ff"/><stop offset="1" stop-color="#7c4dff"/>
-                </linearGradient>
-              </defs>
-              <rect x="6" y="6" width="15" height="15" rx="3" stroke="url(#tg2)" stroke-width="2.3"/>
-              <rect x="27" y="6" width="15" height="15" rx="3" stroke="url(#tg2)" stroke-width="2.3"/>
-              <rect x="6" y="27" width="15" height="15" rx="3" stroke="url(#tg2)" stroke-width="2.3"/>
-              <rect x="27" y="27" width="15" height="15" rx="3" fill="#05060f" stroke="#ff2d92" stroke-width="2.3"/>
-              <path d="M31.5 34.5l2.3 2.3 4.3-4.6" stroke="#ff2d92" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <h3 class="card__title" data-i18n="teasers.t2">Servicios</h3>
-          <p class="card__desc" data-i18n="teasers.d2">Automatización, software a medida, páginas web, marketing y optimización de procesos — todo bajo un mismo equipo.</p>
-          <div class="card__footer"><span class="card__num" data-i18n="teasers.cta2">Ver servicios</span><span class="card__arrow">→</span></div>
-        </a>
-
-        <a href="proyectos.html" class="card reveal" data-tilt>
-          <div class="card__shine"></div>
-          <div class="card__icon">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="tg3" x1="6" y1="10" x2="42" y2="40" gradientUnits="userSpaceOnUse">
-                  <stop stop-color="#00e5ff"/><stop offset="1" stop-color="#7c4dff"/>
-                </linearGradient>
-              </defs>
-              <rect x="6" y="16" width="36" height="24" rx="3" stroke="url(#tg3)" stroke-width="2.3"/>
-              <path d="M17 16v-4a3 3 0 013-3h8a3 3 0 013 3v4" stroke="url(#tg3)" stroke-width="2.3" stroke-linejoin="round"/>
-              <path d="M6 24h36" stroke="url(#tg3)" stroke-width="2.1"/>
-              <path d="M15 31l5-5 4 3 8-8" stroke="#ff2d92" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <h3 class="card__title" data-i18n="teasers.t3">Proyectos</h3>
-          <p class="card__desc" data-i18n="teasers.d3">Casos reales en minería, retail y banca, con resultados medibles: menos tiempo, menos costos, más eficiencia.</p>
-          <div class="card__footer"><span class="card__num" data-i18n="teasers.cta3">Ver casos</span><span class="card__arrow">→</span></div>
-        </a>
-      </div>
-    </section>
-
-    <!-- ══════════ CTA FINAL (enlaza a Contacto) ══════════ -->
-    <section class="section cta">
-      <div class="cta__box reveal">
-        <div class="cta__grid-bg"></div>
-        <h2 class="cta__title" data-i18n="home.ctaTitle">¿Listo para <span class="text-gradient">automatizar</span><br />tu próximo gran salto?</h2>
-        <p class="cta__desc" data-i18n="home.ctaDesc">Cuéntanos tu caso en una consultoría gratuita de 30 minutos. Te mostramos exactamente dónde puedes ganar eficiencia.</p>
-        <a href="contacto.html" class="btn btn--primary btn--lg" data-magnetic>
-          <span class="btn__text" data-i18n="home.ctaBtn">Hablemos ✦</span>
-          <span class="btn__glow"></span>
-        </a>
-        <div class="cta__meta">
-          <span data-i18n="contact.meta1">◆ Respuesta en menos de 24h</span>
-          <span data-i18n="contact.meta2">◆ Sin compromiso</span>
+          <a href="contacto.html" class="nav-item nav-link">Contacto</a>
+          <a href="agenda.html" class="btn btn-primary px-4 py-2 ms-lg-4 my-3 my-lg-0">Agenda una demo</a>
         </div>
       </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- Hero Start -->
+    <section class="ak-hero">
+      <canvas id="ak-net"></canvas>
+      <div class="ak-orb o1"></div>
+      <div class="ak-orb o2"></div>
+      <div class="ak-orb o3"></div>
+
+      <div class="container">
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-6">
+            <div class="ak-chip mb-4" data-reveal="blur"><span class="dot"></span>Software · Cloud · Inteligencia Artificial</div>
+
+            <h1 class="mb-4" data-reveal data-delay="80">
+              Convertimos ideas complejas en<br />
+              <span class="ak-rotator" data-words="software que escala|productos memorables|datos que deciden|IA que produce"><span class="word"></span></span><span class="ak-caret"></span>
+            </h1>
+
+            <p class="ak-lead mb-4 pe-lg-5" data-reveal data-delay="160">
+              ALTOKIA es el equipo de ingeniería, diseño e inteligencia artificial que
+              diseña, construye y opera las plataformas digitales de empresas que no
+              se conforman con lo de siempre.
+            </p>
+
+            <div class="d-flex flex-wrap gap-3" data-reveal data-delay="240">
+              <a href="agenda.html" class="btn btn-primary py-3 px-5" data-magnetic>
+                Empieza tu proyecto<i class="fa fa-arrow-right ms-3"></i>
+              </a>
+              <a href="servicios.html" class="btn btn-outline-primary py-3 px-5">
+                <i class="fa fa-play me-3"></i>Ver servicios
+              </a>
+            </div>
+
+            <div class="ak-hero-stats" data-reveal data-delay="320">
+              <div class="item">
+                <div class="num"><span data-count="120">0</span>+</div>
+                <div class="lbl ak-mono">Proyectos</div>
+              </div>
+              <div class="item">
+                <div class="num"><span data-count="99.98" data-decimals="2">0</span>%</div>
+                <div class="lbl ak-mono">Uptime</div>
+              </div>
+              <div class="item">
+                <div class="num"><span data-count="38">0</span></div>
+                <div class="lbl ak-mono">Ingenieros</div>
+              </div>
+              <div class="item">
+                <div class="num"><span data-count="14">0</span></div>
+                <div class="lbl ak-mono">Países</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="position-relative ps-lg-4" data-reveal="right" data-delay="200">
+              <div class="ak-window">
+                <div class="ak-window-bar">
+                  <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+                  <span class="name">altokia.stack.ts</span>
+                </div>
+                <pre class="ak-code"><span class="c">// Arquitectura desplegada en minutos, no en meses</span>
+<span class="k">export default</span> <span class="f">defineStack</span>({
+  cloud:   <span class="s">"multi-region"</span>,
+  runtime: [<span class="s">"edge"</span>, <span class="s">"serverless"</span>],
+  ai:      { rag: <span class="n">true</span>, vision: <span class="n">true</span> },
+  scale:   { min: <span class="n">2</span>, max: <span class="n">256</span> },
+  sla:     <span class="s">"99.98%"</span>
+})
+
+<span class="c">▸ build</span>    <span class="s">✔ 2.4s</span>
+<span class="c">▸ tests</span>    <span class="s">✔ 218 passed</span>
+<span class="c">▸ deploy</span>   <span class="s">✔ eu-west-1 · us-east-1</span></pre>
+              </div>
+
+              <div class="ak-float-card fc1">
+                <div class="ak-mono text-primary mb-1">Latencia p95</div>
+                <div class="d-flex align-items-baseline gap-2">
+                  <span class="h4 mb-0"><span data-count="42">0</span> ms</span>
+                  <small style="color: #4ade9b"><i class="fa fa-arrow-down"></i> 63%</small>
+                </div>
+              </div>
+
+              <div class="ak-float-card fc2">
+                <div class="ak-mono text-primary mb-1">Despliegues / semana</div>
+                <div class="d-flex align-items-baseline gap-2">
+                  <span class="h4 mb-0"><span data-count="146">0</span></span>
+                  <small style="color: #4ade9b"><i class="fa fa-bolt"></i> CI/CD</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ak-scroll-cue d-none d-lg-flex">
+        <span class="ak-mono">scroll</span>
+        <span class="bar"></span>
+      </div>
     </section>
-  </main>
+    <!-- Hero End -->
 
-  <!-- ══════════ FOOTER ══════════ -->
-  <footer class="footer">
-    <div class="footer__inner">
-      <div class="footer__brand">
-        <span class="nav__logo-mark">◆</span> ALT<span class="logo-o">O</span><span class="logo-k">K</span>IA
-        <p class="footer__acronym" data-i18n="brand.acronym">Automatización & Lógica · Tecnología · Operaciones · Conocimiento</p>
-        <p data-i18n="footer.tagline">Tecnología que trabaja mientras tú creces.</p>
-      </div>
-      <div class="footer__links">
-        <a href="nosotros.html" data-i18n="nav.nosotros">Nosotros</a>
-        <a href="servicios.html" data-i18n="nav.servicios">Servicios</a>
-        <a href="proyectos.html" data-i18n="nav.proyectos">Proyectos</a>
-        <a href="servicios.html#tecnologias" data-i18n="nav.stack">Stack</a>
-        <a href="nosotros.html#resultados" data-i18n="nav.resultados">Resultados</a>
-        <a href="contacto.html" data-i18n="footer.contacto">Contacto</a>
-        <a href="https://www.linkedin.com/company/altokia" target="_blank" rel="noopener" class="footer__social">LinkedIn ↗</a>
-      </div>
-      <div class="footer__bottom">
-        <span data-i18n="footer.rights">© 2026 ALTOKIA — Todos los derechos reservados</span>
-        <span class="footer__status"><span class="footer__pulse"></span> <span data-i18n="footer.status">Sistemas operativos</span></span>
+    <!-- Stack Marquee Start -->
+    <div class="container-fluid py-4 border-top border-bottom">
+      <div class="container">
+        <p class="ak-mono text-center mb-4" style="color: var(--ak-dim)">Nuestro stack de trabajo</p>
+        <div class="ak-marquee">
+          <div class="ak-marquee-track">
+            <span class="ak-marquee-item"><i class="fab fa-react text-primary"></i>React</span>
+            <span class="ak-marquee-item"><i class="fab fa-node-js text-primary"></i>Node.js</span>
+            <span class="ak-marquee-item"><i class="fab fa-python text-primary"></i>Python</span>
+            <span class="ak-marquee-item"><i class="fab fa-aws text-primary"></i>AWS</span>
+            <span class="ak-marquee-item"><i class="fab fa-docker text-primary"></i>Docker</span>
+            <span class="ak-marquee-item"><i class="fa fa-dharmachakra text-primary"></i>Kubernetes</span>
+            <span class="ak-marquee-item"><i class="fa fa-database text-primary"></i>PostgreSQL</span>
+            <span class="ak-marquee-item"><i class="fa fa-brain text-primary"></i>PyTorch</span>
+            <span class="ak-marquee-item"><i class="fab fa-js text-primary"></i>TypeScript</span>
+            <span class="ak-marquee-item"><i class="fab fa-figma text-primary"></i>Figma</span>
+            <span class="ak-marquee-item"><i class="fa fa-stream text-primary"></i>Kafka</span>
+            <span class="ak-marquee-item"><i class="fab fa-github text-primary"></i>GitHub Actions</span>
+          </div>
+        </div>
       </div>
     </div>
-  </footer>
+    <!-- Stack Marquee End -->
 
-  <!-- ══════════ BOTONES FLOTANTES ══════════ -->
-  <div class="fab-stack" id="fabStack">
-    <a href="https://wa.me/51904608141?text=Hola%20ALTOKIA%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios"
-       target="_blank" rel="noopener" class="fab fab--wa" id="fabWa" aria-label="WhatsApp">
-      <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.074-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      <span class="fab__tooltip" data-i18n="fab.wa">¡Escríbenos!</span>
-    </a>
+    <!-- Services Start -->
+    <div class="container-xxl ak-section" id="servicios">
+      <div class="container">
+        <div class="row g-5 align-items-end mb-5">
+          <div class="col-lg-7" data-reveal="left">
+            <div class="ak-heading">
+              <span class="ak-mono">Qué hacemos</span>
+              <h2 class="display-6 mb-0">Capacidades de ingeniería <span class="ak-gradient-text">de punta a punta</span></h2>
+            </div>
+          </div>
+          <div class="col-lg-5 text-lg-end" data-reveal="right" data-delay="120">
+            <a class="btn btn-outline-primary py-3 px-5" href="servicios.html">Todos los servicios<i class="fa fa-arrow-right ms-3"></i></a>
+          </div>
+        </div>
 
-    <button class="fab fab--chat" id="chatToggle" aria-label="Chatbot">
-      <span class="fab--chat-open">🤖</span>
-      <span class="fab--chat-close">✕</span>
-      <span class="fab__tooltip" data-i18n="fab.bot">Asistente virtual</span>
-      <span class="fab__ping"></span>
-    </button>
-  </div>
+        <div class="row g-4">
+          <div class="col-lg-4 col-md-6" data-reveal data-delay="0">
+            <div class="ak-card">
+              <span class="ak-ghost-num">01</span>
+              <div class="ak-icon"><i class="fa fa-code"></i></div>
+              <h5 class="mb-3">Software a medida</h5>
+              <p class="mb-4">
+                Plataformas web y backends que soportan millones de peticiones sin
+                despeinarse. Arquitectura limpia, tests reales y documentación viva.
+              </p>
+              <a class="ak-link" href="servicios.html">Explorar<i class="fa fa-arrow-right"></i></a>
+            </div>
+          </div>
 
-  <!-- ══════════ CHATBOT ══════════ -->
-  <div class="chatbot" id="chatbot" aria-hidden="true">
-    <div class="chatbot__header">
-      <div class="chatbot__avatar">🤖</div>
-      <div class="chatbot__head-info">
-        <strong>ALTO<span class="accent">bot</span></strong>
-        <span class="chatbot__status"><span class="chatbot__status-dot"></span><span data-i18n="bot.online">En línea — responde al instante</span></span>
+          <div class="col-lg-4 col-md-6" data-reveal data-delay="90">
+            <div class="ak-card">
+              <span class="ak-ghost-num">02</span>
+              <div class="ak-icon"><i class="fa fa-brain"></i></div>
+              <h5 class="mb-3">Inteligencia artificial</h5>
+              <p class="mb-4">
+                Copilotos internos, RAG sobre tu conocimiento, visión por computador
+                y modelos afinados a tu dominio. Con métricas, no con humo.
+              </p>
+              <a class="ak-link" href="servicios.html">Explorar<i class="fa fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-reveal data-delay="180">
+            <div class="ak-card">
+              <span class="ak-ghost-num">03</span>
+              <div class="ak-icon"><i class="fa fa-cloud"></i></div>
+              <h5 class="mb-3">Cloud &amp; DevOps</h5>
+              <p class="mb-4">
+                Infraestructura como código, observabilidad de verdad y pipelines que
+                despliegan varias veces al día sin sobresaltos.
+              </p>
+              <a class="ak-link" href="servicios.html">Explorar<i class="fa fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-reveal data-delay="0">
+            <div class="ak-card">
+              <span class="ak-ghost-num">04</span>
+              <div class="ak-icon"><i class="fa fa-mobile-alt"></i></div>
+              <h5 class="mb-3">Apps móviles</h5>
+              <p class="mb-4">
+                iOS y Android nativos o multiplataforma, con una experiencia fluida a
+                60 fps y publicación continua en ambas tiendas.
+              </p>
+              <a class="ak-link" href="servicios.html">Explorar<i class="fa fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-reveal data-delay="90">
+            <div class="ak-card">
+              <span class="ak-ghost-num">05</span>
+              <div class="ak-icon"><i class="fa fa-shield-alt"></i></div>
+              <h5 class="mb-3">Ciberseguridad</h5>
+              <p class="mb-4">
+                Auditorías, pentesting, hardening y cumplimiento (ISO 27001, GDPR).
+                Seguridad desde el primer commit, no como parche final.
+              </p>
+              <a class="ak-link" href="servicios.html">Explorar<i class="fa fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-reveal data-delay="180">
+            <div class="ak-card">
+              <span class="ak-ghost-num">06</span>
+              <div class="ak-icon"><i class="fa fa-pen-nib"></i></div>
+              <h5 class="mb-3">Diseño de producto</h5>
+              <p class="mb-4">
+                Research, design system e interfaces que la gente entiende a la
+                primera. Diseño que se mide en conversión, no en likes.
+              </p>
+              <a class="ak-link" href="servicios.html">Explorar<i class="fa fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
       </div>
-      <button class="chatbot__minimize" id="chatMinimize" aria-label="Cerrar chat">─</button>
     </div>
-    <div class="chatbot__messages" id="chatMessages"></div>
-    <div class="chatbot__options" id="chatOptions"></div>
-    <form class="chatbot__inputbar" id="chatForm" autocomplete="off">
-      <input type="text" id="chatInput" data-i18n-placeholder="bot.placeholder" placeholder="Escribe tu mensaje..." />
-      <button type="submit" aria-label="Enviar">➤</button>
-    </form>
-  </div>
+    <!-- Services End -->
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
-  <script src="js/main.js?v=11"></script>
-</body>
+    <!-- About Start -->
+    <div class="container-xxl ak-section pt-0" id="nosotros">
+      <div class="container">
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-6" data-reveal="left">
+            <div class="ak-panel">
+              <div class="d-flex align-items-center justify-content-between mb-4">
+                <div>
+                  <div class="ak-mono text-primary">Panel de operación</div>
+                  <h5 class="mb-0 mt-1">Salud de la plataforma</h5>
+                </div>
+                <span class="ak-status ak-mono"><i></i>Live</span>
+              </div>
+
+              <div class="ak-chart mb-4">
+                <i data-h="38"></i><i data-h="62"></i><i data-h="45"></i><i data-h="78"></i>
+                <i data-h="55"></i><i data-h="92"></i><i data-h="70"></i><i data-h="84"></i>
+                <i data-h="48"></i><i data-h="96"></i>
+              </div>
+
+              <div class="ak-panel-row">
+                <span class="name">Disponibilidad</span>
+                <span class="ak-bar" data-bar="99"><span></span></span>
+                <span class="pct">99.9%</span>
+              </div>
+              <div class="ak-panel-row">
+                <span class="name">Cobertura tests</span>
+                <span class="ak-bar" data-bar="87"><span></span></span>
+                <span class="pct">87%</span>
+              </div>
+              <div class="ak-panel-row">
+                <span class="name">Automatización</span>
+                <span class="ak-bar" data-bar="94"><span></span></span>
+                <span class="pct">94%</span>
+              </div>
+              <div class="ak-panel-row">
+                <span class="name">Satisfacción</span>
+                <span class="ak-bar" data-bar="98"><span></span></span>
+                <span class="pct">4.9/5</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6" data-reveal="right" data-delay="120">
+            <div class="ak-heading mb-4">
+              <span class="ak-mono">Quiénes somos</span>
+              <h2 class="display-6 mb-0">Un socio técnico, <span class="ak-gradient-text">no un proveedor más</span></h2>
+            </div>
+
+            <p class="ak-lead mb-4">
+              Nacimos con una idea sencilla: la tecnología solo vale si mueve el
+              negocio. Por eso trabajamos como una extensión de tu equipo, con
+              objetivos compartidos y métricas que ambos podemos mirar cada semana.
+            </p>
+
+            <div class="row g-4 mb-4">
+              <div class="col-sm-6">
+                <div class="d-flex align-items-start gap-3">
+                  <i class="fa fa-infinity text-primary fa-lg mt-1"></i>
+                  <div>
+                    <h6 class="mb-1">Equipos dedicados</h6>
+                    <small>Squads estables que conocen tu producto a fondo.</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="d-flex align-items-start gap-3">
+                  <i class="fa fa-vial text-primary fa-lg mt-1"></i>
+                  <div>
+                    <h6 class="mb-1">Calidad medible</h6>
+                    <small>Cobertura, performance y seguridad en cada release.</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="d-flex align-items-start gap-3">
+                  <i class="fa fa-globe text-primary fa-lg mt-1"></i>
+                  <div>
+                    <h6 class="mb-1">Cobertura global</h6>
+                    <small>14 países y soporte en tres husos horarios.</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="d-flex align-items-start gap-3">
+                  <i class="fa fa-lock text-primary fa-lg mt-1"></i>
+                  <div>
+                    <h6 class="mb-1">Tu código es tuyo</h6>
+                    <small>Sin cajas negras ni dependencias artificiales.</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <a href="nosotros.html" class="btn btn-primary py-3 px-5" data-magnetic>Conoce a ALTOKIA<i class="fa fa-arrow-right ms-3"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- About End -->
+
+    <!-- Process Start -->
+    <div class="container-fluid ak-section" style="background: var(--ak-bg-2); border-block: 1px solid var(--ak-line)">
+      <div class="container">
+        <div class="text-center mx-auto mb-5" style="max-width: 700px" data-reveal>
+          <span class="ak-mono text-primary d-block mb-3">Cómo trabajamos</span>
+          <h2 class="display-6 mb-3">De la primera llamada <span class="ak-gradient-text">a producción</span></h2>
+          <p class="ak-lead mb-0">
+            Un proceso corto, transparente y sin sorpresas. Ves avances reales cada
+            dos semanas, desde el primer sprint.
+          </p>
+        </div>
+
+        <div class="row g-4 g-lg-5 ak-steps">
+          <div class="col-lg-3 col-sm-6" data-reveal data-delay="0">
+            <div class="ak-step">
+              <div class="bubble">01</div>
+              <h5 class="mb-3">Descubrimiento</h5>
+              <p class="mb-0">Entendemos negocio, usuarios y restricciones. Salimos con un alcance claro y un presupuesto cerrado.</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6" data-reveal data-delay="120">
+            <div class="ak-step">
+              <div class="bubble">02</div>
+              <h5 class="mb-3">Diseño &amp; arquitectura</h5>
+              <p class="mb-0">Prototipo navegable y arquitectura técnica validada antes de escribir la primera línea de producción.</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6" data-reveal data-delay="240">
+            <div class="ak-step">
+              <div class="bubble">03</div>
+              <h5 class="mb-3">Construcción &amp; QA</h5>
+              <p class="mb-0">Sprints de dos semanas, demo en vivo, tests automatizados y entorno de staging siempre disponible.</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6" data-reveal data-delay="360">
+            <div class="ak-step">
+              <div class="bubble">04</div>
+              <h5 class="mb-3">Despliegue &amp; evolución</h5>
+              <p class="mb-0">Salida a producción sin downtime, monitorización 24/7 y un roadmap de mejora continua.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Process End -->
+
+    <!-- Metrics Start -->
+    <div class="container-xxl ak-section">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-3 col-sm-6" data-reveal="zoom" data-delay="0">
+            <div class="ak-metric">
+              <div class="val"><span data-count="120">0</span>+</div>
+              <div class="lbl">Proyectos entregados</div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6" data-reveal="zoom" data-delay="100">
+            <div class="ak-metric">
+              <div class="val"><span data-count="38">0</span></div>
+              <div class="lbl">Especialistas en plantilla</div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6" data-reveal="zoom" data-delay="200">
+            <div class="ak-metric">
+              <div class="val"><span data-count="99.98" data-decimals="2">0</span>%</div>
+              <div class="lbl">Uptime medio anual</div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6" data-reveal="zoom" data-delay="300">
+            <div class="ak-metric">
+              <div class="val"><span data-count="14">0</span></div>
+              <div class="lbl">Países con clientes activos</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Metrics End -->
+
+    <!-- Cases Start -->
+    <div class="container-xxl ak-section pt-0">
+      <div class="container">
+        <div class="row g-5 align-items-end mb-5">
+          <div class="col-lg-7" data-reveal="left">
+            <div class="ak-heading">
+              <span class="ak-mono">Casos de éxito</span>
+              <h2 class="display-6 mb-0">Resultados que se <span class="ak-gradient-text">pueden medir</span></h2>
+            </div>
+          </div>
+          <div class="col-lg-5 text-lg-end" data-reveal="right" data-delay="120">
+            <a class="btn btn-outline-primary py-3 px-5" href="proyectos.html">Ver todos<i class="fa fa-arrow-right ms-3"></i></a>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-lg-4 col-md-6" data-reveal data-delay="0">
+            <div class="ak-case">
+              <div class="ak-case-visual"><i class="fa fa-university"></i></div>
+              <div class="ak-case-body">
+                <div class="d-flex gap-2 mb-3 flex-wrap">
+                  <span class="ak-tag">AWS</span><span class="ak-tag">Kotlin</span><span class="ak-tag">Kafka</span>
+                </div>
+                <h5 class="mb-3">Core bancario en la nube</h5>
+                <p class="mb-4">Migramos un núcleo transaccional de 20 años a una arquitectura de eventos multi-región, sin cortar el servicio.</p>
+                <div class="d-flex align-items-center gap-3">
+                  <span class="h4 mb-0 ak-gradient-text">-63%</span>
+                  <small>latencia en operaciones críticas</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-reveal data-delay="120">
+            <div class="ak-case">
+              <div class="ak-case-visual"><i class="fa fa-shopping-bag"></i></div>
+              <div class="ak-case-body">
+                <div class="d-flex gap-2 mb-3 flex-wrap">
+                  <span class="ak-tag">Python</span><span class="ak-tag">RAG</span><span class="ak-tag">GCP</span>
+                </div>
+                <h5 class="mb-3">Motor de recomendación con IA</h5>
+                <p class="mb-4">Personalización en tiempo real para un retailer con 4 millones de referencias y picos de Black Friday.</p>
+                <div class="d-flex align-items-center gap-3">
+                  <span class="h4 mb-0 ak-gradient-text">+28%</span>
+                  <small>conversión en ficha de producto</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-reveal data-delay="240">
+            <div class="ak-case">
+              <div class="ak-case-visual"><i class="fa fa-heartbeat"></i></div>
+              <div class="ak-case-body">
+                <div class="d-flex gap-2 mb-3 flex-wrap">
+                  <span class="ak-tag">React Native</span><span class="ak-tag">GDPR</span><span class="ak-tag">WebRTC</span>
+                </div>
+                <h5 class="mb-3">Plataforma de telemedicina</h5>
+                <p class="mb-4">Videoconsulta cifrada, historial clínico y recetas digitales en una app usada en cinco países.</p>
+                <div class="d-flex align-items-center gap-3">
+                  <span class="h4 mb-0 ak-gradient-text">1.2M</span>
+                  <small>consultas atendidas al año</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Cases End -->
+
+    <!-- Testimonial Start -->
+    <div class="container-xxl ak-section pt-0">
+      <div class="container">
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-5" data-reveal="left">
+            <div class="ak-heading mb-4">
+              <span class="ak-mono">Testimonios</span>
+              <h2 class="display-6 mb-0">Lo que dicen quienes ya <span class="ak-gradient-text">trabajan con nosotros</span></h2>
+            </div>
+            <p class="mb-4">
+              El 82% de nuestros clientes amplía el contrato después del primer
+              proyecto. Es el único indicador de satisfacción que nos importa.
+            </p>
+            <div class="row g-4">
+              <div class="col-sm-6">
+                <div class="d-flex align-items-center gap-3 mb-2">
+                  <i class="fa fa-users fa-2x text-primary"></i>
+                  <span class="h3 mb-0"><span data-count="82">0</span>%</span>
+                </div>
+                <h6 class="mb-0">Clientes que repiten</h6>
+              </div>
+              <div class="col-sm-6">
+                <div class="d-flex align-items-center gap-3 mb-2">
+                  <i class="fa fa-award fa-2x text-primary"></i>
+                  <span class="h3 mb-0"><span data-count="4.9" data-decimals="1">0</span></span>
+                </div>
+                <h6 class="mb-0">Valoración media</h6>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-7" data-reveal="right" data-delay="120">
+            <div class="owl-carousel testimonial-carousel">
+              <div class="ak-quote">
+                <div class="ak-stars mb-3">★★★★★</div>
+                <p class="fs-5 mb-4">
+                  Pasamos de desplegar una vez al mes a hacerlo a diario. ALTOKIA no
+                  solo nos entregó una plataforma: nos dejó un equipo capaz de
+                  mantenerla y evolucionarla.
+                </p>
+                <div class="d-flex align-items-center gap-3">
+                  <div class="ak-quote-avatar">MR</div>
+                  <div>
+                    <h6 class="mb-0">María Ruiz</h6>
+                    <small class="ak-mono" style="color: var(--ak-dim)">CTO · Fintech Nova</small>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ak-quote">
+                <div class="ak-stars mb-3">★★★★★</div>
+                <p class="fs-5 mb-4">
+                  Nos daba miedo el proyecto de IA porque veníamos de dos intentos
+                  fallidos. En diez semanas teníamos un asistente en producción y
+                  métricas que lo justificaban.
+                </p>
+                <div class="d-flex align-items-center gap-3">
+                  <div class="ak-quote-avatar">DL</div>
+                  <div>
+                    <h6 class="mb-0">Daniel López</h6>
+                    <small class="ak-mono" style="color: var(--ak-dim)">Director de Operaciones · Grupo Vertex</small>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ak-quote">
+                <div class="ak-stars mb-3">★★★★★</div>
+                <p class="fs-5 mb-4">
+                  La transparencia es lo que más valoro. Sabíamos en qué estaba cada
+                  euro y cada sprint terminaba con algo funcionando, no con una
+                  presentación bonita.
+                </p>
+                <div class="d-flex align-items-center gap-3">
+                  <div class="ak-quote-avatar">CS</div>
+                  <div>
+                    <h6 class="mb-0">Carla Sández</h6>
+                    <small class="ak-mono" style="color: var(--ak-dim)">CEO · Medilink</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Testimonial End -->
+
+    <!-- CTA Start -->
+    <div class="container-xxl ak-section pt-0">
+      <div class="container">
+        <div class="ak-cta" data-reveal="zoom">
+          <div class="row g-5 align-items-center">
+            <div class="col-lg-5">
+              <span class="ak-mono text-primary d-block mb-3">Hablemos</span>
+              <h2 class="display-6 mb-4">¿Tienes un reto técnico <span class="ak-gradient-text">entre manos?</span></h2>
+              <p class="mb-4">
+                Cuéntanoslo en dos líneas. Te respondemos en menos de 24 horas
+                laborables con una primera valoración honesta: si no somos el equipo
+                adecuado, también te lo diremos.
+              </p>
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <i class="fa fa-envelope text-primary"></i><a href="mailto:hola@altokia.com" style="color: var(--ak-text)">hola@altokia.com</a>
+              </div>
+              <div class="d-flex align-items-center gap-3">
+                <i class="fa fa-phone-alt text-primary"></i><a href="tel:+3491000000" style="color: var(--ak-text)">+34 910 000 000</a>
+              </div>
+            </div>
+
+            <div class="col-lg-7">
+              <form data-ak-form novalidate>
+                <div class="row g-3">
+                  <div class="col-sm-6">
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="name" placeholder="Nombre" required />
+                      <label for="name">Tu nombre</label>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-floating">
+                      <input type="email" class="form-control" id="email" placeholder="Email" required />
+                      <label for="email">Email corporativo</label>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="company" placeholder="Empresa" />
+                      <label for="company">Empresa</label>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-floating">
+                      <select class="form-select" id="service">
+                        <option selected>Software a medida</option>
+                        <option>Inteligencia artificial</option>
+                        <option>Cloud &amp; DevOps</option>
+                        <option>Apps móviles</option>
+                        <option>Ciberseguridad</option>
+                        <option>Diseño de producto</option>
+                      </select>
+                      <label for="service">Servicio</label>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-floating">
+                      <textarea class="form-control" placeholder="Mensaje" id="message" style="height: 120px" required></textarea>
+                      <label for="message">Cuéntanos tu proyecto</label>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <button class="btn btn-primary w-100 py-3" type="submit">Enviar mensaje<i class="fa fa-arrow-right ms-3"></i></button>
+                    <p class="ak-form-note mt-3 mb-0">
+                      Al enviar aceptas nuestra política de privacidad. Nunca compartimos tus datos.
+                    </p>
+                    <div class="ak-alert"><i class="fa fa-check-circle me-2"></i>¡Mensaje recibido! Te escribimos en menos de 24 horas.</div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- CTA End -->
+
+    <!-- Footer Start -->
+    <div class="container-fluid footer pt-5" data-reveal>
+      <div class="container py-5">
+        <div class="row g-5">
+          <div class="col-lg-4 col-md-6">
+            <a href="index.html" class="d-inline-flex align-items-center gap-2 mb-4">
+              <img src="images/logo-mark.svg" alt="ALTOKIA" height="32" />
+              <span class="ak-wordmark">ALT<span class="ok">OK</span>IA</span>
+            </a>
+            <p>
+              Ingeniería de software, cloud e inteligencia artificial para empresas
+              que quieren mover el negocio con tecnología, no solo mantenerlo.
+            </p>
+            <div class="d-flex gap-2 pt-2">
+              <a class="ak-social" href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <a class="ak-social" href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+              <a class="ak-social" href="#" aria-label="X"><i class="fab fa-twitter"></i></a>
+              <a class="ak-social" href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-6">
+            <h5 class="footer-title">Servicios</h5>
+            <a class="btn btn-link" href="servicios.html">Software a medida</a>
+            <a class="btn btn-link" href="servicios.html">Inteligencia artificial</a>
+            <a class="btn btn-link" href="servicios.html">Cloud &amp; DevOps</a>
+            <a class="btn btn-link" href="servicios.html">Ciberseguridad</a>
+            <a class="btn btn-link" href="servicios.html">Diseño de producto</a>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <h5 class="footer-title">Compañía</h5>
+            <a class="btn btn-link" href="nosotros.html">Sobre ALTOKIA</a>
+            <a class="btn btn-link" href="equipo.html">Equipo</a>
+            <a class="btn btn-link" href="proyectos.html">Casos de éxito</a>
+            <a class="btn btn-link" href="por-que-altokia.html">Por qué ALTOKIA</a>
+            <a class="btn btn-link" href="contacto.html">Contacto</a>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <h5 class="footer-title">Newsletter</h5>
+            <p>Una vez al mes: arquitectura, IA aplicada y aprendizajes de proyectos reales.</p>
+            <form data-ak-form novalidate>
+              <div class="position-relative">
+                <input class="form-control w-100 py-3 ps-4 pe-5" type="email" placeholder="tu@empresa.com" required />
+                <button type="submit" class="btn btn-primary py-2 px-3 position-absolute top-0 end-0 mt-2 me-2">
+                  <i class="fa fa-arrow-right"></i>
+                </button>
+              </div>
+              <div class="ak-alert"><i class="fa fa-check-circle me-2"></i>¡Suscripción confirmada!</div>
+            </form>
+            <div class="d-flex align-items-center gap-3 mt-4">
+              <i class="fa fa-map-marker-alt text-primary"></i>
+              <small>Calle Innovación 42, Madrid</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-fluid copyright">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+              &copy; <a href="index.html">ALTOKIA</a>, todos los derechos reservados.
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+              <!--/*** This template is free as long as you keep the footer author's credit link/attribution link/backlink. If you'd like to use the template without the footer author's credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+              Designed By <a href="https://htmlcodex.com">HTML Codex</a>
+              <br />Distributed By: <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top" aria-label="Volver arriba"><i class="bi bi-arrow-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+  </body>
 </html>
