@@ -540,14 +540,6 @@ body.ak-cursor-on .ak-cursor-ring.is-hover {
 
 .navbar-brand { padding: 0; }
 
-.navbar-brand img {
-    height: 32px;
-    width: auto;
-    transition: filter .4s, transform .4s var(--ak-ease);
-    filter: drop-shadow(0 0 14px rgba(123, 77, 255, .45));
-}
-
-.navbar-brand:hover img { transform: translateY(-2px) scale(1.02); filter: drop-shadow(0 0 22px rgba(0, 229, 255, .65)); }
 
 .navbar .navbar-nav .nav-link {
     position: relative;
@@ -1675,7 +1667,6 @@ body.ak-cursor-on .ak-cursor-ring.is-hover {
 
 @media (max-width: 400px) {
     .ak-wordmark { font-size: 1.1rem; letter-spacing: .16em; }
-    .navbar-brand img { height: 26px; }
 }
 
 /*--------------------------------------------------------------
@@ -2291,10 +2282,12 @@ body.ak-chat-open .ak-chatbot {
 }
 
 .ak-logo-ok {
-    height: .78em;
+    /* .7407em (altura de mayusculas de Sora) x 104/100 => la K mide
+       exactamente lo mismo que ALT e IA, y el anillo rebosa un 2% */
+    height: .77em;
     width: auto;
-    margin: 0 .16em;
-    transform: translateY(.055em);
+    margin: 0 .1em;
+    transform: translateY(.015em);
     transition: filter .4s var(--ak-ease);
     filter: drop-shadow(0 0 10px rgba(123, 77, 255, .45));
 }
@@ -2303,3 +2296,41 @@ body.ak-chat-open .ak-chatbot {
 
 /* Sin isotipo suelto a la izquierda: la marca es una sola palabra */
 .navbar-brand { gap: 0 !important; }
+
+/*--------------------------------------------------------------
+  35. Botón de idioma
+--------------------------------------------------------------*/
+.ak-lang-btn {
+    width: 42px;
+    height: 42px;
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    border: 1px solid var(--ak-line);
+    background: var(--ak-glass-1);
+    color: var(--ak-text);
+    font-family: "JetBrains Mono", monospace;
+    font-size: .72rem;
+    font-weight: 500;
+    letter-spacing: .06em;
+    cursor: pointer;
+    transition: border-color .35s var(--ak-ease), background .35s, transform .35s var(--ak-ease);
+}
+
+.ak-lang-btn:hover {
+    border-color: rgba(0, 229, 255, .5);
+    transform: translateY(-2px);
+}
+
+.ak-lang-btn:focus-visible { outline: 2px solid var(--ak-ink); outline-offset: 2px; }
+
+@media (min-width: 992px) {
+    .navbar > .ak-lang-btn { order: 4; margin-left: 10px; }
+}
+
+@media (max-width: 991.98px) {
+    .navbar > .ak-theme-btn { margin-left: auto; margin-right: 8px; }
+    .navbar > .ak-lang-btn { margin-right: 12px; }
+}

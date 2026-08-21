@@ -399,6 +399,12 @@
 
         if (REDUCED) { out.textContent = words[0]; return; }
 
+        /* Al cambiar de idioma releemos las palabras y empezamos de nuevo */
+        document.addEventListener("ak:idioma", function () {
+            words = (host.getAttribute("data-words") || "").split("|").filter(Boolean);
+            i = 0; ch = 0; deleting = false;
+        });
+
         var i = 0, ch = 0, deleting = false;
 
         (function tick() {

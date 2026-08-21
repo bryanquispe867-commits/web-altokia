@@ -1,7 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="3 17 58 30" role="img" aria-label="OK">
-  <g fill="none" stroke-linecap="butt" stroke-width="7">
-    <path d="M16.5 20.6 A11.5 11.5 0 0 0 16.5 43.4" stroke="#00E5FF"/>
-    <path d="M19.5 20.6 A11.5 11.5 0 0 1 19.5 43.4" stroke="#7B4DFF"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 204 104" role="img" aria-label="OK">
+  <!-- Anillo "O": alto 104 (2% de rebose optico sobre la altura de mayusculas) -->
+  <g fill="none" stroke-linecap="butt" stroke-width="24.27">
+    <path d="M46.8 12.47 A39.87 39.87 0 0 0 46.8 91.53" stroke="#00E5FF"/>
+    <path d="M57.2 12.47 A39.87 39.87 0 0 1 57.2 91.53" stroke="#7B4DFF"/>
   </g>
-  <path fill="#FF2E7E" d="M34 18 H41.5 V30.5 L51.5 18 H60.5 L47.8 33.4 L61 46 H51.6 L41.5 36 V46 H34 Z"/>
+  <!-- "K": alto exacto 100 = altura de mayusculas, apoyada en la linea base -->
+  <g transform="translate(107.57 2) scale(3.5714) translate(-34 -18)">
+    <path fill="#FF2E7E" d="M34 18 H41.5 V30.5 L51.5 18 H60.5 L47.8 33.4 L61 46 H51.6 L41.5 36 V46 H34 Z"/>
+  </g>
 </svg>
