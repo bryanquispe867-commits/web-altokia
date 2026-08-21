@@ -27,10 +27,18 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
 
     <link href="css/bootstrap.min.css?v=b04cafba" rel="stylesheet" />
-    <link href="css/style.css?v=020f1138" rel="stylesheet" />
+    <link href="css/style.css?v=17cc0967" rel="stylesheet" />
 
     <script>
       document.documentElement.classList.add("js");
+      // Fija el tema antes del primer pintado para que no parpadee
+      (function () {
+        // La marca es oscura por naturaleza, asi que ese es el punto de partida.
+        // Si el visitante elige el claro, se recuerda para las proximas visitas.
+        var t = "dark";
+        try { t = localStorage.getItem("altok-tema") || "dark"; } catch (e) {}
+        document.documentElement.setAttribute("data-theme", t);
+      })();
     </script>
   </head>
 
@@ -63,10 +71,13 @@
 
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top px-4 px-lg-5 py-3 py-lg-0">
-      <a href="index.html" class="navbar-brand d-flex align-items-center gap-2">
-        <img src="images/logo-mark.svg" alt="ALTOKIA" />
-        <span class="ak-wordmark">ALT<span class="ok">OK</span>IA</span>
+      <a href="index.html" class="navbar-brand d-flex align-items-center" aria-label="ALTOKIA - Inicio">
+        <span class="ak-wordmark" aria-hidden="true">ALT<img class="ak-logo-ok" src="images/logo-ok.svg" alt="" />IA</span>
       </a>
+      <button type="button" class="ak-theme-btn" aria-label="Cambiar tema" aria-pressed="false">
+        <i class="fa fa-sun sun"></i>
+        <i class="fa fa-moon moon"></i>
+      </button>
       <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -482,7 +493,7 @@
                 <span class="ak-tag mb-3 d-inline-block">⛏ Minería</span>
                 <h5 class="mb-3">Facturas &amp; Órdenes de Compra</h5>
                 <p class="mb-4">Bot RPA que lee facturas y OC con OCR, valida montos contra el ERP, detecta inconsistencias y registra todo automáticamente. De 3 días de trabajo manual a 20 minutos.</p>
-                <div><span class="ak-result">▲ 94% menos tiempo de procesamiento</span></div>
+                <div><span class="ak-result"><i class="fa fa-arrow-trend-up"></i>▲ 94% menos tiempo de procesamiento</span></div>
               </div>
             </div>
           </div>
@@ -494,7 +505,7 @@
                 <span class="ak-tag mb-3 d-inline-block">🛒 Retail</span>
                 <h5 class="mb-3">Bot de WhatsApp Inteligente</h5>
                 <p class="mb-4">Asistente conversacional que atiende consultas, toma pedidos, consulta stock en tiempo real y deriva a un humano solo cuando hace falta. Disponible 24/7, sin filas de espera.</p>
-                <div><span class="ak-result">▲ 6x más consultas atendidas</span></div>
+                <div><span class="ak-result"><i class="fa fa-arrow-trend-up"></i>▲ 6x más consultas atendidas</span></div>
               </div>
             </div>
           </div>
@@ -506,7 +517,7 @@
                 <span class="ak-tag mb-3 d-inline-block">🏦 Banca</span>
                 <h5 class="mb-3">Automatización de Documentos</h5>
                 <p class="mb-4">Generación, clasificación y firma de contratos y documentos regulatorios de forma masiva, con trazabilidad completa y cero errores de tipeo.</p>
-                <div><span class="ak-result">▲ 12,000 documentos/mes sin intervención</span></div>
+                <div><span class="ak-result"><i class="fa fa-arrow-trend-up"></i>▲ 12,000 documentos/mes sin intervención</span></div>
               </div>
             </div>
           </div>
@@ -549,9 +560,8 @@
       <div class="container py-5">
         <div class="row g-5">
           <div class="col-lg-4 col-md-6">
-            <a href="index.html" class="d-inline-flex align-items-center gap-2 mb-4">
-              <img src="images/logo-mark.svg" alt="ALTOKIA" height="32" />
-              <span class="ak-wordmark">ALT<span class="ok">OK</span>IA</span>
+            <a href="index.html" class="d-inline-flex align-items-center mb-4" aria-label="ALTOKIA">
+              <span class="ak-wordmark" aria-hidden="true">ALT<img class="ak-logo-ok" src="images/logo-ok.svg" alt="" />IA</span>
             </a>
             <p class="mb-2">Tecnología que trabaja mientras tú creces.</p>
             <p class="ak-mono mb-4" style="color: var(--ak-dim); font-size: .68rem">
@@ -654,7 +664,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/main.js?v=e03066b2"></script>
+    <script src="js/main.js?v=a218d4f2"></script>
     <script src="js/chatbot.js?v=93827a1c"></script>
   </body>
 </html>

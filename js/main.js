@@ -11,6 +11,40 @@
     var $$ = function (sel, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(sel)); };
 
     /*----------------------------------------------------------
+      0. Tema claro / oscuro
+    ----------------------------------------------------------*/
+    function initTheme() {
+        var root = document.documentElement;
+        var btn = $(".ak-theme-btn");
+
+        function apply(tema, guardar) {
+            root.setAttribute("data-theme", tema);
+            if (guardar) {
+                try { localStorage.setItem("altok-tema", tema); } catch (err) {}
+            }
+            if (btn) {
+                btn.setAttribute("aria-pressed", tema === "light" ? "true" : "false");
+                btn.setAttribute("title", tema === "light" ? "Cambiar a modo oscuro" : "Cambiar a modo claro");
+            }
+            document.dispatchEvent(new CustomEvent("ak:tema", { detail: tema }));
+        }
+
+        /* El tema ya lo fijó el script en línea del <head>; aquí solo sincronizamos */
+        apply(root.getAttribute("data-theme") === "light" ? "light" : "dark", false);
+
+        if (btn) {
+            btn.addEventListener("click", function () {
+                var actual = root.getAttribute("data-theme") === "light" ? "light" : "dark";
+                /* Suaviza el cambio sin animar toda la página para siempre */
+                document.body.classList.add("ak-theming");
+                apply(actual === "light" ? "dark" : "light", true);
+                setTimeout(function () { document.body.classList.remove("ak-theming"); }, 420);
+            });
+        }
+
+    }
+
+    /*----------------------------------------------------------
       1. Preloader
     ----------------------------------------------------------*/
     function initPreloader() {
@@ -73,6 +107,11 @@
             ctx.clearRect(0, 0, w, h);
 
             var linkDist = w < 640 ? 110 : 148;
+            /* Sobre fondo claro hace falta mas opacidad para que se aprecien */
+            var claro = document.documentElement.getAttribute("data-theme") === "light";
+            var aPunto = claro ? 0.95 : 0.85;
+            var aLinea = claro ? 0.34 : 0.20;
+            var aCursor = claro ? 0.38 : 0.24;
 
             for (var i = 0; i < nodes.length; i++) {
                 var p = nodes[i];
@@ -107,7 +146,7 @@
 
                 ctx.beginPath();
                 ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-                ctx.fillStyle = "rgba(" + p.c + ", .85)";
+                ctx.fillStyle = "rgba(" + p.c + ", " + aPunto + ")";
                 ctx.fill();
 
                 // Enlaces con los vecinos
@@ -119,7 +158,7 @@
                         ctx.beginPath();
                         ctx.moveTo(p.x, p.y);
                         ctx.lineTo(q.x, q.y);
-                        ctx.strokeStyle = "rgba(" + p.c + ", " + (0.20 * (1 - d / linkDist)).toFixed(3) + ")";
+                        ctx.strokeStyle = "rgba(" + p.c + ", " + (aLinea * (1 - d / linkDist)).toFixed(3) + ")";
                         ctx.lineWidth = 1;
                         ctx.stroke();
                     }
@@ -130,7 +169,7 @@
                     ctx.beginPath();
                     ctx.moveTo(p.x, p.y);
                     ctx.lineTo(mouse.x, mouse.y);
-                    ctx.strokeStyle = "rgba(0, 229, 255, " + (0.24 * (1 - Math.sqrt(dm2) / 161)).toFixed(3) + ")";
+                    ctx.strokeStyle = "rgba(0, 229, 255, " + (aCursor * (1 - Math.sqrt(dm2) / 161)).toFixed(3) + ")";
                     ctx.lineWidth = 1;
                     ctx.stroke();
                 }
@@ -635,6 +674,7 @@
     ----------------------------------------------------------*/
     function boot() {
         document.documentElement.classList.add("js");
+        initTheme();
         initPreloader();
         initScrollUI();
         initReveal();

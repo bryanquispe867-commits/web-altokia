@@ -81,8 +81,8 @@ body::after {
     pointer-events: none;
     opacity: .55;
     background-image:
-        linear-gradient(rgba(255, 255, 255, .028) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, .028) 1px, transparent 1px);
+        linear-gradient(var(--ak-grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--ak-grid) 1px, transparent 1px);
     background-size: 64px 64px;
     -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 30%, transparent 78%);
     mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 30%, transparent 78%);
@@ -104,18 +104,18 @@ a { text-decoration: none; }
 ::selection { background: rgba(123, 77, 255, .45); color: #fff; }
 
 ::-webkit-scrollbar { width: 10px; height: 10px; }
-::-webkit-scrollbar-track { background: #08080F; }
+::-webkit-scrollbar-track { background: var(--ak-bg-2); }
 ::-webkit-scrollbar-thumb {
     background: linear-gradient(180deg, var(--ak-cyan), var(--ak-violet));
     border-radius: 10px;
-    border: 2px solid #08080F;
+    border: 2px solid var(--ak-bg-2);
 }
 ::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, var(--ak-violet), var(--ak-pink)); }
 
 /*--------------------------------------------------------------
   3. Re-skin de Bootstrap
 --------------------------------------------------------------*/
-.text-primary { color: var(--ak-cyan) !important; }
+.text-primary { color: var(--ak-ink) !important; }
 .text-secondary { color: var(--ak-muted) !important; }
 .text-body { color: var(--ak-muted) !important; }
 .text-dark { color: var(--ak-text) !important; }
@@ -141,7 +141,7 @@ img, svg, canvas { max-width: 100%; }
 
 /* Formularios */
 .form-control, .form-select {
-    background-color: rgba(255, 255, 255, .03);
+    background-color: var(--ak-glass-2);
     border: 1px solid var(--ak-line);
     color: var(--ak-text);
     border-radius: 12px;
@@ -149,24 +149,24 @@ img, svg, canvas { max-width: 100%; }
 }
 
 .form-control:focus, .form-select:focus {
-    background-color: rgba(255, 255, 255, .05);
+    background-color: var(--ak-glass-3);
     border-color: rgba(0, 229, 255, .55);
     box-shadow: 0 0 0 4px rgba(0, 229, 255, .12);
     color: var(--ak-text);
 }
 
 .form-control::placeholder { color: var(--ak-dim); }
-.form-control.bg-dark, .form-control.bg-transparent { background-color: rgba(255, 255, 255, .03) !important; }
+.form-control.bg-dark, .form-control.bg-transparent { background-color: var(--ak-glass-2) !important; }
 .form-floating > label { color: var(--ak-dim); }
 .form-floating > .form-control:focus ~ label,
 .form-floating > .form-control:not(:placeholder-shown) ~ label { color: var(--ak-cyan); opacity: 1; }
-.form-check-input { background-color: rgba(255, 255, 255, .05); border-color: var(--ak-line-strong); }
+.form-check-input { background-color: var(--ak-glass-3); border-color: var(--ak-line-strong); }
 .form-check-input:checked { background-color: var(--ak-violet); border-color: var(--ak-violet); }
 .form-select option { background: var(--ak-surface); color: var(--ak-text); }
 
 /* Dropdown */
 .dropdown-menu {
-    background-color: rgba(14, 14, 28, .96);
+    background-color: var(--ak-menu-bg);
     border: 1px solid var(--ak-line);
     border-radius: 14px;
     padding: 8px;
@@ -234,7 +234,7 @@ img, svg, canvas { max-width: 100%; }
 .btn-outline-primary {
     color: var(--ak-text);
     border: 1px solid var(--ak-line-strong);
-    background: rgba(255, 255, 255, .02);
+    background: var(--ak-glass-1);
     backdrop-filter: blur(8px);
 }
 
@@ -269,7 +269,7 @@ img, svg, canvas { max-width: 100%; }
     border-radius: 12px;
     color: var(--ak-muted);
     border: 1px solid var(--ak-line);
-    background: rgba(255, 255, 255, .02);
+    background: var(--ak-glass-1);
     transition: .35s var(--ak-ease);
 }
 
@@ -314,7 +314,7 @@ img, svg, canvas { max-width: 100%; }
     padding: 7px 16px 7px 12px;
     border-radius: 999px;
     border: 1px solid var(--ak-line);
-    background: rgba(255, 255, 255, .03);
+    background: var(--ak-glass-2);
     color: var(--ak-muted);
     backdrop-filter: blur(10px);
     font-family: "JetBrains Mono", monospace;
@@ -352,7 +352,7 @@ img, svg, canvas { max-width: 100%; }
     box-shadow: 0 0 18px rgba(123, 77, 255, .8);
 }
 
-.ak-heading .ak-mono { color: var(--ak-cyan); display: block; margin-bottom: 10px; }
+.ak-heading .ak-mono { color: var(--ak-ink); display: block; margin-bottom: 10px; }
 
 .ak-lead { font-size: 1.06rem; color: var(--ak-muted); }
 
@@ -492,7 +492,7 @@ body.ak-cursor-on .ak-cursor-ring.is-hover {
   9. Topbar
 --------------------------------------------------------------*/
 .ak-topbar {
-    background: rgba(8, 8, 18, .8);
+    background: var(--ak-topbar-bg);
     border-bottom: 1px solid var(--ak-line);
     font-size: .82rem;
     position: relative;
@@ -525,7 +525,7 @@ body.ak-cursor-on .ak-cursor-ring.is-hover {
 --------------------------------------------------------------*/
 .navbar.sticky-top {
     top: 0;
-    background: rgba(6, 6, 14, .55) !important;
+    background: var(--ak-nav-bg) !important;
     backdrop-filter: blur(20px) saturate(160%);
     -webkit-backdrop-filter: blur(20px) saturate(160%);
     border-bottom: 1px solid transparent;
@@ -533,7 +533,7 @@ body.ak-cursor-on .ak-cursor-ring.is-hover {
 }
 
 .navbar.sticky-top.ak-scrolled {
-    background: rgba(6, 6, 14, .9) !important;
+    background: var(--ak-nav-bg-scrolled) !important;
     border-bottom-color: var(--ak-line);
     box-shadow: 0 18px 40px -28px #000;
 }
@@ -726,7 +726,7 @@ body.ak-cursor-on .ak-cursor-ring.is-hover {
     padding: 16px 18px;
     border-radius: 16px;
     border: 1px solid var(--ak-line);
-    background: rgba(255, 255, 255, .025);
+    background: var(--ak-glass-2);
     backdrop-filter: blur(10px);
     transition: .4s var(--ak-ease);
 }
@@ -923,7 +923,7 @@ body.ak-cursor-on .ak-cursor-ring.is-hover {
     padding: 32px 30px;
     border-radius: 20px;
     border: 1px solid var(--ak-line);
-    background: linear-gradient(160deg, rgba(255, 255, 255, .045), rgba(255, 255, 255, .012));
+    background: linear-gradient(160deg, var(--ak-glass-3), var(--ak-glass-soft));
     backdrop-filter: blur(12px);
     overflow: hidden;
     transition: transform .5s var(--ak-ease), border-color .5s, box-shadow .5s;
@@ -965,7 +965,7 @@ body.ak-cursor-on .ak-cursor-ring.is-hover {
     justify-content: center;
     border-radius: 18px;
     font-size: 1.5rem;
-    color: var(--ak-cyan);
+    color: var(--ak-ink);
     background: linear-gradient(150deg, rgba(0, 229, 255, .16), rgba(123, 77, 255, .12));
     border: 1px solid rgba(0, 229, 255, .22);
     margin-bottom: 22px;
@@ -990,7 +990,7 @@ body.ak-cursor-on .ak-cursor-ring.is-hover {
     font-weight: 800;
     line-height: 1;
     color: transparent;
-    -webkit-text-stroke: 1px rgba(255, 255, 255, .10);
+    -webkit-text-stroke: 1px var(--ak-ghost-stroke);
     z-index: 0;
     transition: .5s var(--ak-ease);
 }
@@ -1005,7 +1005,7 @@ body.ak-cursor-on .ak-cursor-ring.is-hover {
     font-family: "Sora", sans-serif;
     font-weight: 600;
     font-size: .84rem;
-    color: var(--ak-cyan);
+    color: var(--ak-ink);
     transition: gap .35s var(--ak-ease), color .35s;
 }
 
@@ -1022,7 +1022,7 @@ body.ak-cursor-on .ak-cursor-ring.is-hover {
     text-transform: uppercase;
     color: var(--ak-muted);
     border: 1px solid var(--ak-line);
-    background: rgba(255, 255, 255, .03);
+    background: var(--ak-glass-2);
     transition: .3s;
 }
 
@@ -1047,8 +1047,8 @@ body.ak-cursor-on .ak-cursor-ring.is-hover {
     position: absolute;
     inset: 0;
     background-image:
-        linear-gradient(rgba(255, 255, 255, .03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, .03) 1px, transparent 1px);
+        linear-gradient(var(--ak-grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--ak-grid) 1px, transparent 1px);
     background-size: 48px 48px;
     -webkit-mask-image: radial-gradient(ellipse 70% 80% at 50% 40%, #000, transparent 75%);
     mask-image: radial-gradient(ellipse 70% 80% at 50% 40%, #000, transparent 75%);
@@ -1075,7 +1075,7 @@ body.ak-cursor-on .ak-cursor-ring.is-hover {
     padding: 34px 20px;
     border-radius: 20px;
     border: 1px solid var(--ak-line);
-    background: linear-gradient(170deg, rgba(255, 255, 255, .04), transparent);
+    background: linear-gradient(170deg, var(--ak-glass-3), transparent);
     transition: .5s var(--ak-ease);
 }
 
@@ -1216,7 +1216,7 @@ body.ak-cursor-on .ak-cursor-ring.is-hover {
     font-weight: 700;
     font-size: 1.2rem;
     color: var(--ak-text);
-    background: linear-gradient(160deg, rgba(20, 20, 42, 1), rgba(10, 10, 22, 1));
+    background: var(--ak-bubble-bg);
     border: 1px solid var(--ak-line-strong);
     transition: .5s var(--ak-ease);
 }
@@ -1308,7 +1308,7 @@ body.ak-cursor-on .ak-cursor-ring.is-hover {
     padding: 36px 24px 30px;
     border-radius: 22px;
     border: 1px solid var(--ak-line);
-    background: linear-gradient(165deg, rgba(255, 255, 255, .04), transparent);
+    background: linear-gradient(165deg, var(--ak-glass-3), transparent);
     height: 100%;
     transition: .55s var(--ak-ease);
     overflow: hidden;
@@ -1333,7 +1333,7 @@ body.ak-cursor-on .ak-cursor-ring.is-hover {
     font-weight: 700;
     font-size: 2rem;
     color: var(--ak-text);
-    background: linear-gradient(160deg, rgba(20, 20, 42, 1), rgba(10, 10, 22, 1));
+    background: var(--ak-bubble-bg);
 }
 
 .ak-avatar::before {
@@ -1381,7 +1381,7 @@ body.ak-cursor-on .ak-cursor-ring.is-hover {
     padding: 36px 34px;
     border-radius: 22px;
     border: 1px solid var(--ak-line);
-    background: linear-gradient(165deg, rgba(255, 255, 255, .045), rgba(255, 255, 255, .01));
+    background: linear-gradient(165deg, var(--ak-glass-3), rgba(255, 255, 255, .01));
     backdrop-filter: blur(12px);
 }
 
@@ -1416,7 +1416,7 @@ body.ak-cursor-on .ak-cursor-ring.is-hover {
     border: 1px solid var(--ak-line-strong);
     border-radius: 14px;
     font-size: 18px;
-    background: rgba(255, 255, 255, .02);
+    background: var(--ak-glass-1);
     transition: .4s var(--ak-ease);
 }
 
@@ -1437,7 +1437,7 @@ body.ak-cursor-on .ak-cursor-ring.is-hover {
     border-radius: 28px;
     overflow: hidden;
     border: 1px solid var(--ak-line-strong);
-    background: linear-gradient(150deg, rgba(20, 20, 42, .96), rgba(8, 8, 18, .98));
+    background: var(--ak-cta-bg);
     padding: 60px;
 }
 
@@ -1497,7 +1497,7 @@ body.ak-cursor-on .ak-cursor-ring.is-hover {
 .ak-faq {
     border: 1px solid var(--ak-line);
     border-radius: 16px;
-    background: rgba(255, 255, 255, .025);
+    background: var(--ak-glass-2);
     margin-bottom: 14px;
     overflow: hidden;
     transition: border-color .4s, background .4s;
@@ -1539,7 +1539,7 @@ body.ak-cursor-on .ak-cursor-ring.is-hover {
 .footer {
     position: relative;
     color: var(--ak-muted);
-    background: linear-gradient(180deg, transparent, rgba(8, 8, 18, .9) 30%);
+    background: var(--ak-footer-bg);
     border-top: 1px solid var(--ak-line);
 }
 
@@ -1656,7 +1656,7 @@ body.ak-cursor-on .ak-cursor-ring.is-hover {
     font-weight: 700;
     font-size: 1.35rem;
     letter-spacing: .22em;
-    color: #FFFFFF;
+    color: var(--ak-text);
     line-height: 1;
     padding-left: 2px;
 }
@@ -1752,7 +1752,7 @@ body.ak-chat-open .ak-fab__ping { display: none; }
     white-space: nowrap;
     padding: 8px 14px;
     border-radius: 10px;
-    background: rgba(14, 14, 28, .96);
+    background: var(--ak-menu-bg);
     border: 1px solid var(--ak-line);
     color: var(--ak-text);
     font-family: "Sora", sans-serif;
@@ -2016,7 +2016,7 @@ body.ak-chat-open .ak-chatbot {
     padding: 10px 18px;
     border-radius: 999px;
     border: 1px solid var(--ak-line);
-    background: rgba(255, 255, 255, .03);
+    background: var(--ak-glass-2);
     color: var(--ak-text);
     font-family: "Sora", sans-serif;
     font-weight: 500;
@@ -2059,3 +2059,247 @@ body.ak-chat-open .ak-chatbot {
     font-size: .84rem;
     line-height: 1.35;
 }
+
+/*==============================================================
+  32. TEMA CLARO / OSCURO
+  El oscuro es el de partida (definido en :root). Aquí van los
+  tokens que cambian y los ajustes de contraste del claro.
+==============================================================*/
+
+/* ---- Tokens que faltaban en el tema oscuro ---- */
+:root {
+    --ak-glass-1: rgba(255, 255, 255, .02);
+    --ak-glass-2: rgba(255, 255, 255, .03);
+    --ak-glass-3: rgba(255, 255, 255, .045);
+    --ak-glass-soft: rgba(255, 255, 255, .012);
+    --ak-grid: rgba(255, 255, 255, .028);
+    --ak-ghost-stroke: rgba(255, 255, 255, .10);
+
+    /* Acento legible: en oscuro es el cian de marca */
+    --ak-ink: #00E5FF;
+    /* Degradado para texto (en claro se oscurece para que se lea) */
+    --ak-grad-ink: linear-gradient(115deg, #00E5FF 0%, #7B4DFF 52%, #FF2E7E 100%);
+
+    --ak-topbar-bg: rgba(8, 8, 18, .8);
+    --ak-nav-bg: rgba(6, 6, 14, .55);
+    --ak-nav-bg-scrolled: rgba(6, 6, 14, .9);
+    --ak-menu-bg: rgba(14, 14, 28, .96);
+    --ak-footer-bg: linear-gradient(180deg, transparent, rgba(8, 8, 18, .9) 30%);
+    --ak-bubble-bg: linear-gradient(160deg, rgba(20, 20, 42, 1), rgba(10, 10, 22, 1));
+    --ak-cta-bg: linear-gradient(150deg, rgba(20, 20, 42, .96), rgba(8, 8, 18, .98));
+    --ak-card-shadow: none;
+
+    --ak-green: #4ADE9B;
+    --ak-green-ink: #7DF5BC;
+}
+
+/* ---- Tema claro ---- */
+:root[data-theme="light"] {
+    --ak-bg: #F5F6FB;
+    --ak-bg-2: #ECEEF6;
+    --ak-surface: #FFFFFF;
+    --ak-surface-2: #F3F5FB;
+    --ak-line: rgba(16, 20, 55, .10);
+    --ak-line-strong: rgba(16, 20, 55, .20);
+
+    --ak-text: #0D1022;
+    --ak-muted: #474D6B;
+    --ak-dim: #6E7490;
+
+    --light: #FFFFFF;
+    --dark: #F5F6FB;
+
+    --ak-glass-1: rgba(255, 255, 255, .70);
+    --ak-glass-2: rgba(255, 255, 255, .82);
+    --ak-glass-3: rgba(255, 255, 255, .95);
+    --ak-glass-soft: rgba(255, 255, 255, .60);
+    --ak-grid: rgba(16, 20, 55, .05);
+    --ak-ghost-stroke: rgba(16, 20, 55, .13);
+
+    --ak-ink: #0A7C99;
+    --ak-grad-ink: linear-gradient(115deg, #0090AD 0%, #6438D8 52%, #D01560 100%);
+
+    --ak-topbar-bg: rgba(255, 255, 255, .85);
+    --ak-nav-bg: rgba(245, 246, 251, .62);
+    --ak-nav-bg-scrolled: rgba(255, 255, 255, .93);
+    --ak-menu-bg: rgba(255, 255, 255, .98);
+    --ak-footer-bg: linear-gradient(180deg, transparent, rgba(236, 238, 246, .96) 30%);
+    --ak-bubble-bg: linear-gradient(160deg, #FFFFFF, #EDF0F8);
+    --ak-cta-bg: linear-gradient(150deg, #FFFFFF, #EDF0F8);
+    --ak-card-shadow: 0 12px 34px -22px rgba(16, 20, 55, .45);
+    --ak-shadow: 0 24px 60px -30px rgba(16, 20, 55, .35);
+
+    --ak-green: #129463;
+    --ak-green-ink: #0F7A4F;
+
+    color-scheme: light;
+}
+
+/* Aurora de fondo, más suave en claro */
+:root[data-theme="light"] body::before {
+    background:
+        radial-gradient(900px 600px at 12% -5%, rgba(0, 229, 255, .16), transparent 60%),
+        radial-gradient(800px 620px at 88% 8%, rgba(123, 77, 255, .14), transparent 62%),
+        radial-gradient(760px 560px at 50% 105%, rgba(255, 46, 126, .10), transparent 60%),
+        var(--ak-bg);
+}
+
+:root[data-theme="light"] body::after { opacity: 1; }
+
+/* Los orbes del hero, menos intensos sobre fondo claro */
+:root[data-theme="light"] .ak-orb { opacity: .28; }
+
+:root[data-theme="light"] ::selection { background: rgba(100, 56, 216, .22); color: #0D1022; }
+
+/* El texto en degradado se oscurece para que se lea sobre blanco */
+.ak-gradient-text,
+.ak-rotator .word,
+.ak-metric .val,
+.ak-wordmark .ok,
+.ak-chatbot__info .accent { background-image: var(--ak-grad-ink); }
+
+/* Tarjetas: en claro necesitan sombra para despegarse del fondo */
+.ak-card, .ak-metric, .ak-case, .ak-member, .ak-quote { box-shadow: var(--ak-card-shadow); }
+
+:root[data-theme="light"] .ak-card:hover {
+    border-color: rgba(100, 56, 216, .35);
+    box-shadow: 0 30px 60px -30px rgba(100, 56, 216, .45);
+}
+
+:root[data-theme="light"] .ak-metric:hover { box-shadow: 0 26px 54px -30px rgba(10, 124, 153, .5); }
+:root[data-theme="light"] .ak-case:hover { box-shadow: 0 32px 64px -34px rgba(208, 21, 96, .45); }
+
+/* Rejilla de las tarjetas de proyecto, en claro debe ser oscura */
+:root[data-theme="light"] .ak-case-visual::after {
+    background-image:
+        linear-gradient(rgba(16, 20, 55, .07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(16, 20, 55, .07) 1px, transparent 1px);
+}
+
+:root[data-theme="light"] .ak-case-visual i { color: #0D1022; opacity: .7; }
+
+/* Icono de menú en claro */
+:root[data-theme="light"] .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%230D1022' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Verdes de estado y resultado */
+.ak-status { color: var(--ak-green); }
+.ak-status i { background: var(--ak-green); box-shadow: 0 0 10px var(--ak-green); }
+.ak-chatbot__status i { background: #4ADE9B; box-shadow: 0 0 8px #4ADE9B; }
+
+.ak-result {
+    border-color: color-mix(in srgb, var(--ak-green) 40%, transparent);
+    background: color-mix(in srgb, var(--ak-green) 10%, transparent);
+    color: var(--ak-green-ink);
+}
+
+:root[data-theme="light"] .ak-alert {
+    border-color: rgba(18, 148, 99, .35);
+    background: rgba(18, 148, 99, .10);
+    color: #0F7A4F;
+}
+
+/* Bloques que se mantienen oscuros SIEMPRE (terminal, panel, bot).
+   Redefinen sus tokens para no heredar el texto oscuro del tema claro. */
+:root[data-theme="light"] .ak-window,
+:root[data-theme="light"] .ak-panel,
+:root[data-theme="light"] .ak-float-card,
+:root[data-theme="light"] .ak-chatbot {
+    --ak-text: #EEF0FA;
+    --ak-muted: #9AA1C0;
+    --ak-dim: #7A81A3;
+    --ak-line: rgba(255, 255, 255, .10);
+    --ak-line-strong: rgba(255, 255, 255, .18);
+    --ak-ink: #00E5FF;
+    --ak-grad-ink: linear-gradient(115deg, #00E5FF 0%, #7B4DFF 52%, #FF2E7E 100%);
+    --ak-glass-1: rgba(255, 255, 255, .04);
+    --ak-glass-2: rgba(255, 255, 255, .06);
+}
+
+:root[data-theme="light"] .ak-window,
+:root[data-theme="light"] .ak-panel,
+:root[data-theme="light"] .ak-float-card,
+:root[data-theme="light"] .ak-chatbot { color: #9AA1C0; }
+
+:root[data-theme="light"] .ak-panel { box-shadow: 0 26px 60px -30px rgba(16, 20, 55, .55); }
+
+/* En claro el pie necesita separarse del cuerpo */
+:root[data-theme="light"] .footer { border-top-color: var(--ak-line); }
+
+/*--------------------------------------------------------------
+  33. Botón de tema
+--------------------------------------------------------------*/
+.ak-theme-btn {
+    position: relative;
+    width: 42px;
+    height: 42px;
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    border: 1px solid var(--ak-line);
+    background: var(--ak-glass-1);
+    color: var(--ak-text);
+    cursor: pointer;
+    overflow: hidden;
+    transition: border-color .35s var(--ak-ease), background .35s, transform .35s var(--ak-ease);
+}
+
+.ak-theme-btn:hover {
+    border-color: rgba(0, 229, 255, .5);
+    transform: translateY(-2px);
+}
+
+.ak-theme-btn:focus-visible { outline: 2px solid var(--ak-ink); outline-offset: 2px; }
+
+.ak-theme-btn i {
+    position: absolute;
+    font-size: 1rem;
+    transition: transform .45s var(--ak-ease), opacity .35s;
+}
+
+/* En oscuro se ofrece el sol; en claro, la luna */
+.ak-theme-btn .sun { opacity: 1; transform: rotate(0) scale(1); }
+.ak-theme-btn .moon { opacity: 0; transform: rotate(-90deg) scale(.4); }
+
+:root[data-theme="light"] .ak-theme-btn .sun { opacity: 0; transform: rotate(90deg) scale(.4); }
+:root[data-theme="light"] .ak-theme-btn .moon { opacity: 1; transform: rotate(0) scale(1); }
+
+@media (min-width: 992px) {
+    .navbar > .ak-theme-btn { order: 3; margin-left: 20px; }
+    .navbar > .navbar-collapse { order: 2; }
+}
+
+@media (max-width: 991.98px) {
+    .navbar > .ak-theme-btn { margin-left: auto; margin-right: 12px; }
+}
+
+/* Evita el parpadeo de transiciones al cambiar de tema */
+.ak-theming, .ak-theming * {
+    transition: background-color .35s ease, color .35s ease, border-color .35s ease !important;
+}
+
+/*--------------------------------------------------------------
+  34. Isotipo OK dentro de la palabra ALTOKIA
+--------------------------------------------------------------*/
+.ak-wordmark {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0;
+}
+
+.ak-logo-ok {
+    height: .78em;
+    width: auto;
+    margin: 0 .16em;
+    transform: translateY(.055em);
+    transition: filter .4s var(--ak-ease);
+    filter: drop-shadow(0 0 10px rgba(123, 77, 255, .45));
+}
+
+.navbar-brand:hover .ak-logo-ok { filter: drop-shadow(0 0 16px rgba(0, 229, 255, .7)); }
+
+/* Sin isotipo suelto a la izquierda: la marca es una sola palabra */
+.navbar-brand { gap: 0 !important; }
