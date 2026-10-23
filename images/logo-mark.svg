@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="ALTOKIA">
-  <g fill="none" stroke-linecap="butt" stroke-width="7">
-    <path d="M16.5 20.6 A11.5 11.5 0 0 0 16.5 43.4" stroke="#00E5FF"/>
-    <path d="M19.5 20.6 A11.5 11.5 0 0 1 19.5 43.4" stroke="#7B4DFF"/>
-  </g>
-  <path fill="#FF2E7E" d="M34 18 H41.5 V30.5 L51.5 18 H60.5 L47.8 33.4 L61 46 H51.6 L41.5 36 V46 H34 Z"/>
-</svg>

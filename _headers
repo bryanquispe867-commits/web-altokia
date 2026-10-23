@@ -4,11 +4,12 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), microphone=(), camera=()
 
-/css/*
-  Cache-Control: public, max-age=3600, must-revalidate
+# El HTML lleva el CSS y el JS dentro: que siempre se revalide para que los cambios se vean al instante
+/
+  Cache-Control: public, max-age=0, must-revalidate
 
-/js/*
-  Cache-Control: public, max-age=3600, must-revalidate
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
 
 /images/*
   Cache-Control: public, max-age=2592000
