@@ -2,6 +2,33 @@
 
 Sitio de **una sola página** con el estilo visual de la referencia (estructura, tipografía, botones y animaciones) y **solo la marca, los logos y el contenido de ALTOKIA**.
 
+## Identidad visual: paleta "Deep Space"
+
+Para no parecer una copia de la referencia, la paleta es propia y más tecnológica:
+
+| Rol | Oscuro | Claro |
+|---|---|---|
+| Fondo | `#050816` (casi negro índigo) | `#F6F8FF` |
+| Superficies | `#0A0F24` / `#10162E` | `#FFFFFF` / `#EEF1FB` |
+| Marca: cian (logo) | `#2EC5F5` | `#0891C9` |
+| Marca: azul (logo) | `#2E6BFF` | `#1D4FD6` |
+| Acento: violeta eléctrico | `#8B5CF6` / `#A78BFA` | `#7C3AED` / `#6D28D9` |
+| Acento: menta (datos y resultados) | `#34F5C5` | `#047857` |
+| Botón principal | degradado `#1D4FD6 → #5B3DF5 → #7C3AED` con texto blanco | igual |
+
+**Animaciones:**
+- red de nodos interactiva y auroras de color en el hero;
+- palabra del titular que rota con efecto "decodificación";
+- marco HUD con línea de escaneo sobre la imagen;
+- código que se escribe solo en el caso destacado;
+- tarjetas con foco de luz que sigue al cursor y borde de neón giratorio;
+- rejilla en perspectiva en "Por qué ALTOKIA";
+- barras de cifras animadas;
+- barra de progreso de lectura;
+- cursores de terminal en las etiquetas de sección.
+
+Todas se desactivan con `prefers-reduced-motion`, y la red de nodos se pausa cuando no está en pantalla.
+
 ## Archivos
 
 | Archivo | Qué es |
@@ -13,6 +40,7 @@ Sitio de **una sola página** con el estilo visual de la referencia (estructura,
 | `images/favicon.svg` · `apple-touch-icon.png` | Íconos de pestaña y de iPhone, hechos con el logo corto |
 | `images/og-altokia.png` | Imagen de 1200×630 que se ve al compartir el enlace en WhatsApp, LinkedIn, etc. |
 | `images/hero-bg.webp` · `hero-bg2.webp` | Imagen del hero en modo oscuro y en modo claro |
+| `images/equipo/foto-pendiente.svg` | Foto provisional del equipo de trabajo |
 | `_redirects` | Lleva las URLs antiguas (`/servicios`, `/contacto`…) a su sección |
 | `_headers` | Cabeceras de seguridad y caché |
 
@@ -38,6 +66,12 @@ Se retiraron Bootstrap, los CSS y JS sueltos, las 6 páginas antiguas, los logos
 
 ## [PENDIENTE]
 
+0. **Equipo de trabajo (sección `#equipo`): ES DE EJEMPLO.** Los 6 nombres son inventados: Andrea Salazar, Diego Ramírez, Valeria Torres, Martín Huamán, Lucía Fernández y Carlos Mendoza. También son de ejemplo sus cargos, descripciones y fotos, y los enlaces de LinkedIn apuntan a la página de la empresa. **No publiques así.** Para cada persona:
+   1. sube su foto cuadrada (600×600, `.webp` o `.jpg`) a `images/equipo/`;
+   2. cambia en `index.html` el `src` de la foto, el `alt`, el nombre, el cargo, la descripción, las etiquetas y su LinkedIn;
+   3. si cambias un cargo o una descripción, cambia también su traducción en el bloque `EQUIPO` del objeto `DIC`. El `alt` y la etiqueta de LinkedIn se traducen solos a partir del nombre.
+
+   Para quitar a alguien, borra su `<article>`. El comentario `[PENDIENTE]` sobre la sección repite estas instrucciones.
 1. **Confirmar las cifras.** Están en tu web anterior, pero hay que confirmar que son reales y actuales:
    - 120+ proyectos, 87 % menos tareas manuales, 15 000 horas ahorradas y 98 % de satisfacción;
    - resultados de los casos: -94 %, 6x, 12 000 documentos al mes, -80 %, cierre contable 5 días antes y 100 % automática.
