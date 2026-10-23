@@ -17,6 +17,7 @@ Para no parecer una copia de la referencia, la paleta es propia y más tecnológ
 | Botón principal | degradado `#1D4FD6 → #5B3DF5 → #7C3AED` con texto blanco | igual |
 
 **Animaciones:**
+- transición circular al cambiar entre modo claro y oscuro;
 - red de nodos interactiva y auroras de color en el hero;
 - palabra del titular que rota con efecto "decodificación";
 - marco HUD con línea de escaneo sobre la imagen;
@@ -63,6 +64,53 @@ Se retiraron Bootstrap, los CSS y JS sueltos, las 6 páginas antiguas, los logos
   - `aria-expanded` en el menú y en el bot;
   - el menú y el bot se cierran con Esc;
   - las animaciones se desactivan con `prefers-reduced-motion`.
+
+## Verificación de los dos modos (claro y oscuro)
+
+Comprobado en el navegador en escritorio (1440 px), tablet (820 px) y móvil (390 px):
+
+| Elemento | 🌙 Modo oscuro | ☀️ Modo claro |
+|---|---|---|
+| Fondo de página | `#050816` | `#F6F8FF` |
+| Logo largo (header, pie, 404) | `altokia-logo-largo-oscuro.svg` (letras claras) | `altokia-logo-largo-claro.svg` (letras azul noche) |
+| Logo corto (bot, agenda, marca de agua) | `altokia-logo-corto-oscuro.svg` | `altokia-logo-corto-claro.svg` |
+| Imagen del hero | `hero-bg.webp` (laptop con dashboards) | `hero-bg2.webp` (robot sobre fondo blanco) |
+| Color de la barra del navegador en móvil | `#050816` | `#F6F8FF` |
+| Contraste de todos los textos visibles | AA ✅ | AA ✅ |
+
+**Cómo funciona el cambio de tema:**
+- Al entrar, el sitio sigue el tema del dispositivo.
+- El botón ☀️/🌙 cambia de tema con una transición circular que se expande desde el botón, y la elección se recuerda al recargar.
+- Si el dispositivo pide menos movimiento, el cambio es instantáneo.
+
+## Origen del contenido
+
+Se comparó el texto de la página nueva con las 7 páginas, el chatbot y las traducciones del sitio original (commit `e660d9b`):
+
+- **Datos verificados uno a uno contra el original:**
+  - teléfono +51 906 106 881, WhatsApp 51906106881, contacto@altokia.com y LinkedIn /company/altokia;
+  - eslogan;
+  - cifras: 120+, 87 %, 15 000 h, 98 %;
+  - resultados de los casos: -94 %, 6x, 12 000 docs/mes, -80 %, cierre 5 días antes, de 3 días a 20 minutos;
+  - plazos de 2 a 4 semanas, consultoría de 30 minutos y respuesta en 24 h;
+  - países: EE. UU., Panamá y Perú.
+
+  Todos salen del sitio original. **No se añadió ninguna cifra ni dato nuevo.**
+- **Copiados tal cual:** servicios, proyectos, proceso, valores, rubros, preguntas frecuentes y respuestas de ALTObot.
+- **Reformulados a partir del original** (mismo contenido, otro formato):
+  - "De 3 días a 20 minutos";
+  - las etiquetas de las tarjetas flotantes;
+  - el resumen del caso de llamadas legales;
+  - la frase de proceso "Sprints cortos y avances visibles".
+- **Textos nuevos de navegación o llamada a la acción, sin datos nuevos:**
+  - "Consultar este servicio";
+  - "¿No sabes por dónde empezar?";
+  - "¿Tu proceso es el siguiente?";
+  - "Quiero un resultado así";
+  - "Enviar por WhatsApp / correo";
+  - etiquetas de accesibilidad y textos alternativos;
+  - el rótulo decorativo "ALTOKIA · LIVE".
+- **De ejemplo, a reemplazar:** la sección Equipo de trabajo (ver abajo) y los testimonios, que están ocultos.
 
 ## [PENDIENTE]
 

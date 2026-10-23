@@ -153,6 +153,9 @@
 
     @property --angle { syntax: "<angle>"; initial-value: 0deg; inherits: false; }
 
+    /* Transición circular al cambiar de tema */
+    ::view-transition-old(root), ::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
+
     /* =========================================================
        2. BASE
        ========================================================= */
@@ -374,6 +377,8 @@
     }
     .hero__frame img { width: 100%; height: 100%; object-fit: cover; object-position: 78% 50%; transform: scale(1.02); transition: transform 1.2s var(--ease-out); }
     .hero__frame:hover img { transform: scale(1.06); }
+    .hero__frame img.on-dark { object-position: 100% 55%; transform-origin: 82% 60%; transform: scale(1.28); }
+    .hero__frame:hover img.on-dark { transform: scale(1.33); }
     .hero__frame::after { content: ""; position: absolute; inset: 0; background: var(--overlay); pointer-events: none; }
     /* Marco HUD: esquinas + línea de escaneo */
     .hud { position: absolute; inset: 14px; z-index: 2; pointer-events: none; --c: var(--link);
@@ -525,6 +530,7 @@
        ========================================================= */
     .tabs { display: flex; gap: .25rem; overflow-x: auto; border-bottom: 1px solid var(--border); margin-bottom: var(--space-6); scrollbar-width: none; }
     .tabs::-webkit-scrollbar { display: none; }
+    @media (max-width: 639px) { .tabs { -webkit-mask-image: linear-gradient(90deg, #000 80%, transparent); mask-image: linear-gradient(90deg, #000 80%, transparent); padding-right: 2rem; } }
     .tab {
       position: relative; flex: none; padding: .75rem 1rem; background: none; border: 0; margin-bottom: -1px;
       font: 500 var(--fs-sm)/1 var(--font-sans); color: var(--text-3); cursor: pointer; transition: color var(--dur-fast) var(--ease);
@@ -540,6 +546,9 @@
     .project__sector { align-self: flex-start; }
     .project__metric { margin-top: auto; padding-top: var(--space-4); border-top: 1px solid var(--border); font: 600 var(--fs-sm)/1.4 var(--font-sans); color: var(--success); }
     .project.is-hidden { display: none; }
+    .project-cta { justify-content: center; }
+    .project-cta h3 { margin-top: 0; font-size: clamp(1.25rem, 1.1rem + .6vw, 1.5rem); }
+    .project-cta .btn { align-self: flex-start; }
     .project.is-filtered { animation: pop .45s var(--ease-out) both; }
 
     /* =========================================================
@@ -565,7 +574,7 @@
     }
     .special__grid {
       position: absolute; left: -10%; right: -10%; bottom: -10%; height: 70%; z-index: -1; pointer-events: none;
-      background-image: linear-gradient(rgba(167, 139, 250, .22) 1px, transparent 1px), linear-gradient(90deg, rgba(167, 139, 250, .22) 1px, transparent 1px);
+      background-image: linear-gradient(rgba(155, 229, 251, .30) 1px, transparent 1px), linear-gradient(90deg, rgba(155, 229, 251, .30) 1px, transparent 1px);
       background-size: 48px 48px; transform: perspective(520px) rotateX(62deg); transform-origin: 50% 100%;
       -webkit-mask-image: linear-gradient(to top, #000 10%, transparent 85%); mask-image: linear-gradient(to top, #000 10%, transparent 85%);
       animation: grid-move 3.5s linear infinite;
@@ -712,7 +721,7 @@
     .social:hover { background: var(--grad-cta); color: #FFFFFF; transform: translateY(-2px); }
     .social svg { width: 18px; height: 18px; }
     .footer__bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-3); margin-top: var(--space-8); padding-top: var(--space-5); border-top: 1px solid var(--border); font-size: var(--fs-sm); color: var(--text-3); }
-    .footer__mark { position: absolute; right: -40px; bottom: -40px; width: 260px; opacity: .06; pointer-events: none; }
+    .footer__mark { position: absolute; right: -70px; top: -60px; width: 300px; opacity: .05; pointer-events: none; }
 
     /* =========================================================
        19. FLOTANTES: WhatsApp + ALTObot
@@ -726,7 +735,7 @@
     .fab:hover { transform: translateY(-2px) scale(1.04); }
     .fab svg { width: 28px; height: 28px; }
     .fab--wa { background: var(--wa); color: #0B1A30; position: relative; }
-    .fab--wa::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: var(--wa); z-index: -1; animation: ping 2.4s var(--ease) infinite; }
+    .fab--wa::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: var(--wa); z-index: -1; animation: ping-soft 2.6s var(--ease) infinite; }
     .fab--bot { position: relative; background: var(--bg-elev); padding: 6px; isolation: isolate; }
     .fab--bot::before { content: ""; position: absolute; inset: -2px; border-radius: 50%; z-index: -1; background: var(--grad-border); animation: spin-angle 4s linear infinite; }
     .fab--bot::after { content: ""; position: absolute; inset: 1px; border-radius: 50%; z-index: -1; background: var(--bg-elev); }
@@ -737,7 +746,8 @@
       font-size: var(--fs-xs); font-weight: 500; opacity: 0; transition: opacity var(--dur) var(--ease);
     }
     .fab-wrap { position: relative; }
-    .fab-wrap:hover .fab-label { opacity: 1; }
+    @media (hover: hover) and (pointer: fine) { .fab-wrap:hover .fab-label { opacity: 1; } }
+    @media (hover: none) { .fab-label { display: none; } }
 
     .chatbot {
       position: fixed; right: max(16px, env(safe-area-inset-right)); bottom: calc(max(16px, env(safe-area-inset-bottom)) + 136px); z-index: 95;
@@ -775,6 +785,7 @@
        ========================================================= */
     @keyframes shimmer { 0% { background-position: 150% 0; } 60%, 100% { background-position: -50% 0; } }
     @keyframes ping { 0% { transform: scale(1); opacity: .6; } 75%, 100% { transform: scale(2.2); opacity: 0; } }
+    @keyframes ping-soft { 0% { transform: scale(1); opacity: .45; } 70%, 100% { transform: scale(1.55); opacity: 0; } }
     @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
     @keyframes marquee { to { transform: translateX(-50%); } }
     @keyframes sheen { 0% { left: -60%; } 55%, 100% { left: 130%; } }
@@ -828,6 +839,11 @@
        ========================================================= */
     @media (max-width: 480px) {
       .hero__ctas .btn { width: 100%; }
+      .code pre { padding: 1rem; font-size: .71875rem; }
+      .code .ln { white-space: pre-wrap; }
+      .fab { width: 50px; height: 50px; }
+      .fab svg { width: 25px; height: 25px; }
+      .chatbot { bottom: calc(max(16px, env(safe-area-inset-bottom)) + 124px); }
       .float-card { padding: .5rem .75rem; }
       .float-card strong { font-size: 1.25rem; }
       .float-card--a { left: 8px; bottom: 8px; }
@@ -862,6 +878,7 @@
       .hero__grid { grid-template-columns: 1.05fr 1fr; gap: var(--space-8); }
       .services { grid-template-columns: repeat(3, 1fr); }
       .projects, .team { grid-template-columns: repeat(3, 1fr); }
+      .projects[data-filter="all"] .project-cta { grid-column: span 2; }
       .steps { grid-template-columns: repeat(4, 1fr); }
       .steps::before { content: ""; position: absolute; top: calc(var(--space-5) + 22px); left: 6%; right: 6%; height: 1px; background: linear-gradient(90deg, transparent, var(--link-2), transparent); opacity: .5; }
       .feature { grid-template-columns: 1fr 1fr; gap: var(--space-8); }
@@ -1147,7 +1164,7 @@
           <button class="tab" type="button" data-filter="legal" aria-pressed="false">Legal<span class="count">1</span></button>
         </div>
 
-        <div class="projects" id="projectList" aria-live="polite">
+        <div class="projects" id="projectList" data-filter="all" aria-live="polite">
           <article class="card glow project reveal" data-sector="mineria" style="--i:0">
             <span class="chip project__sector">⛏ Minería</span>
             <h3>Facturas &amp; Órdenes de Compra</h3>
@@ -1189,6 +1206,12 @@
             <h3>Resumen Inteligente de Llamadas Legales</h3>
             <p>IA que escucha las llamadas de los case managers con clientes de firmas de abogados en EE.UU. y extrae el resumen, tipo de caso, número de póliza, teléfono y demás datos clave, listos para el expediente.</p>
             <p class="project__metric">▲ Documentación de llamadas 100% automática</p>
+          </article>
+          <article class="card card--cta glow project-cta reveal" style="--i:1">
+            <p class="card__kicker">// Tu caso</p>
+            <h3>¿Tu proceso es el siguiente?</h3>
+            <p>Cuéntanos qué tarea repetitiva le quita tiempo a tu equipo y te mostramos cómo automatizarla, en una consultoría gratuita de 30 minutos.</p>
+            <a class="btn btn--cta" href="#contacto">Agendar consultoría gratuita</a>
           </article>
         </div>
       </div>
@@ -1777,6 +1800,10 @@
       "IA que escucha las llamadas de los case managers con clientes de firmas de abogados en EE.UU. y extrae el resumen, tipo de caso, número de póliza, teléfono y demás datos clave, listos para el expediente.":
         "AI that listens to case managers' calls with clients at US law firms and extracts the summary, case type, policy number, phone number and other key data, ready for the file.",
       "▲ Documentación de llamadas 100% automática": "▲ 100% automatic call documentation",
+      "// Tu caso": "// Your case",
+      "¿Tu proceso es el siguiente?": "Is your process next?",
+      "Cuéntanos qué tarea repetitiva le quita tiempo a tu equipo y te mostramos cómo automatizarla, en una consultoría gratuita de 30 minutos.":
+        "Tell us which repetitive task is eating your team's time and we'll show you how to automate it, in a free 30-minute consultation.",
 
       "// Proceso": "// Process",
       "De la idea al impacto en 4 fases": "From idea to impact in 4 phases",
@@ -2054,12 +2081,29 @@
       themeBtn.setAttribute("aria-label", label);
       themeBtn.setAttribute("title", label);
     }
-    themeBtn.addEventListener("click", function () {
-      var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    var themeMetas = document.querySelectorAll('meta[name="theme-color"]');
+    function syncThemeColor() {
+      var c = root.getAttribute("data-theme") === "dark" ? "#050816" : "#F6F8FF";
+      themeMetas.forEach(function (m) { m.setAttribute("content", c); });
+    }
+    function setTheme(next) {
       root.setAttribute("data-theme", next);
       try { localStorage.setItem("altok-tema", next); } catch (e) {}
-      syncThemeLabel();
+      syncThemeLabel(); syncThemeColor();
       document.dispatchEvent(new Event("ak:theme"));
+    }
+    syncThemeColor();
+    themeBtn.addEventListener("click", function () {
+      var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      if (REDUCED || !document.startViewTransition) { setTheme(next); return; }
+      /* El nuevo tema se revela en un círculo que crece desde el botón */
+      var r = themeBtn.getBoundingClientRect();
+      var x = r.left + r.width / 2, y = r.top + r.height / 2;
+      var radius = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
+      document.startViewTransition(function () { setTheme(next); }).ready.then(function () {
+        root.animate({ clipPath: ["circle(0px at " + x + "px " + y + "px)", "circle(" + radius + "px at " + x + "px " + y + "px)"] },
+          { duration: 650, easing: "cubic-bezier(.22, 1, .36, 1)", pseudoElement: "::view-transition-new(root)" });
+      });
     });
 
     /* =========================================================
@@ -2236,6 +2280,7 @@
     tabs.forEach(function (tab) {
       tab.addEventListener("click", function () {
         var f = tab.getAttribute("data-filter");
+        document.getElementById("projectList").setAttribute("data-filter", f);
         tabs.forEach(function (t) { t.setAttribute("aria-pressed", String(t === tab)); });
         projects.forEach(function (p) {
           var show = f === "all" || p.getAttribute("data-sector") === f;
