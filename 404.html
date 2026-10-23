@@ -1,244 +1,59 @@
 <!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <title>Página no encontrada — ALTOKIA</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta content="ALTOKIA, automatización, RPA, software a medida, analítica de datos, dashboards, marketing digital, Perú" name="keywords" />
-    <meta content="La página que buscas no existe. Volvamos a terreno conocido." name="description" />
-    <meta name="theme-color" content="#05050C" />
-
-    <meta property="og:title" content="Página no encontrada — ALTOKIA" />
-    <meta property="og:description" content="La página que buscas no existe. Volvamos a terreno conocido." />
-    <meta property="og:image" content="images/ALTOKIAV1.webp" />
-    <meta property="og:type" content="website" />
-
-    <link href="images/favicon.svg" rel="icon" type="image/svg+xml" />
-    <link href="images/ALTOKIAV1.webp" rel="apple-touch-icon" />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
-
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
-
-    <link href="css/bootstrap.min.css?v=b04cafba" rel="stylesheet" />
-    <link href="css/style.css?v=0df98bb8" rel="stylesheet" />
-
-    <script>
-      document.documentElement.classList.add("js");
-      // Fija el tema antes del primer pintado para que no parpadee
-      (function () {
-        // La marca es oscura por naturaleza, asi que ese es el punto de partida.
-        // Si el visitante elige el claro, se recuerda para las proximas visitas.
-        var t = "dark";
-        try { t = localStorage.getItem("altok-tema") || "dark"; } catch (e) {}
-        document.documentElement.setAttribute("data-theme", t);
-      })();
-    </script>
-  </head>
-
-  <body>
-    <!-- Spinner Start -->
-    <div id="spinner" class="show">
-      <div class="ak-loader">
-        <span></span><span></span><span></span>
-        <div class="ak-loader-label ak-mono">Inicializando ALTOKIA</div>
-      </div>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Página no encontrada — ALTOKIA</title>
+  <meta name="description" content="La página que buscas no existe. Vuelve al inicio de ALTOKIA.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@800&family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem("altok-tema"); } catch (e) {}
+      if (t !== "light" && t !== "dark") t = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", t);
+    })();
+  </script>
+  <style>
+    :root, [data-theme="dark"] { --bg: #08131F; --text: #F2F6FB; --text-2: #A9B8CC; --link: #2EC5F5; --accent: #2EC5F5; --border: rgba(242, 246, 251, .18); --ring: #6E9BFF; color-scheme: dark; }
+    [data-theme="light"] { --bg: #F5F8FC; --text: #0B1A30; --text-2: #4A5B73; --link: #0779A8; --accent: #0891C9; --border: rgba(11, 26, 48, .18); --ring: #1D4FD6; color-scheme: light; }
+    [data-theme="dark"] .on-light, [data-theme="light"] .on-dark { display: none; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 2rem 1rem;
+      background: radial-gradient(700px 420px at 85% 0%, rgba(46, 107, 255, .18), transparent 60%), var(--bg);
+      color: var(--text-2); font: 400 1rem/1.65 "Inter", system-ui, sans-serif; text-align: center;
+    }
+    main { max-width: 560px; }
+    img { height: 26px; width: auto; margin: 0 auto 3rem; display: block; }
+    .code { font: 800 clamp(5rem, 4rem + 6vw, 8rem)/1 "Barlow Condensed", sans-serif; background: linear-gradient(90deg, #7FDCFA, #2EC5F5 45%, #2E6BFF); -webkit-background-clip: text; background-clip: text; color: transparent; margin: 0; }
+    [data-theme="light"] .code { background-image: linear-gradient(90deg, #0891C9, #1D4FD6); }
+    h1 { color: var(--text); font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2rem); font-weight: 800; letter-spacing: -.02em; margin: 1rem 0 .75rem; }
+    .row { display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem; margin-top: 2rem; }
+    a.btn { display: inline-flex; align-items: center; min-height: 44px; padding: .75rem 1.5rem; border-radius: 14.4px; font-weight: 600; font-size: .875rem; text-decoration: none; border: 1px solid transparent; }
+    .btn--primary { background: var(--accent); color: #0B1A30; }
+    .btn--ghost { border-color: var(--border) !important; color: var(--text); }
+    a:focus-visible { outline: 2px solid var(--ring); outline-offset: 3px; }
+  </style>
+</head>
+<body>
+  <main>
+    <a href="/" aria-label="ALTOKIA — Ir al inicio">
+      <img class="on-dark" src="/images/altokia-logo-largo-oscuro.svg" alt="ALTOKIA" width="810" height="104">
+      <img class="on-light" src="/images/altokia-logo-largo-claro.svg" alt="ALTOKIA" width="810" height="104">
+    </a>
+    <p class="code">404</p>
+    <h1>Esta ruta no existe (todavía)</h1>
+    <p>La página que buscas se movió o cambió de nombre. Volvamos a terreno conocido.</p>
+    <div class="row">
+      <a class="btn btn--primary" href="/">Volver al inicio</a>
+      <a class="btn btn--ghost" href="https://wa.me/51906106881?text=Hola%20ALTOKIA%2C%20encontr%C3%A9%20un%20enlace%20roto%20en%20la%20web" target="_blank" rel="noopener">Avisar por WhatsApp</a>
     </div>
-    <!-- Spinner End -->
-
-    <!-- Topbar Start -->
-    <div class="container-fluid ak-topbar px-lg-5 d-none d-lg-block">
-      <div class="row gx-0 align-items-center">
-        <div class="col-lg-7 text-start py-2">
-          <a href="https://wa.me/51906106881?text=Hola%20ALTOKIA%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios" target="_blank" rel="noopener" class="me-4"><i class="fab fa-whatsapp me-2 text-primary"></i>+51 906 106 881</a>
-          <a href="mailto:contacto@altokia.com" class="me-4"><i class="far fa-envelope-open me-2 text-primary"></i>contacto@altokia.com</a>
-          <span class="d-none d-xl-inline-block ak-mono" style="color: var(--ak-dim)">Automatización &amp; Lógica · Tecnología · Operaciones · Conocimiento</span>
-        </div>
-        <div class="col-lg-5 text-end py-2">
-          <span class="ak-status ak-mono me-4"><i></i>Sistemas operativos</span>
-          <a class="me-3" href="https://www.linkedin.com/company/altokia" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-          <a href="https://wa.me/51906106881?text=Hola%20ALTOKIA%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-        </div>
-      </div>
-    </div>
-    <!-- Topbar End -->
-
-    <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top px-4 px-lg-5 py-3 py-lg-0">
-      <a href="index.html" class="navbar-brand d-flex align-items-center" aria-label="ALTOKIA - Inicio">
-        <span class="ak-wordmark" aria-hidden="true">ALT<img class="ak-logo-ok" src="images/logo-ok.svg" alt="" />IA</span>
-      </a>
-      <button type="button" class="ak-theme-btn" aria-label="Cambiar tema" aria-pressed="false">
-        <i class="fa fa-sun sun"></i>
-        <i class="fa fa-moon moon"></i>
-      </button>
-      <button type="button" class="ak-lang-btn" aria-label="Cambiar idioma">ES</button>
-      <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <div class="navbar-nav ms-auto py-3 py-lg-0 align-items-lg-center">
-          <a href="index.html" class="nav-item nav-link">Inicio</a>
-          <a href="nosotros.html" class="nav-item nav-link">Nosotros</a>
-          <a href="servicios.html" class="nav-item nav-link">Servicios</a>
-          <a href="proyectos.html" class="nav-item nav-link">Proyectos</a>
-          <a href="contacto.html" class="nav-item nav-link">Contacto</a>
-          <a href="agenda.html" class="btn btn-primary px-4 py-2 ms-lg-4 my-3 my-lg-0">Agenda una demo</a>
-        </div>
-      </div>
-    </nav>
-    <!-- Navbar End -->
-
-    <!-- 404 Start -->
-    <section class="ak-hero" style="min-height: 78vh">
-      <canvas id="ak-net"></canvas>
-      <div class="ak-orb o1"></div>
-      <div class="ak-orb o2"></div>
-      <div class="ak-orb o3"></div>
-
-      <div class="container">
-        <div class="row justify-content-center text-center">
-          <div class="col-lg-8">
-            <div class="ak-chip mb-4" data-reveal="blur"><span class="dot"></span>Error 404 · recurso no encontrado</div>
-
-            <h1 class="display-1 mb-4 ak-gradient-text" style="font-size: clamp(5rem, 18vw, 11rem)" data-reveal="zoom" data-delay="80">404</h1>
-
-            <h2 class="display-6 mb-4" data-reveal data-delay="160">Esta ruta no existe (todavía)</h2>
-
-            <p class="ak-lead mb-5 mx-auto" style="max-width: 560px" data-reveal data-delay="220">
-              La página que buscas se ha movido, ha cambiado de nombre o nunca llegó
-              a desplegarse. Volvamos a terreno conocido.
-            </p>
-
-            <div class="d-flex flex-wrap justify-content-center gap-3" data-reveal data-delay="300">
-              <a href="index.html" class="btn btn-primary py-3 px-5" data-magnetic>
-                <i class="fa fa-home me-3"></i>Volver al inicio
-              </a>
-              <a href="contacto.html" class="btn btn-outline-primary py-3 px-5">Avisar del error</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- 404 End -->
-
-    <!-- Footer Start -->
-    <div class="container-fluid footer pt-5" data-reveal>
-      <div class="container py-5">
-        <div class="row g-5">
-          <div class="col-lg-4 col-md-6">
-            <a href="index.html" class="d-inline-flex align-items-center mb-4" aria-label="ALTOKIA">
-              <span class="ak-wordmark" aria-hidden="true">ALT<img class="ak-logo-ok" src="images/logo-ok.svg" alt="" />IA</span>
-            </a>
-            <p class="mb-2">Tecnología que trabaja mientras tú creces.</p>
-            <p class="ak-mono mb-4" style="color: var(--ak-dim); font-size: .68rem">
-              Automatización &amp; Lógica · Tecnología · Operaciones · Conocimiento
-            </p>
-            <div class="d-flex gap-2">
-              <a class="ak-social" href="https://www.linkedin.com/company/altokia" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-              <a class="ak-social" href="https://wa.me/51906106881?text=Hola%20ALTOKIA%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-              <a class="ak-social" href="mailto:contacto@altokia.com" aria-label="Correo"><i class="fa fa-envelope"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6">
-            <h5 class="footer-title">Servicios</h5>
-            <a class="btn btn-link" href="servicios.html">Automatización</a>
-            <a class="btn btn-link" href="servicios.html">Software a medida</a>
-            <a class="btn btn-link" href="servicios.html">Analítica de datos</a>
-            <a class="btn btn-link" href="servicios.html">Optimización de procesos</a>
-            <a class="btn btn-link" href="servicios.html">Marketing digital</a>
-          </div>
-
-          <div class="col-lg-2 col-md-6">
-            <h5 class="footer-title">Compañía</h5>
-            <a class="btn btn-link" href="nosotros.html">Nosotros</a>
-            <a class="btn btn-link" href="proyectos.html">Proyectos</a>
-            <a class="btn btn-link" href="por-que-altokia.html">Por qué ALTOKIA</a>
-            <a class="btn btn-link" href="agenda.html">Agenda una demo</a>
-            <a class="btn btn-link" href="contacto.html">Contacto</a>
-          </div>
-
-          <div class="col-lg-3 col-md-6">
-            <h5 class="footer-title">Contacto</h5>
-            <p class="mb-3">
-              <a href="https://wa.me/51906106881?text=Hola%20ALTOKIA%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios" target="_blank" rel="noopener" style="color: var(--ak-muted)">
-                <i class="fab fa-whatsapp me-2 text-primary"></i>+51 906 106 881
-              </a>
-            </p>
-            <p class="mb-3">
-              <a href="mailto:contacto@altokia.com" style="color: var(--ak-muted)">
-                <i class="fa fa-envelope me-2 text-primary"></i>contacto@altokia.com
-              </a>
-            </p>
-            <p class="mb-4"><i class="fa fa-globe-americas me-2 text-primary"></i>Perú · Panamá · EE.UU.</p>
-            <button type="button" class="btn btn-outline-primary py-2 px-4" data-open-bot>
-              <i class="fa fa-robot me-2"></i>Agenda con nuestro bot
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div class="container-fluid copyright">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-              &copy; 2026 <a href="index.html">ALTOKIA</a> — Todos los derechos reservados
-            </div>
-            <div class="col-md-6 text-center text-md-end">
-              <!--/*** This template is free as long as you keep the footer author's credit link/attribution link/backlink. If you'd like to use the template without the footer author's credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-              Diseño base por <a href="https://htmlcodex.com">HTML Codex</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Footer End -->
-
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top" aria-label="Volver arriba"><i class="bi bi-arrow-up"></i></a>
-
-    <!-- Botones flotantes -->
-    <div class="ak-fab-stack">
-      <a href="https://wa.me/51906106881?text=Hola%20ALTOKIA%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios" target="_blank" rel="noopener" class="ak-fab ak-fab--wa" aria-label="Escríbenos por WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-        <span class="ak-fab__tip">¡Escríbenos!</span>
-      </a>
-      <button type="button" class="ak-fab ak-fab--chat" id="chatToggle" aria-label="Abrir asistente virtual">
-        <span class="open">🤖</span>
-        <span class="close">✕</span>
-        <span class="ak-fab__ping"></span>
-        <span class="ak-fab__tip">Asistente virtual</span>
-      </button>
-    </div>
-
-    <!-- Chatbot -->
-    <div class="ak-chatbot" id="chatbot" aria-hidden="true" aria-label="Asistente virtual ALTObot">
-      <div class="ak-chatbot__header">
-        <div class="ak-chatbot__avatar">🤖</div>
-        <div class="ak-chatbot__info">
-          <strong>ALTO<span class="accent">bot</span></strong>
-          <span class="ak-chatbot__status"><i></i>En línea — responde al instante</span>
-        </div>
-        <button type="button" class="ak-chatbot__close" id="chatMinimize" aria-label="Cerrar chat">─</button>
-      </div>
-      <div class="ak-chatbot__messages" id="chatMessages"></div>
-      <div class="ak-chatbot__options" id="chatOptions"></div>
-      <form class="ak-chatbot__inputbar" id="chatForm" autocomplete="off">
-        <input type="text" id="chatInput" placeholder="Escribe tu mensaje..." aria-label="Escribe tu mensaje" />
-        <button type="submit" aria-label="Enviar">➤</button>
-      </form>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/i18n.js?v=0738bf37"></script>
-    <script src="js/main.js?v=5a652ffc"></script>
-    <script src="js/chatbot.js?v=b6e17be5"></script>
-  </body>
+  </main>
+</body>
 </html>

@@ -1,3 +1,15 @@
-# La antigua página de equipo se fusionó con Nosotros
-/equipo    /nosotros    301
-/equipo.html    /nosotros    301
+# El sitio pasó a ser de una sola página: las URLs antiguas llevan a su sección
+/servicios              /#servicios   301
+/servicios.html         /#servicios   301
+/proyectos              /#proyectos   301
+/proyectos.html         /#proyectos   301
+/nosotros               /#por-que     301
+/nosotros.html          /#por-que     301
+/por-que-altokia        /#por-que     301
+/por-que-altokia.html   /#por-que     301
+/equipo                 /#por-que     301
+/equipo.html            /#por-que     301
+/contacto               /#contacto    301
+/contacto.html          /#contacto    301
+/agenda                 /#contacto    301
+/agenda.html            /#contacto    301
