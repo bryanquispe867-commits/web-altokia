@@ -1,66 +1,125 @@
 # ALTOKIA · Entrega del sitio web
 
-Sitio de **una sola página** con el estilo visual de la referencia (estructura, tipografía, botones y animaciones) y **solo la marca, los logos y el contenido de ALTOKIA**.
+Sitio de **varias páginas**: cada pestaña del menú lleva a su propia página, con todo el contenido del sitio original. Toma de la referencia el estilo (heros a pantalla completa que se funden con el fondo, tipografía, botones y animaciones). Usa **solo la marca, los logos, el video y el contenido de ALTOKIA**.
+
+## Páginas
+
+| Página | Contenido |
+|---|---|
+| `index.html` · Inicio | Hero con el **video de marca** de fondo, titular con palabras que rotan, cifras, tecnologías, 5 servicios, impacto medido + Nosotros, caso destacado (código que se escribe solo), proceso en 4 fases, 3 proyectos, cita y llamada a la acción |
+| `servicios.html` · Servicios | Menú fijo por servicio y un bloque de detalle para cada uno de los 5, con imagen y caso real. Incluye proceso, tecnologías, preguntas frecuentes y llamada a la acción |
+| `proyectos.html` · Proyectos | Los 7 casos con filtro por sector (también por URL: `proyectos.html?sector=banca`), rubros, caso destacado y llamada a la acción |
+| `nosotros.html` · Nosotros | Quiénes somos (`como_trabajamos.md`), valores, **Equipo de trabajo**, presencia internacional, rubros, cita y llamada a la acción |
+| `por-que-altokia.html` · Por qué ALTOKIA | Diferenciales, resultados en producción con barras, cifras, caso destacado y llamada a la acción |
+| `contacto.html` · Contacto | Canales (WhatsApp, correo, LinkedIn), formulario, ALTObot y preguntas frecuentes |
+| `agenda.html` · Agenda una demo | Los 3 pasos, ALTObot y formulario de reserva. El servicio llega preseleccionado desde "Consultar este servicio": `agenda.html?servicio=analitica` |
+| `404.html` | Página de error con la marca |
+
+**Menú:** Inicio · Nosotros ▾ (Quiénes somos, Equipo de trabajo, Por qué ALTOKIA) · Servicios ▾ (los 5 servicios) · Proyectos · Contacto, más el botón **Agenda una demo**.
+- **Escritorio:** los submenús se abren al pasar el mouse o con la flecha.
+- **Móvil:** se despliegan dentro del menú.
+- **Página actual:** queda marcada en el menú.
+
+## Identidad visual: azul y azul marino
+
+| Rol | 🌙 Oscuro | ☀️ Claro |
+|---|---|---|
+| Fondo | `#061226` (azul marino) | `#F5F8FD` |
+| Superficies | `#0A1A33` / `#0F2442` | `#FFFFFF` / `#EAF1FB` |
+| Marca: cian (logo) | `#2EC5F5` | `#0891C9` |
+| Marca: azul (logo) | `#2E6BFF` | `#1D4FD6` |
+| Etiquetas y cargos | `#8AB4FF` (azul claro) | `#1D4FD6` |
+| Resultados y métricas | `#34F5C5` (menta) | `#047857` |
+| Botón principal | degradado `#1E40AF → #1D4FD6 → #2563EB` con texto blanco | igual |
+| Violeta | solo un toque: un brillo en la cita, la esquina del bloque "Por qué ALTOKIA" y el final de los textos en degradado | igual |
+
+**Heros a pantalla completa:**
+- La imagen (o el video en Inicio) ocupa todo el ancho y se funde con el color de fondo: se desvanece hacia la izquierda y hacia abajo, con un velo del color de la página detrás del texto.
+- En móvil la imagen queda detrás del texto, con un velo más fuerte para que se lea.
+- **Imágenes:** son fotogramas de tu video de marca (`images/hero/*.webp`), con un tinte azul que lleva el rosa del neón hacia el azul.
+- **Modo claro:** los fotogramas se invierten y quedan como trazos de neón sobre blanco. Inicio usa el robot (`hero-bg2.webp`).
+
+**Animaciones:**
+- video de fondo en Inicio, con zoom lento en las demás imágenes;
+- palabra del titular con efecto "decodificación";
+- transición circular al cambiar de tema;
+- apariciones al hacer scroll;
+- contadores;
+- barras de impacto;
+- código que se escribe solo;
+- foco de luz y borde de neón en las tarjetas;
+- red de nodos en la llamada a la acción;
+- rejilla en perspectiva;
+- barra de progreso de lectura.
+
+Todas se desactivan con `prefers-reduced-motion`. El video tampoco se reproduce con ahorro de datos y se pausa cuando no está en pantalla.
 
 ## Archivos
 
 | Archivo | Qué es |
 |---|---|
-| `index.html` | El sitio completo, con el CSS y el JS dentro (tema claro/oscuro, ES/EN, ALTObot y formulario) |
-| `404.html` | Página de error con la nueva marca |
-| `images/altokia-logo-largo-oscuro.svg` · `…-claro.svg` | Logo largo: el `-oscuro` va sobre fondo oscuro y el `-claro` sobre fondo claro (se cambian solos con el tema) |
-| `images/altokia-logo-corto-oscuro.svg` · `…-claro.svg` | Logo corto "TOK": botón de ALTObot y canal de agenda |
-| `images/favicon.svg` · `apple-touch-icon.png` | Íconos de pestaña y de iPhone, hechos con el logo corto |
-| `images/og-altokia.png` | Imagen de 1200×630 que se ve al compartir el enlace en WhatsApp, LinkedIn, etc. |
-| `images/hero-bg.webp` · `hero-bg2.webp` | Imagen del hero en modo oscuro y en modo claro |
-| `_redirects` | Lleva las URLs antiguas (`/servicios`, `/contacto`…) a su sección |
-| `_headers` | Cabeceras de seguridad y caché |
+| `*.html` | Las páginas |
+| `css/altokia.css` | Todos los estilos (colores y medidas en variables al inicio) |
+| `js/altokia.js` | Idioma ES/EN (objeto `DIC`), tema, menú, animaciones, filtro, formularios y ALTObot |
+| `cache-bust.mjs` | Añade `?v=hash` a la CSS y el JS en todas las páginas. **Ejecútalo (`node cache-bust.mjs`) antes de cada commit que cambie `css/` o `js/`** |
+| `images/hero/*.webp` | Fotogramas del video de marca para los heros |
+| `images/video_altokia.mp4` | Video de marca (hero de Inicio) |
+| `images/hero-bg2.webp` | Robot del hero de Inicio en modo claro |
+| `images/altokia-logo-*.svg`, `favicon.svg`, `apple-touch-icon.png`, `og-altokia.png` | Logos, íconos e imagen para redes |
+| `images/equipo/foto-pendiente.svg` | Foto provisional del equipo |
+| `_headers` · `_redirects` | Caché y seguridad; `/equipo` redirige a `/nosotros#equipo` |
 
-Se retiraron Bootstrap, los CSS y JS sueltos, las 6 páginas antiguas, los logos "OK" anteriores y la licencia de la plantilla HTML Codex: el sitio nuevo no usa nada de esa plantilla. Todo sigue disponible en el historial de git.
+**Para editar un texto:**
+1. Cámbialo en el HTML de su página.
+2. Para que la versión en inglés siga funcionando, cambia también su clave en el objeto `DIC` de `js/altokia.js`. La clave es el texto en español y el valor, la traducción.
 
-## Control de calidad
+## Control de calidad (escritorio 1440 px, tablet 820 px y móvil 390 px, ambos modos)
 
-- **Contraste WCAG AA:** se revisaron todos los textos visibles en los dos temas y ninguno queda por debajo de 4.5:1 (3:1 en texto grande).
-- **Contenido de la referencia:** no queda ningún texto, logo, imagen ni nombre de la referencia. Solo se reutilizan sus fuentes libres (Inter y Barlow Condensed, de Google Fonts).
-- **Enlaces y botones:** se probaron en el navegador:
-  - todas las anclas internas existen;
-  - WhatsApp, correo y LinkedIn funcionan;
-  - menú móvil, tema, idioma, filtro de proyectos, validación del formulario y flujo de agenda de ALTObot funcionan;
-  - no hay errores en la consola;
-  - no hay scroll horizontal en 390, 820, 1024, 1100 ni 1440 px.
-- **SEO:** `title`, `meta description`, Open Graph y Twitter Card, favicon SVG, `apple-touch-icon`, datos estructurados `Organization` y `lang` dinámico.
-- **Accesibilidad:**
-  - enlace "Saltar al contenido";
-  - foco visible;
-  - `aria-expanded` en el menú y en el bot;
-  - el menú y el bot se cierran con Esc;
-  - las animaciones se desactivan con `prefers-reduced-motion`.
+- **Errores:** ninguno en la consola, ningún recurso roto y ningún scroll horizontal en las 7 páginas.
+- **Enlaces internos:** todos los archivos y anclas existen.
+- **Contraste WCAG AA:** se cumple en las 7 páginas, en modo claro y oscuro.
+- **Inglés:** todas las páginas están traducidas, incluidos títulos y descripciones.
+- **Funcionamiento probado:**
+  - los submenús y su navegación a cada sección;
+  - "Consultar este servicio" con el servicio ya elegido en la agenda;
+  - el filtro de proyectos por URL;
+  - la validación de los formularios;
+  - el cambio de tema;
+  - ALTObot;
+  - el menú móvil con submenús.
+- **Video:** en el navegador de pruebas no se puede reproducir porque no trae el códec H.264, así que ahí se ve el póster. En Chrome, Safari, Edge y Firefox reales se reproduce.
+
+## Origen del contenido
+
+Todo el texto sale del sitio original (commit `e660d9b`): servicios, proyectos, proceso, valores, rubros, preguntas frecuentes, respuestas de ALTObot, cifras y datos de contacto. Las traducciones al inglés del sitio original se reutilizan.
+
+- **Textos nuevos sin datos nuevos:** algunas frases de navegación y llamada a la acción, como "Consultar este servicio", "¿Tu proceso es el siguiente?" o "Casos reales, resultados medibles".
+- **Etiquetas de cifras nuevas:** salen de datos que ya estaban en el sitio:
+  - "5 líneas de servicio";
+  - "4 fases";
+  - "3 países con proyectos entregados";
+  - "6 rubros".
+- **Contenido de ejemplo:** solo el equipo de trabajo y los testimonios, que siguen ocultos.
 
 ## [PENDIENTE]
 
-1. **Confirmar las cifras.** Están en tu web anterior, pero hay que confirmar que son reales y actuales:
-   - 120+ proyectos, 87 % menos tareas manuales, 15 000 horas ahorradas y 98 % de satisfacción;
-   - resultados de los casos: -94 %, 6x, 12 000 documentos al mes, -80 %, cierre contable 5 días antes y 100 % automática.
-2. **Testimonios.** La sección `#testimonios` está lista pero **oculta** (atributo `hidden`). Para activarla, cambia los `[PENDIENTE]` por nombre, cargo, empresa y texto reales, con permiso del cliente.
-3. **Dominio.** Cuando esté confirmado, añade en `index.html` `<link rel="canonical" href="https://TU-DOMINIO/">` y pon la URL absoluta en `og:image`, `twitter:image` y `og:url`. Hay un comentario `[PENDIENTE]` en el `<head>` que marca el lugar.
-4. **Formulario.** No tiene servidor: abre WhatsApp o el correo del visitante con el mensaje ya escrito. Si quieres recibir los mensajes sin que el visitante tenga que enviarlos él mismo, hay que conectar un servicio de formularios (Formspree, Cloudflare Workers, etc.).
-5. **Libro de Reclamaciones.** La referencia lo muestra en el pie. Si ALTOKIA atiende a consumidores finales en Perú, puede ser obligatorio; confírmalo y te añado el enlace.
-6. **Redes sociales.** Hoy solo hay LinkedIn. Si tienes Instagram, Facebook o TikTok, pásame los enlaces.
-7. **Video de marca.** `images/video_altokia.mp4` se conserva, pero el sitio nuevo no lo usa. Se puede poner en el hero o en el caso destacado si lo quieres.
+0. **Equipo de trabajo (`nosotros.html#equipo`): ES DE EJEMPLO.** Los 6 nombres son inventados, igual que sus cargos, textos y fotos; los LinkedIn apuntan a la página de la empresa. **No publiques así.** Para cada persona:
+   1. sube su foto cuadrada (600×600, `.webp` o `.jpg`) a `images/equipo/`;
+   2. en `nosotros.html` cambia el `src`, el `alt`, el nombre, el cargo, el texto, las etiquetas y su LinkedIn;
+   3. si cambias un cargo o un texto, actualiza su traducción en `DIC`.
 
-## Cómo publicarlo
+   El comentario `[PENDIENTE]` sobre la sección repite estos pasos.
+1. **Confirmar las cifras:** 120+ proyectos, 87 %, 15 000 horas, 98 % y los resultados de cada caso.
+2. **Testimonios:** no existen todavía; la sección no se muestra.
+3. **Dominio:** añadir `canonical` y URLs absolutas en `og:image` y `og:url`. Hay un comentario `[PENDIENTE]` en el `<head>` de cada página.
+4. **Formulario:** abre WhatsApp o el correo con el mensaje ya escrito. Para recibir los mensajes sin que el visitante tenga que enviarlos, hay que conectar un servicio de formularios.
+5. **Libro de Reclamaciones y otras redes sociales:** confirmar si aplican.
 
-El repositorio ya trae `_headers` y `_redirects`, que son el formato de **Cloudflare Pages** (también los acepta Netlify).
+## Cómo publicarlo (Cloudflare Pages)
 
-1. Une esta rama (`claude/funny-feynman-99ufmh`) con la rama principal del repositorio.
-2. Si Cloudflare Pages está conectado al repositorio, publica solo al recibir el cambio. Configuración del proyecto:
-   - framework preset: **None**;
-   - build command: vacío;
-   - output directory: `/`.
-3. Si no está conectado, entra en Cloudflare → *Workers & Pages* → *Create* → *Pages* → *Upload assets*. Sube la carpeta con `index.html`, `404.html`, `_headers`, `_redirects` e `images/`.
-4. Después de publicar, comprueba:
+1. Une esta rama (`claude/funny-feynman-99ufmh`) con la rama principal.
+2. Si Cloudflare Pages está conectado al repositorio, publica solo. Configuración: preset **None**, sin build command y output directory `/`.
+3. Comprueba en el sitio publicado:
+   - que cada pestaña abra su propia página;
    - el botón ☀️/🌙 y el botón ES/EN;
-   - que `/servicios` te lleve a la sección Servicios;
-   - la vista previa al compartir el enlace (por ejemplo, con el Post Inspector de LinkedIn).
-
-Para editar textos, abre `index.html`: el contenido en español está en el HTML y la traducción al inglés está en el objeto `DIC` del `<script>` final. Si cambias una frase en español, cambia también su clave en `DIC`.
+   - que `/equipo` lleve a la sección del equipo.

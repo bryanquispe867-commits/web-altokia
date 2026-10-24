@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Servicios — ALTOKIA</title>
+  <meta name="description" content="Automatización, software a medida, analítica de datos, optimización de procesos y marketing digital. Un solo equipo para todo tu ecosistema digital.">
+  <meta name="theme-color" content="#050816" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#F6F8FF" media="(prefers-color-scheme: light)">
+  <meta name="color-scheme" content="dark light">
+  <!-- [PENDIENTE] Cuando se confirme el dominio: <link rel="canonical" href="https://DOMINIO/..."> y URLs absolutas en og:url y og:image -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ALTOKIA">
+  <meta property="og:locale" content="es_PE">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:title" content="Servicios — ALTOKIA">
+  <meta property="og:description" content="Automatización, software a medida, analítica de datos, optimización de procesos y marketing digital. Un solo equipo para todo tu ecosistema digital.">
+  <meta property="og:image" content="images/og-altokia.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Logotipo de ALTOKIA sobre fondo oscuro con el eslogan Tecnología que trabaja mientras tú creces">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="images/og-altokia.png">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="css/altokia.css?v=5e63bcb3" rel="stylesheet">
+  <script>
+    /* Tema antes del primer pintado: elección guardada > preferencia del dispositivo > oscuro */
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem("altok-tema"); } catch (e) {}
+      if (t !== "light" && t !== "dark") t = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", t);
+      document.documentElement.classList.add("js");
+    })();
+  </script>
+</head>
+<body data-page="servicios">
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a class="header__logo" href="index.html" aria-label="ALTOKIA — Ir al inicio">
+        <img class="on-dark" src="images/altokia-logo-largo-oscuro.svg" alt="ALTOKIA" width="810" height="104">
+        <img class="on-light" src="images/altokia-logo-largo-claro.svg" alt="ALTOKIA" width="810" height="104">
+      </a>
+
+      <nav class="nav" aria-label="Principal">
+        <ul class="nav__list">
+          <li class="nav__item"><a class="nav__link" href="index.html">Inicio</a></li>
+          <li class="nav__item has-sub">
+            <a class="nav__link" href="nosotros.html">Nosotros</a>
+            <button class="nav__caret" type="button" aria-expanded="false" aria-label="Submenú de Nosotros"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+            <div class="nav__sub">
+              <a href="nosotros.html#quienes"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1v-6h3zM3 19a2 2 0 0 0 2 2h1v-6H3z"/></svg></span><span><strong>Quiénes somos</strong><small>Escuchamos primero, automatizamos después</small></span></a>
+              <a href="nosotros.html#equipo"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M21.5 20a6.5 6.5 0 0 0-4-6"/></svg></span><span><strong>Equipo de trabajo</strong><small>Las personas detrás de cada automatización</small></span></a>
+              <a href="por-que-altokia.html"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><span><strong>Por qué ALTOKIA</strong><small>No vendemos horas, entregamos eficiencia</small></span></a>
+            </div>
+          </li>
+          <li class="nav__item has-sub">
+            <a class="nav__link" href="servicios.html" aria-current="page">Servicios</a>
+            <button class="nav__caret" type="button" aria-expanded="false" aria-label="Submenú de Servicios"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+            <div class="nav__sub nav__sub--mega">
+            <a href="servicios.html#automatizacion"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span><span><strong>Automatización</strong><small>Punto de partida</small></span></a>
+            <a href="servicios.html#software"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg></span><span><strong>Software a medida</strong><small>Software a medida</small></span></a>
+            <a href="servicios.html#analitica"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></span><span><strong>Analítica de datos</strong><small>Dashboards & KPIs</small></span></a>
+            <a href="servicios.html#optimizacion"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></span><span><strong>Optimización de procesos</strong><small>Eficiencia operativa</small></span></a>
+            <a href="servicios.html#marketing"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11v2a1 1 0 0 0 1 1h3l5 4V6L7 10H4a1 1 0 0 0-1 1z"/><path d="M16 8a5 5 0 0 1 0 8M19 5a9 9 0 0 1 0 14"/></svg></span><span><strong>Marketing digital</strong><small>Growth digital</small></span></a>
+              <a class="nav__sub-all" href="servicios.html">Todos los servicios <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+          </li>
+          <li class="nav__item"><a class="nav__link" href="proyectos.html">Proyectos</a></li>
+          <li class="nav__item"><a class="nav__link" href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div class="header__actions">
+        <button class="icon-btn lang-btn" type="button" id="langToggle" aria-label="Cambiar idioma" title="Cambiar idioma">EN</button>
+        <button class="icon-btn" type="button" id="themeToggle" aria-label="Cambiar tema" title="Cambiar tema">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        </button>
+        <a class="btn btn--primary btn--sm header__cta" href="agenda.html">Agenda una demo</a>
+        <button class="icon-btn menu-btn" type="button" id="menuToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
+          <span class="bars" aria-hidden="true"><span class="bar"></span><span class="bar"></span><span class="bar"></span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu" aria-label="Menú móvil">
+    <ul class="mobile-menu__list">
+      <li style="--i:0"><a href="index.html">Inicio</a></li>
+      <li style="--i:1">
+        <details>
+          <summary>Nosotros</summary>
+          <div class="mobile-menu__sub">
+            <a href="nosotros.html">Quiénes somos</a>
+            <a href="nosotros.html#equipo">Equipo de trabajo</a>
+            <a href="por-que-altokia.html">Por qué ALTOKIA</a>
+          </div>
+        </details>
+      </li>
+      <li style="--i:2">
+        <details class="is-current" open>
+          <summary>Servicios</summary>
+          <div class="mobile-menu__sub">
+            <a href="servicios.html">Todos los servicios</a>
+            <a href="servicios.html#automatizacion">Automatización</a>
+            <a href="servicios.html#software">Software a medida</a>
+            <a href="servicios.html#analitica">Analítica de datos</a>
+            <a href="servicios.html#optimizacion">Optimización de procesos</a>
+            <a href="servicios.html#marketing">Marketing digital</a>
+          </div>
+        </details>
+      </li>
+      <li style="--i:3"><a href="proyectos.html">Proyectos</a></li>
+      <li style="--i:4"><a href="contacto.html">Contacto</a></li>
+    </ul>
+    <a class="btn btn--cta btn--lg" href="agenda.html">Agenda una demo</a>
+    <a class="btn btn--ghost btn--lg" href="https://wa.me/51906106881?text=Hola%20ALTOKIA%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios" target="_blank" rel="noopener" data-wa>Escríbenos por WhatsApp</a>
+  </div>
+
+  <main id="main">
+    <section class="page-hero page-hero--sub" aria-labelledby="hero-title">
+      <div class="hero-media" style="--pos:62% 45%" aria-hidden="true">
+        <img class="on-dark" src="images/hero/servicios.webp" alt="" width="1203" height="633" fetchpriority="high">
+        <img class="on-light inv" src="images/hero/servicios.webp" alt="" width="1203" height="633">
+      </div>
+      <div class="container">
+        <div class="hero-copy">
+          <nav class="crumbs hero-enter" style="--i:0" aria-label="Ruta de navegación"><a href="index.html">Inicio</a><span aria-hidden="true">/</span><span aria-current="page">Servicios</span></nav>
+          <h1 id="hero-title" class="hero-enter" style="--i:1">Lo que hacemos<br><span class="grad-text">extraordinariamente bien</span></h1>
+          <p class="hero-lead hero-enter" style="--i:2">Automatización, software a medida, analítica de datos, marketing y optimización — un solo equipo para todo tu ecosistema digital.</p>
+          <div class="hero-ctas hero-enter" style="--i:3">
+            <a class="btn btn--cta btn--lg" href="agenda.html">Agendar consultoría<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="btn btn--ghost btn--lg" href="https://wa.me/51906106881?text=Hola%20ALTOKIA%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios" target="_blank" rel="noopener" data-wa><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3z"/></svg>Escríbenos por WhatsApp</a>
+          </div>
+          <ul class="hero-stats hero-enter" style="--i:5">
+            <li><strong><span data-count="5">5</span></strong><span class="lbl">líneas de servicio con un solo equipo</span></li>
+            <li><strong><span data-count="4">4</span></strong><span class="lbl">fases de la idea al impacto</span></li>
+            <li><strong>30 min</strong><span class="lbl">consultoría gratuita</span></li>
+            <li><strong>&lt; 24 h</strong><span class="lbl">tiempo de respuesta</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <nav class="subnav" aria-label="Servicios">
+      <div class="container">
+        <ul>
+          <li><a class="chip" href="#automatizacion"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>Automatización</a></li>
+          <li><a class="chip" href="#software"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg>Software a medida</a></li>
+          <li><a class="chip" href="#analitica"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg>Analítica de datos</a></li>
+          <li><a class="chip" href="#optimizacion"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>Optimización de procesos</a></li>
+          <li><a class="chip" href="#marketing"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11v2a1 1 0 0 0 1 1h3l5 4V6L7 10H4a1 1 0 0 0-1 1z"/><path d="M16 8a5 5 0 0 1 0 8M19 5a9 9 0 0 1 0 14"/></svg>Marketing digital</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <section class="section" style="padding-top:0" aria-label="Servicios">
+      <div class="container">
+        <article class="svc" id="automatizacion">
+          <div class="reveal">
+            <span class="svc__num" aria-hidden="true">01</span>
+            <span class="card__kicker">Punto de partida</span>
+            <h2>Automatización</h2>
+            <p class="svc__text">Diseñamos flujos inteligentes con RPA e IA que eliminan tareas repetitivas y conectan tus sistemas de punta a punta.</p>
+            <div class="svc__tags"><span class="tag">RPA</span><span class="tag">Automation Anywhere</span><span class="tag">Power Automate</span><span class="tag">Python</span></div>
+            <div class="svc__ctas">
+              <a class="btn btn--cta" href="agenda.html?servicio=automatizacion">Consultar este servicio<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <a class="btn btn--ghost" href="proyectos.html">Ver proyectos</a>
+            </div>
+          </div>
+          <div class="svc__visual reveal" style="--i:1;--pos:60% 50%">
+            <img class="on-dark" src="images/hero/servicios.webp" alt="" width="1203" height="633" loading="lazy">
+            <img class="on-light inv" src="images/hero/servicios.webp" alt="" width="1203" height="633" loading="lazy">
+            <div class="svc__badge"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span><span><strong>Facturas &amp; Órdenes de Compra</strong><span>▲ 94% menos tiempo de procesamiento</span></span></div>
+          </div>
+        </article>
+        <article class="svc" id="software">
+          <div class="reveal">
+            <span class="svc__num" aria-hidden="true">02</span>
+            <span class="card__kicker">Software a medida</span>
+            <h2>Desarrollo de Software a Medida</h2>
+            <p class="svc__text">Sistemas y aplicaciones construidos desde cero para tu operación, sin plantillas ni licencias que no necesitas.</p>
+            <div class="svc__tags"><span class="tag">Node.js</span><span class="tag">Python</span><span class="tag">PostgreSQL</span></div>
+            <div class="svc__ctas">
+              <a class="btn btn--cta" href="agenda.html?servicio=software">Consultar este servicio<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <a class="btn btn--ghost" href="proyectos.html">Ver proyectos</a>
+            </div>
+          </div>
+          <div class="svc__visual reveal" style="--i:1;--pos:55% 45%">
+            <img class="on-dark" src="images/hero/contacto.webp" alt="" width="1203" height="633" loading="lazy">
+            <img class="on-light inv" src="images/hero/contacto.webp" alt="" width="1203" height="633" loading="lazy">
+            <div class="svc__badge"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg></span><span><strong>Onboarding de Proveedores</strong><span>▲ 80% menos correos de seguimiento</span></span></div>
+          </div>
+        </article>
+        <article class="svc" id="analitica">
+          <div class="reveal">
+            <span class="svc__num" aria-hidden="true">03</span>
+            <span class="card__kicker">Dashboards & KPIs</span>
+            <h2>Analítica de Datos</h2>
+            <p class="svc__text">Convertimos tus datos en decisiones: dashboards en tiempo real, KPIs claros y reportes que le hablan directo a tu negocio.</p>
+            <div class="svc__tags"><span class="tag">Dashboards</span><span class="tag">KPIs</span><span class="tag">Reportería</span></div>
+            <div class="svc__ctas">
+              <a class="btn btn--cta" href="agenda.html?servicio=analitica">Consultar este servicio<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <a class="btn btn--ghost" href="proyectos.html">Ver proyectos</a>
+            </div>
+          </div>
+          <div class="svc__visual reveal" style="--i:1;--pos:50% 40%">
+            <img class="on-dark" src="images/hero/proyectos.webp" alt="" width="1203" height="633" loading="lazy">
+            <img class="on-light inv" src="images/hero/proyectos.webp" alt="" width="1203" height="633" loading="lazy">
+            <div class="svc__badge"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></span><span><strong>Reportería Automática de Ventas</strong><span>▲ Decisiones con datos del día anterior</span></span></div>
+          </div>
+        </article>
+        <article class="svc" id="optimizacion">
+          <div class="reveal">
+            <span class="svc__num" aria-hidden="true">04</span>
+            <span class="card__kicker">Eficiencia operativa</span>
+            <h2>Optimización de Procesos</h2>
+            <p class="svc__text">Medimos, rediseñamos y afinamos tus operaciones para reducir costos y eliminar cuellos de botella.</p>
+            <div class="svc__tags"><span class="tag">Diagnóstico</span><span class="tag">Rediseño</span><span class="tag">Métricas</span></div>
+            <div class="svc__ctas">
+              <a class="btn btn--cta" href="agenda.html?servicio=optimizacion">Consultar este servicio<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <a class="btn btn--ghost" href="proyectos.html">Ver proyectos</a>
+            </div>
+          </div>
+          <div class="svc__visual reveal" style="--i:1;--pos:50% 50%">
+            <img class="on-dark" src="images/hero/por-que.webp" alt="" width="1203" height="633" loading="lazy">
+            <img class="on-light inv" src="images/hero/por-que.webp" alt="" width="1203" height="633" loading="lazy">
+            <div class="svc__badge"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></span><span><strong>Eficiencia operativa</strong><span class="muted">Diagnóstico · Rediseño · Métricas</span></span></div>
+          </div>
+        </article>
+        <article class="svc" id="marketing">
+          <div class="reveal">
+            <span class="svc__num" aria-hidden="true">05</span>
+            <span class="card__kicker">Growth digital</span>
+            <h2>Marketing Digital</h2>
+            <p class="svc__text">Estrategias basadas en datos — SEO, pauta y automatización de campañas — para llegar a las personas correctas.</p>
+            <div class="svc__tags"><span class="tag">SEO</span><span class="tag">Google Ads</span><span class="tag">Meta Ads</span></div>
+            <div class="svc__ctas">
+              <a class="btn btn--cta" href="agenda.html?servicio=marketing">Consultar este servicio<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <a class="btn btn--ghost" href="proyectos.html">Ver proyectos</a>
+            </div>
+          </div>
+          <div class="svc__visual reveal" style="--i:1;--pos:55% 45%">
+            <img class="on-dark" src="images/hero/nosotros.webp" alt="" width="1203" height="633" loading="lazy">
+            <img class="on-light inv" src="images/hero/nosotros.webp" alt="" width="1203" height="633" loading="lazy">
+            <div class="svc__badge"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11v2a1 1 0 0 0 1 1h3l5 4V6L7 10H4a1 1 0 0 0-1 1z"/><path d="M16 8a5 5 0 0 1 0 8M19 5a9 9 0 0 1 0 14"/></svg></span><span><strong>Growth digital</strong><span class="muted">SEO · Google Ads · Meta Ads</span></span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="proceso" aria-labelledby="proceso-title">
+      <div class="container">
+        <div class="section-head">
+          <div class="reveal">
+            <p class="eyebrow">// Proceso</p>
+            <h2 id="proceso-title">De la idea al impacto <span class="grad-text">en 4 fases</span></h2>
+            <p>Sprints cortos y avances visibles: sabes en qué estamos cada semana.</p>
+          </div>
+        </div>
+        <ol class="steps">
+          <li class="step glow reveal" style="--i:0"><span class="step__num" aria-hidden="true">1</span><h3>Descubrimiento</h3><p>Auditamos tus procesos actuales, identificamos cuellos de botella y detectamos oportunidades de automatización con mayor retorno.</p></li>
+          <li class="step glow reveal" style="--i:1"><span class="step__num" aria-hidden="true">2</span><h3>Diseño de Solución</h3><p>Prototipamos la arquitectura, definimos flujos y diseñamos interfaces centradas en el usuario. Todo validado contigo antes de escribir código.</p></li>
+          <li class="step glow reveal" style="--i:2"><span class="step__num" aria-hidden="true">3</span><h3>Desarrollo Ágil</h3><p>Sprints cortos, entregas continuas y comunicación transparente. Ves el avance en tiempo real y ajustamos sobre la marcha.</p></li>
+          <li class="step glow reveal" style="--i:3"><span class="step__num" aria-hidden="true">4</span><h3>Lanzamiento &amp; Evolución</h3><p>Desplegamos, medimos KPIs y optimizamos continuamente. Tu solución crece junto a tu negocio.</p></li>
+        </ol>
+      </div>
+    </section>
+    <section class="marquee" aria-label="Tecnologías">
+      <p class="marquee__label">Tecnología que domina el juego</p>
+      <div class="marquee__viewport">
+        <ul class="marquee__track">
+          <li>Node.js</li><li>Python</li><li>Automation Anywhere</li><li>Power Automate</li><li>PostgreSQL</li><li>Google &amp; Meta Ads</li>
+          <li aria-hidden="true">Node.js</li><li aria-hidden="true">Python</li><li aria-hidden="true">Automation Anywhere</li><li aria-hidden="true">Power Automate</li><li aria-hidden="true">PostgreSQL</li><li aria-hidden="true">Google &amp; Meta Ads</li>
+        </ul>
+      </div>
+    </section>
+    <section class="section" id="faq" aria-labelledby="faq-title">
+      <div class="container faq-grid">
+        <div class="faq-aside reveal">
+          <p class="eyebrow">// Dudas frecuentes</p>
+          <h2 id="faq-title">Lo que casi <span class="grad-text">siempre nos preguntan</span></h2>
+          <p>Si tu duda no está aquí, pregúntale a ALTObot o escríbenos por WhatsApp.</p>
+          <div class="btn-row">
+            <button class="btn btn--ghost" type="button" data-open-bot>Preguntar al bot</button>
+            <a class="btn btn--wa" href="https://wa.me/51906106881?text=Hola%20ALTOKIA%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios" target="_blank" rel="noopener" data-wa>WhatsApp</a>
+          </div>
+        </div>
+        <div class="faq reveal" style="--i:1">
+          <details>
+            <summary>¿Cuánto cuesta un proyecto?</summary>
+            <p>Cada proyecto es único, por eso no usamos tarifas genéricas. Primero escuchamos tu caso en una consultoría gratuita de 30 minutos y luego te enviamos una propuesta a medida, con alcance y precio cerrados.</p>
+          </details>
+          <details>
+            <summary>¿Cuánto demora?</summary>
+            <p>Depende del alcance: una automatización simple, de 2 a 4 semanas; un sitio o app web, de 4 a 8 semanas; proyectos de integración grandes, de 2 a 4 meses. Trabajamos con sprints y entregas parciales, así ves avances desde la primera semana.</p>
+          </details>
+          <details>
+            <summary>¿Con qué herramientas automatizan?</summary>
+            <p>Principalmente RPA con Automation Anywhere, Power Automate y Python, además de desarrollo propio en Node.js y PostgreSQL cuando el caso lo pide. Elegimos la herramienta según tu operación, no al revés.</p>
+          </details>
+          <details>
+            <summary>¿En qué rubros tienen experiencia?</summary>
+            <p>Minería, retail, banca y finanzas, manufactura, logística y salud. Hemos entregado proyectos en Perú, Panamá y Estados Unidos, adaptándonos a distintas regulaciones, monedas y sistemas.</p>
+          </details>
+          <details>
+            <summary>¿Cómo empezamos?</summary>
+            <p>Con una consultoría gratuita de 30 minutos. Nos cuentas tu caso, revisamos juntos dónde está la mayor oportunidad de eficiencia y te dejamos por escrito los primeros pasos, trabajes o no con nosotros.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+    <section class="cta-band" aria-labelledby="cta-title">
+      <div class="hero-media" style="--pos:55% 50%" aria-hidden="true">
+        <img class="on-dark" src="images/hero/agenda.webp" alt="" width="1203" height="633" loading="lazy">
+        <img class="on-light inv" src="images/hero/agenda.webp" alt="" width="1203" height="633" loading="lazy">
+      </div>
+      <canvas class="net-canvas" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none"></canvas>
+      <div class="container">
+        <div class="cta-band__inner reveal">
+          <p class="eyebrow">// Hablemos</p>
+          <h2 id="cta-title">¿Listo para automatizar tu <span class="grad-text">próximo gran salto</span>?</h2>
+          <p class="lead">Cuéntanos tu caso en una consultoría gratuita de 30 minutos. Te mostramos exactamente dónde puedes ganar eficiencia.</p>
+          <div class="hero-ctas">
+            <a class="btn btn--cta btn--lg" href="agenda.html">Agendar consultoría<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="btn btn--ghost btn--lg" href="https://wa.me/51906106881?text=Hola%20ALTOKIA%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios" target="_blank" rel="noopener" data-wa><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3z"/></svg>Escríbenos por WhatsApp</a>
+          </div>
+          <p class="hero-note">◆ Respuesta en menos de 24 h · ◆ Sin compromiso</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <img class="footer__mark on-dark" src="images/altokia-logo-corto-oscuro.svg" alt="" width="204" height="204" loading="lazy">
+    <img class="footer__mark on-light" src="images/altokia-logo-corto-claro.svg" alt="" width="204" height="204" loading="lazy">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="index.html" aria-label="ALTOKIA — Volver al inicio">
+            <img class="on-dark" src="images/altokia-logo-largo-oscuro.svg" alt="ALTOKIA" width="810" height="104" loading="lazy">
+            <img class="on-light" src="images/altokia-logo-largo-claro.svg" alt="ALTOKIA" width="810" height="104" loading="lazy">
+          </a>
+          <p>Tecnología que trabaja mientras tú creces.</p>
+          <p class="tagline">Automatización &amp; Lógica · Tecnología · Operaciones · Conocimiento</p>
+          <div class="socials">
+            <a class="social" href="https://www.linkedin.com/company/altokia" target="_blank" rel="noopener" aria-label="LinkedIn de ALTOKIA"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6c.5-.9 1.6-1.8 3.4-1.8 3.6 0 4.3 2.4 4.3 5.5v6.2zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zm1.8 13.1H3.5V9h3.6v11.5z"/></svg></a>
+            <a class="social" href="https://wa.me/51906106881?text=Hola%20ALTOKIA%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios" target="_blank" rel="noopener" aria-label="WhatsApp de ALTOKIA" data-wa><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3z"/></svg></a>
+            <a class="social" href="mailto:contacto@altokia.com" aria-label="Correo de ALTOKIA"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <h3>Servicios</h3>
+          <ul>
+            <li><a href="servicios.html#automatizacion">Automatización</a></li>
+            <li><a href="servicios.html#software">Software a medida</a></li>
+            <li><a href="servicios.html#analitica">Analítica de datos</a></li>
+            <li><a href="servicios.html#optimizacion">Optimización de procesos</a></li>
+            <li><a href="servicios.html#marketing">Marketing digital</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Compañía</h3>
+          <ul>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="nosotros.html#equipo">Equipo de trabajo</a></li>
+            <li><a href="proyectos.html">Proyectos</a></li>
+            <li><a href="por-que-altokia.html">Por qué ALTOKIA</a></li>
+            <li><a href="agenda.html">Agenda una demo</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Contacto</h3>
+          <ul>
+            <li><a href="https://wa.me/51906106881?text=Hola%20ALTOKIA%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios" target="_blank" rel="noopener" data-wa>+51 906 106 881</a></li>
+            <li><a href="mailto:contacto@altokia.com">contacto@altokia.com</a></li>
+            <li>Perú · Panamá · EE.UU.</li>
+            <li><a href="#" data-open-bot>Agenda con nuestro bot</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2026 ALTOKIA — Todos los derechos reservados</p>
+        <a href="#main">Volver arriba ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="fab-stack">
+    <div class="fab-wrap">
+      <span class="fab-label" aria-hidden="true">¡Escríbenos!</span>
+      <button class="fab fab--bot" type="button" id="chatToggle" aria-label="Abrir asistente virtual" aria-controls="chatbot" aria-expanded="false">
+        <img class="on-dark" src="images/altokia-logo-corto-oscuro.svg" alt="" width="44" height="44">
+        <img class="on-light" src="images/altokia-logo-corto-claro.svg" alt="" width="44" height="44">
+      </button>
+    </div>
+    <div class="fab-wrap">
+      <span class="fab-label" aria-hidden="true">WhatsApp</span>
+      <a class="fab fab--wa" href="https://wa.me/51906106881?text=Hola%20ALTOKIA%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp" data-wa><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3z"/></svg></a>
+    </div>
+  </div>
+
+  <div class="chatbot" id="chatbot" role="dialog" aria-label="Asistente virtual ALTObot" aria-hidden="true">
+    <div class="chatbot__head">
+      <img class="on-dark" src="images/altokia-logo-corto-oscuro.svg" alt="" width="36" height="36">
+      <img class="on-light" src="images/altokia-logo-corto-claro.svg" alt="" width="36" height="36">
+      <div><strong>ALTObot</strong><span><span class="pulse-dot" aria-hidden="true"></span>En línea — responde al instante</span></div>
+      <button class="icon-btn" type="button" id="chatClose" aria-label="Cerrar chat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <div class="chatbot__body" id="chatMessages" aria-live="polite"></div>
+    <div class="chatbot__opts" id="chatOptions"></div>
+    <form class="chatbot__form" id="chatForm" autocomplete="off">
+      <label class="sr-only" for="chatInput">Escribe tu mensaje</label>
+      <input id="chatInput" type="text" placeholder="Escribe tu mensaje..." maxlength="300">
+      <button class="btn btn--cta" type="submit" aria-label="Enviar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4z"/></svg>
+      </button>
+    </form>
+  </div>
+
+  <script src="js/altokia.js?v=683b3bb7" defer></script>
+</body>
+</html>
