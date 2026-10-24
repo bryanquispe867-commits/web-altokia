@@ -453,7 +453,40 @@
     "Manufactura": "Manufacturing",
     "Salud": "Healthcare",
     "Banca & Finanzas": "Banking & Finance",
-    "Cómo trabajamos en ALTOKIA": "How we work at ALTOKIA"
+    "Cómo trabajamos en ALTOKIA": "How we work at ALTOKIA",
+  "Flujo automatizado: los documentos de la bandeja pasan por el bot RPA y se registran en el ERP; las inconsistencias generan una alerta": "Automated flow: documents from the inbox go through the RPA bot and are recorded in the ERP; inconsistencies raise an alert",
+  "Un editor escribe código mientras la interfaz de una aplicación se va armando bloque a bloque": "An editor writes code while an application's interface is assembled block by block",
+  "Dashboard con indicadores reales de ALTOKIA: 12,000 documentos por mes, 6 veces más consultas atendidas y 98 % de satisfacción, con gráficos de barras, línea y anillo": "Dashboard with real ALTOKIA indicators: 12,000 documents per month, 6x more enquiries handled and 98% satisfaction, with bar, line and ring charts",
+  "Medidor que baja las tareas manuales un 87 % y comparación de un proceso antes y después de optimizarlo": "Gauge showing manual tasks down 87% and a before-and-after comparison of an optimized process",
+  "Embudo de marketing por el que baja el tráfico desde alcance e interés hasta clientes, junto a un objetivo y una campaña en curso": "Marketing funnel where traffic flows from reach and interest down to customers, next to a target and a running campaign",
+  "bandeja": "inbox",
+  "bot RPA": "RPA bot",
+  "alerta": "alert",
+  "3 días de trabajo manual": "3 days of manual work",
+  "→ 20 minutos": "→ 20 minutes",
+  "portal_proveedores.ts": "supplier_portal.ts",
+  "✓ compilado · listo para desplegar": "✓ compiled · ready to deploy",
+  "sin plantillas": "no templates",
+  "dashboard · operaciones": "dashboard · operations",
+  "en vivo": "live",
+  "docs / mes": "docs / month",
+  "consultas atendidas": "enquiries handled",
+  "satisfacción": "satisfaction",
+  "documentos procesados": "documents processed",
+  "cierre contable": "month-end close",
+  "más rápido": "faster",
+  "tareas manuales": "manual tasks",
+  "antes": "before",
+  "después": "after",
+  "manual": "manual",
+  "−5 d cierre": "−5 d close",
+  "alcance": "reach",
+  "interés": "interest",
+  "clientes": "customers",
+  "leads calificados": "qualified leads",
+  "campaña activa": "active campaign",
+  "consultas": "enquiries",
+  "−5 días": "−5 days"
   };
 
   /* Texto alternativo y etiqueta de LinkedIn del equipo: se generan a partir del nombre */
@@ -758,7 +791,55 @@
       new IntersectionObserver(function (en) { en[0].isIntersecting && !document.hidden ? play() : v.pause(); }).observe(v);
     } else { play(); }
     document.addEventListener("visibilitychange", function () { document.hidden ? v.pause() : play(); });
+
+    /* Si la página no tiene clip propio y se usa el video de marca completo,
+       se repite en bucle solo el segmento que le corresponde, en cámara lenta. */
+    var start = parseFloat(v.getAttribute("data-start")) || 0, end = parseFloat(v.getAttribute("data-end")) || 0;
+    if (!end) return;
+    var usingBrand = function () { return /video_altokia\.mp4/.test(v.currentSrc || ""); };
+    var ticking = false;
+    function tick() {
+      if (v.paused || v.ended) { ticking = false; return; }
+      if (v.currentTime >= end - 0.06) v.currentTime = start;
+      requestAnimationFrame(tick);
+    }
+    function applySegment() {
+      if (!usingBrand()) return;
+      v.playbackRate = 0.65;
+      if (v.currentTime < start || v.currentTime > end) v.currentTime = start;
+      if (!ticking) { ticking = true; requestAnimationFrame(tick); }
+    }
+    v.addEventListener("loadedmetadata", applySegment);
+    v.addEventListener("play", applySegment);
+    if (v.readyState >= 1) applySegment();
   });
+
+  /* =========================================================
+     ILUSTRACIONES ANIMADAS (svg.anim): solo se mueven cuando se ven
+     ========================================================= */
+  var anims = $$("svg.anim");
+  if (anims.length) {
+    if (REDUCED) {
+      anims.forEach(function (a) { if (a.pauseAnimations) a.pauseAnimations(); });
+    } else if ("IntersectionObserver" in window) {
+      var aio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          var a = en.target;
+          a.classList.toggle("is-live", en.isIntersecting);
+          if (a.pauseAnimations) { en.isIntersecting ? a.unpauseAnimations() : a.pauseAnimations(); }
+        });
+      }, { threshold: 0.15 });
+      anims.forEach(function (a) { aio.observe(a); });
+      document.addEventListener("visibilitychange", function () {
+        anims.forEach(function (a) {
+          if (!a.pauseAnimations) return;
+          if (document.hidden) a.pauseAnimations(); else if (a.classList.contains("is-live")) a.unpauseAnimations();
+        });
+      });
+    } else {
+      anims.forEach(function (a) { a.classList.add("is-live"); });
+    }
+  }
 
   /* =========================================================
      RED DE NODOS (canvas.net-canvas dentro de una sección)
